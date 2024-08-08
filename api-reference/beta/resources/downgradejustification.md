@@ -1,17 +1,19 @@
 ---
-title: "downgradeJustification resource type"
-description: "Represents user input on why downgrade was performed."
+title: "downgradeJustification resource type (deprecated)"
+description: "Represents user input on why downgrade was performed. Deprecated."
 ms.localizationpriority: medium
 author: "tommoser"
-ms.prod: "security"
+ms.subservice: "security"
 doc_type: "resourcePageType"
 ---
 
-# downgradeJustification resource type
+# downgradeJustification resource type (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
+
+[!INCLUDE [informationprotection-deprecate](../../includes/informationprotection-deprecate.md)]
 
 Represents user input on why downgrade was performed. Downgrade justification might be required based on label policy configuration in Office Security and Compliance Center.
 
@@ -19,12 +21,12 @@ Represents user input on why downgrade was performed. Downgrade justification mi
 
 | Property             | Type    | Description                                                                                          |
 | :------------------- | :------ | :--------------------------------------------------------------------------------------------------- |
-| isDowngradeJustified | Boolean | Indicates whether the downgrade is or is not justified.                                              |
-| justificationMessage | String  | Message that indicates why a downgrade is justified. The message will appear in administrative logs. |
+| isDowngradeJustified | Boolean | Indicates whether the downgrade is or isn't justified.                                              |
+| justificationMessage | String  | Message that indicates why a downgrade is justified. The message appears in administrative logs. |
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

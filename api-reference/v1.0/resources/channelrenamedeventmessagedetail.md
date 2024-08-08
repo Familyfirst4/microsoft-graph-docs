@@ -3,7 +3,7 @@ title: "channelRenamedEventMessageDetail resource type"
 description: "Represents the details of an event message about a renamed channel."
 author: "RamjotSingh"
 ms.localizationpriority: medium
-ms.prod: "microsoft-teams"
+ms.subservice: "teams"
 doc_type: resourcePageType
 ---
 
@@ -25,7 +25,7 @@ Inherits from [eventMessageDetail](../resources/eventmessagedetail.md).
 |initiator|[identitySet](../resources/identityset.md)|Initiator of the event.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.channelRenamedEventMessageDetail",
@@ -35,15 +35,15 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.channelRenamedEventMessageDetail",
-  "channelId": "String",
   "channelDisplayName": "String",
   "initiator": {
     "@odata.type": "microsoft.graph.identitySet"
-  }
+  },
+  "channelId": "String"
 }
 ```
 
 
-## See also
+## Related content
 - [Example response for an event message about a renamed **channel**](/graph/system-messages/#channel-renamed)
 - For more information about other types of events, see [System messages](/graph/system-messages).

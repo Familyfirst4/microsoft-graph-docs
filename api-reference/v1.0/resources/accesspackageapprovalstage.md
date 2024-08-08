@@ -3,7 +3,7 @@ title: "accessPackageApprovalStage resource type"
 description: "Used for the stages property of approval settings. Specifies the primary, fallback, and escalation approvers of each stage."
 author: "markwahl-msft"
 ms.localizationpriority: medium
-ms.prod: "governance"
+ms.subservice: "entra-id-governance"
 doc_type: resourcePageType
 ---
 # accessPackageApprovalStage complex type
@@ -22,12 +22,12 @@ Used for the **stages** property of [approval settings](accesspackageassignmenta
 |fallbackPrimaryApprovers|[subjectSet](../resources/subjectset.md) collection|The subjects, typically users, who are the fallback primary approvers.|
 |isApproverJustificationRequired|Boolean|Indicates whether the approver is required to provide a justification for approving a request.|
 |isEscalationEnabled|Boolean|If `true`, then one or more **escalationApprovers** are configured in this approval stage.|
-|primaryApprovers|[subjectSet](../resources/subjectset.md) collection|The subjects, typically users, who will be asked to approve requests. A collection of [singleUser](singleuser.md), [groupMembers](groupmembers.md), [requestorManager](requestormanager.md), [internalSponsors](internalsponsors.md) or [externalSponsors](externalsponsors.md).|
+|primaryApprovers|[subjectSet](../resources/subjectset.md) collection|The subjects, typically users, who will be asked to approve requests. A collection of [singleUser](singleuser.md), [groupMembers](groupmembers.md), [requestorManager](requestormanager.md), [internalSponsors](internalsponsors.md), [externalSponsors](externalsponsors.md), or [targetUserSponsors](targetusersponsors.md).|
 
 ## Relationships
 None.
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.accessPackageApprovalStage"
@@ -37,19 +37,7 @@ The following is a JSON representation of the resource.
 {
   "@odata.type": "#microsoft.graph.accessPackageApprovalStage",
   "durationBeforeAutomaticDenial": "String (duration)",
-  "isApproverJustificationRequired": "Boolean",
-  "isEscalationEnabled": "Boolean",
   "durationBeforeEscalation": "String (duration)",
-  "primaryApprovers": [
-    {
-      "@odata.type": "microsoft.graph.singleUser"
-    }
-  ],
-  "fallbackPrimaryApprovers": [
-    {
-      "@odata.type": "microsoft.graph.singleUser"
-    }
-  ],
   "escalationApprovers": [
     {
       "@odata.type": "microsoft.graph.singleUser"
@@ -59,7 +47,20 @@ The following is a JSON representation of the resource.
     {
       "@odata.type": "microsoft.graph.singleUser"
     }
+  ],
+  "fallbackPrimaryApprovers": [
+    {
+      "@odata.type": "microsoft.graph.singleUser"
+    }
+  ],
+  "isApproverJustificationRequired": "Boolean",
+  "isEscalationEnabled": "Boolean",
+  "primaryApprovers": [
+    {
+      "@odata.type": "microsoft.graph.singleUser"
+    }
   ]
+  
 }
 ```
 

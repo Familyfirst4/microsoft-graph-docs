@@ -3,8 +3,8 @@ title: "recurrencePattern resource type"
 description: "Describes the frequency by which a recurring event repeats."
 ms.localizationpriority: medium
 doc_type: resourcePageType
-ms.prod: "governance"
-author: "harini84"
+ms.subservice: "entra-id-governance"
+author: "iamgirishck"
 ---
 
 # recurrencePattern resource type
@@ -13,7 +13,7 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Describes the frequency by which a recurring event repeats. This shared object is used to define the recurrence of [access reviews](accessreviewscheduledefinition.md), [calendar events](event.md), and [access package assignments](accesspackageassignment.md) in Azure AD.
+Describes the frequency by which a recurring event repeats. This shared object is used to define the recurrence of [access reviews](accessreviewscheduledefinition.md), [calendar events](event.md), and [access package assignments](accesspackageassignment.md) in Microsoft Entra ID.
 
 You can specify the recurrence pattern of a recurring event in one of 6 ways depending on your scenario. For each pattern type, specify the amount of time between occurrences. The actual occurrences of the recurring event always follow this pattern falling within the date range that you specify for the event. A recurring event is always defined by its **recurrencePattern** (how frequently the event repeats), and its [recurrenceRange](recurrencerange.md) (over how long the event repeats).
 
@@ -50,9 +50,13 @@ Use the **type** property to specify the different types of **recurrencePattern*
 | `absoluteYearly` | Event repeats on the specified day and month, based on the number of years between occurrences. | Repeat event on the 15th of March every 3 years. | **type**, **interval**, **dayOfMonth**, **month** |
 | `relativeYearly` | Event repeats on the specified day or days of the week, in the same relative position in a specific month of the year, based on the number of years between occurrences. | Repeat event on the second Thursday or Friday of every November every 3 years. | **type**, **interval**, **daysOfWeek**, **month** |
 
+## Relationships
+
+None.
+
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -87,5 +91,3 @@ The following is a JSON representation of the resource.
   "suppressions": []
 }
 -->
-
-

@@ -4,9 +4,9 @@ description: "The media resource contains metadata about the media (audio or vid
 title: media resource type
 ms.localizationpriority: medium
 doc_type: resourcePageType
-ms.prod: "sites-and-lists"
+ms.subservice: "sharepoint"
 ---
-# media resouce type
+# media resource type
 
 Contains metadata about the media (audio or video) drive item.
 
@@ -35,7 +35,7 @@ It is available on the media property of [driveItem][item-resource] resources.
 }
 ```
 
-## See also 
+## Related content 
 
 For more information about the facets on a driveItem, see [driveItem](driveitem.md).
 

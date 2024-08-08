@@ -2,8 +2,8 @@
 title: "alteredQueryToken resource type"
 description: "Represents changed segments related to an original user query."
 ms.localizationpriority: medium
-author: "nmoreau"
-ms.prod: "search"
+author: "njerigrevious"
+ms.subservice: "search"
 doc_type: "resourcePageType"
 ---
 
@@ -23,7 +23,7 @@ Represents changed segments related to an original user query.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

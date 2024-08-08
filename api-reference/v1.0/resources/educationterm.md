@@ -1,9 +1,9 @@
 ---
 title: "educationTerm resource type"
-description: "A term. This represents a designated portion of the academic year. It is used within educationClass."
+description: "A term. This represents a designated portion of the academic year. It's used within educationClass."
 author: "mmast-msft"
 ms.localizationpriority: medium
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: resourcePageType
 ---
 
@@ -11,16 +11,16 @@ doc_type: resourcePageType
 
 Namespace: microsoft.graph
 
-A term. This represents a designated portion of the academic year. It is used within [educationClass](educationclass.md).
+A term. This represents a designated portion of the academic year. It's used within [educationClass](educationclass.md).
 
 ## Properties
 
 | Property    | Type   | Description                       |
 | :---------- | :----- | :-------------------------------- |
 | displayName | String | Display name of the term.         |
+| endDate     | Date   | End of the term.                  |
 | externalId  | String | ID of term in the syncing system. |
 | startDate   | Date   | Start of the term.                |
-| endDate     | Date   | End of the term.                  |
 
 ## Relationships
 
@@ -28,7 +28,7 @@ None.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -39,9 +39,9 @@ The following is a JSON representation of the resource.
 ```json
 {
   "@odata.type": "#microsoft.graph.educationTerm",
-  "externalId": "String",
-  "startDate": "Date",
+  "displayName": "String",
   "endDate": "Date",
-  "displayName": "String"
+  "externalId": "String",
+  "startDate": "Date"
 }
 ```

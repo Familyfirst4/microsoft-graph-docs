@@ -1,9 +1,9 @@
 ---
 title: "iosManagedAppProtection resource type"
 description: "Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device"
-author: "rolyon"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.prod: "Intune"
 doc_type: resourcePageType
 ---
 
@@ -29,7 +29,7 @@ Inherits from [targetedManagedAppProtection](../resources/intune-mam-targetedman
 |[Delete iosManagedAppProtection](../api/intune-shared-iosmanagedappprotection-delete.md)|None|Deletes a [iosManagedAppProtection](../resources/intune-shared-iosmanagedappprotection.md).|
 |[Update iosManagedAppProtection](../api/intune-shared-iosmanagedappprotection-update.md)|[iosManagedAppProtection](../resources/intune-shared-iosmanagedappprotection.md)|Update the properties of a [iosManagedAppProtection](../resources/intune-shared-iosmanagedappprotection.md) object.|
 |**Policy Set**|
-|[hasPayloadLinks action](../api/intune-shared-iosmanagedappprotection-haspayloadlinks.md)|[hasPayloadLinkResultItem](../resources/intune-policyset-haspayloadlinkresultitem.md) collection|Not yet documented|
+|[hasPayloadLinks action](../api/intune-shared-iosmanagedappprotection-haspayloadlinks.md)|[hasPayloadLinkResultItem](../resources/intune-policyset-haspayloadlinkresultitem.md) collection||
 
 ## Properties
 |Property|Type|Description|
@@ -174,6 +174,3 @@ Here is a JSON representation of the resource.
   "customBrowserProtocol": "String"
 }
 ```
-
-
-

@@ -1,9 +1,9 @@
 ---
 title: "zebraFotaNetworkType enum type"
 description: "Represents various network types for Zebra FOTA deployment."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -25,7 +25,3 @@ Represents various network types for Zebra FOTA deployment.
 |cellular|2|The device will install the update only when connected a Cellular network.|
 |wifiAndCellular|3|The device will install the update when connected both WiFi and Cellular.|
 |unknownFutureValue|99|Unknown future enum value.|
-
-
-
-

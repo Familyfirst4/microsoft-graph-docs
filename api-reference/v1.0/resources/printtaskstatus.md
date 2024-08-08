@@ -3,7 +3,7 @@ title: printTaskStatus resource type
 description: Represents the current execution status of a printTask.
 author: nilakhan
 ms.localizationpriority: medium
-ms.prod: cloud-printing
+ms.subservice: universal-print
 doc_type: resourcePageType
 ---
 
@@ -16,8 +16,8 @@ Represents the current execution status of a [printTask](printtask.md).
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|state|printTaskProcessingState|The current processing state of the [printTask](printtask.md). Valid values are described in the following table.|
 |description|String|A human-readable description of the current processing state of the [printTask](printtask.md).|
+|state|printTaskProcessingState|The current processing state of the [printTask](printtask.md). Valid values are described in the following table.|
 
 ### printTaskProcessingState values
 
@@ -30,7 +30,7 @@ Represents the current execution status of a [printTask](printtask.md).
 |unknownFutureValue|4|Evolvable enumeration sentinel value. Do not use.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.printTaskStatus"

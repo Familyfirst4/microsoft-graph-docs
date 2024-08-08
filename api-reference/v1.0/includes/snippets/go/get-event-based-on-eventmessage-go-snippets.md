@@ -4,17 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.MessageRequestBuilderGetQueryParameters{
-	Expand: "microsoft.graph.eventMessage/event",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  //other-imports
+)
+
+requestParameters := &graphusers.ItemMessageItemRequestBuilderGetQueryParameters{
+	Expand: [] string {"microsoft.graph.eventMessage/event"},
 }
-options := &msgraphsdk.MessageRequestBuilderGetRequestConfiguration{
+configuration := &graphusers.ItemMessageItemRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-messageId := "message-id"
-result, err := graphClient.Me().MessagesById(&messageId).GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+messages, err := graphClient.Me().Messages().ByMessageId("message-id").Get(context.Background(), configuration)
 
 
 ```

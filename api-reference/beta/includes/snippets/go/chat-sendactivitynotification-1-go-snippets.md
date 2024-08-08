@@ -4,37 +4,50 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
-topic := msgraphsdk.NewTeamworkActivityTopic()
-requestBody.SetTopic(topic)
-source := "entityUrl"
-topic.SetSource(&source)
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphchats "github.com/microsoftgraph/msgraph-beta-sdk-go/chats"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphchats.NewSendActivityNotificationPostRequestBody()
+topic := graphmodels.NewTeamworkActivityTopic()
+source := graphmodels.ENTITYURL_TEAMWORKACTIVITYTOPICSOURCE 
+topic.SetSource(&source) 
 value := "https://graph.microsoft.com/beta/chats/{chatId}"
-topic.SetValue(&value)
+topic.SetValue(&value) 
+requestBody.SetTopic(topic)
 activityType := "taskCreated"
-requestBody.SetActivityType(&activityType)
-previewText := msgraphsdk.NewItemBody()
-requestBody.SetPreviewText(previewText)
+requestBody.SetActivityType(&activityType) 
+previewText := graphmodels.NewItemBody()
 content := "New Task Created"
-previewText.SetContent(&content)
-recipient := msgraphsdk.NewTeamworkNotificationRecipient()
+previewText.SetContent(&content) 
+requestBody.SetPreviewText(previewText)
+recipient := graphmodels.NewAadUserNotificationRecipient()
+userId := "569363e2-4e49-4661-87f2-16f245c5d66a"
+recipient.SetUserId(&userId) 
 requestBody.SetRecipient(recipient)
-recipient.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "microsoft.graph.aadUserNotificationRecipient",
-	"userId": "569363e2-4e49-4661-87f2-16f245c5d66a",
-}
-requestBody.SetTemplateParameters( []KeyValuePair {
-	msgraphsdk.NewKeyValuePair(),
+
+
+keyValuePair := graphmodels.NewKeyValuePair()
 name := "taskId"
-	SetName(&name)
+keyValuePair.SetName(&name) 
 value := "Task 12322"
-	SetValue(&value)
+keyValuePair.SetValue(&value) 
+
+templateParameters := []graphmodels.KeyValuePairable {
+	keyValuePair,
 }
-chatId := "chat-id"
-graphClient.ChatsById(&chatId).SendActivityNotification(chat-id).Post(requestBody)
+requestBody.SetTemplateParameters(templateParameters)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Chats().ByChatId("chat-id").SendActivityNotification().Post(context.Background(), requestBody, nil)
 
 
 ```

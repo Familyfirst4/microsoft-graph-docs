@@ -3,7 +3,7 @@ title: "List conversationMembers"
 description: "Retrieve list of chat or channel members."
 author: "akjo"
 ms.localizationpriority: high
-ms.prod: "microsoft-teams"
+ms.subservice: "teams"
 doc_type: apiPageType
 ---
 
@@ -17,16 +17,16 @@ List all [conversation members](../resources/conversationmember.md) in a [chat](
 > The membership IDs returned by the server must be treated as opaque strings. The client should not try to parse or make any assumptions about these resource IDs.
 >
 > The membership results could map to users from different tenants, as indicated in the response, in the future.The client should not assume that all members are from the current tenant only.
- 
+
+
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
 
-|Permission Type|Permissions (from least to most privileged)|
-|---------|-------------|
-|Delegated (work or school account)| Chat.ReadBasic, Chat.Read, Chat.ReadWrite |
-|Delegated (personal Microsoft account)|Not supported.|
-|Application| Not supported. |
+<!-- { "blockType": "permissions", "name": "conversationmember_list" } -->
+[!INCLUDE [permissions-table](../includes/permissions/conversationmember-list-permissions.md)]
 
 
 ## HTTP request
@@ -43,11 +43,11 @@ This operation does not support the [OData query parameters](/graph/query-parame
 
 | Header       | Value |
 |:---------------|:--------|
-| Authorization  | Bearer {token}. Required.  |
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 
 ## Request body
 
-Do not supply a request body for this method.
+Don't supply a request body for this method.
 
 ## Response
 
@@ -57,47 +57,56 @@ If successful, this method returns a `200 OK` response code and a list of [conve
 
 ### Request
 
-The following is an example of the request.
+The following example shows a request.
 
 
 # [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "name": "list_conversation_members_2"
+  "name": "list_conversation_members_2",
+  "sampleKeys": ["19:9ef2dcdf14ba44cbae25c2f5d53171ba@thread.v2"]
 }-->
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/chats/{id}/members
+GET https://graph.microsoft.com/v1.0/chats/19:9ef2dcdf14ba44cbae25c2f5d53171ba@thread.v2/members
 ```
+
 # [C#](#tab/csharp)
 [!INCLUDE [sample-code](../includes/snippets/csharp/list-conversation-members-2-csharp-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/list-conversation-members-2-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/list-conversation-members-2-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Java](#tab/java)
-[!INCLUDE [sample-code](../includes/snippets/java/list-conversation-members-2-java-snippets.md)]
+# [CLI](#tab/cli)
+[!INCLUDE [sample-code](../includes/snippets/cli/list-conversation-members-2-cli-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 # [Go](#tab/go)
 [!INCLUDE [sample-code](../includes/snippets/go/list-conversation-members-2-go-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
+# [Java](#tab/java)
+[!INCLUDE [sample-code](../includes/snippets/java/list-conversation-members-2-java-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](../includes/snippets/javascript/list-conversation-members-2-javascript-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](../includes/snippets/php/list-conversation-members-2-php-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
 # [PowerShell](#tab/powershell)
 [!INCLUDE [sample-code](../includes/snippets/powershell/list-conversation-members-2-powershell-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
----
+# [Python](#tab/python)
+[!INCLUDE [sample-code](../includes/snippets/python/list-conversation-members-2-python-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
+---
 
 ### Response
 
-The following is an example of the response.
+The following example shows the response.
 
 >**Note:** The response object shown here might be shortened for readability.
 <!-- {
@@ -110,15 +119,56 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('8b081ef6-4792-4def-b2c9-c363a1bf41d5')/chats('19%3A8b081ef6-4792-4def-b2c9-c363a1bf41d5_5031bb31-22c0-4f6f-9f73-91d34ab2b32d%40unq.gbl.spaces')/members",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#chats('19%3A9ef2dcdf14ba44cbae25c2f5d53171ba%40thread.v2')/members",
+    "@odata.count": 4,
     "value": [
         {
             "@odata.type": "#microsoft.graph.aadUserConversationMember",
-            "id": "8b081ef6-4792-4def-b2c9-c363a1bf41d5",
-            "roles": [],
-            "displayName": "John Doe",
-            "userId": "8b081ef6-4792-4def-b2c9-c363a1bf41d5",
-            "email": null
+            "id": "MCMjMCMjOGQyMzc2NTAtY2RjMS00MGUxLTg5OWMtNTYwMWUwNTVmM2ZlIyMxOTo5ZWYyZGNkZjE0YmE0NGNiYWUyNWMyZjVkNTMxNzFiYUB0aHJlYWQudjIjIzE3ZTk1MjZjLTIyODYtNDFhMS1hZWViLTRiYWRlZTc2NjA2Mw==",
+            "roles": [
+                "owner"
+            ],
+            "displayName": "SA-TeamsAdconnect",
+            "visibleHistoryStartDateTime": "2022-04-25T11:52:22.765Z",
+            "userId": "17e9526c-2286-41a1-aeeb-4badee766063",
+            "email": "SA-TeamsAdconnect@contoso.com",
+            "tenantId": "8d237650-cdc1-40e1-899c-5601e055f3fe"
+        },
+        {
+            "@odata.type": "#microsoft.graph.aadUserConversationMember",
+            "id": "MCMjMCMjOGQyMzc2NTAtY2RjMS00MGUxLTg5OWMtNTYwMWUwNTVmM2ZlIyMxOTo5ZWYyZGNkZjE0YmE0NGNiYWUyNWMyZjVkNTMxNzFiYUB0aHJlYWQudjIjIzM3MjBiNWE3LTg1NzktNDM0My05NmJmLTQzNDIxNGQ2NTI2ZA==",
+            "roles": [
+                "owner"
+            ],
+            "displayName": "Mhamdi Wafa",
+            "visibleHistoryStartDateTime": "2022-04-25T11:52:22.765Z",
+            "userId": "3720b5a7-8579-4343-96bf-434214d6526d",
+            "email": "wmhamdi@rtladconnect.com",
+            "tenantId": "8d237650-cdc1-40e1-899c-5601e055f3fe"
+        },
+        {
+            "@odata.type": "#microsoft.graph.aadUserConversationMember",
+            "id": "MCMjMCMjZGNkMjE5ZGQtYmM2OC00YjliLWJmMGItNGEzM2E3OTZiZTM1IyMxOTo5ZWYyZGNkZjE0YmE0NGNiYWUyNWMyZjVkNTMxNzFiYUB0aHJlYWQudjIjIzQ4ZDMxODg3LTVmYWQtNGQ3My1hOWY1LTNjMzU2ZTY4YTAzOA==",
+            "roles": [
+                "owner"
+            ],
+            "displayName": "Megan Bowen",
+            "visibleHistoryStartDateTime": "2022-04-25T11:52:22.765Z",
+            "userId": "48d31887-5fad-4d73-a9f5-3c356e68a038",
+            "email": "MeganB@contoso.com",
+            "tenantId": "dcd219dd-bc68-4b9b-bf0b-4a33a796be35"
+        },
+        {
+            "@odata.type": "#microsoft.graph.aadUserConversationMember",
+            "id": "MCMjMCMjOGQyMzc2NTAtY2RjMS00MGUxLTg5OWMtNTYwMWUwNTVmM2ZlIyMxOTo5ZWYyZGNkZjE0YmE0NGNiYWUyNWMyZjVkNTMxNzFiYUB0aHJlYWQudjIjIzcxZjJjYzdmLTQwYWYtNDhkOS05ZDk2LTVhYTMzYjkxYmRkOA==",
+            "roles": [
+                "owner"
+            ],
+            "displayName": "Berrahal Mariem [RTL-AdConnect]",
+            "visibleHistoryStartDateTime": "2022-04-25T11:59:47.226Z",
+            "userId": "71f2cc7f-40af-48d9-9d96-5aa33b91bdd8",
+            "email": "mberrahal@rtladconnect.com",
+            "tenantId": "8d237650-cdc1-40e1-899c-5601e055f3fe"
         }
     ]
 }

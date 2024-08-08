@@ -1,19 +1,22 @@
 ---
-title: "educationSynchronizationProfile resource type"
-description: "Represents a set of configurations used to synchronize education entities and roster information from a source directory to Azure Active Directory (Azure AD). This resource provides a programmatic representation used in School Data Sync."
+title: "educationSynchronizationProfile resource type (deprecated)"
+description: "Represents a set of configurations used to synchronize education entities and roster information from a source directory to Microsoft Entra ID. This resource provides a programmatic representation used in School Data Sync."
 author: "mmast-msft"
 ms.localizationpriority: medium
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: resourcePageType
+toc.title: Synchronization profile (deprecated)
 ---
 
-# educationSynchronizationProfile resource type
+# educationSynchronizationProfile resource type (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Represents a set of configurations used to synchronize education entities and roster information from a source directory to Azure Active Directory (Azure AD). This resource provides a programmatic representation used in [School Data Sync](https://sds.microsoft.com).
+[!INCLUDE [educationsynchronizationprofile-deprecate](../includes/education-deprecate-educationsynchronizationprofile.md)]
+
+Represents a set of configurations used to synchronize education entities and roster information from a source directory to Microsoft Entra ID. This resource provides a programmatic representation used in [School Data Sync](https://sds.microsoft.com).
 
 ## Methods
 
@@ -21,8 +24,9 @@ Represents a set of configurations used to synchronize education entities and ro
 | :------------------------------------------------------------------------ | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
 | [List profiles](../api/educationsynchronizationprofile-list.md)           | [educationSynchronizationProfile] collection                | Get a list of all the synchronization profiles in the tenant.                                                                  |
 | [Get profile](../api/educationsynchronizationprofile-get.md)              | [educationSynchronizationProfile]                           | Retrieve a specific profile given the profile identifier.                                                                      |
-| [Create profile](../api/educationsynchronizationprofile-post.md)          | None                                                        | Create a new synchronization profile.                                                                                          |
-| [Delete profile](../api/educationsynchronizationprofile-delete.md)        | [educationSynchronizationProfile]                           | Delete a specific profile given the profile identifier.                                                                        |
+| [Create profile](../api/educationsynchronizationprofile-post.md)          | [educationSynchronizationProfile]                           | Create a new synchronization profile.                                                                                          |
+| [Update profile](../api/educationsynchronizationprofile-put.md)           | [educationSynchronizationProfile]                           | Update properties for an existing school data [synchronization profile](../resources/educationsynchronizationprofile.md) in the tenant.|
+| [Delete profile](../api/educationsynchronizationprofile-delete.md)        | None                                                        | Delete a specific profile given the profile identifier.                                                                        |
 | [Pause profile](../api/educationsynchronizationprofile-pause.md)          | None                                                        | Pause an ongoing synchronization.                                                                                              |
 | [Resume profile](../api/educationsynchronizationprofile-resume.md)        | None                                                        | Resume a paused synchronization.                                                                                               |
 | [Reset profile](../api/educationsynchronizationprofile-reset.md)          | None                                                        | Reset the state of the profile and restart synchronization.                                                                    |
@@ -40,7 +44,7 @@ Represents a set of configurations used to synchronize education entities and ro
 | dataProvider                         | [educationSynchronizationDataProvider]                 | The data provider used for the profile.                                                                                           |
 | expirationDate                       | Date                                                   | The date the profile should be considered expired and cease syncing. Provide the date in `YYYY-MM-DD` format, following [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). Maximum value is 18 months from profile creation.  (optional)       |
 | handleSpecialCharacterConstraint     | Bool                                                   | Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.             |
-| identitySynchronizationConfiguration | [educationIdentitySynchronizationConfiguration]        | Determines how the Profile should [create new][fullsync] or [match existing][dirsync] AAD Users.                                  |
+| identitySynchronizationConfiguration | [educationIdentitySynchronizationConfiguration]        | Determines how the Profile should [create new][fullsync] or [match existing][dirsync] Microsoft Entra users.                                  |
 | licensesToAssign                     | [educationSynchronizationLicenseAssignment] collection | License setup configuration.                                                                                                      |
 | state                                | educationSynchronizationProfileState                   | The state of the profile. Possible values are: `provisioning`, `provisioned`, `provisioningFailed`, `deleting`, `deletionFailed`. |
 
@@ -79,9 +83,7 @@ The following is a JSON representation of the **educationSynchronizationProfile*
 {
   "id": "String",
   "displayName": "String",
-  "state": {
-    "@odata.type": "microsoft.graph.educationSynchronizationProfileState"
-  },
+  "state": "String",
   "profileStatus": {
     "@odata.type": "microsoft.graph.educationSynchronizationProfileStatus"
   },
@@ -117,7 +119,6 @@ The following is a JSON representation of the **educationSynchronizationProfile*
 [fullsync]: educationidentitycreationconfiguration.md
 [dirsync]: educationidentitycreationconfiguration.md
 [educationpowerschooldataprovider]: educationPowerSchoolDataProvider.md
-[educationcsvdataprovider]: educationCsvDataProvider.md
 
 <!-- uuid: 16cd6b66-4b1a-43a1-adaf-3a886856ed98
 2020-05-06 14:57:30 UTC -->
@@ -128,5 +129,3 @@ The following is a JSON representation of the **educationSynchronizationProfile*
   "section": "documentation",
   "tocPath": "",
 }-->
-
-

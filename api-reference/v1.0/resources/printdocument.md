@@ -3,7 +3,7 @@ title: printDocument resource type
 description: Represents a document being printed.
 author: nilakhan
 ms.localizationpriority: medium
-ms.prod: cloud-printing
+ms.subservice: universal-print
 doc_type: resourcePageType
 ---
 
@@ -22,16 +22,16 @@ Represents a document being printed.
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|The document's identifier. Read-only.|
-|displayName|String|The document's name. Read-only.|
 |contentType|String|The document's content (MIME) type. Read-only.|
+|displayName|String|The document's name. Read-only.|
+|id|String|The document's identifier. Read-only.|
 |size|Int64|The document's size in bytes. Read-only.|
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

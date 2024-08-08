@@ -1,9 +1,9 @@
 ---
 title: "Update rbacApplicationMultiple"
 description: "Update the properties of a rbacApplicationMultiple object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Update the properties of a [rbacApplicationMultiple](../resources/intune-rbac-rbacapplicationmultiple.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ PATCH /roleManagement/deviceManagement
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -48,7 +50,6 @@ The following table shows the properties that are required when you create the [
 
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|Not yet documented|
 
 
 
@@ -74,14 +75,9 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 114
+Content-Length: 65
 
 {
-  "@odata.type": "#microsoft.graph.rbacApplicationMultiple",
-  "id": "ee4797e5-97e5-ee47-e597-47eee59747ee"
+  "@odata.type": "#microsoft.graph.rbacApplicationMultiple"
 }
 ```
-
-
-
-

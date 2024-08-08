@@ -4,18 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.MessagesRequestBuilderGetQueryParameters{
-	Top: 3,
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphteams "github.com/microsoftgraph/msgraph-sdk-go/teams"
+	  //other-imports
+)
+
+
+requestTop := int32(3)
+
+requestParameters := &graphteams.TeamItemChannelItemMessagesRequestBuilderGetQueryParameters{
+	Top: &requestTop,
 }
-options := &msgraphsdk.MessagesRequestBuilderGetRequestConfiguration{
+configuration := &graphteams.TeamItemChannelItemMessagesRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-teamId := "team-id"
-channelId := "channel-id"
-result, err := graphClient.TeamsById(&teamId).ChannelsById(&channelId).Messages().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+messages, err := graphClient.Teams().ByTeamId("team-id").Channels().ByChannelId("channel-id").Messages().Get(context.Background(), configuration)
 
 
 ```

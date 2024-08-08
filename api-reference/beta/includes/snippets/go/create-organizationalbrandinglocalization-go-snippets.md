@@ -4,18 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewOrganizationalBrandingLocalization()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewOrganizationalBrandingLocalization()
 backgroundColor := "#00000F"
-requestBody.SetBackgroundColor(&backgroundColor)
+requestBody.SetBackgroundColor(&backgroundColor) 
 id := "fr-FR"
-requestBody.SetId(&id)
+requestBody.SetId(&id) 
 signInPageText := " "
-requestBody.SetSignInPageText(&signInPageText)
-organizationId := "organization-id"
-result, err := graphClient.OrganizationById(&organizationId).Branding().Localizations().Post(requestBody)
+requestBody.SetSignInPageText(&signInPageText) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+localizations, err := graphClient.Organization().ByOrganizationId("organization-id").Branding().Localizations().Post(context.Background(), requestBody, nil)
 
 
 ```

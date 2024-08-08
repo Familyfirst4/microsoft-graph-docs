@@ -2,8 +2,8 @@
 title: "failureInfo resource type"
 description: "The failureInfo type"
 ms.localizationpriority: medium
-author: "williamlooney"
-ms.prod: "cloud-communications"
+author: "mcm223"
+ms.subservice: "cloud-communications"
 doc_type: "resourcePageType"
 ---
 
@@ -31,7 +31,7 @@ If one or more media streams have any of these failures, that failure is propaga
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

@@ -3,7 +3,7 @@ title: "plannerChecklistItem resource type"
 description: "The **plannerChecklistItem** resource represents an item in the checklist of a task. The checklist on a task is represented by the checklistItems object."
 ms.localizationpriority: medium
 author: "TarkanSevilmis"
-ms.prod: "planner"
+ms.subservice: "planner"
 doc_type: resourcePageType
 ---
 
@@ -25,8 +25,13 @@ The **plannerChecklistItem** resource represents an item in the checklist of a t
 |orderHint|String|Used to set the relative order of items in the checklist. The format is defined as outlined [here](planner-order-hint-format.md).|
 |title|String|Title of the checklist item|
 
+## Relationships
+
+None.
+
 ## JSON representation
-Here is a JSON representation of the resource.
+
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

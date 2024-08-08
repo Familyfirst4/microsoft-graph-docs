@@ -4,18 +4,30 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewCredentialsRequestBody()
-requestBody.SetCredentials( []SynchronizationSecretKeyStringValuePair {
-	msgraphsdk.NewSynchronizationSecretKeyStringValuePair(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "microsoft.graph.synchronizationSecretKeyStringValuePair",
-	}
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphapplications "github.com/microsoftgraph/msgraph-beta-sdk-go/applications"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphapplications.NewAcquireAccessTokenPostRequestBody()
+
+
+synchronizationSecretKeyStringValuePair := graphmodels.NewSynchronizationSecretKeyStringValuePair()
+
+credentials := []graphmodels.SynchronizationSecretKeyStringValuePairable {
+	synchronizationSecretKeyStringValuePair,
 }
-applicationId := "application-id"
-graphClient.ApplicationsById(&applicationId).Synchronization().AcquireAccessToken(application-id).Post(requestBody)
+requestBody.SetCredentials(credentials)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Applications().ByApplicationId("application-id").Synchronization().AcquireAccessToken().Post(context.Background(), requestBody, nil)
 
 
 ```

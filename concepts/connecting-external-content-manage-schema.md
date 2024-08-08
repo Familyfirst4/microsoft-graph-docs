@@ -4,7 +4,7 @@ description: "Before adding items into a connection, you must register the schem
 ms.localizationpriority: high
 author: mecampos
 doc_type: conceptualPageType
-ms.prod: search
+ms.subservice: search
 ---
 <!---<author of this doc: rsamai>--->
 
@@ -16,20 +16,20 @@ The connection [schema](/graph/api/resources/externalconnectors-schema) determin
 
 The following table represents an example of a possible schema for a work ticket system connector.
 
-| Property       | Type             | Searchable         | Queryable          | Retrievable        | Refinable          | Labels               | Aliases    |
-|----------------|------------------|--------------------|--------------------|--------------------|--------------------|----------------------|------------|
-| ticketId       | String           |                    |                    |                    |                    |                      | ID         |
-| title          | String           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | title                |            |
-| createdBy      | String           | :heavy_check_mark: | :heavy_check_mark: |                    |                    | createdBy            | creator    |
-| assignedTo     | String           | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                      |            |
-| lastEditedDate | DateTime         |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | lastModifiedDateTime | editedDate |
-| lastEditedBy   | String           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | lastModifiedBy       | edited     |
-| workItemType   | String           |                    | :heavy_check_mark: | :heavy_check_mark: |                    |                      | ticketType |
-| priority       | Int64            | :heavy_check_mark: |                    |                    |                    |                      |            |
-| tags           | StringCollection |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                      |            |
-| status         | String           |                    | :heavy_check_mark: | :heavy_check_mark: |                    |                      |            |
-| url            | String           |                    |                    |                    |                    | url                  |            |
-| resolved       | Boolean          |                    | :heavy_check_mark: | :heavy_check_mark: |                    |                      |            |
+| Property       | Type             | Searchable         | Queryable          | Retrievable        | Refinable          | Exact Match Required | Labels               | Aliases    |
+|----------------|------------------|--------------------|--------------------|--------------------|--------------------|----------------------|----------------------|------------|
+| ticketId       | String           |                    | :heavy_check_mark: |                    |                    | :heavy_check_mark:   |                      | ID         |
+| title          | String           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                      | title                |            |
+| createdBy      | String           | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                      | createdBy            | creator    |
+| assignedTo     | String           | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                      |                      |            |
+| lastEditedDate | DateTime         |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                      | lastModifiedDateTime | editedDate |
+| lastEditedBy   | String           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                      | lastModifiedBy       | edited     |
+| workItemType   | String           |                    | :heavy_check_mark: | :heavy_check_mark: |                    |                      |                      | ticketType |
+| priority       | Int64            | :heavy_check_mark: |                    |                    |                    |                      |                      |            |
+| tags           | StringCollection |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:   |                      |            |
+| status         | String           |                    | :heavy_check_mark: | :heavy_check_mark: |                    |                      |                      |            |
+| url            | String           |                    |                    |                    |                    |                      | url                  |            |
+| resolved       | Boolean          |                    | :heavy_check_mark: | :heavy_check_mark: |                    |                      |                      |            |
 
 ## Property attributes
 
@@ -73,6 +73,22 @@ If a property is refinable, an admin can configure it as a custom filter in the 
 
 *Refine results by `tags`, a refinable property.*
 
+### Exact match required
+
+If **isExactMatchRequired** is `true` for a property, the full string value will be indexed. **isExactMatchRequired** can only be set to `true` for non-searchable properties.
+
+For example, the **ticketId** property is both queryable and specifies exact matching.
+- Querying `ticketId:CTS-ce913b61` will return the item with a ticket ID property **CTS-ce913b61**.
+- Querying `ticketId:CTS` will NOT return the item with ticket ID **CTS-ce913b61**.
+
+Similarly, the **tags** property also specifies exact matching.
+- Querying `tags:contoso` will return any item with the tag **contoso**.
+- Querying `tags:contoso` will NOT return items with the tag **contoso ticket**.
+
+For example, there might be a scenario where the item property is a GUID-formatted string. If this property must be matched exactly for item queries, specify that **isExactMatchRequired** is `true`.
+
+The **title** property does not specify exact matching. If nothing is specified, then **isExactMatchRequired** is `false`. The **title** property will be tokenized based on the tokenization rules of the language of the item content.
+- Querying `title:Contoso Title` will return any item containing "Contoso" or "Title" in the **title** property.
 
 ## Semantic labels
 
@@ -126,6 +142,26 @@ For discovery (search scenarios), note the following:
 - Ensure that your mappings are accurate.
 - When you use a property as a label that contains large content, you might increase search latency and have to wait longer for search to return results.
 - Especially in the scenario where you configure a custom vertical that allows search over more than one connection, the search results greatly benefit from appointing as many labels as possible.
+
+### Rank hints 
+
+Rank hints can be applied to textual properties that are not mapped to semantic labels and are set as searchable. They can be set in a range from **default** to **very high** in the Search admin portal. The hints are consumed with other attributes of each item, to return the most relevant items for a given query. 
+
+Use the following steps to set rank hints:
+
+1. On the **Search and intelligence** tab in the admin portal, go to **Customization** > **Relevance tuning**. 
+
+  ![Screenshot of the Search and intelligence tab with Relevance Tuning highlighted](https://github.com/microsoftgraph/microsoft-graph-docs-contrib/assets/72018014/6f58a0b7-a558-4709-803b-fcbae9cb4eb3)
+
+2. To see a list of connections that can be tuned, choose **View Details** > **Configure rank hints**.  
+
+  ![Screenshot of the Relevance tuning tab with Configure rank hints highlighted](https://github.com/microsoftgraph/microsoft-graph-docs-contrib/assets/72018014/7472fceb-6062-4079-8205-ce165ff12788)
+
+3. Change the importance weights on available source properties.
+
+  ![Screenshot of the Relevance tuning tab showing importance weights for a selected property](https://github.com/microsoftgraph/microsoft-graph-docs-contrib/assets/72018014/51f79ff9-5a1f-405c-86ba-2aad677fb95b)
+
+
 
 ### Default result types
 
@@ -186,7 +222,7 @@ Adding a semantic label can affect experiences like Relevance and Viva Topics.
 ## Next steps
 
 - [Add items to the connection](connecting-external-content-manage-items.md)
-- [Review the Microsoft Graph connectors API reference](/graph/api/resources/indexing-api-overview)
+- [Review the Microsoft Graph connectors API reference](/graph/api/resources/connectors-api-overview)
 - [Search custom types (externalItem)](search-concept-custom-types.md)
 - [Build your first custom Microsoft Graph connector](/graph/connecting-external-content-build-quickstart)
 

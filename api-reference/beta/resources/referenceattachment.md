@@ -3,8 +3,8 @@ title: "referenceAttachment resource type"
 description: "A link to a folder or file (such as a text file or Word document) on a OneDrive for Business cloud drive, or other supported storage locations, attached to "
 ms.localizationpriority: medium
 doc_type: resourcePageType
-ms.prod: "outlook"
-author: "abheek-das"
+ms.subservice: "outlook"
+author: "SuryaLashmiS"
 ---
 
 # referenceAttachment resource type
@@ -13,7 +13,7 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-A link to a folder or file (such as a text file or Word document) on a OneDrive for Business cloud drive, or other supported storage locations, attached to 
+A link to a folder or file (such as a text file or Word document) on a OneDrive for Business cloud drive, or other supported storage locations, attached to
 an [event](../resources/event.md), [message](../resources/message.md), or [post](../resources/post.md) .
 
 Derived from [attachment](attachment.md).
@@ -22,13 +22,13 @@ Derived from [attachment](attachment.md).
 
 | Method       | Return Type  |Description|
 |:---------------|:--------|:----------|
-|[Get](../api/attachment-get.md) | [referenceAttachment](referenceattachment.md) |Read properties and relationships of referenceAttachment object.|
-|[Delete](../api/attachment-delete.md) | None |Delete referenceAttachment object. |
+|[Get attachment](../api/attachment-get.md) | [referenceAttachment](referenceattachment.md) |Read properties and relationships of referenceAttachment object.|
+|[Delete attachment](../api/attachment-delete.md) | None |Delete referenceAttachment object. |
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|contentType|String|The content type of the attachment. Optional.|
+|contentType|String|The content type of the attachment. Returned as `null` by default, when not set explicitly. Optional.|
 |id|String|The attachment ID.  Read-only.|
 |isFolder|Boolean|Specifies whether the attachment is a link to a folder. Must set this to true if **sourceUrl** is a link to a folder. Optional.|
 |isInline|Boolean|Set to true if the attachment appears inline in the body of the embedding object. Optional.|
@@ -48,7 +48,7 @@ None
 
 ## JSON representation
 
-Here is a JSON representation of the resource
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

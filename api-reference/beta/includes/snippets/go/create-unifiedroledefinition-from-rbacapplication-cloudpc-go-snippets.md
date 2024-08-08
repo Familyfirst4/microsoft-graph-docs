@@ -4,26 +4,41 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewUnifiedRoleDefinition()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewUnifiedRoleDefinition()
 description := "An example custom role"
-requestBody.SetDescription(&description)
+requestBody.SetDescription(&description) 
 displayName := "ExampleCustomRole"
-requestBody.SetDisplayName(&displayName)
-requestBody.SetRolePermissions( []UnifiedRolePermission {
-	msgraphsdk.NewUnifiedRolePermission(),
-	SetAdditionalData(map[string]interface{}{
-		"allowedResourceActions":  []String {
-			"Microsoft.CloudPC/CloudPCs/Read",
-		}
-	}
+requestBody.SetDisplayName(&displayName) 
+
+
+unifiedRolePermission := graphmodels.NewUnifiedRolePermission()
+allowedResourceActions := []string {
+	"Microsoft.CloudPC/CloudPCs/Read",
 }
-requestBody.SetAdditionalData(map[string]interface{}{
-	"condition": "null",
+unifiedRolePermission.SetAllowedResourceActions(allowedResourceActions)
+
+rolePermissions := []graphmodels.UnifiedRolePermissionable {
+	unifiedRolePermission,
 }
-result, err := graphClient.RoleManagement().CloudPC().RoleDefinitions().Post(requestBody)
+requestBody.SetRolePermissions(rolePermissions)
+additionalData := map[string]interface{}{
+	"condition" : "null", 
+}
+requestBody.SetAdditionalData(additionalData)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+roleDefinitions, err := graphClient.RoleManagement().CloudPC().RoleDefinitions().Post(context.Background(), requestBody, nil)
 
 
 ```

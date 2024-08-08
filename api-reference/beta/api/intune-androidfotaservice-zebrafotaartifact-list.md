@@ -1,9 +1,9 @@
 ---
 title: "List zebraFotaArtifacts"
 description: "List properties and relationships of the zebraFotaArtifact objects."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 List properties and relationships of the [zebraFotaArtifact](../resources/intune-androidfotaservice-zebrafotaartifact.md) objects.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ GET /deviceManagement/zebraFotaArtifacts
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -60,23 +62,20 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 421
+Content-Length: 464
 
 {
   "value": [
     {
       "@odata.type": "#microsoft.graph.zebraFotaArtifact",
-      "id": "37305f61-5f61-3730-615f-3037615f3037",
+      "id": "c81cfc78-fc78-c81c-78fc-1cc878fc1cc8",
       "deviceModel": "Device Model value",
       "osVersion": "Os Version value",
       "patchVersion": "Patch Version value",
       "boardSupportPackageVersion": "Board Support Package Version value",
-      "releaseNotesUrl": "https://example.com/releaseNotesUrl/"
+      "releaseNotesUrl": "https://example.com/releaseNotesUrl/",
+      "description": "Description value"
     }
   ]
 }
 ```
-
-
-
-

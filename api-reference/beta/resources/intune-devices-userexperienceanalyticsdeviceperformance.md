@@ -1,19 +1,19 @@
 ---
 title: "userExperienceAnalyticsDevicePerformance resource type"
 description: "The user experience analytics device performance entity contains device boot performance details."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # userExperienceAnalyticsDevicePerformance resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 The user experience analytics device performance entity contains device boot performance details.
 
@@ -25,7 +25,7 @@ The user experience analytics device performance entity contains device boot per
 |[Create userExperienceAnalyticsDevicePerformance](../api/intune-devices-userexperienceanalyticsdeviceperformance-create.md)|[userExperienceAnalyticsDevicePerformance](../resources/intune-devices-userexperienceanalyticsdeviceperformance.md)|Create a new [userExperienceAnalyticsDevicePerformance](../resources/intune-devices-userexperienceanalyticsdeviceperformance.md) object.|
 |[Delete userExperienceAnalyticsDevicePerformance](../api/intune-devices-userexperienceanalyticsdeviceperformance-delete.md)|None|Deletes a [userExperienceAnalyticsDevicePerformance](../resources/intune-devices-userexperienceanalyticsdeviceperformance.md).|
 |[Update userExperienceAnalyticsDevicePerformance](../api/intune-devices-userexperienceanalyticsdeviceperformance-update.md)|[userExperienceAnalyticsDevicePerformance](../resources/intune-devices-userexperienceanalyticsdeviceperformance.md)|Update the properties of a [userExperienceAnalyticsDevicePerformance](../resources/intune-devices-userexperienceanalyticsdeviceperformance.md) object.|
-|[summarizeDevicePerformanceDevices function](../api/intune-devices-userexperienceanalyticsdeviceperformance-summarizedeviceperformancedevices.md)|[userExperienceAnalyticsDevicePerformance](../resources/intune-devices-userexperienceanalyticsdeviceperformance.md) collection|Not yet documented|
+|[summarizeDevicePerformanceDevices function](../api/intune-devices-userexperienceanalyticsdeviceperformance-summarizedeviceperformancedevices.md)|[userExperienceAnalyticsDevicePerformance](../resources/intune-devices-userexperienceanalyticsdeviceperformance.md) collection||
 
 ## Properties
 |Property|Type|Description|
@@ -39,16 +39,16 @@ The user experience analytics device performance entity contains device boot per
 |bootScore|Int32|The user experience analytics device boot score.|
 |coreBootTimeInMs|Int32|The user experience analytics device core boot time in milliseconds.|
 |groupPolicyBootTimeInMs|Int32|The user experience analytics device group policy boot time in milliseconds.|
-|healthStatus|[userExperienceAnalyticsHealthState](../resources/intune-devices-userexperienceanalyticshealthstate.md)|The health state of the user experience analytics device. Possible values are: `unknown`, `insufficientData`, `needsAttention`, `meetingGoals`.|
+|healthStatus|[userExperienceAnalyticsHealthState](../resources/intune-devices-userexperienceanalyticshealthstate.md)|The health state of the user experience analytics device. Possible values are: `unknown`, `insufficientData`, `needsAttention`, `meetingGoals`, `unknownFutureValue`.|
 |loginScore|Int32|The user experience analytics device login score.|
 |coreLoginTimeInMs|Int32|The user experience analytics device core login time in milliseconds.|
 |groupPolicyLoginTimeInMs|Int32|The user experience analytics device group policy login time in milliseconds.|
 |deviceCount|Int64|User experience analytics summarized device count.|
 |responsiveDesktopTimeInMs|Int32|The user experience analytics responsive desktop time in milliseconds.|
-|blueScreenCount|Int32|Number of Blue Screens in the last 14 days. Valid values 0 to 9999999|
-|restartCount|Int32|Number of Restarts in the last 14 days. Valid values 0 to 9999999|
-|averageBlueScreens|Double|Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999|
-|averageRestarts|Double|Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999|
+|blueScreenCount|Int32|Number of Blue Screens in the last 30 days. Valid values 0 to 9999999|
+|restartCount|Int32|Number of Restarts in the last 30 days. Valid values 0 to 9999999|
+|averageBlueScreens|Double|Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999|
+|averageRestarts|Double|Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999|
 |startupPerformanceScore|Double|The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308|
 |modelStartupPerformanceScore|Double|The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308|
 
@@ -89,7 +89,3 @@ Here is a JSON representation of the resource.
   "modelStartupPerformanceScore": "4.2"
 }
 ```
-
-
-
-

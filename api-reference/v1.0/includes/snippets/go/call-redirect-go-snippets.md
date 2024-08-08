@@ -4,20 +4,41 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
-requestBody.SetTargets( []InvitationParticipantInfo {
-	msgraphsdk.NewInvitationParticipantInfo(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "#microsoft.graph.invitationParticipantInfo",
-	}
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphcommunications "github.com/microsoftgraph/msgraph-sdk-go/communications"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphcommunications.NewRedirectPostRequestBody()
+
+
+invitationParticipantInfo := graphmodels.NewInvitationParticipantInfo()
+identity := graphmodels.NewIdentitySet()
+additionalData := map[string]interface{}{
+phone := graphmodels.NewIdentity()
+id := "+12345678901"
+phone.SetId(&id) 
+	identity.SetPhone(phone)
 }
+identity.SetAdditionalData(additionalData)
+invitationParticipantInfo.SetIdentity(identity)
+
+targets := []graphmodels.InvitationParticipantInfoable {
+	invitationParticipantInfo,
+}
+requestBody.SetTargets(targets)
 callbackUri := "https://bot.contoso.com/api/calls/24701998-1a73-4d42-8085-bf46ed0ae039"
-requestBody.SetCallbackUri(&callbackUri)
-callId := "call-id"
-graphClient.Communications().CallsById(&callId).Redirect(call-id).Post(requestBody)
+requestBody.SetCallbackUri(&callbackUri) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Communications().Calls().ByCallId("call-id").Redirect().Post(context.Background(), requestBody, nil)
 
 
 ```

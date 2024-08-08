@@ -1,19 +1,19 @@
 ---
 title: "microsoftTunnelSite resource type"
 description: "Entity that represents a Microsoft Tunnel site"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # microsoftTunnelSite resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Entity that represents a Microsoft Tunnel site
 
@@ -25,22 +25,22 @@ Entity that represents a Microsoft Tunnel site
 |[Create microsoftTunnelSite](../api/intune-mstunnel-microsofttunnelsite-create.md)|[microsoftTunnelSite](../resources/intune-mstunnel-microsofttunnelsite.md)|Create a new [microsoftTunnelSite](../resources/intune-mstunnel-microsofttunnelsite.md) object.|
 |[Delete microsoftTunnelSite](../api/intune-mstunnel-microsofttunnelsite-delete.md)|None|Deletes a [microsoftTunnelSite](../resources/intune-mstunnel-microsofttunnelsite.md).|
 |[Update microsoftTunnelSite](../api/intune-mstunnel-microsofttunnelsite-update.md)|[microsoftTunnelSite](../resources/intune-mstunnel-microsofttunnelsite.md)|Update the properties of a [microsoftTunnelSite](../resources/intune-mstunnel-microsofttunnelsite.md) object.|
-|[requestUpgrade action](../api/intune-mstunnel-microsofttunnelsite-requestupgrade.md)|None|Not yet documented|
+|[requestUpgrade action](../api/intune-mstunnel-microsofttunnelsite-requestupgrade.md)|None||
 
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|The MicrosoftTunnelSite's Id|
-|displayName|String|The MicrosoftTunnelSite's display name|
-|description|String|The MicrosoftTunnelSite's description|
-|publicAddress|String|The MicrosoftTunnelSite's public domain name or IP address|
+|id|String|The unique identifier for the site id. $Insert, $skip, $top is not supported. Read-only.|
+|displayName|String|The display name for the site. This property is required when a site is created.|
+|description|String|The site's description (optional)|
+|publicAddress|String|The site's public domain name or IP address|
 |upgradeWindowUtcOffsetInMinutes|Int32|The site's timezone represented as a minute offset from UTC|
 |upgradeWindowStartTime|TimeOfDay|The site's upgrade window start time of day|
 |upgradeWindowEndTime|TimeOfDay|The site's upgrade window end time of day|
 |upgradeAutomatically|Boolean|The site's automatic upgrade setting. True for automatic upgrades, false for manual control|
-|upgradeAvailable|Boolean|True if an upgrade is available|
-|internalNetworkProbeUrl|String|The MicrosoftTunnelSite's Internal Network Access Probe URL|
-|roleScopeTagIds|String collection|List of Scope Tags for this Entity instance.|
+|upgradeAvailable|Boolean|The site provides the state of when an upgrade is available|
+|internalNetworkProbeUrl|String|The site's Internal Network Access Probe URL|
+|roleScopeTagIds|String collection|List of Scope Tags for this Entity instance|
 
 ## Relationships
 |Relationship|Type|Description|
@@ -74,7 +74,3 @@ Here is a JSON representation of the resource.
   ]
 }
 ```
-
-
-
-

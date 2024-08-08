@@ -1,9 +1,10 @@
 ---
 title: "authenticationMethod resource type"
-description: "Represents an authentication method registered to a user."
+description: "An abstract type that represents an authentication method registered to a user."
 ms.localizationpriority: medium
-author: "mmcla"
-ms.prod: "identity-and-sign-in"
+author: "jpettere"
+ms.reviewer: intelligentaccesspm
+ms.subservice: "entra-sign-in"
 doc_type: "resourcePageType"
 ---
 
@@ -13,16 +14,29 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Represents an authentication method registered to a user. An [authentication method](/azure/active-directory/authentication/concept-authentication-methods) is something used by a user to authenticate or otherwise prove their identity to the system. Some examples include password, phone (usable via SMS or voice call), FIDO2 security keys, and more.
+An abstract type that represents an authentication method registered to a user. An [authentication method](/azure/active-directory/authentication/concept-authentication-methods) is something used by a user to authenticate or otherwise prove their identity to the system. Some examples include password, phone (usable via SMS or voice call), FIDO2 security keys, and more.
+
+This resource type is an abstract type that's inherited by the following derived types:
+
++ [emailAuthenticationMethod](emailauthenticationmethod.md)
++ [fido2AuthenticationMethod](fido2authenticationmethod.md)
++ [microsoftAuthenticatorAuthenticationMethod](microsoftauthenticatorauthenticationmethod.md)
++ [passwordlessMicrosoftAuthenticatorAuthenticationMethod](passwordlessmicrosoftauthenticatorauthenticationmethod.md)
++ [passwordAuthenticationMethod](passwordauthenticationmethod.md)
++ [phoneAuthenticationMethod](phoneauthenticationmethod.md)
++ [softwareOathAuthenticationMethod](softwareoathauthenticationmethod.md)
++ [temporaryAccessPassAuthenticationMethod](temporaryaccesspassauthenticationmethod.md)
++ [windowsHelloForBusinessAuthenticationMethod](windowshelloforbusinessauthenticationmethod.md)
++ [platformCredentialAuthenticationMethod](platformcredentialauthenticationmethod.md)
 
 > [!IMPORTANT]
-> Listing users' authentication methods only returns methods supported on this API version and registered to the user. See [Azure AD authentication methods API overview](authenticationmethods-overview.md) for a list of currently supported methods.
+> Listing users' authentication methods only returns methods supported on this API version and registered to the user. See [Microsoft Entra authentication methods API overview](authenticationmethods-overview.md) for a list of currently supported methods.
 
 ## Methods
 
 | Method       | Return type | Description |
 |:-------------|:------------|:------------|
-| [List authenticationMethods](../api/authentication-list-methods.md) | [authenticationMethod](authenticationmethod.md) collection | Read the properties and relationships of all of a user's **authenticationMethod** objects. |
+| [List](../api/authentication-list-methods.md) | [authenticationMethod](authenticationmethod.md) collection | Read the properties and relationships of all of a user's **authenticationMethod** objects. |
 
 ## Properties
 
@@ -36,7 +50,7 @@ None.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -49,6 +63,7 @@ The following is a JSON representation of the resource.
 
 ```json
 {
+  "@odata.type": "#microsoft.graph.authenticationMethod",
   "id": "String (identifier)"
 }
 ```

@@ -4,18 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.TeamsTabRequestBuilderGetQueryParameters{
-	Expand: "teamsApp",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphchats "github.com/microsoftgraph/msgraph-beta-sdk-go/chats"
+	  //other-imports
+)
+
+requestParameters := &graphchats.ChatItemTabItemRequestBuilderGetQueryParameters{
+	Expand: [] string {"teamsApp"},
 }
-options := &msgraphsdk.TeamsTabRequestBuilderGetRequestConfiguration{
+configuration := &graphchats.ChatItemTabItemRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-chatId := "chat-id"
-teamsTabId := "teamsTab-id"
-result, err := graphClient.ChatsById(&chatId).TabsById(&teamsTabId).GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+tabs, err := graphClient.Chats().ByChatId("chat-id").Tabs().ByTeamsTabId("teamsTab-id").Get(context.Background(), configuration)
 
 
 ```

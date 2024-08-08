@@ -1,9 +1,9 @@
 ---
 title: "revokeLicenses action"
 description: "Revoke licenses associated with a specific appleVolumePurchaseProgramToken"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Revoke licenses associated with a specific appleVolumePurchaseProgramToken
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ POST /deviceAppManagement/vppTokens/{vppTokenId}/revokeLicenses
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -48,8 +50,8 @@ The following table shows the parameters that can be used with this action.
 
 |Property|Type|Description|
 |:---|:---|:---|
-|notifyManagedDevices|Boolean|Not yet documented|
-|revokeUntrackedLicenses|Boolean|Not yet documented|
+|notifyManagedDevices|Boolean||
+|revokeUntrackedLicenses|Boolean||
 
 
 
@@ -77,7 +79,3 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 204 No Content
 ```
-
-
-
-

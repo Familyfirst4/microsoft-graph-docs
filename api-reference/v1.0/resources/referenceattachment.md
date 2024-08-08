@@ -2,8 +2,8 @@
 title: "referenceAttachment resource type"
 description: "A link to a file (such as a text file or Word document) on a OneDrive for Business cloud drive or other supported storage locations, attached to an event, message, or post."
 ms.localizationpriority: medium
-ms.prod: "outlook"
-author: "abheek-das"
+ms.subservice: "outlook"
+author: "SuryaLashmiS"
 doc_type: resourcePageType
 ---
 
@@ -19,13 +19,13 @@ Derived from [attachment](attachment.md).
 
 | Method       | Return Type  |Description|
 |:---------------|:--------|:----------|
-|[Get](../api/attachment-get.md) | [referenceAttachment](referenceattachment.md) |Read properties and relationships of referenceAttachment object.|
-|[Delete](../api/attachment-delete.md) | None |Delete referenceAttachment object. |
+|[Get attachment](../api/attachment-get.md) | [referenceAttachment](referenceattachment.md) |Read properties and relationships of referenceAttachment object.|
+|[Delete attachment](../api/attachment-delete.md) | None |Delete referenceAttachment object. |
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|contentType|String|The content type of the attachment.|
+|contentType|String|The content type of the attachment. Returned as `null` by default, when not set explicitly. Optional.|
 |id|String|The attachment ID.  Read-only.|
 |isInline|Boolean|Set to true if the attachment appears inline in the body of the embedding object.|
 |lastModifiedDateTime|DateTimeOffset|The date and time when the attachment was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`|
@@ -39,7 +39,7 @@ None
 
 ## JSON representation
 
-Here is a JSON representation of the resource
+The following JSON representation shows the resource type.
 
 <!--{
   "blockType": "resource",

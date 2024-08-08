@@ -4,22 +4,35 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewTerm()
-requestBody.SetLabels( []LocalizedLabel {
-	msgraphsdk.NewLocalizedLabel(),
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodelstermstore "github.com/microsoftgraph/msgraph-beta-sdk-go/models/termstore"
+	  //other-imports
+)
+
+requestBody := graphmodelstermstore.NewTerm()
+
+
+localizedLabel := graphmodelstermstore.NewLocalizedLabel()
 name := "changedLabel"
-	SetName(&name)
+localizedLabel.SetName(&name) 
 languageTag := "en-US"
-	SetLanguageTag(&languageTag)
+localizedLabel.SetLanguageTag(&languageTag) 
 isDefault := true
-	SetIsDefault(&isDefault)
+localizedLabel.SetIsDefault(&isDefault) 
+
+labels := []graphmodelstermstore.LocalizedLabelable {
+	localizedLabel,
 }
-setId := "set-id"
-termId := "term-id"
-graphClient.TermStore().SetsById(&setId).TermsById(&termId).Patch(requestBody)
+requestBody.SetLabels(labels)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+terms, err := graphClient.TermStore().Sets().BySetId("set-id").Terms().ByTermId("term-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

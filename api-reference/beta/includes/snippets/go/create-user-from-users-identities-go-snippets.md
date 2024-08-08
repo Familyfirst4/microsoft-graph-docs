@@ -4,44 +4,61 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewUser()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewUser()
 displayName := "John Smith"
-requestBody.SetDisplayName(&displayName)
-requestBody.SetIdentities( []ObjectIdentity {
-	msgraphsdk.NewObjectIdentity(),
+requestBody.SetDisplayName(&displayName) 
+
+
+objectIdentity := graphmodels.NewObjectIdentity()
 signInType := "userName"
-	SetSignInType(&signInType)
-issuer := "contoso.onmicrosoft.com"
-	SetIssuer(&issuer)
+objectIdentity.SetSignInType(&signInType) 
+issuer := "contoso.com"
+objectIdentity.SetIssuer(&issuer) 
 issuerAssignedId := "johnsmith"
-	SetIssuerAssignedId(&issuerAssignedId)
-	msgraphsdk.NewObjectIdentity(),
+objectIdentity.SetIssuerAssignedId(&issuerAssignedId) 
+objectIdentity1 := graphmodels.NewObjectIdentity()
 signInType := "emailAddress"
-	SetSignInType(&signInType)
-issuer := "contoso.onmicrosoft.com"
-	SetIssuer(&issuer)
+objectIdentity1.SetSignInType(&signInType) 
+issuer := "contoso.com"
+objectIdentity1.SetIssuer(&issuer) 
 issuerAssignedId := "jsmith@yahoo.com"
-	SetIssuerAssignedId(&issuerAssignedId)
-	msgraphsdk.NewObjectIdentity(),
+objectIdentity1.SetIssuerAssignedId(&issuerAssignedId) 
+objectIdentity2 := graphmodels.NewObjectIdentity()
 signInType := "federated"
-	SetSignInType(&signInType)
+objectIdentity2.SetSignInType(&signInType) 
 issuer := "facebook.com"
-	SetIssuer(&issuer)
+objectIdentity2.SetIssuer(&issuer) 
 issuerAssignedId := "5eecb0cd"
-	SetIssuerAssignedId(&issuerAssignedId)
+objectIdentity2.SetIssuerAssignedId(&issuerAssignedId) 
+
+identities := []graphmodels.ObjectIdentityable {
+	objectIdentity,
+	objectIdentity1,
+	objectIdentity2,
 }
-passwordProfile := msgraphsdk.NewPasswordProfile()
-requestBody.SetPasswordProfile(passwordProfile)
+requestBody.SetIdentities(identities)
+passwordProfile := graphmodels.NewPasswordProfile()
 password := "password-value"
-passwordProfile.SetPassword(&password)
+passwordProfile.SetPassword(&password) 
 forceChangePasswordNextSignIn := false
-passwordProfile.SetForceChangePasswordNextSignIn(&forceChangePasswordNextSignIn)
+passwordProfile.SetForceChangePasswordNextSignIn(&forceChangePasswordNextSignIn) 
+requestBody.SetPasswordProfile(passwordProfile)
 passwordPolicies := "DisablePasswordExpiration"
-requestBody.SetPasswordPolicies(&passwordPolicies)
-result, err := graphClient.Users().Post(requestBody)
+requestBody.SetPasswordPolicies(&passwordPolicies) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+users, err := graphClient.Users().Post(context.Background(), requestBody, nil)
 
 
 ```

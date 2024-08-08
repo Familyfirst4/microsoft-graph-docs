@@ -4,23 +4,39 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewRegionalAndLanguageSettings()
-requestBody.SetAuthoringLanguages( []LocaleInfo {
-	msgraphsdk.NewLocaleInfo(),
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewRegionalAndLanguageSettings()
+
+
+localeInfo := graphmodels.NewLocaleInfo()
 locale := "en-US"
-	SetLocale(&locale)
-	msgraphsdk.NewLocaleInfo(),
+localeInfo.SetLocale(&locale) 
+localeInfo1 := graphmodels.NewLocaleInfo()
 locale := "es-MX"
-	SetLocale(&locale)
+localeInfo1.SetLocale(&locale) 
+
+authoringLanguages := []graphmodels.LocaleInfoable {
+	localeInfo,
+	localeInfo1,
 }
-defaultRegionalFormat := msgraphsdk.NewLocaleInfo()
-requestBody.SetDefaultRegionalFormat(defaultRegionalFormat)
+requestBody.SetAuthoringLanguages(authoringLanguages)
+defaultRegionalFormat := graphmodels.NewLocaleInfo()
 locale := "en-US"
-defaultRegionalFormat.SetLocale(&locale)
-graphClient.Me().Settings().RegionalAndLanguageSettings().Patch(requestBody)
+defaultRegionalFormat.SetLocale(&locale) 
+requestBody.SetDefaultRegionalFormat(defaultRegionalFormat)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+regionalAndLanguageSettings, err := graphClient.Me().Settings().RegionalAndLanguageSettings().Patch(context.Background(), requestBody, nil)
 
 
 ```

@@ -1,9 +1,9 @@
 ---
 title: "Create macOSTrustedRootCertificate"
 description: "Create a new macOSTrustedRootCertificate object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Create a new [macOSTrustedRootCertificate](../resources/intune-deviceconfig-macostrustedrootcertificate.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -32,13 +34,14 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
+POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.macOSWiredNetworkConfiguration/rootCertificatesForServerValidation
 POST /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.macOSEnterpriseWiFiConfiguration/rootCertificatesForServerValidation
 ```
 
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -61,6 +64,7 @@ The following table shows the properties that are required when you create the m
 |version|Int32|Version of the device configuration. Inherited from [deviceConfiguration](../resources/intune-shared-deviceconfiguration.md)|
 |trustedRootCertificate|Binary|Trusted Root Certificate.|
 |certFileName|String|File name to display in UI.|
+|deploymentChannel|[appleDeploymentChannel](../resources/intune-deviceconfig-appledeploymentchannel.md)|Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: `deviceChannel`, `userChannel`, `unknownFutureValue`.|
 
 
 
@@ -72,9 +76,9 @@ If successful, this method returns a `201 Created` response code and a [macOSTru
 ### Request
 Here is an example of the request.
 ``` http
-POST https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.macOSEnterpriseWiFiConfiguration/rootCertificatesForServerValidation
+POST https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.graph.macOSWiredNetworkConfiguration/rootCertificatesForServerValidation
 Content-type: application/json
-Content-length: 1138
+Content-length: 1177
 
 {
   "@odata.type": "#microsoft.graph.macOSTrustedRootCertificate",
@@ -107,7 +111,8 @@ Content-length: 1138
   "displayName": "Display Name value",
   "version": 7,
   "trustedRootCertificate": "dHJ1c3RlZFJvb3RDZXJ0aWZpY2F0ZQ==",
-  "certFileName": "Cert File Name value"
+  "certFileName": "Cert File Name value",
+  "deploymentChannel": "userChannel"
 }
 ```
 
@@ -116,7 +121,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 1310
+Content-Length: 1349
 
 {
   "@odata.type": "#microsoft.graph.macOSTrustedRootCertificate",
@@ -152,10 +157,7 @@ Content-Length: 1310
   "displayName": "Display Name value",
   "version": 7,
   "trustedRootCertificate": "dHJ1c3RlZFJvb3RDZXJ0aWZpY2F0ZQ==",
-  "certFileName": "Cert File Name value"
+  "certFileName": "Cert File Name value",
+  "deploymentChannel": "userChannel"
 }
 ```
-
-
-
-

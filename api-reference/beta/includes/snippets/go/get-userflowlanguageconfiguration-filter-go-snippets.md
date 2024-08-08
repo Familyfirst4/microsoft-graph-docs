@@ -4,17 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.LanguagesRequestBuilderGetQueryParameters{
-	Filter: "isEnabled%20eq%20true",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphidentity "github.com/microsoftgraph/msgraph-beta-sdk-go/identity"
+	  //other-imports
+)
+
+
+requestFilter := "isEnabled eq true"
+
+requestParameters := &graphidentity.IdentityB2cUserFlowItemLanguagesRequestBuilderGetQueryParameters{
+	Filter: &requestFilter,
 }
-options := &msgraphsdk.LanguagesRequestBuilderGetRequestConfiguration{
+configuration := &graphidentity.IdentityB2cUserFlowItemLanguagesRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-b2cIdentityUserFlowId := "b2cIdentityUserFlow-id"
-result, err := graphClient.Identity().B2cUserFlowsById(&b2cIdentityUserFlowId).Languages().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+languages, err := graphClient.Identity().B2cUserFlows().ByB2cIdentityUserFlowId("b2cIdentityUserFlow-id").Languages().Get(context.Background(), configuration)
 
 
 ```

@@ -3,7 +3,7 @@ title: "provisioningSystem resource type"
 description: "Represents the system that a user was provisioned to or from."
 ms.localizationpriority: medium
 author: "ArvindHarinder1"
-ms.prod: "identity-and-access-reports"
+ms.subservice: "entra-monitoring-health"
 doc_type: "resourcePageType"
 ---
 
@@ -12,19 +12,19 @@ doc_type: "resourcePageType"
 Namespace: microsoft.graph
 
 
-Represents the system that a user was provisioned to or from. For example, when provisioning a user from Azure Active Directory (Azure AD) to ServiceNow, the source system is Azure AD, and the target system is ServiceNow.
+Represents the system that a user was provisioned to or from. For example, when provisioning a user from Microsoft Entra ID to ServiceNow, the source system is Microsoft Entra ID, and the target system is ServiceNow.
 
 ## Properties
 
 | Property     | Type        | Description |
 |:-------------|:------------|:------------|
-|details|[detailsInfo](detailsinfo.md)|Details of the system.|
 |displayName|String|Name of the system that a user was provisioned to or from.|
+|details|[detailsInfo](detailsinfo.md)|Details of the system.|
 |id|String|Identifier of the system that a user was provisioned to or from.|
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -37,7 +37,9 @@ The following is a JSON representation of the resource.
 
 ```json
 {
-  "details": {"@odata.type": "microsoft.graph.detailsInfo"},
+  "details": {
+    "@odata.type": "microsoft.graph.detailsInfo"
+  },
   "displayName": "String",
   "id": "String"
 }
@@ -52,5 +54,3 @@ The following is a JSON representation of the resource.
   "section": "documentation",
   "tocPath": ""
 }-->
-
-

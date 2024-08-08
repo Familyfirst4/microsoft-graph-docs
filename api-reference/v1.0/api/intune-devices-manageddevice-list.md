@@ -1,9 +1,9 @@
 ---
 title: "List managedDevices"
 description: "List properties and relationships of the managedDevice objects."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -15,7 +15,9 @@ Namespace: microsoft.graph
 
 List properties and relationships of the [managedDevice](../resources/intune-devices-manageddevice.md) objects.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -30,15 +32,15 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-GET /users/{usersId}/managedDevices
 GET /deviceManagement/managedDevices
 GET /deviceManagement/detectedApps/{detectedAppId}/managedDevices
+GET /deviceManagement/detectedApps/{detectedAppId}/managedDevices/{managedDeviceId}/users/{userId}/managedDevices
 ```
 
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -52,7 +54,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/v1.0/users/{usersId}/managedDevices
+GET https://graph.microsoft.com/v1.0/deviceManagement/managedDevices
 ```
 
 ### Response
@@ -60,7 +62,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 5315
+Content-Length: 5568
 
 {
   "value": [
@@ -163,17 +165,15 @@ Content-Length: 5315
       "freeStorageSpaceInBytes": 7,
       "managedDeviceName": "Managed Device Name value",
       "partnerReportedThreatState": "activated",
+      "requireUserEnrollmentApproval": true,
+      "managementCertificateExpirationDate": "2016-12-31T23:57:59.9789653-08:00",
       "iccid": "Iccid value",
       "udid": "Udid value",
       "notes": "Notes value",
       "ethernetMacAddress": "Ethernet Mac Address value",
-      "physicalMemoryInBytes": 5
+      "physicalMemoryInBytes": 5,
+      "enrollmentProfileName": "Enrollment Profile Name value"
     }
   ]
 }
 ```
-
-
-
-
-

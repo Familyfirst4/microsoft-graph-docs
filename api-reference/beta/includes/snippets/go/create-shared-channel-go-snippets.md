@@ -4,28 +4,43 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewChannel()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewChannel()
 displayName := "My First Shared Channel"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 description := "This is my first shared channel"
-requestBody.SetDescription(&description)
-membershipType := "shared"
-requestBody.SetMembershipType(&membershipType)
-requestBody.SetMembers( []ConversationMember {
-	msgraphsdk.NewConversationMember(),
-	SetRoles( []String {
-		"owner",
-	}
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "#microsoft.graph.aadUserConversationMember",
-		"user@odata.bind": "https://graph.microsoft.com/beta/users('7640023f-fe43-gv3f-9gg4-84a9efe4acd6')",
-	}
+requestBody.SetDescription(&description) 
+membershipType := graphmodels.SHARED_CHANNELMEMBERSHIPTYPE 
+requestBody.SetMembershipType(&membershipType) 
+
+
+conversationMember := graphmodels.NewAadUserConversationMember()
+roles := []string {
+	"owner",
 }
-teamId := "team-id"
-result, err := graphClient.TeamsById(&teamId).Channels().Post(requestBody)
+conversationMember.SetRoles(roles)
+additionalData := map[string]interface{}{
+	"user@odata.bind" : "https://graph.microsoft.com/beta/users('7640023f-fe43-gv3f-9gg4-84a9efe4acd6')", 
+}
+conversationMember.SetAdditionalData(additionalData)
+
+members := []graphmodels.ConversationMemberable {
+	conversationMember,
+}
+requestBody.SetMembers(members)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+channels, err := graphClient.Teams().ByTeamId("team-id").Channels().Post(context.Background(), requestBody, nil)
 
 
 ```

@@ -1,9 +1,9 @@
 ---
 title: "caseOperation resource type"
-description: "An abstract entity that represents a long-running process."
+description: "An abstract entity that represents a long-running eDiscovery process."
 author: "SeunginLyu"
 ms.localizationpriority: medium
-ms.prod: "ediscovery"
+ms.subservice: "ediscovery"
 doc_type: resourcePageType
 ---
 
@@ -13,9 +13,7 @@ Namespace: microsoft.graph.security
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Inherits from [entity](../resources/entity.md).
-
-An abstract entity that represents a long-running eDiscovery process. It contains a common set of properties that are shared among inheriting entities.  Entities that derive from **caseOperation** include:
+An abstract entity that represents a long-running eDiscovery process. It contains a common set of properties that are shared among inheriting entities. Entities that derive from **caseOperation** include:
 
 - [Index operation](../resources/security-ediscoveryindexoperation.md)
 - [Hold operation](../resources/security-ediscoveryholdoperation.md)
@@ -24,17 +22,20 @@ An abstract entity that represents a long-running eDiscovery process. It contain
 - [Add to review set operation](../resources/security-ediscoveryaddtoreviewsetoperation.md)
 - [Tag operation](../resources/security-ediscoverytagoperation.md)
 - [Export operation](../resources/security-ediscoveryexportoperation.md)
+- [Search export operation](../resources/security-ediscoverysearchexportoperation.md)
+
+Inherits from [entity](../resources/entity.md).
 
 ## Methods
 |Method|Return type|Description|
 |:---|:---|:---|
-|[List caseOperations](../api/security-ediscoverycase-list-operations.md)|[microsoft.graph.security.caseOperation](../resources/security-caseoperation.md) collection|Get a list of the [caseOperation](../resources/security-caseoperation.md) objects and their properties.|
-|[Get caseOperation](../api/security-caseoperation-get.md)|[microsoft.graph.security.caseOperation](../resources/security-caseoperation.md)|Read the properties and relationships of a [caseOperation](../resources/security-caseoperation.md) object.|
+|[List case operations](../api/security-ediscoverycase-list-operations.md)|[microsoft.graph.security.caseOperation](../resources/security-caseoperation.md) collection|Get a list of the [caseOperation](../resources/security-caseoperation.md) objects and their properties.|
+|[Get case operation by ID](../api/security-caseoperation-get.md)|[microsoft.graph.security.caseOperation](../resources/security-caseoperation.md)|Read the properties and relationships of a [caseOperation](../resources/security-caseoperation.md) object.|
 
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|action|[microsoft.graph.security.caseAction](../resources/security-caseoperation.md#caseaction-values)| The type of action the operation represents. Possible values are: `addToReviewSet`,`applyTags`,`contentExport`,`convertToPdf`,`estimateStatistics`, `purgeData`|
+|action|[microsoft.graph.security.caseAction](../resources/security-caseoperation.md#caseaction-values)| The type of action the operation represents. Possible values are: `contentExport`, `applyTags`, `convertToPdf`, `index`, `estimateStatistics`, `addToReviewSet`, `holdUpdate`, `unknownFutureValue`, `purgeData`, `exportReport`, `exportResult`. You must use the `Prefer: include-unknown-enum-members` request header to get the following values from this [evolvable enum](/graph/best-practices-concept#handling-future-members-in-evolvable-enumerations): `purgeData`, `exportReport`, `exportResult`.|
 |completedDateTime|DateTimeOffset| The date and time the operation was completed. |
 |createdBy|[identitySet](../resources/identityset.md)| The user that created the operation. |
 |createdDateTime|DateTimeOffset| The date and time the operation was created. |
@@ -47,31 +48,35 @@ An abstract entity that represents a long-running eDiscovery process. It contain
 
 |Member|Description|
 |:----|-----------|
-| addToReviewSet | The operation represents adding data to a review set from an eDiscovery collection. |
-| applyTags | The operation represents bulk tagging documents in a review set for the specified review set query. |
 | contentExport | The operation represents a content export from a review set. |
+| applyTags | The operation represents bulk tagging documents in a review set for the specified review set query. |
 | convertToPdf | The operation represents converting documents to PDFs with redactions. |
-| estimateStatistics  | The operation represents searching against Microsoft 365 services such as Exchange, SharePoint, and OneDrive for business. |
-| holdUpdate | The operation represent updating legal hold (apply/remove) for custodians and non-custodial data sources.
 | index | The operation represents indexing data sources of custodians and non-custodial data sources to make them searchable. |
+| estimateStatistics  | The operation represents searching against Microsoft 365 services such as Exchange, SharePoint, and OneDrive for Business. |
+| addToReviewSet | The operation represents adding data to a review set from an eDiscovery collection. |
+| holdUpdate | The operation represents updating legal hold (apply/remove) for custodians and non-custodial data sources.
+| unknownFutureValue | Evolvable enumeration sentinel value. Don't use. |
 | purgeData | The operation represents purging content from the source workloads. |
+| exportReport | The operation exports an item report from an estimated search.|
+| exportResult | The operation exports item results from an estimated search. |
 
 ### caseOperationStatus values
 
 |Member|Description|
 |:----|-----------|
-| notStarted | The operation has not yet started. |
+| notStarted | The operation hasn't yet started. |
 | submissionFailed | Submission of the operation failed. |
 | running | The operation is currently running. |
 | succeeded | The operation was successfully completed without any errors. |
-| partiallySucceeded | The operation completed, but there were errors - See [resultInfo](../resources/resultinfo.md) for error details. |
-| failed | The operation failed - See result info for error details. |
+| partiallySucceeded | The operation completed, but there were errors. For error details, see [resultInfo](../resources/resultinfo.md). |
+| failed | The operation failed. For error details, see [resultInfo](../resources/resultinfo.md). |
+| unknownFutureValue | Evolvable enumeration sentinel value. Don't use. |
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",
@@ -83,17 +88,17 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.security.caseOperation",
-  "id": "String (identifier)",
-  "createdDateTime": "String (timestamp)",
-  "completedDateTime": "String (timestamp)",
   "action": "String",
+  "completedDateTime": "String (timestamp)",
   "createdBy": {
     "@odata.type": "microsoft.graph.identitySet"
   },
-  "percentProgress": "Integer",
-  "status": "String",
+  "createdDateTime": "String (timestamp)",
+  "id": "String (identifier)",
+  "percentProgress": "Int32",
   "resultInfo": {
     "@odata.type": "microsoft.graph.resultInfo"
-  }
+  },
+  "status": "String"
 }
 ```

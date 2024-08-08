@@ -4,15 +4,25 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewPinnedChatMessageInfo()
-requestBody.SetAdditionalData(map[string]interface{}{
-	"message@odata.bind": "https://graph.microsoft.com/beta/chats/19:2da4c29f6d7041eca70b638b43d45437@thread.v2/messages/1616964509832",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewPinnedChatMessageInfo()
+additionalData := map[string]interface{}{
+	"message@odata.bind" : "https://graph.microsoft.com/beta/chats/19:2da4c29f6d7041eca70b638b43d45437@thread.v2/messages/1616964509832", 
 }
-chatId := "chat-id"
-result, err := graphClient.ChatsById(&chatId).PinnedMessages().Post(requestBody)
+requestBody.SetAdditionalData(additionalData)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+pinnedMessages, err := graphClient.Chats().ByChatId("chat-id").PinnedMessages().Post(context.Background(), requestBody, nil)
 
 
 ```

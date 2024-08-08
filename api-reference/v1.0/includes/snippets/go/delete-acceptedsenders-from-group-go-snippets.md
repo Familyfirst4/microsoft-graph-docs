@@ -4,17 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.RefRequestBuilderDeleteQueryParameters{
-	Id: "https://graph.microsoft.com/v1.0/users/%7Buser-id%7D",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphgroups "github.com/microsoftgraph/msgraph-sdk-go/groups"
+	  //other-imports
+)
+
+
+requestId := "https://graph.microsoft.com/v1.0/users/{user-id}"
+
+requestParameters := &graphgroups.GroupItemAcceptedSenders$refRequestBuilderDeleteQueryParameters{
+	Id: &requestId,
 }
-options := &msgraphsdk.RefRequestBuilderDeleteRequestConfiguration{
+configuration := &graphgroups.GroupItemAcceptedSenders$refRequestBuilderDeleteRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-groupId := "group-id"
-graphClient.GroupsById(&groupId).AcceptedSenders().$ref().DeleteWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Groups().ByGroupId("group-id").AcceptedSenders().Ref().Delete(context.Background(), configuration)
 
 
 ```

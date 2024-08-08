@@ -4,15 +4,23 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewCalendarPermission()
-role := "write"
-requestBody.SetRole(&role)
-userId := "user-id"
-calendarPermissionId := "calendarPermission-id"
-graphClient.UsersById(&userId).Calendar().CalendarPermissionsById(&calendarPermissionId).Patch(requestBody)
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewCalendarPermission()
+role := graphmodels.WRITE_CALENDARROLETYPE 
+requestBody.SetRole(&role) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+calendarPermissions, err := graphClient.Users().ByUserId("user-id").Calendar().CalendarPermissions().ByCalendarPermissionId("calendarPermission-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

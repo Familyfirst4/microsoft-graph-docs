@@ -1,9 +1,9 @@
 ---
 title: "deviceManagementConfigurationDeviceMode enum type"
 description: "Describes applicability for the mode the device is in"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -22,7 +22,3 @@ Describes applicability for the mode the device is in
 |:---|:---|:---|
 |none|0|No Device Mode specified|
 |kiosk|1|Device must be in kiosk mode for this setting to apply|
-
-
-
-

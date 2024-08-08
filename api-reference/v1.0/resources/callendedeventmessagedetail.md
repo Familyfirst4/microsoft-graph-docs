@@ -3,7 +3,7 @@ title: "callEndedEventMessageDetail resource type"
 description: "Represents the details of an event message about an ended call."
 author: "RamjotSingh"
 ms.localizationpriority: medium
-ms.prod: "microsoft-teams"
+ms.subservice: "teams"
 doc_type: resourcePageType
 ---
 
@@ -27,7 +27,7 @@ Inherits from [eventMessageDetail](../resources/eventmessagedetail.md).
 |initiator|[identitySet](../resources/identityset.md)|Initiator of the event.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.callEndedEventMessageDetail",
@@ -37,6 +37,8 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.callEndedEventMessageDetail",
+  "callDuration": "String (duration)",
+  "callEventType": "String",
   "callId": "String",
   "callParticipants": [
     {
@@ -45,13 +47,11 @@ The following is a JSON representation of the resource.
   ],
   "initiator": {
     "@odata.type": "microsoft.graph.identitySet"
-  },
-  "callDuration": "String (duration)",
-  "callEventType": "String"
+  }
 }
 ```
 
-## See also
+## Related content
 - [Example response for an event message about an ended call](/graph/system-messages/#call-ended)
 - For more information about other types of events, see [System messages](/graph/system-messages).
 

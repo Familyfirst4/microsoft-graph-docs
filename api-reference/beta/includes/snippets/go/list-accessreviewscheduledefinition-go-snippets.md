@@ -4,17 +4,31 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.DefinitionsRequestBuilderGetQueryParameters{
-	Top: 100,
-	Skip: 0,
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphidentitygovernance "github.com/microsoftgraph/msgraph-beta-sdk-go/identitygovernance"
+	  //other-imports
+)
+
+
+requestTop := int32(100)
+requestSkip := int32(0)
+
+requestParameters := &graphidentitygovernance.IdentityGovernanceAccessReviewsDefinitionsRequestBuilderGetQueryParameters{
+	Top: &requestTop,
+	Skip: &requestSkip,
 }
-options := &msgraphsdk.DefinitionsRequestBuilderGetRequestConfiguration{
+configuration := &graphidentitygovernance.IdentityGovernanceAccessReviewsDefinitionsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-result, err := graphClient.IdentityGovernance().AccessReviews().Definitions().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+definitions, err := graphClient.IdentityGovernance().AccessReviews().Definitions().Get(context.Background(), configuration)
 
 
 ```

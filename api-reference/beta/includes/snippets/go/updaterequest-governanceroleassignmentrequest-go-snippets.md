@@ -4,12 +4,19 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-privilegedAccessId := "privilegedAccess-id"
-governanceRoleAssignmentRequestId := "governanceRoleAssignmentRequest-id"
-result, err := graphClient.PrivilegedAccessById(&privilegedAccessId).RoleAssignmentRequestsById(&governanceRoleAssignmentRequestId).UpdateRequest(privilegedAccess-id, governanceRoleAssignmentRequest-id).Post()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  //other-imports
+)
+
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+updateRequest, err := graphClient.PrivilegedAccess().ByPrivilegedAccessId("privilegedAccess-id").RoleAssignmentRequests().ByGovernanceRoleAssignmentRequestId("governanceRoleAssignmentRequest-id").UpdateRequest().Post(context.Background(), nil)
 
 
 ```

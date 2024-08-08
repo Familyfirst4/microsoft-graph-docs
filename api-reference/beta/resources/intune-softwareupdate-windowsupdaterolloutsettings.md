@@ -1,19 +1,19 @@
 ---
 title: "windowsUpdateRolloutSettings resource type"
 description: "A complex type to store the windows update rollout settings including offer start date time, offer end date time, and days between each set of offers."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # windowsUpdateRolloutSettings resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 A complex type to store the windows update rollout settings including offer start date time, offer end date time, and days between each set of offers.
 
@@ -42,7 +42,3 @@ Here is a JSON representation of the resource.
   "offerIntervalInDays": 1024
 }
 ```
-
-
-
-

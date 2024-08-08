@@ -4,28 +4,38 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewMessage()
-receivedDateTime, err := time.Parse(time.RFC3339, "datetime-value")
-requestBody.SetReceivedDateTime(&receivedDateTime)
-sentDateTime, err := time.Parse(time.RFC3339, "datetime-value")
-requestBody.SetSentDateTime(&sentDateTime)
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  "time"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewMessage()
+receivedDateTime , err := time.Parse(time.RFC3339, "datetime-value")
+requestBody.SetReceivedDateTime(&receivedDateTime) 
+sentDateTime , err := time.Parse(time.RFC3339, "datetime-value")
+requestBody.SetSentDateTime(&sentDateTime) 
 hasAttachments := true
-requestBody.SetHasAttachments(&hasAttachments)
+requestBody.SetHasAttachments(&hasAttachments) 
 subject := "subject-value"
-requestBody.SetSubject(&subject)
-body := msgraphsdk.NewItemBody()
-requestBody.SetBody(body)
-contentType := ""
-body.SetContentType(&contentType)
+requestBody.SetSubject(&subject) 
+body := graphmodels.NewItemBody()
+contentType := graphmodels.TEXT_BODYTYPE 
+body.SetContentType(&contentType) 
 content := "content-value"
-body.SetContent(&content)
+body.SetContent(&content) 
+requestBody.SetBody(body)
 bodyPreview := "bodyPreview-value"
-requestBody.SetBodyPreview(&bodyPreview)
-mailFolderId := "mailFolder-id"
-result, err := graphClient.Me().MailFoldersById(&mailFolderId).Messages().Post(requestBody)
+requestBody.SetBodyPreview(&bodyPreview) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+messages, err := graphClient.Me().MailFolders().ByMailFolderId("mailFolder-id").Messages().Post(context.Background(), requestBody, nil)
 
 
 ```

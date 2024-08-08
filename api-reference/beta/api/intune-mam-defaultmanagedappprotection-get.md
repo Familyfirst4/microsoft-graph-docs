@@ -1,9 +1,9 @@
 ---
 title: "Get defaultManagedAppProtection"
 description: "Read properties and relationships of the defaultManagedAppProtection object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Read properties and relationships of the [defaultManagedAppProtection](../resources/intune-mam-defaultmanagedappprotection.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -41,7 +43,7 @@ This method supports the [OData Query Parameters](/graph/query-parameters) to he
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -63,7 +65,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 6167
+Content-Length: 6703
 
 {
   "value": {
@@ -119,6 +121,7 @@ Content-Length: 6167
     "managedBrowser": "microsoftEdge",
     "maximumAllowedDeviceThreatLevel": "secured",
     "mobileThreatDefenseRemediationAction": "wipe",
+    "mobileThreatDefensePartnerPriority": "thirdPartyPartnerOverDefender",
     "blockDataIngestionIntoOrganizationDocuments": true,
     "allowedDataIngestionLocations": [
       "sharePoint"
@@ -126,8 +129,10 @@ Content-Length: 6167
     "appActionIfUnableToAuthenticateUser": "wipe",
     "dialerRestrictionLevel": "managedApps",
     "gracePeriodToBlockAppsDuringOffClockHours": "PT2M4.5004762S",
+    "protectedMessagingRedirectAppType": "anyManagedApp",
     "appDataEncryptionType": "afterDeviceRestart",
     "screenCaptureBlocked": true,
+    "allowWidgetContentSync": true,
     "encryptAppData": true,
     "disableAppEncryptionIfDeviceEncryptionIsEnabled": true,
     "minimumRequiredSdkVersion": "Minimum Required Sdk Version value",
@@ -192,15 +197,16 @@ Content-Length: 6167
     "appActionIfDeviceLockNotSet": "wipe",
     "connectToVpnOnLaunch": true,
     "appActionIfDevicePasscodeComplexityLessThanLow": "wipe",
+    "appActionIfAccountIsClockedOut": "wipe",
     "appActionIfDevicePasscodeComplexityLessThanMedium": "wipe",
     "appActionIfDevicePasscodeComplexityLessThanHigh": "wipe",
     "requireClass3Biometrics": true,
     "requirePinAfterBiometricChange": true,
-    "fingerprintAndBiometricEnabled": true
+    "fingerprintAndBiometricEnabled": true,
+    "minimumWarningSdkVersion": "Minimum Warning Sdk Version value",
+    "messagingRedirectAppUrlScheme": "Messaging Redirect App Url Scheme value",
+    "messagingRedirectAppDisplayName": "Messaging Redirect App Display Name value",
+    "messagingRedirectAppPackageId": "Messaging Redirect App Package Id value"
   }
 }
 ```
-
-
-
-

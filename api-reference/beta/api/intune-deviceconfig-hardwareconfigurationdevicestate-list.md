@@ -1,9 +1,9 @@
 ---
 title: "List hardwareConfigurationDeviceStates"
 description: "List properties and relationships of the hardwareConfigurationDeviceState objects."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 List properties and relationships of the [hardwareConfigurationDeviceState](../resources/intune-deviceconfig-hardwareconfigurationdevicestate.md) objects.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ GET /deviceManagement/hardwareConfigurations/{hardwareConfigurationId}/deviceRun
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -60,7 +62,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 532
+Content-Length: 627
 
 {
   "value": [
@@ -74,12 +76,10 @@ Content-Length: 532
       "lastStateUpdateDateTime": "2017-01-01T00:02:58.4418045-08:00",
       "configurationState": "success",
       "configurationOutput": "Configuration Output value",
-      "configurationError": "Configuration Error value"
+      "configurationError": "Configuration Error value",
+      "assignmentFilterIds": "Assignment Filter Ids value",
+      "userId": "User Id value"
     }
   ]
 }
 ```
-
-
-
-

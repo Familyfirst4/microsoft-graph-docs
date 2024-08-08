@@ -4,17 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewIdentityUserFlowAttribute()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewIdentityUserFlowAttribute()
 displayName := "Hobby"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 description := "Your hobby"
-requestBody.SetDescription(&description)
-dataType := "string"
-requestBody.SetDataType(&dataType)
-result, err := graphClient.Identity().UserFlowAttributes().Post(requestBody)
+requestBody.SetDescription(&description) 
+dataType := graphmodels.STRING_IDENTITYUSERFLOWATTRIBUTEDATATYPE 
+requestBody.SetDataType(&dataType) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+userFlowAttributes, err := graphClient.Identity().UserFlowAttributes().Post(context.Background(), requestBody, nil)
 
 
 ```

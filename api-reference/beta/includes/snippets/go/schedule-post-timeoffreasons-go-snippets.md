@@ -4,18 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewTimeOffReason()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewTimeOffReason()
 displayName := "Vacation"
-requestBody.SetDisplayName(&displayName)
-iconType := "plane"
-requestBody.SetIconType(&iconType)
+requestBody.SetDisplayName(&displayName) 
+code := "VacationCode"
+requestBody.SetCode(&code) 
+iconType := graphmodels.PLANE_TIMEOFFREASONICONTYPE 
+requestBody.SetIconType(&iconType) 
 isActive := true
-requestBody.SetIsActive(&isActive)
-teamId := "team-id"
-result, err := graphClient.TeamsById(&teamId).Schedule().TimeOffReasons().Post(requestBody)
+requestBody.SetIsActive(&isActive) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+timeOffReasons, err := graphClient.Teams().ByTeamId("team-id").Schedule().TimeOffReasons().Post(context.Background(), requestBody, nil)
 
 
 ```

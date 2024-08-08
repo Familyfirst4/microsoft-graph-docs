@@ -1,30 +1,27 @@
 ---
 title: "userExperienceAnalyticsInsightSeverity enum type"
-description: "Not yet documented"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Indicates severity of insights. Possible values are: None, Informational, Warning, Error."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # userExperienceAnalyticsInsightSeverity enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Not yet documented
+
+Indicates severity of insights. Possible values are: None, Informational, Warning, Error.
 
 ## Members
 |Member|Value|Description|
 |:---|:---|:---|
-|none|0|Not yet documented|
-|informational|1|Not yet documented|
-|warning|2|Not yet documented|
-|error|3|Not yet documented|
-
-
-
-
+|none|0|Indicates that the insight severity is none.|
+|informational|1|Indicates that the insight severity is informational.|
+|warning|2|Indicates that the insight severity is warning.|
+|error|3|Indicates that the insight severity is error.|
+|unknownFutureValue|4|Evolvable enumeration sentinel value. Do not use.|

@@ -11,8 +11,9 @@ const options = {
 const client = Client.init(options);
 
 let recoveryKeys = await client.api('/informationProtection/bitlocker/recoveryKeys')
-	.header('ocp-client-name','"My Friendly Client"')
-	.header('ocp-client-version','"1.2"')
+	.header('User-Agent','Dsreg/10.0')
+	.header('ocp-client-name','My Friendly Client')
+	.header('ocp-client-version','1.2')
 	.get();
 
 ```

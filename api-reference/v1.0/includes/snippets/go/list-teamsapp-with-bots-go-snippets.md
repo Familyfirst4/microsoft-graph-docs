@@ -4,17 +4,30 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.TeamsAppsRequestBuilderGetQueryParameters{
-	Expand: "appDefinitions($expand=bot)",
-	Filter: "appDefinitions/any(a:a/bot%20ne%20null)",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphappcatalogs "github.com/microsoftgraph/msgraph-sdk-go/appcatalogs"
+	  //other-imports
+)
+
+
+requestFilter := "appDefinitions/any(a:a/bot ne null)"
+
+requestParameters := &graphappcatalogs.AppCatalogsTeamsAppsRequestBuilderGetQueryParameters{
+	Expand: [] string {"appDefinitions($expand=bot)"},
+	Filter: &requestFilter,
 }
-options := &msgraphsdk.TeamsAppsRequestBuilderGetRequestConfiguration{
+configuration := &graphappcatalogs.AppCatalogsTeamsAppsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-result, err := graphClient.AppCatalogs().TeamsApps().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+teamsApps, err := graphClient.AppCatalogs().TeamsApps().Get(context.Background(), configuration)
 
 
 ```

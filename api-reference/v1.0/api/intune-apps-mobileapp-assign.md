@@ -1,9 +1,9 @@
 ---
 title: "assign action"
 description: "Not yet documented"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -15,7 +15,9 @@ Namespace: microsoft.graph
 
 Not yet documented
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -36,7 +38,7 @@ POST /deviceAppManagement/mobileApps/{mobileAppId}/assign
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -57,11 +59,13 @@ If successful, this action returns a `204 No Content` response code.
 
 ### Request
 Here is an example of the request.
+
+# [HTTP](#tab/http)
+<!-- { "blockType": "ignored" , "name" : "intune_apps_mobileapp_assign_assign_action" }-->
 ``` http
 POST https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps/{mobileAppId}/assign
-
 Content-type: application/json
-Content-length: 1050
+Content-length: 449
 
 {
   "mobileAppAssignments": [
@@ -73,34 +77,28 @@ Content-length: 1050
         "@odata.type": "microsoft.graph.allLicensedUsersAssignmentTarget"
       },
       "settings": {
-        "@odata.type": "microsoft.graph.win32LobAppAssignmentSettings",
-        "notifications": "showReboot",
-        "restartSettings": {
-          "@odata.type": "microsoft.graph.win32LobAppRestartSettings",
-          "gracePeriodInMinutes": 4,
-          "countdownDisplayBeforeRestartInMinutes": 6,
-          "restartNotificationSnoozeDurationInMinutes": 10
-        },
-        "installTimeSettings": {
-          "@odata.type": "microsoft.graph.mobileAppInstallTimeSettings",
-          "useLocalTime": true,
-          "startDateTime": "2016-12-31T23:58:46.7156189-08:00",
-          "deadlineDateTime": "2017-01-01T00:00:21.0378955-08:00"
-        },
-        "deliveryOptimizationPriority": "foreground"
+        "@odata.type": "microsoft.graph.windowsUniversalAppXAppAssignmentSettings",
+        "useDeviceContext": true
       }
     }
   ]
 }
 ```
 
+# [CLI](#tab/cli)
+[!INCLUDE [sample-code](../includes/snippets/cli/intune-apps-mobileapp-assign-assign-action-cli-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](../includes/snippets/javascript/intune-apps-mobileapp-assign-assign-action-javascript-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+---
+
 ### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+
+<!-- { "blockType": "response" }-->
 ``` http
 HTTP/1.1 204 No Content
 ```
-
-
-
-
-

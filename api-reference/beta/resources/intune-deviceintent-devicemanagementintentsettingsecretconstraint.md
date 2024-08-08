@@ -1,19 +1,19 @@
 ---
 title: "deviceManagementIntentSettingSecretConstraint resource type"
 description: "Constraint indicating that this value is a secret and will be encrypted."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # deviceManagementIntentSettingSecretConstraint resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Constraint indicating that this value is a secret and will be encrypted.
 
@@ -39,7 +39,3 @@ Here is a JSON representation of the resource.
   "@odata.type": "#microsoft.graph.deviceManagementIntentSettingSecretConstraint"
 }
 ```
-
-
-
-

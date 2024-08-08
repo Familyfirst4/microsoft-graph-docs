@@ -1,19 +1,19 @@
 ---
 title: "windowsInformationProtectionDesktopApp resource type"
 description: "Desktop App for Windows information protection"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # windowsInformationProtectionDesktopApp resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Desktop App for Windows information protection
 
@@ -55,7 +55,3 @@ Here is a JSON representation of the resource.
   "binaryVersionHigh": "String"
 }
 ```
-
-
-
-

@@ -1,9 +1,9 @@
 ---
-title: "List simulation users"
-description: "List users of a tenant in an attack simulation campaign with their online actions."
-author: "Gopal-MSFT"
+title: "List simulationUsers"
+description: "List users of a tenant and their online actions in an attack simulation campaign."
+author: "stuartcl"
 ms.localizationpriority: medium
-ms.prod: "security"
+ms.subservice: "security"
 doc_type: apiPageType
 ---
 
@@ -15,13 +15,10 @@ Namespace: microsoft.graph
 List users of a tenant and their online actions in an attack simulation campaign.
 
 ## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
 
-| Permission type                        | Permissions (from least to most privileged) |
-|:---------------------------------------|:--------------------------------------------|
-| Delegated (work or school account)     | SecurityEvents.Read.All                     |
-| Delegated (personal Microsoft account) | Not supported.                              |
-| Application                            | SecurityEvents.Read.All                     |
+<!-- { "blockType": "permissions", "name": "usersimulationdetails_list" } -->
+[!INCLUDE [permissions-table](../includes/permissions/usersimulationdetails-list-permissions.md)]
 
 ## HTTP request
 
@@ -30,13 +27,14 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-GET /security/attackSimulation/simulations/{id}/report/simulationUsers
+GET /security/attackSimulation/simulations/{simulationId}/report/simulationUsers
 ```
 
 ## Optional query parameters
-This method supports the following OData query parameters to help customize the response: `$count`, `$skiptoken`, `$top`.
 
-Use `@odata.nextLink` for pagination.
+This method supports the `$count`, `$skipToken`, and `$top` [OData query parameters](/graph/query-parameters) to help customize the response.
+
+If the result set spans multiple pages, the response body contains an `@odata.nextLink` that you can use to page through the result set.
 
 The following are examples of their use:
 
@@ -45,19 +43,18 @@ The following are examples of their use:
 }
 -->
 ``` http
-GET /security/attackSimulation/simulations/{id}/report/simulationUsers?$top=1
-GET /security/attackSimulation/simulations/{id}/report/simulationUsers?$count=true
+GET /security/attackSimulation/simulations/{simulationId}/report/simulationUsers?$count=true
+GET /security/attackSimulation/simulations/{simulationId}/report/simulationUsers?$skipToken={skipToken}
+GET /security/attackSimulation/simulations/{simulationId}/report/simulationUsers?$top=1
 ```
-
-For general information, see [OData query parameters](/graph/query-parameters).
 
 ## Request headers
 |Name|Description|
 |:---|:---|
-|Authorization|Bearer {token}. Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 
 ## Request body
-Do not supply a request body for this method.
+Don't supply a request body for this method.
 
 ## Response
 
@@ -67,6 +64,8 @@ If successful, this method returns a `200 OK` response code and a collection of 
 
 ### Request
 
+The following example shows a request.
+
 # [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
@@ -74,29 +73,19 @@ If successful, this method returns a `200 OK` response code and a collection of 
 }
 -->
 ``` http
-GET https://graph.microsoft.com/beta/security/attackSimulation/simulations/{id}/report/simulationUsers
+GET https://graph.microsoft.com/beta/security/attackSimulation/simulations/f1b13829-3829-f1b1-2938-b1f12938b1a/report/simulationUsers
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/list-usersimulationdetails-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 # [JavaScript](#tab/javascript)
 [!INCLUDE [sample-code](../includes/snippets/javascript/list-usersimulationdetails-javascript-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/list-usersimulationdetails-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Java](#tab/java)
-[!INCLUDE [sample-code](../includes/snippets/java/list-usersimulationdetails-java-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
 ---
 
-
-
 ### Response
+
+The following example shows the response.
+
 >**Note:** The response object shown here might be shortened for readability.
 <!-- {
   "blockType": "response",
@@ -162,8 +151,8 @@ Content-Type: application/json
       "reportedPhishDateTime": "2021-01-01T01:01:01.01Z",
       "simulationUser": {
         "userId": "99af58b9-ef1a-412b-a581-cb42fe8c8e21",
-        "displayName": "Sample User",
-        "email": "sampleuser@contoso.com"
+        "displayName": "Reed Flores",
+        "email": "reed@contoso.com"
       }
     }
   ]

@@ -4,17 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.ServicePrincipalRequestBuilderGetQueryParameters{
-	Select: "customSecurityAttributes",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphserviceprincipals "github.com/microsoftgraph/msgraph-beta-sdk-go/serviceprincipals"
+	  //other-imports
+)
+
+requestParameters := &graphserviceprincipals.ServicePrincipalItemRequestBuilderGetQueryParameters{
+	Select: [] string {"customSecurityAttributes"},
 }
-options := &msgraphsdk.ServicePrincipalRequestBuilderGetRequestConfiguration{
+configuration := &graphserviceprincipals.ServicePrincipalItemRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-servicePrincipalId := "servicePrincipal-id"
-result, err := graphClient.ServicePrincipalsById(&servicePrincipalId).GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+servicePrincipals, err := graphClient.ServicePrincipals().ByServicePrincipalId("servicePrincipal-id").Get(context.Background(), configuration)
 
 
 ```

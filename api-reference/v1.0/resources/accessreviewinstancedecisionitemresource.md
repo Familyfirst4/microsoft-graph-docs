@@ -1,9 +1,9 @@
 ---
 title: "accessReviewInstanceDecisionItemResource resource type"
 description: "Represents the resource associated with the decision item."
-author: "zhusijia26"
+author: "jyothig123"
 ms.localizationpriority: medium
-ms.prod: "governance"
+ms.subservice: "entra-id-governance"
 doc_type: resourcePageType
 ---
 
@@ -26,7 +26,7 @@ Every decision item in an access review represents a principal's access to a res
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.accessReviewInstanceDecisionItemResource"
@@ -35,8 +35,8 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.accessReviewInstanceDecisionItemResource",
-  "id": "String (identifier)",
   "displayName": "String",
+  "id": "String (identifier)",
   "type": "String"
 }
 ```

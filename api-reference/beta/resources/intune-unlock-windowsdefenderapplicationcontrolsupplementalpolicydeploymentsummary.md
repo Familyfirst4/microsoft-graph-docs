@@ -1,19 +1,19 @@
 ---
 title: "windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary resource type"
 description: "Contains properties for the deployment summary of a WindowsDefenderApplicationControl supplemental policy."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Contains properties for the deployment summary of a WindowsDefenderApplicationControl supplemental policy.
 
@@ -49,7 +49,3 @@ Here is a JSON representation of the resource.
   "failedDeviceCount": 1024
 }
 ```
-
-
-
-

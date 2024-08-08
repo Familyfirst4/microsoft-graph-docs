@@ -4,22 +4,31 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewPrinter()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewPrinter()
 name := "PrinterName"
-requestBody.SetName(&name)
-location := msgraphsdk.NewPrinterLocation()
-requestBody.SetLocation(location)
+requestBody.SetName(&name) 
+location := graphmodels.NewPrinterLocation()
 latitude := float64(1.1)
-location.SetLatitude(&latitude)
+location.SetLatitude(&latitude) 
 longitude := float64(2.2)
-location.SetLongitude(&longitude)
+location.SetLongitude(&longitude) 
 altitudeInMeters := int32(3)
-location.SetAltitudeInMeters(&altitudeInMeters)
-printerId := "printer-id"
-graphClient.Print().PrintersById(&printerId).Patch(requestBody)
+location.SetAltitudeInMeters(&altitudeInMeters) 
+requestBody.SetLocation(location)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+printers, err := graphClient.Print().Printers().ByPrinterId("printer-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

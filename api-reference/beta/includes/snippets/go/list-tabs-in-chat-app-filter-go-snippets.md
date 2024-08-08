@@ -4,18 +4,30 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.TabsRequestBuilderGetQueryParameters{
-	Expand: "teamsApp",
-	Filter: "teamsApp/id%20eq%20'com.microsoft.teamspace.tab.web'",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphchats "github.com/microsoftgraph/msgraph-beta-sdk-go/chats"
+	  //other-imports
+)
+
+
+requestFilter := "teamsApp/id eq 'com.microsoft.teamspace.tab.web'"
+
+requestParameters := &graphchats.ChatItemTabsRequestBuilderGetQueryParameters{
+	Expand: [] string {"teamsApp"},
+	Filter: &requestFilter,
 }
-options := &msgraphsdk.TabsRequestBuilderGetRequestConfiguration{
+configuration := &graphchats.ChatItemTabsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-chatId := "chat-id"
-result, err := graphClient.ChatsById(&chatId).Tabs().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+tabs, err := graphClient.Chats().ByChatId("chat-id").Tabs().Get(context.Background(), configuration)
 
 
 ```

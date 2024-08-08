@@ -4,12 +4,19 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-driveId := "drive-id"
-driveItemId := "driveItem-id"
-result, err := graphClient.DrivesById(&driveId).ItemsById(&driveItemId).Analytics().Get()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  //other-imports
+)
+
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+analytics, err := graphClient.Drives().ByDriveId("drive-id").Items().ByDriveItemId("driveItem-id").Analytics().Get(context.Background(), nil)
 
 
 ```

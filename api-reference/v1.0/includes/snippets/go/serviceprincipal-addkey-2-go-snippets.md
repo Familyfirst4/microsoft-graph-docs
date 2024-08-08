@@ -4,26 +4,36 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
-keyCredential := msgraphsdk.NewKeyCredential()
-requestBody.SetKeyCredential(keyCredential)
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphserviceprincipals "github.com/microsoftgraph/msgraph-sdk-go/serviceprincipals"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphserviceprincipals.NewAddKeyPostRequestBody()
+keyCredential := graphmodels.NewKeyCredential()
 type := "X509CertAndPassword"
-keyCredential.SetType(&type)
+keyCredential.SetType(&type) 
 usage := "Sign"
-keyCredential.SetUsage(&usage)
-key := []byte("MIIDYDCCAki...")
-keyCredential.SetKey(&key)
-passwordCredential := msgraphsdk.NewPasswordCredential()
-requestBody.SetPasswordCredential(passwordCredential)
+keyCredential.SetUsage(&usage) 
+key := []byte("mIIDYDCCAki...")
+keyCredential.SetKey(&key) 
+requestBody.SetKeyCredential(keyCredential)
+passwordCredential := graphmodels.NewPasswordCredential()
 secretText := "MKTr0w1..."
-passwordCredential.SetSecretText(&secretText)
+passwordCredential.SetSecretText(&secretText) 
+requestBody.SetPasswordCredential(passwordCredential)
 proof := "eyJ0eXAiOiJ..."
-requestBody.SetProof(&proof)
-servicePrincipalId := "servicePrincipal-id"
-result, err := graphClient.ServicePrincipalsById(&servicePrincipalId).AddKey(servicePrincipal-id).Post(requestBody)
+requestBody.SetProof(&proof) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+addKey, err := graphClient.ServicePrincipals().ByServicePrincipalId("servicePrincipal-id").AddKey().Post(context.Background(), requestBody, nil)
 
 
 ```

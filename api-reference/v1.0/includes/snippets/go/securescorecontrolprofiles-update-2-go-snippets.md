@@ -4,25 +4,37 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewSecureScoreControlProfile()
-vendorInformation := msgraphsdk.NewSecurityVendorInformation()
-requestBody.SetVendorInformation(vendorInformation)
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewSecureScoreControlProfile()
+vendorInformation := graphmodels.NewSecurityVendorInformation()
 provider := "SecureScore"
-vendorInformation.SetProvider(&provider)
-vendorInformation.SetProviderVersion(nil)
-vendorInformation.SetSubProvider(nil)
+vendorInformation.SetProvider(&provider) 
+providerVersion := null
+vendorInformation.SetProviderVersion(&providerVersion) 
+subProvider := null
+vendorInformation.SetSubProvider(&subProvider) 
 vendor := "Microsoft"
-vendorInformation.SetVendor(&vendor)
-requestBody.SetAdditionalData(map[string]interface{}{
-	"assignedTo": "",
-	"comment": "control is reviewed",
-	"state": "Reviewed",
+vendorInformation.SetVendor(&vendor) 
+requestBody.SetVendorInformation(vendorInformation)
+additionalData := map[string]interface{}{
+	"assignedTo" : "", 
+	"comment" : "control is reviewed", 
+	"state" : "Reviewed", 
 }
-secureScoreControlProfileId := "secureScoreControlProfile-id"
-graphClient.Security().SecureScoreControlProfilesById(&secureScoreControlProfileId).Patch(requestBody)
+requestBody.SetAdditionalData(additionalData)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+secureScoreControlProfiles, err := graphClient.Security().SecureScoreControlProfiles().BySecureScoreControlProfileId("secureScoreControlProfile-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

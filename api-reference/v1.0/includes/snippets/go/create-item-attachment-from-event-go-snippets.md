@@ -4,17 +4,45 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewAttachment()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewAttachment()
 name := "Holiday event"
-requestBody.SetName(&name)
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#microsoft.graph.itemAttachment",
-}
-eventId := "event-id"
-result, err := graphClient.Me().EventsById(&eventId).Attachments().Post(requestBody)
+requestBody.SetName(&name) 
+item := graphmodels.NewEvent()
+subject := "Discuss gifts for children"
+item.SetSubject(&subject) 
+body := graphmodels.NewItemBody()
+contentType := graphmodels.HTML_BODYTYPE 
+body.SetContentType(&contentType) 
+content := "Let's look for funding!"
+body.SetContent(&content) 
+item.SetBody(body)
+start := graphmodels.NewDateTimeTimeZone()
+dateTime := "2016-12-02T18:00:00"
+start.SetDateTime(&dateTime) 
+timeZone := "Pacific Standard Time"
+start.SetTimeZone(&timeZone) 
+item.SetStart(start)
+end := graphmodels.NewDateTimeTimeZone()
+dateTime := "2016-12-02T19:00:00"
+end.SetDateTime(&dateTime) 
+timeZone := "Pacific Standard Time"
+end.SetTimeZone(&timeZone) 
+item.SetEnd(end)
+requestBody.SetItem(item)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+attachments, err := graphClient.Me().Events().ByEventId("event-id").Attachments().Post(context.Background(), requestBody, nil)
 
 
 ```

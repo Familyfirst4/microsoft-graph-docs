@@ -3,7 +3,7 @@ title: "keyValuePair resource type"
 description: "Key value pair for action parameters."
 ms.localizationpriority: medium
 author: "preetikr"
-ms.prod: "security"
+ms.subservice: "security"
 doc_type: resourcePageType
 ---
 
@@ -22,7 +22,7 @@ Key value pair for action parameters.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

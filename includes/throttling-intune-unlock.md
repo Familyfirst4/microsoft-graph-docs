@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "jaiprakashmb"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: intune
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->
@@ -16,6 +16,6 @@ ms.topic: include
 The preceding limits apply to the following resources: 
 
  
-| <!-- fake header-->                                                                                                                                                                                                                                                                                                                                                                            |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul> <li> [windowsDefenderApplicationControlSupplementalPolicy](/graph/api/resources/windowsdefenderapplicationcontrolsupplementalpolicy) <li> [windowsDefenderApplicationControlSupplementalPolicyAssignment](/graph/api/resources/windowsdefenderapplicationcontrolsupplementalpolicyassignment) <li> [windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus](/graph/api/resources/windowsdefenderapplicationcontrolsupplementalpolicydeploymentstatus) <li> [windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary](/graph/api/resources/windowsdefenderapplicationcontrolsupplementalpolicydeploymentsummary) </ul> |
+| <!-- fake header--> |
+|---|
+| <ul> <li> [windowsDefenderApplicationControlSupplementalPolicy](/graph/api/resources/intune-unlock-windowsdefenderapplicationcontrolsupplementalpolicy) <li> [windowsDefenderApplicationControlSupplementalPolicyAssignment](/graph/api/resources/intune-unlock-windowsdefenderapplicationcontrolsupplementalpolicyassignment) <li> [windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus](/graph/api/resources/intune-unlock-windowsdefenderapplicationcontrolsupplementalpolicydeploymentstatus) <li> [windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary](/graph/api/resources/intune-unlock-windowsdefenderapplicationcontrolsupplementalpolicydeploymentsummary) </ul> |

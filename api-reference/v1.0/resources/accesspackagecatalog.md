@@ -3,7 +3,7 @@ title: "accessPackageCatalog resource type"
 description: "An access package catalog is a container for access packages."
 author: "markwahl-msft"
 ms.localizationpriority: medium
-ms.prod: "governance"
+ms.subservice: "entra-id-governance"
 doc_type: resourcePageType
 ---
 # accessPackageCatalog resource type
@@ -11,7 +11,7 @@ doc_type: resourcePageType
 Namespace: microsoft.graph
 
 
-In [Azure AD entitlement management](entitlementmanagement-overview.md), an access package catalog is a container for zero or more access packages. Azure AD entitlement management includes a built-in catalog named **General**.
+In [Microsoft Entra entitlement management](entitlementmanagement-overview.md), an access package catalog is a container for zero or more access packages. Microsoft Entra entitlement management includes a built-in catalog named **General**.
 
 An access package catalog might also have linked resources that are used in those access packages to provide access. To view or change the membership of catalog-scoped roles, use the [role assignments](unifiedroleassignment.md) API with the entitlement management RBAC provider.
 
@@ -20,11 +20,15 @@ An access package catalog might also have linked resources that are used in thos
 ## Methods
 |Method|Return type|Description|
 |:---|:---|:---|
-|[List accessPackageCatalogs](../api/entitlementmanagement-list-catalogs.md)|[accessPackageCatalog](accesspackagecatalog.md) collection|Retrieve a list of accessPackageCatalog objects. |
-|[Create accessPackageCatalog](../api/entitlementmanagement-post-catalogs.md)|[accessPackageCatalog](accesspackagecatalog.md)|Create a new accessPackageCatalog object. |
-|[Get accessPackageCatalog](../api/accesspackagecatalog-get.md)|[accessPackageCatalog](accesspackagecatalog.md)|Read properties and relationships of an accessPackageCatalog object. |
-|[Update accessPackageCatalog](../api/accesspackagecatalog-update.md)|None|Update the properties of an accessPackageCatalog object. |
-|[Delete accessPackageCatalog](../api/accesspackagecatalog-delete.md)|None|Delete accessPackageCatalog. |
+|[List](../api/entitlementmanagement-list-catalogs.md)|[accessPackageCatalog](accesspackagecatalog.md) collection|Retrieve a list of accessPackageCatalog objects. |
+|[Create](../api/entitlementmanagement-post-catalogs.md)|[accessPackageCatalog](accesspackagecatalog.md)|Create a new accessPackageCatalog object. |
+|[Get](../api/accesspackagecatalog-get.md)|[accessPackageCatalog](accesspackagecatalog.md)|Read properties and relationships of an accessPackageCatalog object. |
+|[Update](../api/accesspackagecatalog-update.md)|None|Update the properties of an accessPackageCatalog object. |
+|[Delete](../api/accesspackagecatalog-delete.md)|None|Delete accessPackageCatalog. |
+| **Access package catalog resources**| | |
+| [List](../api/accesspackagecatalog-list-resources.md) | [accessPackageResource](accesspackageresource.md) collection | Retrieve a list of accessPackageResource objects in a catalog. |
+| **Access package catalog resource roles**| | |
+| [List](../api/accesspackagecatalog-list-resourceroles.md) | [accessPackageResourceRole](accesspackageresourcerole.md) collection | Retrieve a list of accessPackageResourceRole objects in a catalog. |
 
 ## Properties
 |Property|Type|Description|
@@ -42,9 +46,10 @@ An access package catalog might also have linked resources that are used in thos
 |Relationship|Type|Description|
 |:---|:---|:---|
 |accessPackages|[accessPackage](accesspackage.md) collection|The access packages in this catalog. Read-only. Nullable.|
+|resources|[accessPackageResource](../resources/accesspackageresource.md) collection|Access package resources in this catalog.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",
@@ -55,15 +60,13 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.accessPackageCatalog",
-  "id": "String (identifier)",
-  "displayName": "String",
-  "description": "String",
   "catalogType": "String",
-  "state": "String",
-  "isExternallyVisible": "Boolean",
   "createdDateTime": "String (timestamp)",
-  "modifiedDateTime": "String (timestamp)"
+  "description": "String",
+  "displayName": "String",
+  "id": "String (identifier)",
+  "isExternallyVisible": "Boolean",
+  "modifiedDateTime": "String (timestamp)",
+  "state": "String",
 }
 ```
-
-

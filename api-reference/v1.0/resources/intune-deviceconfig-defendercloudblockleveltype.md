@@ -1,9 +1,9 @@
 ---
 title: "defenderCloudBlockLevelType enum type"
 description: "Possible values of Cloud Block Level"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -22,8 +22,3 @@ Possible values of Cloud Block Level
 |high|1|High applies a strong level of detection.|
 |highPlus|2|High + uses the High level and applies addition protection measures|
 |zeroTolerance|3|Zero tolerance blocks all unknown executables|
-
-
-
-
-

@@ -1,19 +1,19 @@
 ---
 title: "appleVpnConnectionType enum type"
 description: "Apple VPN connection type."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # appleVpnConnectionType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Apple VPN connection type.
 
@@ -39,7 +39,3 @@ Apple VPN connection type.
 |microsoftTunnel|16|Microsoft Tunnel.|
 |netMotionMobility|17|NetMotion Mobility.|
 |microsoftProtect|18|Microsoft Protect.|
-
-
-
-

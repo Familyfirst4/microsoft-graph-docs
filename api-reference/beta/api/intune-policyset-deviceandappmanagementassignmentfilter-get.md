@@ -1,9 +1,9 @@
 ---
 title: "Get deviceAndAppManagementAssignmentFilter"
 description: "Read properties and relationships of the deviceAndAppManagementAssignmentFilter object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Read properties and relationships of the [deviceAndAppManagementAssignmentFilter](../resources/intune-policyset-deviceandappmanagementassignmentfilter.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -41,7 +43,7 @@ This method supports the [OData Query Parameters](/graph/query-parameters) to he
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -63,7 +65,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 487
+Content-Length: 821
 
 {
   "value": {
@@ -77,11 +79,17 @@ Content-Length: 487
     "rule": "Rule value",
     "roleScopeTags": [
       "Role Scope Tags value"
-    ]
+    ],
+    "payloads": [
+      {
+        "@odata.type": "microsoft.graph.payloadByFilter",
+        "payloadId": "Payload Id value",
+        "payloadType": "deviceConfigurationAndCompliance",
+        "groupId": "Group Id value",
+        "assignmentFilterType": "include"
+      }
+    ],
+    "assignmentFilterManagementType": "apps"
   }
 }
 ```
-
-
-
-

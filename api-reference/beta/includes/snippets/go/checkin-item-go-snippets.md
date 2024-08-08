@@ -4,15 +4,23 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphdrives "github.com/microsoftgraph/msgraph-beta-sdk-go/drives"
+	  //other-imports
+)
+
+requestBody := graphdrives.NewCheckinPostRequestBody()
 comment := "Updating the latest guidelines"
-requestBody.SetComment(&comment)
-driveId := "drive-id"
-driveItemId := "driveItem-id"
-graphClient.DrivesById(&driveId).ItemsById(&driveItemId).Checkin(drive-id, driveItem-id).Post(requestBody)
+requestBody.SetComment(&comment) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Drives().ByDriveId("drive-id").Items().ByDriveItemId("driveItem-id").Checkin().Post(context.Background(), requestBody, nil)
 
 
 ```

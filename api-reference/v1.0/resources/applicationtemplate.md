@@ -1,25 +1,25 @@
 ---
 title: 'applicationTemplate resource type'
-description: 'Represents an application in the Azure AD application gallery'
+description: 'Represents an application in the Microsoft Entra application gallery'
 ms.localizationpriority: medium
 author: 'luleonpla'
-ms.prod: 'applications'
-doc_type: 'resourcePageType'
+ms.subservice: 'entra-applications'
+doc_type: resourcePageType
 ---
 
 # applicationTemplate resource type
 
 Namespace: microsoft.graph
 
-Represents an application in the [Azure AD application gallery](/azure/active-directory/saas-apps/tutorial-list).
+Represents an application in the [Microsoft Entra application gallery](/azure/active-directory/saas-apps/tutorial-list).
 
 ## Methods
 
 | Method                                                                       | Return Type                                                   | Description                                                                                  |
 | :--------------------------------------------------------------------------- | :------------------------------------------------------------ | :------------------------------------------------------------------------------------------- |
-| [List applicationTemplate](../api/applicationtemplate-list.md)               | [applicationTemplate](applicationtemplate.md)                 | Retrieve a list of applicationTemplate objects.                                              |
-| [Get applicationTemplate](../api/applicationtemplate-get.md)                 | [applicationTemplate](applicationtemplate.md)                 | Read properties and relationships of applicationTemplate object.                             |
-| [Instantiate applicationTemplate](../api/applicationtemplate-instantiate.md) | [applicationServicePrincipal](applicationserviceprincipal.md) | Add an instance of an application from the Azure AD application gallery into your directory. |
+| [List](../api/applicationtemplate-list.md)               | [applicationTemplate](applicationtemplate.md)                 | Retrieve a list of applicationTemplate objects.                                              |
+| [Get](../api/applicationtemplate-get.md)                 | [applicationTemplate](applicationtemplate.md)                 | Read properties and relationships of applicationTemplate object.                             |
+| [Instantiate](../api/applicationtemplate-instantiate.md) | [applicationServicePrincipal](applicationserviceprincipal.md) |  Add an instance of an application from the Microsoft Entra application gallery into your directory. The application template with ID `8adf8e6e-67b2-4cf2-a259-e3dc5476c621` can be used to add a non-gallery app that you can configure different single-sign on (SSO) modes like SAML SSO and password-based SSO.|
 
 ## Properties
 
@@ -41,7 +41,7 @@ None.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -54,14 +54,14 @@ The following is a JSON representation of the resource.
 
 ```json
 {
-  "id": "id-value",
+  "categories": ["categories-value"],
+  "description": "description-value",
   "displayName": "displayName-value",
   "homePageUrl": "homePageUrl-value",
-  "supportedSingleSignOnModes": ["supportedSingleSignOnModes-value"],
+  "id": "id-value",
   "logoUrl": "logoUrl-value",
-  "categories": ["categories-value"],
   "publisher": "publisher-value",
-  "description": "description-value"
+  "supportedSingleSignOnModes": ["supportedSingleSignOnModes-value"]
 }
 ```
 

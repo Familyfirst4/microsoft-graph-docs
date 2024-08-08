@@ -2,8 +2,9 @@
 title: "conditionalAccessLocations resource type"
 description: "Represents locations included in and excluded from the policy scope."
 ms.localizationpriority: medium
-author: "davidspooner"
-ms.prod: "identity-and-sign-in"
+author: "lisaychuang"
+ms.reviewer: conditionalaccesspm
+ms.subservice: "entra-sign-in"
 doc_type: resourcePageType
 ---
 
@@ -24,7 +25,7 @@ Represents locations included in and excluded from the policy scope.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 ## Relationships
 

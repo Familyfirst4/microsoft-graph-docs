@@ -1,9 +1,9 @@
 ---
 title: "mdmWindowsInformationProtectionPolicy resource type"
 description: "Policy for Windows information protection with MDM"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
@@ -203,8 +203,3 @@ Here is a JSON representation of the resource.
   "isAssigned": true
 }
 ```
-
-
-
-
-

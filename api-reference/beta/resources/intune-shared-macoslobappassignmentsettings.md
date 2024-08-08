@@ -1,21 +1,21 @@
 ---
 title: "macOsLobAppAssignmentSettings resource type"
-description: "Contains properties used to assign an Mac LOB  app to a group."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Contains properties used to assign a macOS LOB app to a group."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # macOsLobAppAssignmentSettings resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Contains properties used to assign an Mac LOB  app to a group.
+
+Contains properties used to assign a macOS LOB app to a group.
 
 
 Inherits from [mobileAppAssignmentSettings](../resources/intune-shared-mobileappassignmentsettings.md)
@@ -23,7 +23,7 @@ Inherits from [mobileAppAssignmentSettings](../resources/intune-shared-mobileapp
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|uninstallOnDeviceRemoval|Boolean|Whether or not to uninstall the app when device is removed from Intune.|
+|uninstallOnDeviceRemoval|Boolean|When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune.|
 
 ## Relationships
 None
@@ -41,7 +41,3 @@ Here is a JSON representation of the resource.
   "uninstallOnDeviceRemoval": true
 }
 ```
-
-
-
-

@@ -1,40 +1,37 @@
 ---
 title: "builtInIdentityProvider resource type"
-description: "Represents built-in identity providers in an Azure Active Directory tenant."
+description: "Represents built-in identity providers in a Microsoft Entra tenant."
 ms.localizationpriority: high
 doc_type: resourcePageType
-ms.prod: "identity-and-sign-in"
+ms.subservice: "entra-sign-in"
 author: "namkedia"
 ---
 
 # builtInIdentityProvider resource type
 Namespace: microsoft.graph
 
-Represents built-in identity providers with [External Identities](/azure/active-directory/external-identities/) for an Azure Active Directory tenant.
+Represents built-in identity providers with [External Identities](/azure/active-directory/external-identities/) for a Microsoft Entra tenant.
 
-For Azure AD B2B scenarios in an Azure AD tenant, the built in identity provider type can be an Azure Active Directory(AAD), Microsoft account(MSA) or email one-time passcode (EmailOTP).
+For Microsoft Entra B2B scenarios in a Microsoft Entra tenant, the built-in identity provider type can be a Microsoft Entra ID, Microsoft account(MSA) or email one-time passcode (EmailOTP).
 
 This type inherits from [identityProviderBase](../resources/identityproviderbase.md).
 
 ## Methods
+None.
 
-| Method       | Return Type  |Description|
-|:---------------|:--------|:----------|
-|[List](../api/identitycontainer-list-identityproviders.md)|[identityProviderBase](../resources/identityproviderbase.md) collection|Retrieve all identity providers configured in a tenant including the built-in identity providers. There is no way to retrieve only the built-in identity providers in a tenant.|
-|[Get](../api/identityproviderbase-get.md) |builtInIdentityProvider|Retrieve properties of an built-in identity provider.|
-|[List available provider types](../api/identityproviderbase-availableprovidertypes.md)|String collection|Retrieve all available identity provider types available in the tenant.|
+For the list of API operations for managing built-in identity providers, see the [identityProviderBase](../resources/identityproviderbase.md) resource type.
 
 ## Properties
 
 |Property|Type|Description|
 |:---------------|:--------|:----------|
-|id|String|The identifier of the identity provider. Inherited from [identityProviderBase](../resources/identityproviderbase.md). Read-only.|
 |displayName|String|The display name of the identity provider. Inherited from [identityProviderBase](../resources/identityproviderbase.md).|
+|id|String|The identifier of the identity provider. Inherited from [identityProviderBase](../resources/identityproviderbase.md). Read-only.|
 |identityProviderType|String|The identity provider type. For a B2B scenario, possible values: `AADSignup`, `MicrosoftAccount`, `EmailOTP`. Required.|
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -43,9 +40,9 @@ The following is a JSON representation of the resource.
 
 ```json
 {
-    "id": "String",
-    "identityProviderType": "String",
     "displayName": "String",
+    "id": "String",
+    "identityProviderType": "String"
 }
 ```
 

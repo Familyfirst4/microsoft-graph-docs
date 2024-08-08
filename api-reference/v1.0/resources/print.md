@@ -3,7 +3,7 @@ title: print resource type
 description: When accompanied by a Universal Print subscription, the Print feature enables management of printers and discovery of printServiceEndpoints that can be used to manage printers and print jobs within Universal Print.
 author: nilakhan
 ms.localizationpriority: medium
-ms.prod: cloud-printing
+ms.subservice: universal-print
 doc_type: resourcePageType
 ---
 
@@ -34,16 +34,16 @@ When accompanied by a Universal Print subscription, the Print feature enables ma
 ## Relationships
 |Relationship|Type|Description|
 |:---|:---|:---|
-|services|[printService](printservice.md) collection|The list of available Universal Print service endpoints.|
-|printers|[printer](printer.md) collection|The list of printers registered in the tenant.|
-|shares|[printerShare](printershare.md) collection|The list of printer shares registered in the tenant.|
 |connectors|[printConnector](printconnector.md) collection|The list of available print connectors.|
 |operations|[printOperation](../resources/printoperation.md) collection|The list of print long running operations.|
+|printers|[printer](printer.md) collection|The list of printers registered in the tenant.|
+|services|[printService](printservice.md) collection|The list of available Universal Print service endpoints.|
 |services|[printService](../resources/printservice.md) collection|The list of print service instances for various components of the printing infrastructure.|
+|shares|[printerShare](printershare.md) collection|The list of printer shares registered in the tenant.|
 |taskDefinitions|[printTaskDefinition](../resources/printtaskdefinition.md) collection|List of abstract definition for a task that can be triggered when various events occur within Universal Print.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

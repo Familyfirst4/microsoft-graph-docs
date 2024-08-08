@@ -3,7 +3,7 @@ title: printJob resource type
 description: Represents a print job that has been queued for a printer.
 author: braedenp-msft
 ms.localizationpriority: medium
-ms.prod: cloud-printing
+ms.subservice: universal-print
 doc_type: resourcePageType
 ---
 
@@ -20,17 +20,18 @@ Represents a print job that has been queued for a printer.
 | Method       | Return Type | Description |
 |:-------------|:------------|:------------|
 | [Get](../api/printjob-get.md) | [printJob](printjob.md) | Read properties and relationships of printJob object. |
-| [Create](../api/printer-post-jobs.md) | [printJob](printjob.md) | Create a new print job object. |
+| [Create print job](../api/printer-post-jobs.md) | [printJob](printjob.md) | Create a new print job object. |
 | [Update](../api/printjob-update.md) | [printJob](printjob.md) | Update a print job object. |
 | [Start](../api/printjob-start.md)|None|Start the print job.|
 | [Cancel](../api/printjob-cancel.md)|None|Cancel the print job.|
 | [Abort](../api/printjob-abort.md)|None|Abort the print job.|
-| [Redirect (to another printer)](../api/printjob-redirect.md) | [printJob](printjob.md) | A print job that is queued for the destination printer. |
+| [Redirect](../api/printjob-redirect.md) | [printJob](printjob.md) | A print job that is queued for the destination printer. |
 
 ## Properties
 | Property     | Type        | Description |
 |:-------------|:------------|:------------|
-|id|String|The printer's GUID. Read-only.|
+|id|String|The ID of the print job. Read-only.|
+|displayName|String|The name of the print job.|
 |createdDateTime|DateTimeOffset|The DateTimeOffset when the job was created. Read-only.|
 |status|[printJobStatus](printjobstatus.md)|The status of the print job. Read-only.|
 |configuration|[printJobConfiguration](printJobConfiguration.md)|A group of settings that a printer should use to print a job.|
@@ -47,7 +48,7 @@ Represents a print job that has been queued for a printer.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -62,6 +63,7 @@ The following is a JSON representation of the resource.
 ```json
 {
   "id": "String (identifier)",
+  "displayName": "String",
   "createdDateTime": "String (timestamp)",
   "isFetchable": "Boolean",
   "redirectedFrom": "String",

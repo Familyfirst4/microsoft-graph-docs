@@ -3,7 +3,7 @@ title: printMargin resource type
 description: Specifies the margin widths to use when printing.
 author: nilakhan
 ms.localizationpriority: medium
-ms.prod: cloud-printing
+ms.subservice: universal-print
 doc_type: resourcePageType
 ---
 
@@ -16,13 +16,14 @@ Specifies the margin widths to use when printing.
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|top|Int32|The margin in microns from the top edge.|
 |bottom|Int32|The margin in microns from the bottom edge.|
-|right|Int32|The margin in microns from the right edge.|
 |left|Int32|The margin in microns from the left edge.|
+|right|Int32|The margin in microns from the right edge.|
+|top|Int32|The margin in microns from the top edge.|
+
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.printMargin"

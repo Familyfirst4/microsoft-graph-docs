@@ -3,7 +3,7 @@ title: "chatMessageFromIdentitySet resource type"
 description: "Represents the sender of a message in a chat or a channel."
 author: "RamjotSingh"
 ms.localizationpriority: medium
-ms.prod: "microsoft-teams"
+ms.subservice: "teams"
 doc_type: resourcePageType
 ---
 
@@ -21,13 +21,13 @@ Inherits from [identitySet](../resources/identityset.md).
 |:---|:---|:---|
 |application|[identity](../resources/identity.md)|Inherited from [identitySet](../resources/identityset.md). If present, represents the application (for instance, bot) that sent the message.|
 |device|[identity](../resources/identity.md)|Inherited from [identitySet](../resources/identityset.md). Not used.|
-|user|[identity](../resources/identity.md)|Inherited from [identitySet](../resources/identityset.md). If present, represents the user that sent the message.|
+|user|[teamworkUserIdentity](../resources/teamworkUserIdentity.md)|If present, represents the user that sent the message.|
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.chatMessageFromIdentitySet"
@@ -36,13 +36,13 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.chatMessageFromIdentitySet",
-  "user": {
-    "@odata.type": "microsoft.graph.identity"
-  },
   "application": {
     "@odata.type": "microsoft.graph.identity"
   },
   "device": {
+    "@odata.type": "microsoft.graph.identity"
+  },
+  "user": {
     "@odata.type": "microsoft.graph.identity"
   }
 }

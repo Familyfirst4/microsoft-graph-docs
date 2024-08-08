@@ -1,19 +1,19 @@
 ---
 title: "ratingUnitedKingdomMoviesType enum type"
 description: "Movies rating labels in United Kingdom"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # ratingUnitedKingdomMoviesType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Movies rating labels in United Kingdom
 
@@ -29,7 +29,3 @@ Movies rating labels in United Kingdom
 |agesAbove12Cinema|6|12A, cinema release suitable for 12 years and over|
 |agesAbove15|7|15, suitable only for 15 years and older|
 |adults|8|Suitable only for adults|
-
-
-
-

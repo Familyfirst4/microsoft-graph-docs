@@ -1,17 +1,20 @@
 ---
-title: "educationSynchronizationProfileStatus resource type"
-description: "Represents the synchronization status of a school data synchronization profile. "
+title: "educationSynchronizationProfileStatus resource type (deprecated)"
+description: "Represents the synchronization status of a school data synchronization profile."
 author: "mmast-msft"
 ms.localizationpriority: medium
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: resourcePageType
+toc.title: Synchronization profile status (deprecated)
 ---
 
-# educationSynchronizationProfileStatus resource type
+# educationSynchronizationProfileStatus resource type (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
+
+[!INCLUDE [educationsynchronizationprofile-deprecate](../includes/education-deprecate-educationsynchronizationprofile.md)]
 
 Represents the synchronization status of a school data [synchronization profile](educationsynchronizationprofile.md).
 
@@ -21,21 +24,23 @@ Represents the synchronization status of a school data [synchronization profile]
 
 | Method                                                                      | Return Type                               | Description                                              |
 | :-------------------------------------------------------------------------- | :---------------------------------------- | :------------------------------------------------------- |
-| [Get status of a sync](../api/educationsynchronizationprofilestatus-get.md) | **educationSynchronizationProfileStatus** | Return the status of a specific synchronization profile. |
+| [Get](../api/educationsynchronizationprofilestatus-get.md) | **educationSynchronizationProfileStatus** | Return the status of a specific synchronization profile. |
 
 ## Properties
 
 | Property                    | Type                           | Description                                                                                                              |
 | :-------------------------- | :----------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
-| id                          | String                         | The unique identifier for the resource. (read-only)                                                                      |
+| errorCount | Int64                 | Number of errors during synchronization.                                        |
+| id                          | String                         | The unique identifier for the resource. Read-only.                                                                      |
+| lastActivityDateTime | DateTimeOffset                 | Date and time when most recent changes were observed in the profile.                                        |
+| lastSynchronizationDateTime | DateTimeOffset                 | Date and time of the most recent successful synchronization.                                        |
 | status                      | educationSynchronizationStatus | The status of a sync. The possible values are: `paused`, `inProgress`, `success`, `error`, `validationError`, `quarantined`, `unknownFutureValue`, `extracting`, `validating`. Note that you must use the `Prefer: include-unknown-enum-members` request header to get the following values in this [evolvable enum](/graph/best-practices-concept#handling-future-members-in-evolvable-enumerations): `extracting`, `validating`.|
-| lastSynchronizationDateTime | DateTimeOffset                 | Represents the time of the most recent successful  synchronization.                                        |
-| lastActivityDateTime | DateTimeOffset                 | Represents the time when most recent changes were observed in profile.                                        |
-| errorCount | Int                 | Number of errors during synchronization.                                        |
-| statusMessage | String                 | Status message for the current profile's synchronization stage.                                        |
+| statusMessage | String                 | Status message for the synchronization stage of the current profile.                                        |
 
 
 ## JSON representation
+
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -48,11 +53,11 @@ Represents the synchronization status of a school data [synchronization profile]
 ```json
 {
   "@odata.context": "https://graph.microsoft.com/beta/$metadata#education/synchronizationProfiles/{id}/profileStatus/$entity",
+  "errorCount": "Int64",
   "id": "String",
-  "status": { "@odata.type": "microsoft.graph.educationSynchronizationStatus" },
-  "lastSynchronizationDateTime": "DateTimeOffset",
   "lastActivityDateTime": "DateTimeOffset",
-  "errorCount": "Int",
+  "lastSynchronizationDateTime": "DateTimeOffset",
+  "status": "String",
   "statusMessage": "String"
 }
 ```

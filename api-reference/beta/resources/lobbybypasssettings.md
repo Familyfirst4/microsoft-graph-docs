@@ -1,9 +1,9 @@
 ---
 title: "lobbyBypassSettings resource type"
 description: "Specifies which participants can bypass the meeting lobby."
-author: "mkhribech"
+author: "awang119"
 ms.localizationpriority: medium
-ms.prod: "cloud-communications"
+ms.subservice: "cloud-communications"
 doc_type: resourcePageType
 ---
 
@@ -38,7 +38,7 @@ The following table lists the members of an [evolvable enumeration](/graph/best-
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

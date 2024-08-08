@@ -4,24 +4,34 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewAttachmentItemRequestBody()
-attachmentItem := msgraphsdk.NewAttachmentItem()
-requestBody.SetAttachmentItem(attachmentItem)
-attachmentType := "file"
-attachmentItem.SetAttachmentType(&attachmentType)
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphusers.NewItemCreateUploadSessionPostRequestBody()
+attachmentItem := graphmodels.NewAttachmentItem()
+attachmentType := graphmodels.FILE_ATTACHMENTTYPE 
+attachmentItem.SetAttachmentType(&attachmentType) 
 name := "scenary"
-attachmentItem.SetName(&name)
+attachmentItem.SetName(&name) 
 size := int64(7208534)
-attachmentItem.SetSize(&size)
+attachmentItem.SetSize(&size) 
 isInline := true
-attachmentItem.SetIsInline(&isInline)
+attachmentItem.SetIsInline(&isInline) 
 contentId := "my_inline_picture"
-attachmentItem.SetContentId(&contentId)
-messageId := "message-id"
-result, err := graphClient.Me().MessagesById(&messageId).Attachments().CreateUploadSession(message-id).Post(requestBody)
+attachmentItem.SetContentId(&contentId) 
+requestBody.SetAttachmentItem(attachmentItem)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+createUploadSession, err := graphClient.Me().Messages().ByMessageId("message-id").Attachments().CreateUploadSession().Post(context.Background(), requestBody, nil)
 
 
 ```

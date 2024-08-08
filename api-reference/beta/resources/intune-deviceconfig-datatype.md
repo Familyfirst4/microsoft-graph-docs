@@ -1,19 +1,19 @@
 ---
 title: "dataType enum type"
 description: "Data types for rules."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # dataType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Data types for rules.
 
@@ -35,7 +35,3 @@ Data types for rules.
 |stringArray|12|String array data type.|
 |dateTimeArray|13|DateTime array data type.|
 |versionArray|14|Version array data type.|
-
-
-
-

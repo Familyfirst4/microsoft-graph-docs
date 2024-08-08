@@ -4,17 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.ChildFoldersRequestBuilderGetQueryParameters{
-	IncludeHiddenFolders: true,
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  //other-imports
+)
+
+
+requestIncludeHiddenFolders := "true"
+
+requestParameters := &graphusers.ItemMailFolderItemChildFoldersRequestBuilderGetQueryParameters{
+	IncludeHiddenFolders: &requestIncludeHiddenFolders,
 }
-options := &msgraphsdk.ChildFoldersRequestBuilderGetRequestConfiguration{
+configuration := &graphusers.ItemMailFolderItemChildFoldersRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-mailFolderId := "mailFolder-id"
-result, err := graphClient.Me().MailFoldersById(&mailFolderId).ChildFolders().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+childFolders, err := graphClient.Me().MailFolders().ByMailFolderId("mailFolder-id").ChildFolders().Get(context.Background(), configuration)
 
 
 ```

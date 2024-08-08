@@ -2,9 +2,12 @@
 title: "temporaryAccessPassAuthenticationMethod resource type"
 description: "Represents a Temporary Access Pass registered to a user."
 author: "tilarso"
+ms.reviewer: intelligentaccesspm
 ms.localizationpriority: medium
-ms.prod: "identity-and-access-reports"
+ms.subservice: "entra-monitoring-health"
 doc_type: resourcePageType
+toc.keywords: [ TAP ]
+toc.title: Temporary Access Pass
 ---
 
 # temporaryAccessPassAuthenticationMethod resource type
@@ -14,6 +17,8 @@ Namespace: microsoft.graph
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
 Represents a Temporary Access Pass registered to a user. A Temporary Access Pass is a time-limited passcode that serves as a strong credential and allows onboarding of passwordless credentials. The availability and settings that can be configured for the **temporaryAccessPassAuthenticationMethod** depends on the [Temporary Access Pass methods policy](temporaryaccesspassauthenticationmethodconfiguration.md).
+
+This is a derived type that inherits from the [authenticationMethod](authenticationmethod.md) resource type.
 
 ## Methods
 
@@ -40,7 +45,7 @@ Represents a Temporary Access Pass registered to a user. A Temporary Access Pass
 ## Relationships
 None.
 
-## JSON representation
+The following JSON representation shows the resource type.
 The following is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",

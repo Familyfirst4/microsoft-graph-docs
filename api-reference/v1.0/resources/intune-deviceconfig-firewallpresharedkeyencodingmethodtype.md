@@ -1,9 +1,9 @@
 ---
 title: "firewallPreSharedKeyEncodingMethodType enum type"
 description: "Possible values for firewallPreSharedKeyEncodingMethod"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -21,8 +21,3 @@ Possible values for firewallPreSharedKeyEncodingMethod
 |deviceDefault|0|No value configured by Intune, do not override the user-configured device default value|
 |none|1|Preshared key is not encoded. Instead, it is kept in its wide-character format|
 |utF8|2|Encode the preshared key using UTF-8|
-
-
-
-
-

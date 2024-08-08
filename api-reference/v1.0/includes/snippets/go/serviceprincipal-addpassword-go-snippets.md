@@ -4,16 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewPasswordCredentialRequestBody()
-passwordCredential := msgraphsdk.NewPasswordCredential()
-requestBody.SetPasswordCredential(passwordCredential)
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphserviceprincipals "github.com/microsoftgraph/msgraph-sdk-go/serviceprincipals"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphserviceprincipals.NewAddPasswordPostRequestBody()
+passwordCredential := graphmodels.NewPasswordCredential()
 displayName := "Password friendly name"
-passwordCredential.SetDisplayName(&displayName)
-servicePrincipalId := "servicePrincipal-id"
-result, err := graphClient.ServicePrincipalsById(&servicePrincipalId).AddPassword(servicePrincipal-id).Post(requestBody)
+passwordCredential.SetDisplayName(&displayName) 
+requestBody.SetPasswordCredential(passwordCredential)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+addPassword, err := graphClient.ServicePrincipals().ByServicePrincipalId("servicePrincipal-id").AddPassword().Post(context.Background(), requestBody, nil)
 
 
 ```

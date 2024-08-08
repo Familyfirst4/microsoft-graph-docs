@@ -1,9 +1,9 @@
 ---
 title: "List deviceEnrollmentWindowsHelloForBusinessConfigurations"
 description: "List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 List properties and relationships of the [deviceEnrollmentWindowsHelloForBusinessConfiguration](../resources/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration.md) objects.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ GET /deviceManagement/deviceEnrollmentConfigurations
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -60,7 +62,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1083
+Content-Length: 1119
 
 {
   "value": [
@@ -89,12 +91,9 @@ Content-Length: 1083
       "pinPreviousBlockCount": 5,
       "pinExpirationInDays": 3,
       "enhancedBiometricsState": "enabled",
-      "securityKeyForSignIn": "enabled"
+      "securityKeyForSignIn": "enabled",
+      "enhancedSignInSecurity": 6
     }
   ]
 }
 ```
-
-
-
-

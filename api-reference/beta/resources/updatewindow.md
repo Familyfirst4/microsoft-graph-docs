@@ -2,8 +2,8 @@
 title: "updateWindow resource type"
 description: "updateWindow resource type."
 ms.localizationpriority: medium
-author: "japere"
-ms.prod: "applications"
+author: "dhruvinrshah"
+ms.subservice: "entra-applications"
 doc_type: "resourcePageType"
 ---
 
@@ -22,9 +22,13 @@ Represents time window during which [agents](onpremisesagent.md) can receive upd
 |updateWindowEndTime|TimeOfDay|End of a time window during which agents can receive updates|
 |updateWindowStartTime|TimeOfDay|Start of a time window during which agents can receive updates|
 
+## Relationships
+
+None.
+
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

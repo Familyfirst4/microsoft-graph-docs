@@ -3,7 +3,7 @@ title: "People and workplace intelligence in Microsoft Graph"
 description: "Learn about Microsoft Graph API options that let you build smarter apps for accessing user data: the people API, insights API, profile API, and profile card API."
 author: "simonhult"
 ms.localizationpriority: high
-ms.prod: "insights"
+ms.subservice: "insights"
 ms.custom: scenarios:getting-started
 ---
 
@@ -13,14 +13,14 @@ The hundreds of millions of users of Microsoft 365 cloud services form part of t
 
 The _profile API_ lets you, as app developers, model and represent people in Microsoft 365 services, and the profile card API lets administrators control the information showing on users' profile cards in the organization.
 
-As ubiquitous the user's data is in Microsoft Graph, data derived from the user's social interactions is particularly interesting. It provides intelligent insights that can answer questions such as the following:
+As ubiquitous the user's data is in Microsoft Graph, data derived from the user's interactions is particularly interesting. It provides intelligent insights that can answer questions such as the following:
 
 - "Search for People who’s name starts with ‘J’"
 - "Which documents are most interesting to this person?"
 
 You can use the _people API_ and _insights API_ in Microsoft Graph to build smarter apps that can, respectively, access the relevant people and documents for a user.
 
-The people API returns people ordered by relevance to a user, based on that user's contacts, social networks, organization directory, and recent communications on email. This is particularly useful for people-picking scenarios.
+The people API returns people ordered by relevance to a user, based on that user's contacts, organization directory, and recent communications on email. This is particularly useful for people-picking scenarios.
 
 The insights API uses advanced analytics and machine learning to provide the most relevant files users need throughout their work day. The API powers familiar Microsoft 365 experiences, including Office Delve, SharePoint Home, the Discover view in OneDrive for Business, and Outlook on the web.
 
@@ -28,15 +28,27 @@ The insights API uses advanced analytics and machine learning to provide the mos
 
 ## Why integrate with people data?
 
-The people API returns data of a single entity, [person](/graph/api/resources/person), which includes typical data of an individual in today's business world. What makes this **person** data especially useful is its _relevance_ with respect to a Microsoft Graph user. Relevance is noted in a relevance score of each person, calculated based on the user's communication and collaboration patterns and business relationships. There are 3 main types of application of this _relevance_ data.
+The people API returns data of a single entity, [person](/graph/api/resources/person), which includes typical data of an individual in today's business world. What makes this **person** data especially useful is its _relevance_ with respect to a Microsoft Graph user. Relevance is noted in the results returned which are ordered from most relevant to least relevant. You can use the following Microsoft Graph APIs to search for people inside an organization.
+
+- [/search](search-concept-person.md)
+- [/people](/graph/api/resources/person) (maintenance mode)
+
+### Use the /search endpoint
+
+We encourage developers to use the `/search` endpoint when building their products; the `/people` endpoint is in maintenance mode. The following are reasons to consider using the `/search` endpoint:
+
+- All future investments in people search will be made available via `/search`; for example, natural language search like "John the accountant in Nairobi".
+- Attribute search matching on attributes other than name and email is available.
+- Better relevance results from `/search` give better results due to the use of artificial intelligence, better data models, and sophisticated spell correction.
+- Lower **cost of goods** when using `/search`, but specifically lower latency.
 
 ### Browse people by relevance
 
-You can browse people who are related to the signed-in user or to some other user in the signed-in user's organization, provided you have got the appropriate [authorization](people-example.md#authorization). You get a collection of **person** objects that are ordered by relevance. You can further [customize](people-example.md#browse-people) the collection of **person** objects that is returned in the response by specifying the query parameters `top`, `skip`, `orderby`, `select`, and `filter`.
+You can browse people who are related to the signed-in user or to some other user in the signed-in user's organization, provided you have got the appropriate [authorization](people-insights-overview.md#authorization). You get a collection of **person** objects that are ordered by relevance. You can further [customize](people-insights-overview.md#browse-people) the collection of **person** objects that is returned in the response by specifying the query parameters `top`, `skip`, `orderby`, `select`, and `filter`.
 
 ### Fuzzy searches based on people criteria
 
-The people API lets you search for people relevant to the signed-in user, provided that your app has got permissions by that user. (Read more on [people permissions](permissions-reference.md#people-permissions).)
+The people API lets you search for people relevant to the signed-in user, provided that your app has got permissions by that user. (Read more on [people permissions](permissions-reference.md).)
 
 Fuzzy searches return results based on an exact match and also on inferences about the intent of the search. To illustrate this, the following example returns **person** objects relevant to the signed-in user whose name, _or email address_, contains a word that starts with 'j'.
 
@@ -49,9 +61,13 @@ GET /me/people/?$search=j
 
 The [profile](/graph/api/resources/profile) API represents the next generation in modeling and representing people in Microsoft 365 services. Profile data can be used together with people data to build customized experiences based on Microsoft Graph.
 
-## Why configure profile cards in your organization (preview)?
+## Why configure profile cards in your organization?
 
 Profile cards let users in an organization see information about one another, such as their names and contact information. Administrators can use the [profile card](/graph/api/resources/profilecardproperty) API to customize how information about their organization surfaces within Microsoft 365 people experiences.
+
+## Why configure pronouns in your organization?
+
+Pronouns serve as substitutes for a person's name in sentences, with gender-neutral versions available in multiple languages, for example in English, "she", "her, "he", "him" and the gender-neutral "they", "them". Accurate pronoun usage shows inclusivity and respect, avoiding assumptions based on names or initial observations of the person. In a hybrid, multicultural work or school environment, the simple act of using the right pronouns can help build trust and improve communication among one another. Administrators can use the [pronounsSettings](/graph/api/resources/pronounssettings) API to configure pronouns settings in your organization.
 
 ## Why integrate with document-based insights?
 
@@ -97,15 +113,17 @@ Looking for the API reference for these services?
 - [Use the Microsoft Graph API to integrate people and workplace intelligence in an app (beta)](/graph/api/resources/social-overview?view=graph-rest-beta&preserve-view=true)
 - The People API [person](/graph/api/resources/person) resource
 - [Profile (preview)](/graph/api/resources/profile) resource
-- [Profile card property (preview)](/graph/api/resources/profilecardproperty) resource
+- [Profile card property](/graph/api/resources/profilecardproperty) resource
+- [Pronouns settings](/graph/api/resources/pronounssettings) resource
 - [Insights API](/graph/api/resources/officegraphinsights)
 - [Analytics API (preview)](/graph/api/resources/useranalytics)
 
 ## Next steps
 
-* Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to try out the people, insights, and analytics APIs with your own files. Sign in, expand **People** or **Insights** in the column on the left, and try their sample queries.
-* Find more about the [people API](people-example.md).
-* See how to [customize the profile card](add-properties-profilecard.md).
-* Find out more about [item insights](item-insights-overview.md), [customizing item insights privacy for users (preview)](insights-customize-item-insights-privacy.md), and the [item insights settings API (preview)](/graph/api/resources/iteminsightssettings?view=graph-rest-beta&preserve-view=true) that supports the customization.
-* Find more about the [analytics API](/graph/api/resources/social-overview#help-users-balance-work-and-life).
-* Find more about the [profile API](/graph/api/resources/profile?view=graph-rest-beta&preserve-view=true).
+- Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to try out the people, insights, and analytics APIs with your own files. Sign in, expand **People** or **Insights** in the column on the left, and try their sample queries.
+- Find more about the [people API](people-insights-overview.md).
+- See how to [customize the profile card](add-properties-profilecard.md).
+- See how to [manage pronouns settings for an organization](pronouns-configure-pronouns-availability.md).
+- Find out more about [item insights](item-insights-overview.md), [customizing item insights privacy for users (preview)](insights-customize-item-insights-privacy.md), and the [item insights settings API (preview)](/graph/api/resources/iteminsightssettings?view=graph-rest-beta&preserve-view=true) that supports the customization.
+- Find more about the [analytics API](/graph/api/resources/social-overview#help-users-balance-work-and-life).
+- Find more about the [profile API](/graph/api/resources/profile?view=graph-rest-beta&preserve-view=true).

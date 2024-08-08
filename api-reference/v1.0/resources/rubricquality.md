@@ -3,7 +3,7 @@ title: "rubricQuality resource type"
 description: "A quality of a rubric."
 ms.localizationpriority: medium
 author: "sharad-sharma-msft"
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: "resourcePageType"
 ---
 
@@ -27,7 +27,7 @@ See [educationRubric](educationrubric.md) for a description of the relationship 
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

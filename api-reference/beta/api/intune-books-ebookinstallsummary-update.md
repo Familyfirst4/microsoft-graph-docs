@@ -1,9 +1,9 @@
 ---
 title: "Update eBookInstallSummary"
 description: "Update the properties of a eBookInstallSummary object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Update the properties of a [eBookInstallSummary](../resources/intune-books-ebookinstallsummary.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ PATCH /deviceAppManagement/managedEBooks/{managedEBookId}/installSummary
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -99,7 +101,3 @@ Content-Length: 285
   "notInstalledUserCount": 5
 }
 ```
-
-
-
-

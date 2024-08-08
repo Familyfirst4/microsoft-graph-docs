@@ -1,19 +1,19 @@
 ---
 title: "iosVppAppAssignedDeviceLicense resource type"
 description: "iOS Volume Purchase Program device license assignment. This class does not support Create, Delete, or Update."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # iosVppAppAssignedDeviceLicense resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 iOS Volume Purchase Program device license assignment. This class does not support Create, Delete, or Update.
 
@@ -32,7 +32,7 @@ Inherits from [iosVppAppAssignedLicense](../resources/intune-apps-iosvppappassig
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|Key of the entity. Inherited from [iosVppAppAssignedLicense](../resources/intune-apps-iosvppappassignedlicense.md)|
+|id|String|Key of the entity. This property is read-only. Inherited from [iosVppAppAssignedLicense](../resources/intune-apps-iosvppappassignedlicense.md)|
 |userEmailAddress|String|The user email address. Inherited from [iosVppAppAssignedLicense](../resources/intune-apps-iosvppappassignedlicense.md)|
 |userId|String|The user ID. Inherited from [iosVppAppAssignedLicense](../resources/intune-apps-iosvppappassignedlicense.md)|
 |userName|String|The user name. Inherited from [iosVppAppAssignedLicense](../resources/intune-apps-iosvppappassignedlicense.md)|
@@ -63,7 +63,3 @@ Here is a JSON representation of the resource.
   "deviceName": "String"
 }
 ```
-
-
-
-

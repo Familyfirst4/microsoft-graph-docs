@@ -1,9 +1,9 @@
 ---
 title: "deviceManagementConfigurationSettingInstanceTemplateReference resource type"
 description: "Setting instance template reference information"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
@@ -38,7 +38,3 @@ Here is a JSON representation of the resource.
   "settingInstanceTemplateId": "String"
 }
 ```
-
-
-
-

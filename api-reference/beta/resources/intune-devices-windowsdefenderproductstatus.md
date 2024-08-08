@@ -1,19 +1,19 @@
 ---
 title: "windowsDefenderProductStatus enum type"
 description: "Product Status of Windows Defender"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # windowsDefenderProductStatus enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Product Status of Windows Defender
 
@@ -46,7 +46,3 @@ Product Status of Windows Defender
 |platformAboutToBeOutdated|4194304|Platform is about to be outdated|
 |signatureOrPlatformEndOfLifeIsPastOrIsImpending|8388608|Signature or platform end of life is past or is impending|
 |windowsSModeSignaturesInUseOnNonWin10SInstall|16777216|Windows SMode signatures still in use on non-Win10S install|
-
-
-
-

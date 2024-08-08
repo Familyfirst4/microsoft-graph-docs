@@ -1,19 +1,19 @@
 ---
 title: "androidDeviceOwnerCrossProfileDataSharing enum type"
 description: "An enum representing possible values for cross profile data sharing."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # androidDeviceOwnerCrossProfileDataSharing enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 An enum representing possible values for cross profile data sharing.
 
@@ -25,7 +25,3 @@ An enum representing possible values for cross profile data sharing.
 |dataSharingFromWorkToPersonalBlocked|2|Prevents users from sharing data from the work profile to apps in the personal profile. Personal data can be shared with work apps.|
 |crossProfileDataSharingAllowed|3|Data from either profile can be shared with the other profile.|
 |unkownFutureValue|4|Unknown future value (reserved, not used right now)|
-
-
-
-

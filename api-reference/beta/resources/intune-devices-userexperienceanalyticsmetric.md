@@ -1,19 +1,19 @@
 ---
 title: "userExperienceAnalyticsMetric resource type"
 description: "The user experience analytics metric contains the score and units of a metric of a user experience anlaytics category."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # userExperienceAnalyticsMetric resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 The user experience analytics metric contains the score and units of a metric of a user experience anlaytics category.
 
@@ -31,7 +31,7 @@ The user experience analytics metric contains the score and units of a metric of
 |:---|:---|:---|
 |id|String|The unique identifier of the user experience analytics metric.|
 |value|Double|The value of the user experience analytics metric.|
-|unit|String|The unit of the user experience analytics metric.|
+|unit|String|The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score.|
 
 ## Relationships
 None
@@ -52,7 +52,3 @@ Here is a JSON representation of the resource.
   "unit": "String"
 }
 ```
-
-
-
-

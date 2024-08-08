@@ -1,9 +1,9 @@
 ---
 title: "Update certificateConnectorDetails"
 description: "Update the properties of a certificateConnectorDetails object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Update the properties of a [certificateConnectorDetails](../resources/intune-raimportcerts-certificateconnectordetails.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ PATCH /deviceManagement/certificateConnectorDetails/{certificateConnectorDetails
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -53,6 +55,7 @@ The following table shows the properties that are required when you create the [
 |machineName|String|Name of the machine hosting this connector service.|
 |enrollmentDateTime|DateTimeOffset|Date/time when this connector was enrolled.|
 |lastCheckinDateTime|DateTimeOffset|Date/time when this connector last connected to the service.|
+|connectorVersion|String|Version of the connector installed.|
 
 
 
@@ -66,14 +69,15 @@ Here is an example of the request.
 ``` http
 PATCH https://graph.microsoft.com/beta/deviceManagement/certificateConnectorDetails/{certificateConnectorDetailsId}
 Content-type: application/json
-Content-length: 278
+Content-length: 328
 
 {
   "@odata.type": "#microsoft.graph.certificateConnectorDetails",
   "connectorName": "Connector Name value",
   "machineName": "Machine Name value",
   "enrollmentDateTime": "2016-12-31T23:57:59.3726057-08:00",
-  "lastCheckinDateTime": "2017-01-01T00:02:46.0431416-08:00"
+  "lastCheckinDateTime": "2017-01-01T00:02:46.0431416-08:00",
+  "connectorVersion": "Connector Version value"
 }
 ```
 
@@ -82,7 +86,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 327
+Content-Length: 377
 
 {
   "@odata.type": "#microsoft.graph.certificateConnectorDetails",
@@ -90,10 +94,7 @@ Content-Length: 327
   "connectorName": "Connector Name value",
   "machineName": "Machine Name value",
   "enrollmentDateTime": "2016-12-31T23:57:59.3726057-08:00",
-  "lastCheckinDateTime": "2017-01-01T00:02:46.0431416-08:00"
+  "lastCheckinDateTime": "2017-01-01T00:02:46.0431416-08:00",
+  "connectorVersion": "Connector Version value"
 }
 ```
-
-
-
-

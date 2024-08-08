@@ -4,23 +4,38 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphusers.NewItemForwardPostRequestBody()
 comment := "comment-value"
-requestBody.SetComment(&comment)
-requestBody.SetToRecipients( []Recipient {
-	msgraphsdk.NewRecipient(),
-emailAddress := msgraphsdk.NewEmailAddress()
-	SetEmailAddress(emailAddress)
+requestBody.SetComment(&comment) 
+
+
+recipient := graphmodels.NewRecipient()
+emailAddress := graphmodels.NewEmailAddress()
 name := "name-value"
-	emailAddress.SetName(&name)
+emailAddress.SetName(&name) 
 address := "address-value"
-	emailAddress.SetAddress(&address)
+emailAddress.SetAddress(&address) 
+recipient.SetEmailAddress(emailAddress)
+
+toRecipients := []graphmodels.Recipientable {
+	recipient,
 }
-messageId := "message-id"
-graphClient.Me().MessagesById(&messageId).Forward(message-id).Post(requestBody)
+requestBody.SetToRecipients(toRecipients)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Me().Messages().ByMessageId("message-id").Forward().Post(context.Background(), requestBody, nil)
 
 
 ```

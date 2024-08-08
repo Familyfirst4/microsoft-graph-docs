@@ -4,17 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.AppRoleAssignmentsRequestBuilderGetQueryParameters{
-	Filter: "resourceId%20eq%208e881353-1735-45af-af21-ee1344582a4d",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  //other-imports
+)
+
+
+requestFilter := "resourceId eq 8e881353-1735-45af-af21-ee1344582a4d"
+
+requestParameters := &graphusers.UserItemAppRoleAssignmentsRequestBuilderGetQueryParameters{
+	Filter: &requestFilter,
 }
-options := &msgraphsdk.AppRoleAssignmentsRequestBuilderGetRequestConfiguration{
+configuration := &graphusers.UserItemAppRoleAssignmentsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-userId := "user-id"
-result, err := graphClient.UsersById(&userId).AppRoleAssignments().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+appRoleAssignments, err := graphClient.Users().ByUserId("user-id").AppRoleAssignments().Get(context.Background(), configuration)
 
 
 ```

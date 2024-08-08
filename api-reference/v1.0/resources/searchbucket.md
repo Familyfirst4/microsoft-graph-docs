@@ -2,8 +2,8 @@
 title: "searchBucket resource type"
 description: "Represents a container for one or more search results that share the same value for the entity field that aggregates them"
 ms.localizationpriority: medium
-author: "nmoreau"
-ms.prod: "search"
+author: "njerigrevious"
+ms.subservice: "search"
 doc_type: "resourcePageType"
 ---
 
@@ -23,7 +23,7 @@ Represents a container for one or more search results that share the same value 
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

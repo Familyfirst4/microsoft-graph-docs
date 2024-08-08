@@ -1,33 +1,31 @@
 ---
 title: "Get group"
 description: "Get the properties and relationships of a group object."
-author: "psaffaie"
+author: "yuhko-msft"
+ms.reviewer: "mbhargav, khotzteam, aadgroupssg"
 ms.localizationpriority: high
-ms.prod: "groups"
+ms.subservice: "entra-groups"
 doc_type: apiPageType
 ---
 
-# Get group 
+# Get group
 
 Namespace: microsoft.graph
 
 Get the properties and relationships of a group object.
 
-This operation returns by default only a subset of all the available properties, as noted in the [Properties](../resources/group.md#properties) section. To get properties that are _not_ returned by default, specify them in a `$select` OData query option. The **hasMembersWithLicenseErrors** and **isArchived** properties are an exception and are not returned in the `$select` query.
+This operation returns by default only a subset of all the available properties, as noted in the [Properties](../resources/group.md#properties) section. To get properties that aren't_ returned by default, specify them in a `$select` OData query option. The **hasMembersWithLicenseErrors** and **isArchived** properties are an exception and aren't returned in the `$select` query.
 
 > **Note:** This request might have replication delays for groups that were recently created, updated, or deleted.
 
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
 
-| Permission type                        | Permissions (from least to most privileged)                                                            |
-| :------------------------------------- | :----------------------------------------------------------------------------------------------------- |
-| Delegated (work or school account)     | GroupMember.Read.All, Group.Read.All, Directory.Read.All, Group.ReadWrite.All, Directory.ReadWrite.All |
-| Delegated (personal Microsoft account) | Not supported.                                                                                         |
-| Application                            | GroupMember.Read.All, Group.Read.All, Directory.Read.All, Group.ReadWrite.All, Directory.ReadWrite.All |
-
-> **Note:** Depending on the group features you're trying to access, permissions might be limited. For more information, see the [Groups](/graph/known-issues#groups) section in [Known issues with Microsoft Graph](/graph/known-issues).
+<!-- { "blockType": "permissions", "name": "group_get" } -->
+[!INCLUDE [permissions-table](../includes/permissions/group-get-permissions.md)]
 
 ## HTTP request
 
@@ -39,11 +37,7 @@ GET /groups/{id}
 
 ## Optional query parameters
 
-You can use `$select` to get specific group properties, including those that are not returned by default.
-
-For more information on OData query options, see [OData Query Parameters](/graph/query-parameters).
-
-### Retrieve extensions and associated data
+You can use `$select` to get specific group properties, including those that aren't returned by default. Extension properties also support query parameters as follows:
 
 | Extension type       | Comments                                                                       |
 |----------------------|--------------------------------------------------------------------------------|
@@ -51,15 +45,17 @@ For more information on OData query options, see [OData Query Parameters](/graph
 | Open extensions      | Returned through the [Get open extension](opentypeextension-get.md) operation. |
 | Directory extensions | Returned by default.                                                           |
 
+For more information on OData query options, see [OData Query Parameters](/graph/query-parameters).
+
 ## Request headers
 
 | Name          | Type   | Description               |
 | :------------ | :----- | :------------------------ |
-| Authorization | string | Bearer {token}. Required. |
+| Authorization | string |Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 
 ## Request body
 
-Do not supply a request body for this method.
+Don't supply a request body for this method.
 
 ## Response
 
@@ -73,21 +69,57 @@ Return all default properties.
 
 #### Request
 
-The following is an example of a GET request.
+Here's an example of a GET request.
 
+
+# [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["b320ee12-b1cd-4cca-b648-a437be61c5cd"],
+  "sampleKeys": ["02bd9fd6-8f93-4758-87c3-1fb73740a315"],
   "name": "get_group"
 }-->
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/groups/b320ee12-b1cd-4cca-b648-a437be61c5cd
+GET https://graph.microsoft.com/v1.0/groups/02bd9fd6-8f93-4758-87c3-1fb73740a315
 ```
+
+# [C#](#tab/csharp)
+[!INCLUDE [sample-code](../includes/snippets/csharp/get-group-csharp-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [CLI](#tab/cli)
+[!INCLUDE [sample-code](../includes/snippets/cli/get-group-cli-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Go](#tab/go)
+[!INCLUDE [sample-code](../includes/snippets/go/get-group-go-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Java](#tab/java)
+[!INCLUDE [sample-code](../includes/snippets/java/get-group-java-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](../includes/snippets/javascript/get-group-javascript-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](../includes/snippets/php/get-group-php-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PowerShell](#tab/powershell)
+[!INCLUDE [sample-code](../includes/snippets/powershell/get-group-powershell-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Python](#tab/python)
+[!INCLUDE [sample-code](../includes/snippets/python/get-group-python-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+---
 
 #### Response
 
-The following is an example of the response. It includes only the default properties.
+The following example shows the response. It includes only the default properties.
 
 > **Note:** The response object shown here might be shortened for readability. All the default properties are returned in an actual call.
 
@@ -104,22 +136,20 @@ Content-type: application/json
 
 {
     "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups/$entity",
-    "@odata.id": "https://graph.microsoft.com/v2/84841066-274d-4ec0-a5c1-276be684bdd3/directoryObjects/b320ee12-b1cd-4cca-b648-a437be61c5cd/Microsoft.DirectoryServices.Group",
-    "id": "b320ee12-b1cd-4cca-b648-a437be61c5cd",
+    "id": "02bd9fd6-8f93-4758-87c3-1fb73740a315",
     "deletedDateTime": null,
     "classification": null,
-    "createdDateTime": "2021-09-13T10:07:01Z",
-    "creationOptions": [],
-    "description": "Self help community for library",
-    "displayName": "Library Assist",
-    "expirationDateTime": "2022-01-11T10:07:01Z",
+    "createdDateTime": "2017-07-31T18:56:16Z",
+    "description": "Welcome to the HR Taskforce team.",
+    "displayName": "HR Taskforce",
+    "expirationDateTime": null,
     "groupTypes": [
         "Unified"
     ],
     "isAssignableToRole": null,
-    "mail": "library@contoso.com",
+    "mail": "HRTaskforce@contoso.com",
     "mailEnabled": true,
-    "mailNickname": "library",
+    "mailNickname": "HRTaskforce",
     "membershipRule": null,
     "membershipRuleProcessingState": null,
     "onPremisesDomainName": null,
@@ -128,78 +158,83 @@ Content-type: application/json
     "onPremisesSamAccountName": null,
     "onPremisesSecurityIdentifier": null,
     "onPremisesSyncEnabled": null,
-    "preferredDataLocation": "EU",
+    "preferredDataLocation": null,
     "preferredLanguage": null,
     "proxyAddresses": [
-        "SPO:SPO_0dbffe23-f6fb-4478-adcd-880daf88bb12@SPO_84841066-274d-4ec0-a5c1-276be684bdd3",
-        "SMTP:library@contoso.com"
+        "SMTP:HRTaskforce@contoso.com",
+        "SPO:SPO_896cf652-b200-4b74-8111-c013f64406cf@SPO_dcd219dd-bc68-4b9b-bf0b-4a33a796be35"
     ],
-    "renewedDateTime": "2021-09-13T10:07:01Z",
+    "renewedDateTime": "2020-01-24T19:01:14Z",
     "resourceBehaviorOptions": [],
-    "resourceProvisioningOptions": [],
+    "resourceProvisioningOptions": [
+        "Team"
+    ],
     "securityEnabled": false,
-    "securityIdentifier": "S-1-12-1-1306860066-1319449225-59104187-458188010",
+    "securityIdentifier": "S-1-12-1-45981654-1196986259-3072312199-363020343",
+    "serviceProvisioningErrors": [],
     "theme": null,
-    "visibility": "Public",
+    "visibility": "Private",
     "onPremisesProvisioningErrors": []
 }
 ```
 
-### Example 2: Return additional properties by using $select
+### Example 2: Return more properties by using $select
 
-Return additional properties by using `$select`.
+Return more properties by using `$select`.
 
 #### Request
 
-The following is an example of a GET request.
+Here's an example of a GET request.
 
 # [HTTP](#tab/http)
 
 <!-- {
   "blockType": "request",
-  "sampleKeys": ["b320ee12-b1cd-4cca-b648-a437be61c5cd"],
+  "sampleKeys": ["02bd9fd6-8f93-4758-87c3-1fb73740a315"],
   "name": "get_group_non_default"
 }-->
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/groups/b320ee12-b1cd-4cca-b648-a437be61c5cd?$select=allowExternalSenders,autoSubscribeNewMembers,isSubscribedByMail,unseenCount
+GET https://graph.microsoft.com/v1.0/groups/02bd9fd6-8f93-4758-87c3-1fb73740a315?$select=allowExternalSenders,autoSubscribeNewMembers,isSubscribedByMail,unseenCount
 ```
 
 # [C#](#tab/csharp)
 [!INCLUDE [sample-code](../includes/snippets/csharp/get-group-non-default-csharp-snippets.md)]
-[!INCLUDE [sample-code](../includes/snippets/csharp/get-group-non-default-csharp-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/get-group-non-default-javascript-snippets.md)]
-[!INCLUDE [sample-code](../includes/snippets/javascript/get-group-non-default-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/get-group-non-default-objc-snippets.md)]
-[!INCLUDE [sample-code](../includes/snippets/objc/get-group-non-default-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Java](#tab/java)
-[!INCLUDE [sample-code](../includes/snippets/java/get-group-non-default-java-snippets.md)]
-[!INCLUDE [sample-code](../includes/snippets/java/get-group-non-default-java-snippets.md)]
+# [CLI](#tab/cli)
+[!INCLUDE [sample-code](../includes/snippets/cli/get-group-non-default-cli-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 # [Go](#tab/go)
 [!INCLUDE [sample-code](../includes/snippets/go/get-group-non-default-go-snippets.md)]
-[!INCLUDE [sample-code](../includes/snippets/go/get-group-non-default-go-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Java](#tab/java)
+[!INCLUDE [sample-code](../includes/snippets/java/get-group-non-default-java-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](../includes/snippets/javascript/get-group-non-default-javascript-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](../includes/snippets/php/get-group-non-default-php-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 # [PowerShell](#tab/powershell)
 [!INCLUDE [sample-code](../includes/snippets/powershell/get-group-non-default-powershell-snippets.md)]
-[!INCLUDE [sample-code](../includes/snippets/powershell/get-group-non-default-powershell-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Python](#tab/python)
+[!INCLUDE [sample-code](../includes/snippets/python/get-group-non-default-python-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 ---
 
 #### Response
 
-The following is an example of the response which includes the requested non-default properties.
+Here's an example of the response that includes the requested non-default properties.
 
 <!-- {
   "blockType": "response",
@@ -214,11 +249,11 @@ Content-type: application/json
 
 {
     "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#groups(allowExternalSenders,autoSubscribeNewMembers,isSubscribedByMail,unseenCount)/$entity",
-    "id": "b320ee12-b1cd-4cca-b648-a437be61c5cd",
+    "id": "02bd9fd6-8f93-4758-87c3-1fb73740a315",
     "allowExternalSenders": false,
     "autoSubscribeNewMembers": false,
     "isSubscribedByMail": false,
-    "unseenCount": 0
+    "unseenCount": 3
 }
 ```
 

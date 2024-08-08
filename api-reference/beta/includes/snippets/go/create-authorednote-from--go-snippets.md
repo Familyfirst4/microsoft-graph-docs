@@ -4,18 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewAuthoredNote()
-content := msgraphsdk.NewItemBody()
-requestBody.SetContent(content)
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewAuthoredNote()
+content := graphmodels.NewItemBody()
 content := "Please take a look at the files tagged with follow up"
-content.SetContent(&content)
-contentType := "text"
-content.SetContentType(&contentType)
-subjectRightsRequestId := "subjectRightsRequest-id"
-result, err := graphClient.Privacy().SubjectRightsRequestsById(&subjectRightsRequestId).Notes().Post(requestBody)
+content.SetContent(&content) 
+contentType := graphmodels.TEXT_BODYTYPE 
+content.SetContentType(&contentType) 
+requestBody.SetContent(content)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+notes, err := graphClient.Privacy().SubjectRightsRequests().BySubjectRightsRequestId("subjectRightsRequest-id").Notes().Post(context.Background(), requestBody, nil)
 
 
 ```

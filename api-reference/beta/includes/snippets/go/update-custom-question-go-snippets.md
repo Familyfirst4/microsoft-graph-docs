@@ -4,22 +4,31 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewMeetingRegistrationQuestion()
-answerInputType := "radioButton"
-requestBody.SetAnswerInputType(&answerInputType)
-requestBody.SetAnswerOptions( []String {
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewMeetingRegistrationQuestion()
+answerInputType := graphmodels.RADIOBUTTON_ANSWERINPUTTYPE 
+requestBody.SetAnswerInputType(&answerInputType) 
+answerOptions := []string {
 	"Software Engineer",
 	"Software Development Manager",
 	"Product Manager",
 	"Data scientist",
 	"Other",
 }
-onlineMeetingId := "onlineMeeting-id"
-meetingRegistrationQuestionId := "meetingRegistrationQuestion-id"
-graphClient.Me().OnlineMeetingsById(&onlineMeetingId).Registration().CustomQuestionsById(&meetingRegistrationQuestionId).Patch(requestBody)
+requestBody.SetAnswerOptions(answerOptions)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+customQuestions, err := graphClient.Me().OnlineMeetings().ByOnlineMeetingId("onlineMeeting-id").Registration().CustomQuestions().ByMeetingRegistrationQuestionId("meetingRegistrationQuestion-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

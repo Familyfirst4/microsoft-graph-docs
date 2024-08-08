@@ -4,18 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewUser()
-passwordProfile := msgraphsdk.NewPasswordProfile()
-requestBody.SetPasswordProfile(passwordProfile)
-forceChangePasswordNextSignIn := false
-passwordProfile.SetForceChangePasswordNextSignIn(&forceChangePasswordNextSignIn)
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewUser()
+passwordProfile := graphmodels.NewPasswordProfile()
+forceChangePasswordNextSignIn := true
+passwordProfile.SetForceChangePasswordNextSignIn(&forceChangePasswordNextSignIn) 
 password := "xWwvJ]6NMw+bWH-d"
-passwordProfile.SetPassword(&password)
-userId := "user-id"
-graphClient.UsersById(&userId).Patch(requestBody)
+passwordProfile.SetPassword(&password) 
+requestBody.SetPasswordProfile(passwordProfile)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+users, err := graphClient.Users().ByUserId("user-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

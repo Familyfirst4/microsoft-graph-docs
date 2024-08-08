@@ -1,9 +1,9 @@
 ---
 title: "validateFilter action"
-description: "Not yet documented"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Intune Policyset Deviceandappmanagementassignmentfilter Validatefilter Api ."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -15,9 +15,11 @@ Namespace: microsoft.graph
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Not yet documented
 
-## Prerequisites
+
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ POST /deviceManagement/assignmentFilters/validateFilter
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -48,7 +50,7 @@ The following table shows the parameters that can be used with this action.
 
 |Property|Type|Description|
 |:---|:---|:---|
-|deviceAndAppManagementAssignmentFilter|[deviceAndAppManagementAssignmentFilter](../resources/intune-policyset-deviceandappmanagementassignmentfilter.md)|Not yet documented|
+|deviceAndAppManagementAssignmentFilter|[deviceAndAppManagementAssignmentFilter](../resources/intune-policyset-deviceandappmanagementassignmentfilter.md)||
 
 
 
@@ -63,7 +65,7 @@ Here is an example of the request.
 POST https://graph.microsoft.com/beta/deviceManagement/assignmentFilters/validateFilter
 
 Content-type: application/json
-Content-length: 520
+Content-length: 854
 
 {
   "deviceAndAppManagementAssignmentFilter": {
@@ -77,7 +79,17 @@ Content-length: 520
     "rule": "Rule value",
     "roleScopeTags": [
       "Role Scope Tags value"
-    ]
+    ],
+    "payloads": [
+      {
+        "@odata.type": "microsoft.graph.payloadByFilter",
+        "payloadId": "Payload Id value",
+        "payloadType": "deviceConfigurationAndCompliance",
+        "groupId": "Group Id value",
+        "assignmentFilterType": "include"
+      }
+    ],
+    "assignmentFilterManagementType": "apps"
   }
 }
 ```
@@ -96,7 +108,3 @@ Content-Length: 120
   }
 }
 ```
-
-
-
-

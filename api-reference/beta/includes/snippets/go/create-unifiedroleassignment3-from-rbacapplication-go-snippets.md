@@ -4,17 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewUnifiedRoleAssignment()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewUnifiedRoleAssignment()
 principalId := "679a9213-c497-48a4-830a-8d3d25d94ddc"
-requestBody.SetPrincipalId(&principalId)
+requestBody.SetPrincipalId(&principalId) 
 roleDefinitionId := "ae79f266-94d4-4dab-b730-feca7e132178"
-requestBody.SetRoleDefinitionId(&roleDefinitionId)
+requestBody.SetRoleDefinitionId(&roleDefinitionId) 
 appScopeId := "/AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997"
-requestBody.SetAppScopeId(&appScopeId)
-result, err := graphClient.RoleManagement().EntitlementManagement().RoleAssignments().Post(requestBody)
+requestBody.SetAppScopeId(&appScopeId) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+roleAssignments, err := graphClient.RoleManagement().EntitlementManagement().RoleAssignments().Post(context.Background(), requestBody, nil)
 
 
 ```

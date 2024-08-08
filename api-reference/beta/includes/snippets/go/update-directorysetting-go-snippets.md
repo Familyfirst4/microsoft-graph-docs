@@ -4,19 +4,33 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewDirectorySetting()
-requestBody.SetValues( []SettingValue {
-	msgraphsdk.NewSettingValue(),
-	SetAdditionalData(map[string]interface{}{
-		"name": "CustomBlockedWordsList",
-		"value": "Contoso",
-	}
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewDirectorySetting()
+
+
+settingValue := graphmodels.NewSettingValue()
+name := "CustomBlockedWordsList"
+settingValue.SetName(&name) 
+value := "Contoso"
+settingValue.SetValue(&value) 
+
+values := []graphmodels.SettingValueable {
+	settingValue,
 }
-directorySettingId := "directorySetting-id"
-graphClient.SettingsById(&directorySettingId).Patch(requestBody)
+requestBody.SetValues(values)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+settings, err := graphClient.Settings().ByDirectorySettingId("directorySetting-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

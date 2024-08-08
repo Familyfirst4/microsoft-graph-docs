@@ -3,7 +3,7 @@ title: "case resource type"
 description: "In the context of eDiscovery, contains custodians, holds, collections, review sets, and exports."
 author: "mahage-msft"
 ms.localizationpriority: medium
-ms.prod: "ediscovery"
+ms.subservice: "ediscovery"
 doc_type: "resourcePageType"
 ---
 
@@ -16,7 +16,7 @@ Namespace: microsoft.graph.ediscovery
 In the context of eDiscovery, contains custodians, holds, collections, review sets, and exports. For details, see [Advanced eDiscovery](/microsoft-365/compliance/overview-ediscovery-20).
 
 >[!NOTE]
->Starting in September 2021, POST operations will create large cases. To learn more about large cases, see [Use large cases in Advanced eDiscovery](/microsoft-365/compliance/advanced-ediscovery-large-cases). For details, see the [Changes to the Microsoft 365 advanced eDiscovery create case API](https://go.microsoft.com/fwlink/?linkid=2172604) blog post.
+>Starting in September 2021, POST operations will create large cases. To learn more about large cases, see [Use large cases in Advanced eDiscovery](/microsoft-365/compliance/advanced-ediscovery-new-case-format). For details, see the [Changes to the Microsoft 365 advanced eDiscovery create case API](https://go.microsoft.com/fwlink/?linkid=2172604) blog post.
 
 ## Methods
 
@@ -91,7 +91,7 @@ In the context of eDiscovery, contains custodians, holds, collections, review se
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

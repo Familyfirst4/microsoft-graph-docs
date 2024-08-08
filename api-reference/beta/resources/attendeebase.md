@@ -3,8 +3,8 @@ title: "attendeeBase resource type"
 description: "The type of attendee."
 ms.localizationpriority: medium
 doc_type: resourcePageType
-ms.prod: calendar
-author: "harini84"
+ms.subservice: calendar
+author: "iamgirishck"
 ---
 
 # attendeeBase resource type
@@ -19,7 +19,7 @@ Derived from [recipient](recipient.md).
 
 ## JSON representation
 
-Here is a JSON representation of the resource
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

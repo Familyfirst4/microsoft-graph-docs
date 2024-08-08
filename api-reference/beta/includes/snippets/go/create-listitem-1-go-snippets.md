@@ -4,20 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewListItem()
-fields := msgraphsdk.NewFieldValueSet()
-requestBody.SetFields(fields)
-fields.SetAdditionalData(map[string]interface{}{
-	"Title": "Widget",
-	"Color": "Purple",
-	"Weight": ,
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewListItem()
+fields := graphmodels.NewFieldValueSet()
+additionalData := map[string]interface{}{
+	"Title" : "Widget", 
+	"Color" : "Purple", 
+	"weight" : int32(32) , 
 }
-siteId := "site-id"
-listId := "list-id"
-result, err := graphClient.SitesById(&siteId).ListsById(&listId).Items().Post(requestBody)
+fields.SetAdditionalData(additionalData)
+requestBody.SetFields(fields)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+items, err := graphClient.Sites().BySiteId("site-id").Lists().ByListId("list-id").Items().Post(context.Background(), requestBody, nil)
 
 
 ```

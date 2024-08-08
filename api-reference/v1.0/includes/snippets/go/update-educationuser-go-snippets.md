@@ -4,20 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewEducationUser()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewEducationUser()
 displayName := "Rogelio Cazares"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 givenName := "Rogelio"
-requestBody.SetGivenName(&givenName)
+requestBody.SetGivenName(&givenName) 
 middleName := "Fernando"
-requestBody.SetMiddleName(&middleName)
+requestBody.SetMiddleName(&middleName) 
 surname := "Cazares"
-requestBody.SetSurname(&surname)
-educationUserId := "educationUser-id"
-graphClient.Education().UsersById(&educationUserId).Patch(requestBody)
+requestBody.SetSurname(&surname) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+users, err := graphClient.Education().Users().ByEducationUserId("educationUser-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

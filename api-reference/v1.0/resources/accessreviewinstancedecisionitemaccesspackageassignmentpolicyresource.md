@@ -1,9 +1,9 @@
 ---
 title: "accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource resource type"
 description: "Represents an access package assignment policy for which access is represented through an accessReviewInstanceDecisionItem object."
-author: "zhusijia26"
+author: "jyothig123"
 ms.localizationpriority: medium
-ms.prod: "governance"
+ms.subservice: "entra-id-governance"
 doc_type: resourcePageType
 ---
 
@@ -30,7 +30,7 @@ Inherits from [accessReviewInstanceDecisionItemResource](accessreviewinstancedec
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource",
@@ -41,11 +41,11 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource",
-  "id": "String (identifier)",
-  "displayName": "String",
-  "type": "String",
+  "accessPackageDisplayName": "String",
   "accessPackageId": "String",
-  "accessPackageDisplayName": "String"
+  "displayName": "String",
+  "id": "String (identifier)",
+  "type": "String"
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "jaiprakashmb"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: intune
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->
@@ -15,6 +15,6 @@ ms.topic: include
 
 The preceding limits apply to the following resources:  
 
-| <!-- fake header-->                                                                                                                                                                                                                                                                                                                                                                            |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul> <li> [deviceManagementDomainJoinConnector](/graph/api/resources/devicemanagementdomainjoinconnector)  </ul> |
+| <!-- fake header--> |
+|---|
+| <ul> <li> [deviceManagementDomainJoinConnector](/graph/api/resources/intune-odj-devicemanagementdomainjoinconnector)  </ul> |

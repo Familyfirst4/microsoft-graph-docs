@@ -4,19 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewTokenIssuancePolicy()
-requestBody.SetDefinition( []String {
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewTokenIssuancePolicy()
+definition := []string {
 	"definition-value",
 }
+requestBody.SetDefinition(definition)
 displayName := "displayName-value"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 isOrganizationDefault := true
-requestBody.SetIsOrganizationDefault(&isOrganizationDefault)
-tokenIssuancePolicyId := "tokenIssuancePolicy-id"
-graphClient.Policies().TokenIssuancePoliciesById(&tokenIssuancePolicyId).Patch(requestBody)
+requestBody.SetIsOrganizationDefault(&isOrganizationDefault) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+tokenIssuancePolicies, err := graphClient.Policies().TokenIssuancePolicies().ByTokenIssuancePolicyId("tokenIssuancePolicy-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

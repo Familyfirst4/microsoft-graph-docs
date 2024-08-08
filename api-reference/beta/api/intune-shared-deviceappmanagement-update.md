@@ -1,8 +1,8 @@
 ---
 title: "Update deviceAppManagement"
 description: "Update the properties of a deviceAppManagement object."
-author: "rolyon"
-localization_priority: Normal
+author: "jaiprakashmb"
+ms.localizationpriority: medium
 ms.prod: "intune"
 doc_type: apiPageType
 ---
@@ -16,7 +16,7 @@ Namespace: microsoft.graph
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
 Update the properties of a [deviceAppManagement](../resources/intune-shared-deviceappmanagement.md) object.
-## Prerequisites
+        ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).  Note that the appropriate permission varies according to the workflow.
 
 |Permission type|Permissions (from most to least privileged)|
@@ -28,6 +28,8 @@ One of the following permissions is required to call this API. To learn more, in
 | Application | |
 | &nbsp; &nbsp; **Apps**, **books**, **onboarding**, **Partner Integration**, or **Policy Set** | DeviceManagementApps.ReadWrite.All |
 | &nbsp; &nbsp; **Device management** | DeviceManagementManagedDevices.ReadWrite.All |
+
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
 
 ## HTTP Request
 <!-- {
@@ -41,7 +43,7 @@ PATCH /deviceAppManagement
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -92,12 +94,3 @@ Content-Length: 110
   "id": "bbb801a3-01a3-bbb8-a301-b8bba301b8bb"
 }
 ```
-
-
-
-
-
-
-
-
-

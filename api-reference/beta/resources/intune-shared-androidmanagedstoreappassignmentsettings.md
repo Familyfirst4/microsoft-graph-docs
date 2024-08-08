@@ -1,19 +1,19 @@
 ---
 title: "androidManagedStoreAppAssignmentSettings resource type"
 description: "Contains properties used to assign an Android Managed Store mobile app to a group."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # androidManagedStoreAppAssignmentSettings resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Contains properties used to assign an Android Managed Store mobile app to a group.
 
@@ -45,7 +45,3 @@ Here is a JSON representation of the resource.
   "autoUpdateMode": "String"
 }
 ```
-
-
-
-

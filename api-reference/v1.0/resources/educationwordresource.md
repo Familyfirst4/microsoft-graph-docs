@@ -3,7 +3,7 @@ title: "educationWordResource resource type"
 description: "A subclass of educationResource."
 ms.localizationpriority: medium
 author: "mmast-msft"
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: resourcePageType
 ---
 
@@ -20,16 +20,16 @@ assignment or submission.
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|fileUrl|String|Location of the file on disk.|
 |createdBy|String|The display name of the user that created this object.|
 |createdDateTime|DateTimeOffset|Date time the resoruce was added.|
 |displayName|string|The display name of the resource.|
+|fileUrl|String|Location of the file on disk.|
 |lastModifiedBy|[identitySet](identityset.md)|The last user to modify the resource.|
 |lastModifiedDateTime|DateTimeOffset|The date and time when the resource was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`.|
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -41,10 +41,10 @@ The following is a JSON representation of the resource.
 
 ```json
 {
-  "fileUrl": "String",
   "createdBy": "String (User)",
   "createdDateTime": "String (timestamp)",
   "displayName": "String",
+  "fileUrl": "String",
   "lastModifiedBy": "String (User)",
   "lastModifiedDateTime": "String (timestamp)"
 }

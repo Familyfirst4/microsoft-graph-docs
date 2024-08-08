@@ -4,27 +4,40 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphprint "github.com/microsoftgraph/msgraph-beta-sdk-go/print"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphprint.NewCreatePostRequestBody()
 displayName := "Test Printer"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 manufacturer := "Test Printer Manufacturer"
-requestBody.SetManufacturer(&manufacturer)
+requestBody.SetManufacturer(&manufacturer) 
 model := "Test Printer Model"
-requestBody.SetModel(&model)
-requestBody.SetPhysicalDeviceId(nil)
+requestBody.SetModel(&model) 
+physicalDeviceId := null
+requestBody.SetPhysicalDeviceId(&physicalDeviceId) 
 hasPhysicalDevice := false
-requestBody.SetHasPhysicalDevice(&hasPhysicalDevice)
-certificateSigningRequest := msgraphsdk.NewPrintCertificateSigningRequest()
-requestBody.SetCertificateSigningRequest(certificateSigningRequest)
+requestBody.SetHasPhysicalDevice(&hasPhysicalDevice) 
+certificateSigningRequest := graphmodels.NewPrintCertificateSigningRequest()
 content := "{content}"
-certificateSigningRequest.SetContent(&content)
+certificateSigningRequest.SetContent(&content) 
 transportKey := "{sampleTransportKey}"
-certificateSigningRequest.SetTransportKey(&transportKey)
-requestBody.SetConnectorId(nil)
-graphClient.Print().Printers().Create().Post(requestBody)
+certificateSigningRequest.SetTransportKey(&transportKey) 
+requestBody.SetCertificateSigningRequest(certificateSigningRequest)
+connectorId := null
+requestBody.SetConnectorId(&connectorId) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Print().Printers().Create().Post(context.Background(), requestBody, nil)
 
 
 ```

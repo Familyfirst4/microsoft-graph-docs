@@ -1,9 +1,9 @@
 ---
 title: "stateManagementSetting enum type"
 description: "State Management Setting."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -21,8 +21,3 @@ State Management Setting.
 |notConfigured|0|Not configured.|
 |blocked|1|Blocked.|
 |allowed|2|Allowed.|
-
-
-
-
-

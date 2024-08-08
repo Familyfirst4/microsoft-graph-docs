@@ -2,8 +2,8 @@
 title: "physicalAddress resource type"
 description: "Represents the street address of a resource such as a contact or event."
 ms.localizationpriority: medium
-author: "harini84"
-ms.prod: "outlook"
+author: "iamgirishck"
+ms.subservice: "outlook"
 doc_type: resourcePageType
 ---
 
@@ -27,10 +27,13 @@ Represents the street address of a resource such as a contact or event.
 |street|String|The street.|
 |type|physicalAddressType|The type of address. Possible values are: `unknown`, `home`, `business`, `other`.|
 
+## Relationships
+
+None.
 
 ## JSON representation
 
-Here is a JSON representation of the resource
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

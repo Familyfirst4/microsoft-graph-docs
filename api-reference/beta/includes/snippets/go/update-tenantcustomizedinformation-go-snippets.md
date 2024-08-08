@@ -4,35 +4,43 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewTenantCustomizedInformation()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodelsmanagedtenants "github.com/microsoftgraph/msgraph-beta-sdk-go/models/managedtenants"
+	  //other-imports
+)
+
+requestBody := graphmodelsmanagedtenants.NewTenantCustomizedInformation()
 tenantId := "String"
-requestBody.SetTenantId(&tenantId)
-requestBody.SetContacts( []TenantContactInformation {
-	msgraphsdk.NewTenantContactInformation(),
+requestBody.SetTenantId(&tenantId) 
+
+
+tenantContactInformation := graphmodelsmanagedtenants.NewTenantContactInformation()
 name := "String"
-	SetName(&name)
+tenantContactInformation.SetName(&name) 
 title := "String"
-	SetTitle(&title)
+tenantContactInformation.SetTitle(&title) 
 email := "String"
-	SetEmail(&email)
+tenantContactInformation.SetEmail(&email) 
 phone := "String"
-	SetPhone(&phone)
+tenantContactInformation.SetPhone(&phone) 
 notes := "String"
-	SetNotes(&notes)
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "microsoft.graph.managedTenants.tenantContactInformation",
-	}
+tenantContactInformation.SetNotes(&notes) 
+
+contacts := []graphmodelsmanagedtenants.TenantContactInformationable {
+	tenantContactInformation,
 }
+requestBody.SetContacts(contacts)
 website := "String"
-requestBody.SetWebsite(&website)
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#microsoft.graph.managedTenants.tenantCustomizedInformation",
-}
-tenantCustomizedInformationId := "tenantCustomizedInformation-id"
-graphClient.TenantRelationships().ManagedTenants().TenantsCustomizedInformationById(&tenantCustomizedInformationId).Patch(requestBody)
+requestBody.SetWebsite(&website) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+tenantsCustomizedInformation, err := graphClient.TenantRelationships().ManagedTenants().TenantsCustomizedInformation().ByTenantCustomizedInformationId("tenantCustomizedInformation-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

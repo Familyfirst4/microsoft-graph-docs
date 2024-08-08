@@ -4,38 +4,57 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewChatMessage()
-body := msgraphsdk.NewItemBody()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewChatMessage()
+body := graphmodels.NewItemBody()
+contentType := graphmodels.HTML_BODYTYPE 
+body.SetContentType(&contentType) 
+content := "<div><div><at id=\"0\">GraphTesting</at>&nbsp;Hello team</div></div>"
+body.SetContent(&content) 
 requestBody.SetBody(body)
-contentType := "html"
-body.SetContentType(&contentType)
-content := "<div><div><at id="0">GraphTesting</at>&nbsp;Hello team</div></div>"
-body.SetContent(&content)
-requestBody.SetMentions( []ChatMessageMention {
-	msgraphsdk.NewChatMessageMention(),
+
+
+chatMessageMention := graphmodels.NewChatMessageMention()
 id := int32(0)
-	SetId(&id)
+chatMessageMention.SetId(&id) 
 mentionText := "GraphTesting"
-	SetMentionText(&mentionText)
-mentioned := msgraphsdk.NewChatMessageMentionedIdentitySet()
-	SetMentioned(mentioned)
-conversation := msgraphsdk.NewTeamworkConversationIdentity()
-	mentioned.SetConversation(conversation)
+chatMessageMention.SetMentionText(&mentionText) 
+mentioned := graphmodels.NewChatMessageMentionedIdentitySet()
+conversation := graphmodels.NewTeamworkConversationIdentity()
 id := "68a3e365-f7d9-4a56-b499-24332a9cc572"
-	conversation.SetId(&id)
+conversation.SetId(&id) 
 displayName := "GraphTesting"
-	conversation.SetDisplayName(&displayName)
-conversationIdentityType := "team"
-	conversation.SetConversationIdentityType(&conversationIdentityType)
+conversation.SetDisplayName(&displayName) 
+conversationIdentityType := graphmodels.TEAM_TEAMWORKCONVERSATIONIDENTITYTYPE 
+conversation.SetConversationIdentityType(&conversationIdentityType) 
+mentioned.SetConversation(conversation)
+chatMessageMention.SetMentioned(mentioned)
+
+mentions := []graphmodels.ChatMessageMentionable {
+	chatMessageMention,
 }
-requestBody.SetReactions( []ChatMessageReaction {
+requestBody.SetMentions(mentions)
+reactions := []graphmodels.ChatMessageReactionable {
+
 }
-teamId := "team-id"
-channelId := "channel-id"
-result, err := graphClient.TeamsById(&teamId).ChannelsById(&channelId).Messages().Post(requestBody)
+requestBody.SetReactions(reactions)
+messageHistory := []graphmodels.ChatMessageHistoryItemable {
+
+}
+requestBody.SetMessageHistory(messageHistory)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+messages, err := graphClient.Teams().ByTeamId("team-id").Channels().ByChannelId("channel-id").Messages().Post(context.Background(), requestBody, nil)
 
 
 ```

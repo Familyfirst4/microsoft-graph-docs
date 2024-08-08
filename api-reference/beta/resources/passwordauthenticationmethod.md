@@ -2,9 +2,11 @@
 title: "passwordAuthenticationMethod resource type"
 description: "A representation of a password registered to a user."
 ms.localizationpriority: medium
-author: "mmcla"
-ms.prod: "identity-and-sign-in"
+author: "zhvolosh"
+ms.reviewer: intelligentaccesspm
+ms.subservice: "entra-sign-in"
 doc_type: "resourcePageType"
+toc.title: Password
 ---
 
 # passwordAuthenticationMethod resource type
@@ -15,19 +17,22 @@ Namespace: microsoft.graph
 
 A representation of a user's password. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
 
+This is a derived type that inherits from the [authenticationMethod](authenticationmethod.md) resource type.
+
 ## Methods
 
 | Method       | Return Type | Description |
 |:-------------|:------------|:------------|
-|[List passwordAuthenticationMethods](../api/authentication-list-passwordmethods.md) | [passwordAuthenticationMethod](passwordauthenticationmethod.md) collection | Read the properties and relationships of all of this user's **passwordAuthenticationMethod** objects. |
-|[Get passwordAuthenticationMethod](../api/passwordauthenticationmethod-get.md) | [passwordAuthenticationMethod](passwordauthenticationmethod.md) | Read the properties and relationships of a **passwordAuthenticationMethod** object. |
-|[Reset password](../api/passwordauthenticationmethod-resetpassword.md)|None|Reset a user's password in the cloud and, if synced, on-premises.|
+|[List](../api/authentication-list-passwordmethods.md) | [passwordAuthenticationMethod](passwordauthenticationmethod.md) collection | Read the properties and relationships of all of this user's **passwordAuthenticationMethod** objects. |
+|[Get](../api/passwordauthenticationmethod-get.md) | [passwordAuthenticationMethod](passwordauthenticationmethod.md) | Read the properties and relationships of a **passwordAuthenticationMethod** object. |
+|[Reset](../api/authenticationmethod-resetpassword.md)|None|Reset a user's password in the cloud and, if synced, on-premises.|
+|[Get long running operation](../api/longrunningoperation-get.md)|None|Get the status of the password reset long running operation if the reset operation returned a **Location** object.|
 
 ## Properties
 
 | Property     | Type        | Description |
 |:-------------|:------------|:------------|
-|creationDateTime|DateTimeOffset|The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`.|
+|createdDateTime|DateTimeOffset|The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`.|
 |id|String| The identifier of this password registered to this user. This is generally `28c10230-6103-485e-b985-444c60001490`. Read-only.|
 |password|String|For security, the password is always returned as `null` from a LIST or GET operation.|
 
@@ -35,9 +40,9 @@ A representation of a user's password. For security, the password itself will ne
 
 None.
 
-## JSON representation
+The following JSON representation shows the resource type.
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -50,7 +55,8 @@ The following is a JSON representation of the resource.
 
 ```json
 {
-  "creationDateTime": "String (timestamp)",
+  "@odata.type": "#microsoft.graph.passwordAuthenticationMethod",
+  "createdDateTime": "String (timestamp)",
   "id": "String (identifier)",
   "password": "String"
 }

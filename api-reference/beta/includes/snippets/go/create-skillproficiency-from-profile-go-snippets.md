@@ -4,23 +4,35 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewSkillProficiency()
-requestBody.SetCategories( []String {
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewSkillProficiency()
+categories := []string {
 	"Professional",
 }
-allowedAudiences := "organization"
-requestBody.SetAllowedAudiences(&allowedAudiences)
+requestBody.SetCategories(categories)
+allowedAudiences := graphmodels.ORGANIZATION_ALLOWEDAUDIENCES 
+requestBody.SetAllowedAudiences(&allowedAudiences) 
 displayName := "API Design"
-requestBody.SetDisplayName(&displayName)
-proficiency := "generalProfessional"
-requestBody.SetProficiency(&proficiency)
-requestBody.SetCollaborationTags( []String {
+requestBody.SetDisplayName(&displayName) 
+proficiency := graphmodels.GENERALPROFESSIONAL_SKILLPROFICIENCYLEVEL 
+requestBody.SetProficiency(&proficiency) 
+collaborationTags := []string {
 	"ableToMentor",
 }
-result, err := graphClient.Me().Profile().Skills().Post(requestBody)
+requestBody.SetCollaborationTags(collaborationTags)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+skills, err := graphClient.Me().Profile().Skills().Post(context.Background(), requestBody, nil)
 
 
 ```

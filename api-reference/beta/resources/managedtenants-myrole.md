@@ -3,7 +3,7 @@ title: "myRole resource type"
 description: "Represents the role assignments to a signed-in user for a managed tenant."
 author: "idwilliams"
 ms.localizationpriority: medium
-ms.prod: "microsoft-365-lighthouse"
+ms.subservice: "m365-lighthouse"
 doc_type: resourcePageType
 ---
 
@@ -18,19 +18,19 @@ Represents the role assignments to a signed-in user for a [managed tenant](../re
 ## Methods
 |Method|Return type|Description|
 |:---|:---|:---|
-|[List myRoles](../api/managedtenants-managedtenant-list-myroles.md)|[microsoft.graph.managedTenants.myRole](../resources/managedtenants-myrole.md) collection|Get the roles that the signed-in user has through a delegated relationship across [managed tenants](../resources/managedtenants-tenant.md).|
+|[List](../api/managedtenants-managedtenant-list-myroles.md)|[microsoft.graph.managedTenants.myRole](../resources/managedtenants-myrole.md) collection|Get the roles that the signed-in user has through a delegated relationship across [managed tenants](../resources/managedtenants-tenant.md).|
 
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
 |assignments|[microsoft.graph.managedTenants.roleAssignment](../resources/managedtenants-roleassignment.md) collection|A collection of role assignments for the [managed tenant](../resources/managedtenants-tenant.md).|
-|tenantId|String|The Azure Active Directory tenant identifier for the [managed tenant](../resources/managedtenants-tenant.md). Optional. Read-only.|
+|tenantId|String|The Microsoft Entra tenant identifier for the [managed tenant](../resources/managedtenants-tenant.md). Optional. Read-only.|
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

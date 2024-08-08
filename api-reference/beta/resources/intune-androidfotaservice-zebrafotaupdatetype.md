@@ -1,9 +1,9 @@
 ---
 title: "zebraFotaUpdateType enum type"
 description: "Represents various update types for Zebra FOTA deployment."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -24,7 +24,3 @@ Represents various update types for Zebra FOTA deployment.
 |latest|1|The latest released update becomes the target OS. Latest may update the device to a new Android version.|
 |auto|2|The device always looks for the latest package available in the repo and tries to update whenever a new package is available. This continues until the admin cancels the auto update.|
 |unknownFutureValue|99|Unknown future enum value.|
-
-
-
-

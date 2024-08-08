@@ -4,33 +4,54 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
-message := msgraphsdk.NewMessage()
-requestBody.SetMessage(message)
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-beta-sdk-go/users"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphusers.NewItemSendMailPostRequestBody()
+message := graphmodels.NewMessage()
 subject := "Project kickoff"
-message.SetSubject(&subject)
-message.SetToRecipients( []Recipient {
-	msgraphsdk.NewRecipient(),
-emailAddress := msgraphsdk.NewEmailAddress()
-	SetEmailAddress(emailAddress)
+message.SetSubject(&subject) 
+
+
+recipient := graphmodels.NewRecipient()
+emailAddress := graphmodels.NewEmailAddress()
 name := "Samantha Booth"
-	emailAddress.SetName(&name)
-address := "samanthab@contoso.onmicrosoft.com"
-	emailAddress.SetAddress(&address)
+emailAddress.SetName(&name) 
+address := "samanthab@contoso.com"
+emailAddress.SetAddress(&address) 
+recipient.SetEmailAddress(emailAddress)
+
+toRecipients := []graphmodels.Recipientable {
+	recipient,
 }
-message.SetMentions( []Mention {
-	msgraphsdk.NewMention(),
-mentioned := msgraphsdk.NewEmailAddress()
-	SetMentioned(mentioned)
+message.SetToRecipients(toRecipients)
+
+
+mention := graphmodels.NewMention()
+mentioned := graphmodels.NewEmailAddress()
 name := "Dana Swope"
-	mentioned.SetName(&name)
-address := "danas@contoso.onmicrosoft.com"
-	mentioned.SetAddress(&address)
+mentioned.SetName(&name) 
+address := "danas@contoso.com"
+mentioned.SetAddress(&address) 
+mention.SetMentioned(mentioned)
+
+mentions := []graphmodels.Mentionable {
+	mention,
 }
-graphClient.Me().SendMail().Post(requestBody)
+message.SetMentions(mentions)
+requestBody.SetMessage(message)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Me().SendMail().Post(context.Background(), requestBody, nil)
 
 
 ```

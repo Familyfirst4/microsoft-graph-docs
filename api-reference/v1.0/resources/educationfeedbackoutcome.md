@@ -3,28 +3,29 @@ title: "educationFeedbackOutcome resource type"
 description: "An educationOutcome that gives feedback in the form of text."
 ms.localizationpriority: medium
 author: "sharad-sharma-msft"
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: "resourcePageType"
+toc.title: Feedback outcome
 ---
 
 # educationFeedbackOutcome resource type
 
 Namespace: microsoft.graph
 
-Represents feedback on an [educationOutcome](educationoutcome.md) object in the form of text. 
+Represents feedback on an [educationOutcome](educationoutcome.md) object in the form of text.
 
 ## Methods
 
 | Method       | Return Type | Description |
 |:-------------|:------------|:------------|
-| [Update educationOutcome](../api/educationoutcome-update.md) | [educationOutcome](educationoutcome.md) | Update educationOutcome object. |
+| [Update outcome](../api/educationoutcome-update.md) | [educationOutcome](educationoutcome.md) | Update educationOutcome object. |
 
 ## Properties
 
 | Property     | Type        | Description |
 |:-------------|:------------|:------------|
-|id|String|Unique identifier for the educationFeedbackOutcome.|
 |feedback|[educationFeedback](educationfeedback.md)|Teacher's written feedback to the student.|
+|id|String|Unique identifier for the educationFeedbackOutcome.|
 |publishedFeedback|[educationFeedback](educationfeedback.md)|A copy of the feedback property that is made when the grade is released to the student.|
 
 ## Relationships
@@ -33,7 +34,7 @@ None
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -46,8 +47,8 @@ The following is a JSON representation of the resource.
 
 ```json
 {
-  "id": "String (identifier)",
   "feedback": {"@odata.type": "microsoft.graph.educationFeedback"},
+  "id": "String (identifier)",
   "publishedFeedback": {"@odata.type": "microsoft.graph.educationFeedback"}
 }
 ```
@@ -61,4 +62,3 @@ The following is a JSON representation of the resource.
   "section": "documentation",
   "tocPath": ""
 }-->
-

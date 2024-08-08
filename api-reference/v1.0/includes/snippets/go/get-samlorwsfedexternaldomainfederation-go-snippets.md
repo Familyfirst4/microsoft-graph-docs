@@ -4,17 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.IdentityProviderBaseRequestBuilderGetQueryParameters{
-	Filter: "domains/any(x:%20x/id%20eq%20'contoso.com')",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphdirectory "github.com/microsoftgraph/msgraph-sdk-go/directory"
+	  //other-imports
+)
+
+
+requestFilter := "domains/any(x: x/id eq 'contoso.com')"
+
+requestParameters := &graphdirectory.DirectoryFederationConfigurationItemRequestBuilderGetQueryParameters{
+	Filter: &requestFilter,
 }
-options := &msgraphsdk.IdentityProviderBaseRequestBuilderGetRequestConfiguration{
+configuration := &graphdirectory.DirectoryFederationConfigurationItemRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-identityProviderBaseId := "identityProviderBase-id"
-result, err := graphClient.Directory().FederationConfigurationsById(&identityProviderBaseId).GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+federationConfigurations, err := graphClient.Directory().FederationConfigurations().ByIdentityProviderBaseId("identityProviderBase-id").Get(context.Background(), configuration)
 
 
 ```

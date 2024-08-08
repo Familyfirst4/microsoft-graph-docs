@@ -3,7 +3,7 @@ title: "employeeOrgData resource type"
 description: "Represents organization data associated with a user." 
 ms.localizationpriority: medium
 doc_type: resourcePageType
-ms.prod: "users"
+ms.subservice: entra-users
 author: "cmmdesai"
 ---
 
@@ -21,7 +21,7 @@ Represents organization data associated with a user. The **employeeOrgData** pro
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

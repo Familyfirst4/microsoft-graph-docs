@@ -3,7 +3,7 @@ title: "educationStudent resource type"
 description: "Additional information added to an educationUser that is present when the primaryRole of a user is `student`."
 author: "mmast-msft"
 ms.localizationpriority: medium
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: resourcePageType
 ---
 
@@ -30,7 +30,7 @@ None.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -41,11 +41,11 @@ The following is a JSON representation of the resource.
 ```json
 {
   "@odata.type": "#microsoft.graph.educationStudent",
-  "graduationYear": "String",
-  "grade": "String",
   "birthDate": "DateTimeOffset",
+  "externalId": "String",
   "gender": "String",
-  "studentNumber": "String",
-  "externalId": "String"
+  "grade": "String",
+  "graduationYear": "String",
+  "studentNumber": "String"
 }
 ```

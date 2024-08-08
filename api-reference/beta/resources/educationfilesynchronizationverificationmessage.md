@@ -1,29 +1,37 @@
 ---
-title: "educationFileSynchronizationVerificationMessage resource type"
-description: "Represents an error returned to the client in response to a request to start synchronization for CSV-based school data profiles. The resource will contain errors that result from the verification. Users must fix the source data before you restart the request to synchronize with Azure Active Directory (Azure AD)."
+title: "educationFileSynchronizationVerificationMessage resource type (deprecated)"
+description: "Represents an error returned to the client in response to a request to start synchronization for CSV-based school data profiles. The resource will contain errors that result from the verification. Users must fix the source data before you restart the request to synchronize with Microsoft Entra ID."
 author: "mmast-msft"
 ms.localizationpriority: medium
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: resourcePageType
 ---
 
-# educationFileSynchronizationVerificationMessage resource type
+# educationFileSynchronizationVerificationMessage resource type (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Represents an error returned to the client in response to a request to [start synchronization](../api/educationsynchronizationprofile-start.md) for CSV-based school data profiles. The resource will contain errors that result from the verification. Users must fix the source data before you restart the request to synchronize with Azure Active Directory (Azure AD).
+[!INCLUDE [educationsynchronizationprofile-deprecate](../includes/education-deprecate-educationsynchronizationprofile.md)]
+
+Represents an error returned to the client in response to a request to [start synchronization](../api/educationsynchronizationprofile-start.md) for CSV-based school data profiles. The resource will contain errors that result from the verification. Users must fix the source data before you restart the request to synchronize with Microsoft Entra ID.
 
 ## Properties
 
 | Property    | Type   | Description                                                                  |
 | :---------- | :----- | :--------------------------------------------------------------------------- |
 | type        | string | Type of the message. Possible values are: `error`, `warning`, `information`. |
-| filename    | string | Source file that contains the error.                                         |
+| fileName    | string | Source file that contains the error.                                         |
 | description | string | Detailed information about the message type.                                 |
 
+## Relationships
+
+None.
+
 ## JSON representation
+
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",
@@ -40,5 +48,3 @@ Represents an error returned to the client in response to a request to [start sy
   "description": "String"
 }
 ```
-
-

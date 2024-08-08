@@ -3,7 +3,7 @@ title: "shiftActivity resource type"
 description: "Represents an activity in a shift."
 author: "aaku"
 ms.localizationpriority: medium
-ms.prod: "microsoft-teams"
+ms.subservice: "teams"
 doc_type: resourcePageType_
 ---
 
@@ -18,15 +18,16 @@ Represents an activity in a [shift](shift.md).
 ## Properties
 | Property                         | Type                    | Description                                                                                                                                                                        |
 |------------------------------|-------------------------|---------------------------------------------------------------------------------------------|
-| isPaid               | `bool`                  | Indicates whether the `microsoft.graph.user` should be paid for the activity during their `shift`. Required.    |
-| startDateTime               | `DateTimeOffset`                  | The start date and time for the `shiftActivity`. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`. Required. |
-| endDateTime               | `DateTimeOffset`                  | The end date and time for the `shiftActivity`. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`. Required.    |
 | code               | `string`                  | Customer defined code for the `shiftActivity`. Required.    |
 | displayName               | `string`                  | The name of the `shiftActivity`. Required.    |
+| endDateTime               | `DateTimeOffset`                  | The end date and time for the `shiftActivity`. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`. Required.    |
+| isPaid               | `bool`                  | Indicates whether the `microsoft.graph.user` should be paid for the activity during their `shift`. Required.    |
+| startDateTime               | `DateTimeOffset`                  | The start date and time for the `shiftActivity`. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`. Required. |
+
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

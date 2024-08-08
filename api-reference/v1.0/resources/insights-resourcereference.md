@@ -3,7 +3,7 @@ title: "resourceReference resource type"
 description: "Complex type containing properties of Insights."
 author: "simonhult"
 ms.localizationpriority: medium
-ms.prod: "insights"
+ms.subservice: "insights"
 doc_type: resourcePageType
 ---
 
@@ -15,7 +15,7 @@ Complex type containing properties of [officeGraphInsights](officegraphinsights.
 
 ## JSON representation
 
-Here is a JSON representation of the resource
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "optionalProperties": [
@@ -34,7 +34,7 @@ Here is a JSON representation of the resource
 
 | Property      | Type      | Description  |
 | ------------- |-----------| -------------|
-| webUrl      	| String	| A URL leading to the referenced item. |
 | id     		| String    | The item's unique identifier.           |
 | type 			| String   	| A string value that can be used to classify the item, such as "microsoft.graph.driveItem" |
+| webUrl      	| String	| A URL leading to the referenced item. |
 

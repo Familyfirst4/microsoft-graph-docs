@@ -1,19 +1,19 @@
 ---
 title: "windows10EditionType enum type"
 description: "Windows 10 Edition type."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # windows10EditionType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Windows 10 Edition type.
 
@@ -40,7 +40,3 @@ Windows 10 Edition type.
 |windows10Mobile|17|Windows 10 Mobile|
 |windows10IoTCore|18|Windows 10 IoT Core|
 |windows10IoTCoreCommercial|19|Windows 10 IoT Core Commercial|
-
-
-
-

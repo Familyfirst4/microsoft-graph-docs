@@ -4,21 +4,32 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewPlannerBucketTaskBoardTaskFormat()
-orderHint := "A6673H Ejkl!"
-requestBody.SetOrderHint(&orderHint)
-headers := map[string]string{
-	"Prefer": "return=representation"
-	"If-Match": "W/"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc=""
-}
-options := &msgraphsdk.BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration{
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  abstractions "github.com/microsoft/kiota-abstractions-go"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  graphplanner "github.com/microsoftgraph/msgraph-beta-sdk-go/planner"
+	  //other-imports
+)
+
+headers := abstractions.NewRequestHeaders()
+headers.Add("Prefer", "return=representation")
+headers.Add("If-Match", "W/\"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc=\"")
+
+configuration := &graphplanner.PlannerTaskItemBucketTaskBoardFormatRequestBuilderPatchRequestConfiguration{
 	Headers: headers,
 }
-plannerTaskId := "plannerTask-id"
-graphClient.Planner().TasksById(&plannerTaskId).BucketTaskBoardFormat().PatchWithRequestConfigurationAndResponseHandler(requestBody, options, nil)
+requestBody := graphmodels.NewPlannerBucketTaskBoardTaskFormat()
+orderHint := "A6673H Ejkl!"
+requestBody.SetOrderHint(&orderHint) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+bucketTaskBoardFormat, err := graphClient.Planner().Tasks().ByPlannerTaskId("plannerTask-id").BucketTaskBoardFormat().Patch(context.Background(), requestBody, configuration)
 
 
 ```

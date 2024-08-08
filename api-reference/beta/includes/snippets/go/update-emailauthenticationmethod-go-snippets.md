@@ -4,16 +4,23 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
-requestBody.SetAdditionalData(map[string]interface{}{
-	"emailAddress": "kim@contoso.com",
-}
-userId := "user-id"
-emailAuthenticationMethodId := "emailAuthenticationMethod-id"
-graphClient.UsersById(&userId).Authentication().EmailMethodsById(&emailAuthenticationMethodId).Put(requestBody)
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewEmailAuthenticationMethod()
+emailAddress := "kim@contoso.com"
+requestBody.SetEmailAddress(&emailAddress) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+emailMethods, err := graphClient.Users().ByUserId("user-id").Authentication().EmailMethods().ByEmailAuthenticationMethodId("emailAuthenticationMethod-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

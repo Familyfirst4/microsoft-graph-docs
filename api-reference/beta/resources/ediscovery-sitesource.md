@@ -3,7 +3,7 @@ title: "siteSource resource type"
 description: "The container for a site associated with a custodian."
 author: "mahage-msft"
 ms.localizationpriority: medium
-ms.prod: "ediscovery"
+ms.subservice: "ediscovery"
 doc_type: resourcePageType
 ---
 
@@ -31,7 +31,7 @@ The container for a site associated with a [custodian](ediscovery-custodian.md).
 |createdBy|[identitySet](../resources/identityset.md)|The user who created the **siteSource**.|
 |createdDateTime|DateTimeOffset|The date and time the **siteSource** was created.|
 |displayName|String|The display name of the **siteSource**. This will be the name of the SharePoint site.|
-|id|String| The ID of the **siteSource**. The site source can be retrieved at any time with [Get site](../api/site-get.md) - https://graph.microsoft.com/v1.0/sites/{siteId}|
+|id|String| The ID of the **siteSource**. The site source can be retrieved at any time with [Get site](../api/site-get.md) - `https://graph.microsoft.com/v1.0/sites/{siteId}`|
 
 ## Relationships
 
@@ -41,7 +41,7 @@ The container for a site associated with a [custodian](ediscovery-custodian.md).
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

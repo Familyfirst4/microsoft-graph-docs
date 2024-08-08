@@ -1,15 +1,13 @@
 ### YamlMime:Landing
 
-title: Microsoft Graph auth overview
-summary: Learn how to authenticate and work with permissions to securely access data through Microsoft Graph. Explore the following documentation to learn about app registration, authentication libraries, authorization, and other parts of the Microsoft identity platform that support Microsoft Graph development.
+title: Microsoft Graph authentication and authorization overview
+summary: Learn how to authenticate and get your app authorized to securely access data through Microsoft Graph. Explore concepts for building and authorizing apps that call Microsoft Graph, and efficiently managing app access.
 
 metadata: 
   ms.topic: landing-page
-  ms.date: 05/07/2020
-  author: CelesteDG
-  services: active-directory
-  ms.service: active-directory
-  ms.workload: identity
+  ms.date: 02/14/2024
+  author: FaithOmbongi
+  ms.author: ombongifaith
   ms.reviewer: jawoods  
   ms.custom: graphiamtop20   
 
@@ -24,11 +22,15 @@ landingContent:
             url: ../auth-register-app-v2.md
           - text: Choose an authentication provider
             url: ../sdks/choose-authentication-providers.md
+          - text: Permissions overview
+            url: ../permissions-overview.md
       - linkListType: video
         links:
           - text: Microsoft Graph and app registration (7:29)
             url: https://www.youtube.com/watch?v=93j0MmRruFo
-  - title: Enhance your app
+          - text: How delegated permissions work (1:21)
+            url: https://learn-video.azurefd.net/vod/player?show=one-dev-minute&ep=how-do-delegated-permissions-work
+  - title: Authorize your app
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -48,10 +50,18 @@ landingContent:
             url: ../auth-cloudsolutionprovider.md
           - text: Limit mailbox access
             url: ../auth-limit-mailbox-access.md
+          - text: Manage throttling
+            url: ../throttling.md
+          - text: Use query parameters
+            url: ../query-parameters.md
       - linkListType: reference
         links:
+          - text: Error responses
+            url: ../errors.md
           - text: Authorization errors
             url: ../resolve-auth-errors.md
+          - text: Service-specific throttling limits
+            url: ../throttling-limits.md
   - title: Auth SDKs - MSAL
     linkLists:
       - linkListType: download

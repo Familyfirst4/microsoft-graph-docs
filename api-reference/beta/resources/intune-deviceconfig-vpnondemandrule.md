@@ -1,19 +1,19 @@
 ---
 title: "vpnOnDemandRule resource type"
 description: "VPN On-Demand Rule definition."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # vpnOnDemandRule resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 VPN On-Demand Rule definition.
 
@@ -27,6 +27,8 @@ VPN On-Demand Rule definition.
 |domainAction|[vpnOnDemandRuleConnectionDomainAction](../resources/intune-deviceconfig-vpnondemandruleconnectiondomainaction.md)|Domain Action (Only applicable when Action is evaluate connection). Possible values are: `connectIfNeeded`, `neverConnect`.|
 |domains|String collection|Domains (Only applicable when Action is evaluate connection).|
 |probeRequiredUrl|String|Probe Required Url (Only applicable when Action is evaluate connection and DomainAction is connect if needed).|
+|interfaceTypeMatch|[vpnOnDemandRuleInterfaceTypeMatch](../resources/intune-deviceconfig-vpnondemandruleinterfacetypematch.md)|Network interface to trigger VPN. Possible values are: `notConfigured`, `ethernet`, `wiFi`, `cellular`.|
+|dnsServerAddressMatch|String collection|DNS Search Server Address.|
 
 ## Relationships
 None
@@ -53,10 +55,10 @@ Here is a JSON representation of the resource.
   "domains": [
     "String"
   ],
-  "probeRequiredUrl": "String"
+  "probeRequiredUrl": "String",
+  "interfaceTypeMatch": "String",
+  "dnsServerAddressMatch": [
+    "String"
+  ]
 }
 ```
-
-
-
-

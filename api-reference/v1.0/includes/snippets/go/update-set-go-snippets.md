@@ -4,15 +4,23 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewSet()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodelstermstore "github.com/microsoftgraph/msgraph-sdk-go/models/termstore"
+	  //other-imports
+)
+
+requestBody := graphmodelstermstore.NewSet()
 description := "mySet"
-requestBody.SetDescription(&description)
-siteId := "site-id"
-setId := "set-id"
-graphClient.SitesById(&siteId).TermStore().SetsById(&setId).Patch(requestBody)
+requestBody.SetDescription(&description) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+sets, err := graphClient.Sites().BySiteId("site-id").TermStore().Sets().BySetId("set-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

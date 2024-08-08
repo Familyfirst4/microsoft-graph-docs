@@ -1,21 +1,21 @@
 ---
 title: "windowsDeviceAzureADAccount resource type"
-description: "Not yet documented"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Intune Devices Windowsdeviceazureadaccount Resources ."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # windowsDeviceAzureADAccount resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Not yet documented
+
+
 
 
 Inherits from [windowsDeviceAccount](../resources/intune-devices-windowsdeviceaccount.md)
@@ -23,8 +23,8 @@ Inherits from [windowsDeviceAccount](../resources/intune-devices-windowsdeviceac
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|password|String|Not yet documented Inherited from [windowsDeviceAccount](../resources/intune-devices-windowsdeviceaccount.md)|
-|userPrincipalName|String|Not yet documented|
+|password|String| Inherited from [windowsDeviceAccount](../resources/intune-devices-windowsdeviceaccount.md)|
+|userPrincipalName|String||
 
 ## Relationships
 None
@@ -43,7 +43,3 @@ Here is a JSON representation of the resource.
   "userPrincipalName": "String"
 }
 ```
-
-
-
-

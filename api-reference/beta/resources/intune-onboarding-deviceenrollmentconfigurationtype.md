@@ -1,19 +1,19 @@
 ---
 title: "deviceEnrollmentConfigurationType enum type"
 description: "Describes the TemplateFamily for the Template entity"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # deviceEnrollmentConfigurationType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Describes the TemplateFamily for the Template entity
 
@@ -33,7 +33,3 @@ Describes the TemplateFamily for the Template entity
 |singlePlatformRestriction|10|Indicates that configuration is of type single platform restriction which refers to types of devices a user is allowed to enroll.|
 |unknownFutureValue|11|Unknown future value|
 |enrollmentNotificationsConfiguration|12|Indicates that configuration is of type Enrollment Notification which refers to types of notification a user receives during enrollment.|
-
-
-
-

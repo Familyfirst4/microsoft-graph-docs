@@ -4,36 +4,50 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewPostRequestBody()
-post := msgraphsdk.NewPost()
-requestBody.SetPost(post)
-body := msgraphsdk.NewItemBody()
-post.SetBody(body)
-contentType := "html"
-body.SetContentType(&contentType)
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphgroups "github.com/microsoftgraph/msgraph-sdk-go/groups"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphgroups.NewReplyPostRequestBody()
+post := graphmodels.NewPost()
+body := graphmodels.NewItemBody()
+contentType := graphmodels.HTML_BODYTYPE 
+body.SetContentType(&contentType) 
 content := "<html><body><div><div><div><div>When and where? </div></div></div></div></body></html>"
-body.SetContent(&content)
-post.SetExtensions( []Extension {
-	msgraphsdk.NewExtension(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "microsoft.graph.openTypeExtension",
-		"extensionName": "Com.Contoso.HR",
-		"companyName": "Contoso",
-		"expirationDate": "2015-07-03T13:04:00.000Z",
-		"topPicks":  []String {
-			"Employees only",
-			"Add spouse or guest",
-			"Add family",
-		}
+body.SetContent(&content) 
+post.SetBody(body)
+
+
+extension := graphmodels.NewOpenTypeExtension()
+extensionName := "Com.Contoso.HR"
+extension.SetExtensionName(&extensionName) 
+additionalData := map[string]interface{}{
+	"companyName" : "Contoso", 
+	"expirationDate" : "2015-07-03T13:04:00.000Z", 
+	topPicks := []string {
+		"Employees only",
+		"Add spouse or guest",
+		"Add family",
 	}
 }
-groupId := "group-id"
-conversationThreadId := "conversationThread-id"
-postId := "post-id"
-graphClient.GroupsById(&groupId).ThreadsById(&conversationThreadId).PostsById(&postId).Reply(group-id, conversationThread-id, post-id).Post(requestBody)
+extension.SetAdditionalData(additionalData)
+
+extensions := []graphmodels.Extensionable {
+	extension,
+}
+post.SetExtensions(extensions)
+requestBody.SetPost(post)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Groups().ByGroupId("group-id").Threads().ByConversationThreadId("conversationThread-id").Posts().ByPostId("post-id").Reply().Post(context.Background(), requestBody, nil)
 
 
 ```

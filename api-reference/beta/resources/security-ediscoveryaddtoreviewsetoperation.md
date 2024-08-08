@@ -3,7 +3,7 @@ title: "ediscoveryAddToReviewSetOperation resource type"
 description: "Adds the results of a sourceCollection to a reviewSet"
 author: "SeunginLyu"
 ms.localizationpriority: medium
-ms.prod: "ediscovery"
+ms.subservice: "ediscovery"
 doc_type: resourcePageType
 ---
 
@@ -22,14 +22,14 @@ None.
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|action|String| The type of action the operation represents. Possible values are: `addToReviewSet`,`applyTags`,`contentExport`,`convertToPdf`,`estimateStatistics`, `purgeData`|
+|action|microsoft.graph.security.caseAction| The type of action the operation represents. Possible values are: `addToReviewSet`,`applyTags`,`contentExport`,`convertToPdf`,`estimateStatistics`, `purgeData`|
 |completedDateTime|DateTimeOffset| The date and time the operation was completed. |
 |createdBy|[identitySet](../resources/identityset.md)| The user that created the operation. |
 |createdDateTime|DateTimeOffset| The date and time the operation was created. |
 |id|String| The ID for the operation. Read-only. |
 |percentProgress|Int32| The progress of the operation. |
 |resultInfo|[resultInfo](../resources/resultinfo.md)| Contains success and failure-specific result information. |
-|status|String| The status of the case operation. Possible values are: `notStarted`, `submissionFailed`, `running`, `succeeded`, `partiallySucceeded`, `failed`.|
+|status|microsoft.graph.security.caseOperationStatus| The status of the case operation. Possible values are: `notStarted`, `submissionFailed`, `running`, `succeeded`, `partiallySucceeded`, `failed`.|
 
 ## Relationships
 |Relationship|Type|Description|
@@ -38,7 +38,7 @@ None.
 |search|[microsoft.graph.security.ediscoverySearch](../resources/security-ediscoverysearch.md)|eDiscovery search that gets added to review set.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

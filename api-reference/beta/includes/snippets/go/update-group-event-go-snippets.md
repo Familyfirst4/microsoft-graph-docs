@@ -4,29 +4,37 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewEvent()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewEvent()
 originalStartTimeZone := "originalStartTimeZone-value"
-requestBody.SetOriginalStartTimeZone(&originalStartTimeZone)
+requestBody.SetOriginalStartTimeZone(&originalStartTimeZone) 
 originalEndTimeZone := "originalEndTimeZone-value"
-requestBody.SetOriginalEndTimeZone(&originalEndTimeZone)
-responseStatus := msgraphsdk.NewResponseStatus()
+requestBody.SetOriginalEndTimeZone(&originalEndTimeZone) 
+responseStatus := graphmodels.NewResponseStatus()
+response := graphmodels.NONE_RESPONSETYPE 
+responseStatus.SetResponse(&response) 
+time , err := time.Parse(time.RFC3339, "datetime-value")
+responseStatus.SetTime(&time) 
 requestBody.SetResponseStatus(responseStatus)
-response := ""
-responseStatus.SetResponse(&response)
-time, err := time.Parse(time.RFC3339, "datetime-value")
-responseStatus.SetTime(&time)
 uid := "iCalUId-value"
-requestBody.SetUid(&uid)
+requestBody.SetUid(&uid) 
 reminderMinutesBeforeStart := int32(99)
-requestBody.SetReminderMinutesBeforeStart(&reminderMinutesBeforeStart)
+requestBody.SetReminderMinutesBeforeStart(&reminderMinutesBeforeStart) 
 isReminderOn := true
-requestBody.SetIsReminderOn(&isReminderOn)
-groupId := "group-id"
-eventId := "event-id"
-graphClient.GroupsById(&groupId).EventsById(&eventId).Patch(requestBody)
+requestBody.SetIsReminderOn(&isReminderOn) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+events, err := graphClient.Groups().ByGroupId("group-id").Events().ByEventId("event-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

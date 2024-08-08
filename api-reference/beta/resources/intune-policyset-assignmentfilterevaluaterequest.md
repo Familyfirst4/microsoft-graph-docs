@@ -1,26 +1,26 @@
 ---
 title: "assignmentFilterEvaluateRequest resource type"
 description: "Request for assignment filter evaluation for devices."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # assignmentFilterEvaluateRequest resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Request for assignment filter evaluation for devices.
 
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|platform|[devicePlatformType](../resources/intune-policyset-deviceplatformtype.md)|Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `androidWorkProfile`, `unknown`.|
+|platform|[devicePlatformType](../resources/intune-policyset-deviceplatformtype.md)|Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `androidWorkProfile`, `unknown`, `androidAOSP`, `androidMobileApplicationManagement`, `iOSMobileApplicationManagement`, `unknownFutureValue`, `windowsMobileApplicationManagement`.|
 |rule|String|Rule definition of the Assignment Filter.|
 |top|Int32|Limit of records per request. Default value is 100, if provided less than 0 or greater than 100|
 |skip|Int32|Number of records to skip. Default value is 0|
@@ -50,7 +50,3 @@ Here is a JSON representation of the resource.
   "search": "String"
 }
 ```
-
-
-
-

@@ -3,7 +3,7 @@ title: "governanceInsight resource type"
 description: "Represents insights presented to the reviewer for an accessReviewInstanceDecisionItem."
 author: "shubhamguptacal"
 ms.localizationpriority: medium
-ms.prod: "governance"
+ms.subservice: "entra-id-governance"
 doc_type: resourcePageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Represents insights presented to the reviewer for an [accessReviewInstanceDecisionItem](accessreviewinstancedecisionitem.md). Insights are recommendations to reviewers to help them complete access reviews.
 
-This resource is an abstract type for the [userSignInInsight](usersignininsight.md) derived type.
+This complex type is the abstract type for the following derived types:
++ [userSignInInsight](usersignininsight.md) derived type.
++ [membershipOutlierInsight](membershipoutlierinsight.md) derived type.
 
 ## Properties
 | Property    | Type   | Description |
@@ -29,7 +31,7 @@ This resource is an abstract type for the [userSignInInsight](usersignininsight.
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.governanceInsight",

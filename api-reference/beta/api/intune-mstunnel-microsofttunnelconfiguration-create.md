@@ -1,9 +1,9 @@
 ---
 title: "Create microsoftTunnelConfiguration"
 description: "Create a new microsoftTunnelConfiguration object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Create a new [microsoftTunnelConfiguration](../resources/intune-mstunnel-microsofttunnelconfiguration.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/global-us.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ POST /deviceManagement/microsoftTunnelConfigurations
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -48,20 +50,23 @@ The following table shows the properties that are required when you create the m
 
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|The MicrosoftTunnelConfiguration's Id|
-|displayName|String|The MicrosoftTunnelConfiguration's display name|
-|description|String|The MicrosoftTunnelConfiguration's description|
-|network|String|The subnet that will be used to allocate virtual address for the clients|
+|id|String|The unique identifier for the configuration id. Supports: $delete, $update. $Insert, $skip, $top is not supported. Read-only.|
+|displayName|String|The display name for the server configuration. This property is required when a server is created.|
+|description|String|The configuration's description (optional)|
+|network|String|The IPv4 subnet that will be used to allocate virtual address for the clients|
+|ipv6Network|String|The IPv6 subnet that will be used to allocate virtual address for the clients|
 |dnsServers|String collection|The DNS servers that will be used by the clients|
 |defaultDomainSuffix|String|The Default Domain appendix that will be used by the clients|
-|routesInclude|String collection|The routs that will be routed by the server|
-|routesExclude|String collection|Subsets of the routes that will not be routed by the server|
+|routesInclude|String collection|The routes that will be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteIncludes'.|
+|routesExclude|String collection|Subsets of the routes that will not be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteExcludes'.|
+|routeIncludes|String collection|The routes that will be routed by the server|
+|routeExcludes|String collection|Subsets of the routes that will not be routed by the server|
 |splitDNS|String collection|The domains that will be resolved using the provided dns servers|
 |listenPort|Int32|The port that both TCP and UPD will listen over on the server|
-|advancedSettings|[keyValuePair](../resources/intune-mstunnel-keyvaluepair.md) collection|Additional settings that may be applied to the server|
-|lastUpdateDateTime|DateTimeOffset|When the MicrosoftTunnelConfiguration was last updated|
-|roleScopeTagIds|String collection|List of Scope Tags for this Entity instance.|
-|disableUdpConnections|Boolean|When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.|
+|advancedSettings|[keyValuePair](../resources/intune-shared-keyvaluepair.md) collection|Additional settings that may be applied to the server|
+|lastUpdateDateTime|DateTimeOffset|When the configuration was last updated|
+|roleScopeTagIds|String collection|List of Scope Tags for this Entity instance|
+|disableUdpConnections|Boolean|When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to transfer data.|
 
 
 
@@ -75,13 +80,14 @@ Here is an example of the request.
 ``` http
 POST https://graph.microsoft.com/beta/deviceManagement/microsoftTunnelConfigurations
 Content-type: application/json
-Content-length: 782
+Content-length: 933
 
 {
   "@odata.type": "#microsoft.graph.microsoftTunnelConfiguration",
   "displayName": "Display Name value",
   "description": "Description value",
   "network": "Network value",
+  "ipv6Network": "Ipv6Network value",
   "dnsServers": [
     "Dns Servers value"
   ],
@@ -91,6 +97,12 @@ Content-length: 782
   ],
   "routesExclude": [
     "Routes Exclude value"
+  ],
+  "routeIncludes": [
+    "Route Includes value"
+  ],
+  "routeExcludes": [
+    "Route Excludes value"
   ],
   "splitDNS": [
     "Split DNS value"
@@ -116,7 +128,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 831
+Content-Length: 982
 
 {
   "@odata.type": "#microsoft.graph.microsoftTunnelConfiguration",
@@ -124,6 +136,7 @@ Content-Length: 831
   "displayName": "Display Name value",
   "description": "Description value",
   "network": "Network value",
+  "ipv6Network": "Ipv6Network value",
   "dnsServers": [
     "Dns Servers value"
   ],
@@ -133,6 +146,12 @@ Content-Length: 831
   ],
   "routesExclude": [
     "Routes Exclude value"
+  ],
+  "routeIncludes": [
+    "Route Includes value"
+  ],
+  "routeExcludes": [
+    "Route Excludes value"
   ],
   "splitDNS": [
     "Split DNS value"
@@ -152,7 +171,3 @@ Content-Length: 831
   "disableUdpConnections": true
 }
 ```
-
-
-
-

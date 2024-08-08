@@ -4,19 +4,30 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.TabsRequestBuilderGetQueryParameters{
-	Expand: "teamsApp",
-	Filter: "teamsApp/id%20eq%20'com.microsoft.teamspace.tab.planner'",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphteams "github.com/microsoftgraph/msgraph-beta-sdk-go/teams"
+	  //other-imports
+)
+
+
+requestFilter := "teamsApp/id eq 'com.microsoft.teamspace.tab.planner'"
+
+requestParameters := &graphteams.TeamItemChannelItemTabsRequestBuilderGetQueryParameters{
+	Expand: [] string {"teamsApp"},
+	Filter: &requestFilter,
 }
-options := &msgraphsdk.TabsRequestBuilderGetRequestConfiguration{
+configuration := &graphteams.TeamItemChannelItemTabsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-teamId := "team-id"
-channelId := "channel-id"
-result, err := graphClient.TeamsById(&teamId).ChannelsById(&channelId).Tabs().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+tabs, err := graphClient.Teams().ByTeamId("team-id").Channels().ByChannelId("channel-id").Tabs().Get(context.Background(), configuration)
 
 
 ```

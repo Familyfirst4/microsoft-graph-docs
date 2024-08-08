@@ -3,7 +3,7 @@ title: printTask resource type
 description: Represents a task that is executing or has been executed as a result of a Universal Print event.
 author: nilakhan
 ms.localizationpriority: medium
-ms.prod: cloud-printing
+ms.subservice: universal-print
 doc_type: resourcePageType
 ---
 
@@ -18,9 +18,9 @@ For details about how to use this resource to add pull printing support to Unive
 ## Methods
 |Method|Return type|Description|
 |:---|:---|:---|
-| [List (from printTaskDefintion)](../api/printtaskdefinition-list-tasks.md) | [printTask](printtask.md) | Get a list of tasks that have been created based on a particular printTaskDefinition. The list includes currently running tasks and recently completed tasks. |
-| [Get](../api/printtask-get.md) | [printTask](printtask.md) | Get details about a print task. |
-| [Update](../api/printtaskdefinition-update-task.md) | [printTask](printtask.md) | Updates a print task. |
+| [List tasks](../api/printtaskdefinition-list-tasks.md) | [printTask](printtask.md) | Get a list of tasks that have been created based on a particular printTaskDefinition. The list includes currently running tasks and recently completed tasks. |
+| [Get task](../api/printtask-get.md) | [printTask](printtask.md) | Get details about a print task. |
+| [Update task](../api/printtaskdefinition-update-task.md) | [printTask](printtask.md) | Updates a print task. |
 
 ## Properties
 |Property|Type|Description|
@@ -32,11 +32,12 @@ For details about how to use this resource to add pull printing support to Unive
 ## Relationships
 |Relationship|Type|Description|
 |:---|:---|:---|
-|trigger|[printTaskTrigger](printtasktrigger.md)|The printTaskTrigger that triggered this task's execution. Read-only.|
 |definition|[printTaskDefinition](printtaskdefinition.md)|The printTaskDefinition that was used to create this task. Read-only.|
+|trigger|[printTaskTrigger](printtasktrigger.md)|The printTaskTrigger that triggered this task's execution. Read-only.|
+
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

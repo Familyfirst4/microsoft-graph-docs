@@ -4,25 +4,35 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewUser()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewUser()
 accountEnabled := true
-requestBody.SetAccountEnabled(&accountEnabled)
+requestBody.SetAccountEnabled(&accountEnabled) 
 displayName := "Adele Vance"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 mailNickname := "AdeleV"
-requestBody.SetMailNickname(&mailNickname)
-userPrincipalName := "AdeleV@contoso.onmicrosoft.com"
-requestBody.SetUserPrincipalName(&userPrincipalName)
-passwordProfile := msgraphsdk.NewPasswordProfile()
-requestBody.SetPasswordProfile(passwordProfile)
+requestBody.SetMailNickname(&mailNickname) 
+userPrincipalName := "AdeleV@contoso.com"
+requestBody.SetUserPrincipalName(&userPrincipalName) 
+passwordProfile := graphmodels.NewPasswordProfile()
 forceChangePasswordNextSignIn := true
-passwordProfile.SetForceChangePasswordNextSignIn(&forceChangePasswordNextSignIn)
+passwordProfile.SetForceChangePasswordNextSignIn(&forceChangePasswordNextSignIn) 
 password := "xWwvJ]6NMw+bWH-d"
-passwordProfile.SetPassword(&password)
-result, err := graphClient.Users().Post(requestBody)
+passwordProfile.SetPassword(&password) 
+requestBody.SetPasswordProfile(passwordProfile)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+users, err := graphClient.Users().Post(context.Background(), requestBody, nil)
 
 
 ```

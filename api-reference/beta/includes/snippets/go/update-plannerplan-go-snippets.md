@@ -4,21 +4,32 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewPlannerPlan()
-title := "title-value"
-requestBody.SetTitle(&title)
-headers := map[string]string{
-	"Prefer": "return=representation"
-	"If-Match": "W/"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc=""
-}
-options := &msgraphsdk.PlannerPlanRequestBuilderPatchRequestConfiguration{
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  abstractions "github.com/microsoft/kiota-abstractions-go"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  graphplanner "github.com/microsoftgraph/msgraph-beta-sdk-go/planner"
+	  //other-imports
+)
+
+headers := abstractions.NewRequestHeaders()
+headers.Add("Prefer", "return=representation")
+headers.Add("If-Match", "W/\"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc=\"")
+
+configuration := &graphplanner.PlannerPlanItemRequestBuilderPatchRequestConfiguration{
 	Headers: headers,
 }
-plannerPlanId := "plannerPlan-id"
-graphClient.Planner().PlansById(&plannerPlanId).PatchWithRequestConfigurationAndResponseHandler(requestBody, options, nil)
+requestBody := graphmodels.NewPlannerPlan()
+title := "title-value"
+requestBody.SetTitle(&title) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+plans, err := graphClient.Planner().Plans().ByPlannerPlanId("plannerPlan-id").Patch(context.Background(), requestBody, configuration)
 
 
 ```

@@ -3,7 +3,7 @@ title: "educationAssignmentGrade resource type"
 description: "Represents the Grade object on a Submission."
 ms.localizationpriority: medium
 author: "sharad-sharma-msft"
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: resourcePageType
 ---
 
@@ -24,7 +24,7 @@ This is an abstract type that will never be instantiated; however, all types of 
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

@@ -2,8 +2,9 @@
 title: "rbacApplication resource type"
 description: "Container for role definitions and role assignments for Microsoft 365 role-based access control (RBAC) providers"
 ms.localizationpriority: medium
-author: "abhijeetsinha"
-ms.prod: "directory-management"
+author: "DougKirschner"
+ms.reviewer: msodsrbac
+ms.subservice: "entra-directory-management"
 doc_type: "resourcePageType"
 ---
 
@@ -40,7 +41,7 @@ None
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

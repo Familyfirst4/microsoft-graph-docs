@@ -3,7 +3,7 @@ title: printOperationStatus resource type
 description: Represents the current status of a long-running Universal Print operation.
 author: nilakhan
 ms.localizationpriority: medium
-ms.prod: cloud-printing
+ms.subservice: universal-print
 doc_type: resourcePageType
 ---
 
@@ -16,8 +16,8 @@ Represents the current status of a long-running Universal Print operation.
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|state|printOperationProcessingState|The printOperation's current processing state. Valid values are described in the following table. Read-only.|
 |description|String|A human-readable description of the printOperation's current processing state. Read-only.|
+|state|printOperationProcessingState|The printOperation's current processing state. Valid values are described in the following table. Read-only.|
 
 ### printOperationProcessingState values
 
@@ -30,7 +30,7 @@ Represents the current status of a long-running Universal Print operation.
 |unknownFutureValue|4|Evolvable enumeration sentinel value. Do not use.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.printOperationStatus"

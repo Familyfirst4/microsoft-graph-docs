@@ -1,9 +1,9 @@
 ---
 title: "Get windows10XVpnConfiguration"
 description: "Read properties and relationships of the windows10XVpnConfiguration object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Read properties and relationships of the [windows10XVpnConfiguration](../resources/intune-rapolicy-windows10xvpnconfiguration.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -41,7 +43,7 @@ This method supports the [OData Query Parameters](/graph/query-parameters) to he
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -63,7 +65,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 604
+Content-Length: 759
 
 {
   "value": {
@@ -77,13 +79,15 @@ Content-Length: 604
     "roleScopeTagIds": [
       "Role Scope Tag Ids value"
     ],
+    "serverApplicabilityRules": [
+      {
+        "@odata.type": "microsoft.graph.applicabilityRule",
+        "filterType": "include"
+      }
+    ],
     "authenticationCertificateId": "39b4cd38-cd38-39b4-38cd-b43938cdb439",
     "customXmlFileName": "Custom Xml File Name value",
     "customXml": "Y3VzdG9tWG1s"
   }
 }
 ```
-
-
-
-

@@ -1,9 +1,9 @@
 ---
 title: "Get windowsManagedDevice"
 description: "Read properties and relationships of the windowsManagedDevice object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Read properties and relationships of the [windowsManagedDevice](../resources/intune-devices-windowsmanageddevice.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -47,7 +49,7 @@ This method supports the [OData Query Parameters](/graph/query-parameters) to he
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -69,7 +71,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 9589
+Content-Length: 10141
 
 {
   "value": {
@@ -225,7 +227,13 @@ Content-Length: 9589
       "bootRevisionListInfo": "Boot Revision List Info value",
       "operatingSystemRevListInfo": "Operating System Rev List Info value",
       "healthStatusMismatchInfo": "Health Status Mismatch Info value",
-      "healthAttestationSupportedStatus": "Health Attestation Supported Status value"
+      "healthAttestationSupportedStatus": "Health Attestation Supported Status value",
+      "memoryIntegrityProtection": "enabled",
+      "memoryAccessProtection": "enabled",
+      "virtualizationBasedSecurity": "enabled",
+      "firmwareProtection": "systemGuardSecureLaunch",
+      "systemManagementMode": "level1",
+      "securedCorePC": "enabled"
     },
     "subscriberCarrier": "Subscriber Carrier value",
     "meid": "Meid value",
@@ -262,7 +270,8 @@ Content-Length: 9589
     "configurationManagerClientInformation": {
       "@odata.type": "microsoft.graph.configurationManagerClientInformation",
       "clientIdentifier": "Client Identifier value",
-      "isBlocked": true
+      "isBlocked": true,
+      "clientVersion": "Client Version value"
     },
     "ethernetMacAddress": "Ethernet Mac Address value",
     "physicalMemoryInBytes": 5,
@@ -270,6 +279,7 @@ Content-Length: 9589
     "specificationVersion": "Specification Version value",
     "joinType": "azureADJoined",
     "skuFamily": "Sku Family value",
+    "securityPatchLevel": "Security Patch Level value",
     "skuNumber": 9,
     "managementFeatures": "microsoftManagedDesktop",
     "chromeOSDeviceInfo": [
@@ -283,11 +293,11 @@ Content-Length: 9589
     ],
     "enrollmentProfileName": "Enrollment Profile Name value",
     "bootstrapTokenEscrowed": true,
-    "deviceFirmwareConfigurationInterfaceManaged": true
+    "deviceFirmwareConfigurationInterfaceManaged": true,
+    "deviceIdentityAttestationDetail": {
+      "@odata.type": "microsoft.graph.deviceIdentityAttestationDetail",
+      "deviceIdentityAttestationStatus": "trusted"
+    }
   }
 }
 ```
-
-
-
-

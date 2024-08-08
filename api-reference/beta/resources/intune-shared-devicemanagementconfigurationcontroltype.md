@@ -1,9 +1,9 @@
 ---
 title: "deviceManagementConfigurationControlType enum type"
 description: "Setting control type representation in the UX"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -27,7 +27,3 @@ Setting control type representation in the UX
 |toggle|4|Allow for toggle control type|
 |multiheaderGrid|5|Allow for multiheader grid control type|
 |contextPane|6|Allow for context pane control type|
-
-
-
-

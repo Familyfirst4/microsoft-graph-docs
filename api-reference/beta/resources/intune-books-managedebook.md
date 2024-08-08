@@ -1,19 +1,19 @@
 ---
 title: "managedEBook resource type"
 description: "An abstract class containing the base properties for Managed eBook."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # managedEBook resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 An abstract class containing the base properties for Managed eBook.
 
@@ -22,7 +22,7 @@ An abstract class containing the base properties for Managed eBook.
 |:---|:---|:---|
 |[List managedEBooks](../api/intune-books-managedebook-list.md)|[managedEBook](../resources/intune-books-managedebook.md) collection|List properties and relationships of the [managedEBook](../resources/intune-books-managedebook.md) objects.|
 |[Get managedEBook](../api/intune-books-managedebook-get.md)|[managedEBook](../resources/intune-books-managedebook.md)|Read properties and relationships of the [managedEBook](../resources/intune-books-managedebook.md) object.|
-|[assign action](../api/intune-books-managedebook-assign.md)|None|Not yet documented|
+|[assign action](../api/intune-books-managedebook-assign.md)|None||
 
 ## Properties
 |Property|Type|Description|
@@ -74,7 +74,3 @@ Here is a JSON representation of the resource.
   "privacyInformationUrl": "String"
 }
 ```
-
-
-
-

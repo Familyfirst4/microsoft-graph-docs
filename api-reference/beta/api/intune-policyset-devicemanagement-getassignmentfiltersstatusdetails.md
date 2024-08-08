@@ -1,9 +1,9 @@
 ---
 title: "getAssignmentFiltersStatusDetails action"
-description: "Not yet documented"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Intune Policyset Devicemanagement Getassignmentfiltersstatusdetails Api ."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -15,9 +15,11 @@ Namespace: microsoft.graph
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Not yet documented
 
-## Prerequisites
+
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ POST /deviceManagement/getAssignmentFiltersStatusDetails
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -48,12 +50,12 @@ The following table shows the parameters that can be used with this action.
 
 |Property|Type|Description|
 |:---|:---|:---|
-|managedDeviceId|String|Not yet documented|
-|payloadId|String|Not yet documented|
-|userId|String|Not yet documented|
-|assignmentFilterIds|String collection|Not yet documented|
-|top|Int32|Not yet documented|
-|skip|Int32|Not yet documented|
+|managedDeviceId|String||
+|payloadId|String||
+|userId|String||
+|assignmentFilterIds|String collection||
+|top|Int32||
+|skip|Int32||
 
 
 
@@ -124,7 +126,3 @@ Content-Length: 1216
   }
 }
 ```
-
-
-
-

@@ -1,9 +1,9 @@
 ---
 title: "Get ndesConnector"
 description: "Read properties and relationships of the ndesConnector object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Read properties and relationships of the [ndesConnector](../resources/intune-deviceconfig-ndesconnector.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -41,7 +43,7 @@ This method supports the [OData Query Parameters](/graph/query-parameters) to he
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -63,7 +65,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 261
+Content-Length: 484
 
 {
   "value": {
@@ -71,11 +73,13 @@ Content-Length: 261
     "id": "e71fa706-a706-e71f-06a7-1fe706a71fe7",
     "lastConnectionDateTime": "2016-12-31T23:58:36.6670033-08:00",
     "state": "active",
-    "displayName": "Display Name value"
+    "displayName": "Display Name value",
+    "machineName": "Machine Name value",
+    "enrolledDateTime": "2016-12-31T23:59:43.797191-08:00",
+    "roleScopeTagIds": [
+      "Role Scope Tag Ids value"
+    ],
+    "connectorVersion": "Connector Version value"
   }
 }
 ```
-
-
-
-

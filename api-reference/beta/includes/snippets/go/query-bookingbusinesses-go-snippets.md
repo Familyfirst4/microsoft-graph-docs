@@ -4,16 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.BookingBusinessesRequestBuilderGetQueryParameters{
-	Query: "Adventure",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphsolutions "github.com/microsoftgraph/msgraph-beta-sdk-go/solutions"
+	  //other-imports
+)
+
+
+requestQuery := "Adventure"
+
+requestParameters := &graphsolutions.SolutionsBookingBusinessesRequestBuilderGetQueryParameters{
+	Query: &requestQuery,
 }
-options := &msgraphsdk.BookingBusinessesRequestBuilderGetRequestConfiguration{
+configuration := &graphsolutions.SolutionsBookingBusinessesRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-result, err := graphClient.BookingBusinesses().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+bookingBusinesses, err := graphClient.Solutions().BookingBusinesses().Get(context.Background(), configuration)
 
 
 ```

@@ -4,19 +4,25 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewConversationMember()
-requestBody.SetRoles( []String {
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewConversationMember()
+roles := []string {
 	"owner",
 }
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#microsoft.graph.aadUserConversationMember",
-}
-teamId := "team-id"
-conversationMemberId := "conversationMember-id"
-graphClient.TeamsById(&teamId).MembersById(&conversationMemberId).Patch(requestBody)
+requestBody.SetRoles(roles)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+members, err := graphClient.Teams().ByTeamId("team-id").Members().ByConversationMemberId("conversationMember-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

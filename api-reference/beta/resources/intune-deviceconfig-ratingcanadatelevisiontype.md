@@ -1,19 +1,19 @@
 ---
 title: "ratingCanadaTelevisionType enum type"
 description: "TV content rating labels in Canada"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # ratingCanadaTelevisionType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 TV content rating labels in Canada
 
@@ -28,7 +28,3 @@ TV content rating labels in Canada
 |parentalGuidance|5|PG, Parental Guidance|
 |agesAbove14|6|The 14+ classification is intended for viewers ages 14 and older|
 |agesAbove18|7|The 18+ classification is intended for viewers ages 18 and older|
-
-
-
-

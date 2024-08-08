@@ -1,9 +1,9 @@
 ---
 title: "getZebraFotaDeploymentReport action"
-description: "Not yet documented"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Intune Androidfotaservice Devicemanagementreports Getzebrafotadeploymentreport Api ."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -15,9 +15,11 @@ Namespace: microsoft.graph
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Not yet documented
 
-## Prerequisites
+
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ POST /deviceManagement/reports/getZebraFotaDeploymentReport
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -48,15 +50,15 @@ The following table shows the parameters that can be used with this action.
 
 |Property|Type|Description|
 |:---|:---|:---|
-|name|String|Not yet documented|
-|select|String collection|Not yet documented|
-|search|String|Not yet documented|
-|groupBy|String collection|Not yet documented|
-|orderBy|String collection|Not yet documented|
-|skip|Int32|Not yet documented|
-|top|Int32|Not yet documented|
-|sessionId|Int32|Not yet documented|
-|filter|String|Not yet documented|
+|name|String||
+|select|String collection||
+|search|String||
+|groupBy|String collection||
+|orderBy|String collection||
+|skip|Int32||
+|top|Int32||
+|sessionId|String||
+|filter|String||
 
 
 
@@ -71,7 +73,7 @@ Here is an example of the request.
 POST https://graph.microsoft.com/beta/deviceManagement/reports/getZebraFotaDeploymentReport
 
 Content-type: application/json
-Content-length: 261
+Content-length: 278
 
 {
   "name": "Name value",
@@ -87,7 +89,7 @@ Content-length: 261
   ],
   "skip": 4,
   "top": 3,
-  "sessionId": 9,
+  "sessionId": "Session Id value",
   "filter": "Filter value"
 }
 ```
@@ -103,7 +105,3 @@ Content-Length: 95
   "value": "Z2V0WmVicmFGb3RhRGVwbG95bWVudFJlcG9ydCBJbnR1bmUgRG9jIFNhbXBsZSAyMDcxMDQ2MzM5"
 }
 ```
-
-
-
-

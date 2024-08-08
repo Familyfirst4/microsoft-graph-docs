@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "jaiprakashmb"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: intune
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->
@@ -17,4 +17,4 @@ The preceding limits apply to the following resources:
  
 | <!-- fake header-->                                           |
 |---------------------------------------------------------------|
-| <ul> <li> [auditEvent](/graph/api/resources/auditevent) </ul> |
+| <ul> <li> [auditEvent](/graph/api/resources/intune-auditing-auditevent) </ul> |

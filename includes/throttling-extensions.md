@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "dkershaw10"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: extensions
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->

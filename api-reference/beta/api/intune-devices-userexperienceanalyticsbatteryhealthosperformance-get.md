@@ -1,9 +1,9 @@
 ---
 title: "Get userExperienceAnalyticsBatteryHealthOsPerformance"
 description: "Read properties and relationships of the userExperienceAnalyticsBatteryHealthOsPerformance object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Read properties and relationships of the [userExperienceAnalyticsBatteryHealthOsPerformance](../resources/intune-devices-userexperienceanalyticsbatteryhealthosperformance.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -41,7 +43,7 @@ This method supports the [OData Query Parameters](/graph/query-parameters) to he
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -63,7 +65,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 394
+Content-Length: 630
 
 {
   "value": {
@@ -74,11 +76,13 @@ Content-Length: 394
     "osBuildNumber": "Os Build Number value",
     "averageMaxCapacityPercentage": 12,
     "averageEstimatedRuntimeInMinutes": 0,
-    "averageBatteryAgeInDays": 7
+    "averageBatteryAgeInDays": 7,
+    "meanFullBatteryDrainCount": 9,
+    "medianMaxCapacityPercentage": 11,
+    "medianEstimatedRuntimeInMinutes": 15,
+    "medianFullBatteryDrainCount": 11,
+    "osBatteryHealthScore": 4,
+    "osHealthStatus": "insufficientData"
   }
 }
 ```
-
-
-
-

@@ -4,12 +4,15 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```csharp
 
-GraphServiceClient graphClient = new GraphServiceClient( authProvider );
+// Code snippets are only available for the latest version. Current version is 5.x
 
-var recoveryKeys = await graphClient.InformationProtection.Bitlocker.RecoveryKeys
-	.Request()
-	.Header("ocp-client-name","\"My Friendly Client\"")
-	.Header("ocp-client-version","\"1.2\"")
-	.GetAsync();
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=csharp
+var result = await graphClient.InformationProtection.Bitlocker.RecoveryKeys.GetAsync((requestConfiguration) =>
+{
+	requestConfiguration.Headers.Add("User-Agent", "Dsreg/10.0");
+	requestConfiguration.Headers.Add("ocp-client-name", "My Friendly Client");
+	requestConfiguration.Headers.Add("ocp-client-version", "1.2");
+});
+
 
 ```

@@ -4,22 +4,32 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.MeRequestBuilderGetQueryParameters{
-	Expand: "manager($levels=max;$select=id,displayName)",
-	Select: "id,displayName",
-	Count: true,
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  abstractions "github.com/microsoft/kiota-abstractions-go"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  //other-imports
+)
+
+headers := abstractions.NewRequestHeaders()
+headers.Add("ConsistencyLevel", "eventual")
+
+requestParameters := &graphusers.MeRequestBuilderGetQueryParameters{
+	Expand: [] string {"manager($levels=max;$select=id,displayName)"},
+	Select: [] string {"id","displayName"},
 }
-headers := map[string]string{
-	"ConsistencyLevel": "eventual"
-}
-options := &msgraphsdk.MeRequestBuilderGetRequestConfiguration{
-	QueryParameters: requestParameters,
+configuration := &graphusers.MeRequestBuilderGetRequestConfiguration{
 	Headers: headers,
+	QueryParameters: requestParameters,
 }
-result, err := graphClient.Me().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+me, err := graphClient.Me().Get(context.Background(), configuration)
 
 
 ```

@@ -4,17 +4,28 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewAttachment()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewAttachment()
 name := "name-value"
-requestBody.SetName(&name)
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#Microsoft.OutlookServices.ItemAttachment",
+requestBody.SetName(&name) 
+additionalData := map[string]interface{}{
+item := graphmodels.NewMessage()
+	requestBody.SetItem(item)
 }
-eventId := "event-id"
-result, err := graphClient.Me().EventsById(&eventId).Attachments().Post(requestBody)
+requestBody.SetAdditionalData(additionalData)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+attachments, err := graphClient.Me().Events().ByEventId("event-id").Attachments().Post(context.Background(), requestBody, nil)
 
 
 ```

@@ -4,19 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewThreatAssessmentRequest()
-expectedAssessment := "block"
-requestBody.SetExpectedAssessment(&expectedAssessment)
-category := "phishing"
-requestBody.SetCategory(&category)
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#microsoft.graph.urlAssessmentRequest",
-	"url": "http://test.com",
-}
-result, err := graphClient.InformationProtection().ThreatAssessmentRequests().Post(requestBody)
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewThreatAssessmentRequest()
+url := "http://test.com"
+requestBody.SetUrl(&url) 
+expectedAssessment := graphmodels.BLOCK_THREATEXPECTEDASSESSMENT 
+requestBody.SetExpectedAssessment(&expectedAssessment) 
+category := graphmodels.PHISHING_THREATCATEGORY 
+requestBody.SetCategory(&category) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+threatAssessmentRequests, err := graphClient.InformationProtection().ThreatAssessmentRequests().Post(context.Background(), requestBody, nil)
 
 
 ```

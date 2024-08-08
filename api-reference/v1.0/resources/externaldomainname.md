@@ -1,9 +1,9 @@
 ---
 title: "externalDomainName resource type"
-description: "Domain name of the external organization that an Azure Active Directory (Azure AD) tenant acting as the resource tenant is federating with."
+description: "Domain name of the external organization that a Microsoft Entra tenant acting as the resource tenant is federating with."
 author: "namkedia"
 ms.localizationpriority: medium
-ms.prod: "identity-and-sign-in"
+ms.subservice: "entra-sign-in"
 doc_type: resourcePageType
 ---
 
@@ -11,7 +11,7 @@ doc_type: resourcePageType
 
 Namespace: microsoft.graph
 
-Represents the domain name of the external organization that an Azure Active Directory (Azure AD) tenant acting as the resource tenant is federating with.
+Represents the domain name of the external organization that a Microsoft Entra tenant acting as the resource tenant is federating with.
 
 Inherits from [entity](../resources/entity.md).
 
@@ -21,13 +21,13 @@ None.
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|Domain name of the external organization that the Azure AD tenant is federating with. Inherited from [entity](../resources/entity.md).|
+|id|String|Domain name of the external organization that the Microsoft Entra tenant is federating with. Inherited from [entity](../resources/entity.md).|
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

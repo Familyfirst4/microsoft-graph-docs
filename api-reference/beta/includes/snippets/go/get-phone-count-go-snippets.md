@@ -4,21 +4,36 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.ContactsRequestBuilderGetQueryParameters{
-	Search: "%22displayName:wa%22",
-	Count: true,
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  abstractions "github.com/microsoft/kiota-abstractions-go"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphcontacts "github.com/microsoftgraph/msgraph-beta-sdk-go/contacts"
+	  //other-imports
+)
+
+headers := abstractions.NewRequestHeaders()
+headers.Add("ConsistencyLevel", "eventual")
+
+
+requestSearch := "\"displayName:wa\""
+requestCount := true
+
+requestParameters := &graphcontacts.ContactsRequestBuilderGetQueryParameters{
+	Search: &requestSearch,
+	Count: &requestCount,
 }
-headers := map[string]string{
-	"ConsistencyLevel": "eventual"
-}
-options := &msgraphsdk.ContactsRequestBuilderGetRequestConfiguration{
-	QueryParameters: requestParameters,
+configuration := &graphcontacts.ContactsRequestBuilderGetRequestConfiguration{
 	Headers: headers,
+	QueryParameters: requestParameters,
 }
-result, err := graphClient.Contacts().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+contacts, err := graphClient.Contacts().Get(context.Background(), configuration)
 
 
 ```

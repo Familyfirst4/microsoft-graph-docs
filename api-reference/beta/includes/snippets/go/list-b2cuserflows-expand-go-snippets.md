@@ -4,16 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.B2cUserFlowsRequestBuilderGetQueryParameters{
-	Expand: "identityProviders",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphidentity "github.com/microsoftgraph/msgraph-beta-sdk-go/identity"
+	  //other-imports
+)
+
+requestParameters := &graphidentity.IdentityB2cUserFlowsRequestBuilderGetQueryParameters{
+	Expand: [] string {"identityProviders"},
 }
-options := &msgraphsdk.B2cUserFlowsRequestBuilderGetRequestConfiguration{
+configuration := &graphidentity.IdentityB2cUserFlowsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-result, err := graphClient.Identity().B2cUserFlows().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+b2cUserFlows, err := graphClient.Identity().B2cUserFlows().Get(context.Background(), configuration)
 
 
 ```

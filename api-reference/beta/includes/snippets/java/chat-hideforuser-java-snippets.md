@@ -4,20 +4,18 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```java
 
-GraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
+// Code snippets are only available for the latest version. Current version is 6.x
 
+GraphServiceClient graphClient = new GraphServiceClient(requestAdapter);
+
+com.microsoft.graph.beta.chats.item.hideforuser.HideForUserPostRequestBody hideForUserPostRequestBody = new com.microsoft.graph.beta.chats.item.hideforuser.HideForUserPostRequestBody();
 TeamworkUserIdentity user = new TeamworkUserIdentity();
-user.id = "d864e79f-a516-4d0f-9fee-0eeb4d61fdc2";
+user.setId("d864e79f-a516-4d0f-9fee-0eeb4d61fdc2");
+HashMap<String, Object> additionalData = new HashMap<String, Object>();
+additionalData.put("tenantId", "2a690434-97d9-4eed-83a6-f5f13600199a");
+user.setAdditionalData(additionalData);
+hideForUserPostRequestBody.setUser(user);
+graphClient.chats().byChatId("{chat-id}").hideForUser().post(hideForUserPostRequestBody);
 
-String tenantId = "2a690434-97d9-4eed-83a6-f5f13600199a";
-
-graphClient.chats("19:7d898072-792c-4006-bb10-5ca9f2590649_8ea0e38b-efb3-4757-924a-5f94061cf8c2@unq.gbl.spaces")
-	.hideForUser(ChatHideForUserParameterSet
-		.newBuilder()
-		.withUser(user)
-		.withTenantId(tenantId)
-		.build())
-	.buildRequest()
-	.post();
 
 ```

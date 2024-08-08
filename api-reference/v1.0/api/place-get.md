@@ -3,7 +3,7 @@ title: "Get place"
 description: "Retrieve the properties and relationships of a place object."
 ms.localizationpriority: medium
 author: "vrod9429"
-ms.prod: "outlook"
+ms.subservice: "outlook"
 doc_type: "apiPageType"
 ---
 
@@ -20,15 +20,14 @@ The **place** object can be one of the following types:
 
 Both **room** and **roomList** are derived from the [place](../resources/place.md) object.
 
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
 ## Permissions
 
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
 
-| Permission type                        | Permissions (from least to most privileged) |
-|:---------------------------------------|:--------------------------------------------|
-| Delegated (work or school account)     | Place.Read.All |
-| Delegated (personal Microsoft account) | Not supported |
-| Application                            | Place.Read.All |
+<!-- { "blockType": "permissions", "name": "place_get" } -->
+[!INCLUDE [permissions-table](../includes/permissions/place-get-permissions.md)]
 
 ## HTTP request
 
@@ -47,11 +46,11 @@ For more information, see [OData query parameters](/graph/query-parameters).
 
 | Name          | Description               |
 |:--------------|:--------------------------|
-| Authorization | Bearer {token}. Required. |
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 
 ## Request body
 
-Do not supply a request body for this method.
+Don't supply a request body for this method.
 
 ## Response
 
@@ -68,42 +67,23 @@ The following example specifies the **id** of a **room** to get its properties.
 # [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "name": "get_room"
+  "name": "get_room",
+  "sampleKeys": ["979e9793-3e91-40eb-b18c-0ea937893956"]
 }-->
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/places/3162F1E1-C4C0-604B-51D8-91DA78989EB1
+GET https://graph.microsoft.com/v1.0/places/979e9793-3e91-40eb-b18c-0ea937893956
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/get-room-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 # [JavaScript](#tab/javascript)
 [!INCLUDE [sample-code](../includes/snippets/javascript/get-room-javascript-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/get-room-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Java](#tab/java)
-[!INCLUDE [sample-code](../includes/snippets/java/get-room-java-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Go](#tab/go)
-[!INCLUDE [sample-code](../includes/snippets/go/get-room-go-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [PowerShell](#tab/powershell)
-[!INCLUDE [sample-code](../includes/snippets/powershell/get-room-powershell-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
 ---
-
 
 #### Response
 
-The following is an example of the response.
+The following example shows the response.
 
 >**Note**: The response object shown here might be shortened for readability.
 
@@ -120,36 +100,13 @@ Content-type: application/json
 
 {
     "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#places/$entity",
-    "@odata.type": "#microsoft.graph.room",
-    "id": "3162F1E1-C4C0-604B-51D8-91DA78989EB1",
-    "emailAddress": "cf100@contoso.com",
-    "displayName": "Conf Room 100",
-    "address": {
-      "street": "4567 Main Street",
-      "city": "Buffalo",
-      "state": "NY",
-      "postalCode": "98052",
-      "countryOrRegion": "USA"
-    },
-    "geoCoordinates": {
-      "latitude": 47.640568390488626,
-      "longitude": -122.1293731033803
-    },
-    "phone": "000-000-0000",
-    "nickname": "Conf Room",
-    "label": "100",
-    "capacity": 50,
-    "building": "1",
-    "floorNumber": 1,
-    "isManaged": true,
-    "isWheelChairAccessible": false,
-    "bookingType": "standard",
-    "tags": [
-      "bean bags"
-    ],
-    "audioDeviceName": null,
-    "videoDeviceName": null,
-    "displayDevice": "surface hub"
+    "@odata.type": "#microsoft.graph.roomList",
+    "id": "979e9793-3e91-40eb-b18c-0ea937893956",
+    "displayName": "Building 2 Rooms",
+    "address": null,
+    "geoCoordinates": null,
+    "phone": "",
+    "emailAddress": "Building2Rooms@contoso.com"
 }
 ```
 
@@ -162,43 +119,23 @@ The following example specifies the **emailAddress** of a **roomList** to get it
 # [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "name": "get_roomlist"
+  "name": "get_roomlist",
+  "sampleKeys": ["Building2Rooms@contoso.com"]
 }-->
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/places/bldg1@contoso.com
+GET https://graph.microsoft.com/v1.0/places/Building2Rooms@contoso.com
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/get-roomlist-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 # [JavaScript](#tab/javascript)
 [!INCLUDE [sample-code](../includes/snippets/javascript/get-roomlist-javascript-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/get-roomlist-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Java](#tab/java)
-[!INCLUDE [sample-code](../includes/snippets/java/get-roomlist-java-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Go](#tab/go)
-[!INCLUDE [sample-code](../includes/snippets/go/get-roomlist-go-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [PowerShell](#tab/powershell)
-[!INCLUDE [sample-code](../includes/snippets/powershell/get-roomlist-powershell-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
 ---
-
-
 
 #### Response
 
-The following is an example of the response.
+The following example shows the response.
 
 >**Note**: The response object shown here might be shortened for readability.
 
@@ -214,20 +151,14 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#places/$entity",
-  "@odata.type": "#microsoft.graph.roomList",
-  "id": "DC404124-302A-92AA-F98D-7B4DEB0C1705",
-  "displayName": "Building 1",
-  "address": {
-    "street": "4567 Main Street",
-    "city": "Buffalo",
-    "state": "NY",
-    "postalCode": "98052",
-    "countryOrRegion": "USA"
-  },
-  "geocoordinates": null,
-  "phone": null,
-  "emailAddress": "bldg1@contoso.com"
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#places/$entity",
+    "@odata.type": "#microsoft.graph.roomList",
+    "id": "979e9793-3e91-40eb-b18c-0ea937893956",
+    "displayName": "Building 2 Rooms",
+    "address": null,
+    "geoCoordinates": null,
+    "phone": "",
+    "emailAddress": "Building2Rooms@contoso.com"
 }
 ```
 

@@ -7,11 +7,10 @@ description: "Automatically generated file. DO NOT MODIFY"
 Import-Module Microsoft.Graph.Identity.SignIns
 
 $params = @{
-	Definition = @(
-		"definition-value"
-	)
-	DisplayName = "displayName-value"
-	IsOrganizationDefault = $true
+	definition = @(
+	'{"HomeRealmDiscoveryPolicy":{"AccelerateToFederatedDomain":true,"PreferredDomain":"federated.example.edu","AlternateIdLogin":{"Enabled":true}}}'
+)
+displayName = "Contoso default HRD Policy"
 }
 
 Update-MgPolicyHomeRealmDiscoveryPolicy -HomeRealmDiscoveryPolicyId $homeRealmDiscoveryPolicyId -BodyParameter $params

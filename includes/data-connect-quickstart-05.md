@@ -4,136 +4,74 @@ ms.localizationpriority: medium
 
 <!-- markdownlint-disable MD002 MD041 -->
 
-The next step is to use the Azure Data Factory to create a pipeline to extract the data from Microsoft 365 to the Azure Storage account using Microsoft Graph data connect.
+In this step, you learn how to register and approve a Microsoft Entra application with Microsoft Graph Data Connect (Data Connect).
 
-## Create an Azure Data Factory pipeline
+## Register your application with Microsoft Graph Data Connect
 
-1. Open a browser and go to your [Azure Portal](https://portal.azure.com/).
+As a prerequisite, you should enable Data Connect in your tenant.  We recommend that you create a Microsoft Entra application and a storage destination resource; you can also set these up by using the wizard. The app registration process in Data Connect involves using a wizard with three tabs: Registration info, Datasets, and Review + create.
 
-1. Sign in using an account with **Global administrator** rights to your Azure and Microsoft 365 tenants.
+### Provide details in the Registration info tab
 
-1. On the sidebar navigation, select **Create a resource**.
+1. Access [Microsoft Graph Data Connect in the Azure portal](https://aka.ms/mgdcinazure). You can find it through the search bar in the [Azure portal](https://portal.azure.com/)
 
-1. Find the **Data Factory** resource type and use the following values to create it, then select **Create**.
+2. Choose **Add** or **Add a new application**.
 
-    1. **Subscription**: select your Azure subscription
-    2. **Resource group**: GraphDataConnect
-    3. **Region**: pick an Azure region in the same region as your Microsoft 365 region
-    4. **Name**: dfM365toBlobStorage
-    5. **Version**: V2
+    ![A screenshot that shows the Azure portal Data Factory to create a new application.](../concepts/images/data-connect-register-app-1.png)
 
-        ![A screenshot showing the successful creation of the new Azure Data Factory service in the Azure portal.](../concepts/images/data-connect-adf-create.png)
+3. Follow the **Add** wizard to provide the project details for registration. After you have completed the required fields, choose **Next: Datasets >**
 
-    6. In the **Git configuration** tab, make sure you either configure Git or select the option _Configure Git later_.
+    1. **Subscription:** Select a subscription to filter the next selections:
+        - **Resource Group:**  Select the resource group you created previously.
+        - **Destination Type:** Select Azure storage account.
+        - **Storage Account:** Select the storage account you created previously.
+        - **Storage Account Uri:** Select the option with **.blob.core.windows.net**
+    2. **Application ID:** Select an existing Microsoft Entra tenant or create a new one.
+    3. **Description:** Type **My first app**.
+    4. **Publish Type:** **Single-Tenant** should be automatically chosen based on your Microsot Entra app.
 
-1. After the Azure Data Factory resource is created, select the **Author and Monitor** tile to launch the Azure Data Factory full screen editor.
+    ![A screenshot that shows the project details on the wizard.](../concepts/images/data-connect-register-app-2.png)
 
-    ![A screenshot showing the Azure Portal UI for the Data Factory service. The user is clicking the Author and Monitor button.](../concepts/images/data-connect-adf-auth-and-mon.png)
+### Select dataset and details for the application
 
-1. Switch from the **Overview** to the **Manage** experience by selecting it from the left-hand navigation.
+Specify the datasets that the app registration needs to query. To learn more about datasets, see [Datasets, regions, and sinks supported by Microsoft Graph Data Connect](/graph/data-connect-datasets). Select **Next : Datasets >**.
 
-1. By default, the Azure Data Factory will use an integration runtime that is auto-resolving the region. Because Data Connect requires that your source and destination, and integration runtime to exist in the same Microsoft 365 region, we recommend that you create a new integration runtime with a fixed region.
+4. Select `BasicDataSet_v0.Message_v1` from the **Dataset** dropdown, and in the **Columns** dropdown, choose `All`. In the new row, select `BasicDataSet_v1` from the **Dataset** dropdown, and in the **Columns** dropdown, choose `All`.
 
-    1. Select **Integration runtimes** > **New**.
-    2. Select **Azure, Self-Hosted** and select **Continue**.
-    3. Select **Azure** for network environment and select **Continue**.
+    ![A screenshot that shows the dataset catalog on the wizard.](../concepts/images/data-connect-register-app-3.png)
 
-        ![A screenshot showing the Azure Portal UI for the Data Factory service. The user is selecting the Azure option for the network environment.](../concepts/images/data-connect-adf-network.png)
+### Review and create
 
-    4. Use the following details to complete the form on the final screen and then select **Create**.
+5. Choose **Review + Create**, and then **Create**.
 
-        - **Name**: name of your integration runtime
-        - **Description**: enter a description
-        - **Region**: select the region that matches your Microsoft 365 region
-        - **Virtual network configuration (preview)**: Disabled
+    ![A screenshot that shows the summary page for the Review + Create step.](../concepts/images/data-connect-register-app-4.png)
 
-1. Switch from the **Manage** to the **Author** experience by selecting it from the left-hand navigation.
-1. Create a new pipeline by selecting the **plus** icon, then **pipeline**.
+6. If all required fields are provided, the app registration appears in the landing page.
 
-    ![A screenshot showing the Azure portal UI for the Data Factory service. The user is creating a new pipeline.](../concepts/images/data-connect-adf-pipeline-create.png)
+    ![A screenshot that shows the registered app on the landing page.](../concepts/images/data-connect-register-app-6.png)
 
-    - Drag the **Copy Data** activity from the **Move and Transform** section onto the design surface.
+## Approve your application for Microsoft Graph Data Connect
 
-        ![A screenshot showing the Azure portal UI for the Data Factory service. The user is dragging the copy data activity into the editor on the right side of the screen.](../concepts/images/data-connect-adf-pipeline-copy-data.png)
+1. Open a new browser window in private mode, go to your [Microsoft 365 admin center](https://admin.microsoft.com/), and sign in with your **admin** user.
 
-    - Select the activity in the designer.
-    - Select the **General** tab and give it a name and description.
+ > [!NOTE]
+ > If you are not in your **admin** account, there will be an error with the approval. You cannot self-approve your apps.
 
-      - **Name**: CopyFromM365toBlobStorage
-      - **Description**: A description you want.
+2. On the left navigation pane, select **Settings > Org settings**. You might have to choose **Show all** before you can view **Settings**.
 
-    - In the activity editor pane below the designer, select the **Source** tab, then select **New**.
-    - Locate the dataset **Office 365**, select it and then select the **Continue** button.
+3. Switch to the **Security & privacy** tab and select **Microsoft Graph Data Connect applications**.
 
-        ![A screenshot showing the Azure portal UI for the Data Factory service. The user is selecting the Office 365 dataset in the UI and selecting the continue button afterwards.](../concepts/images/data-connect-adf-pipeline-dataset.png)
+    ![A screenshot that shows the Security and privacy page in the Microsoft 365 admin center.](../concepts/images/data-connect-app-register-7.png)
 
-    - The designer will update the **Source** tab with the Microsoft 365 connector settings.
-    - Select the **Open** option next to the **Source dataset** field.
-    - In the table settings, select the **Connection** tab, then the **New** button.
-    - In the dialog that appears, enter the previously created Azure AD application's **Application ID** and **Secret ID** in the **Service principal ID** and **Service principal key** fields respectively, then select **Create**.
-    - Select the integration runtime you previously created in the **Connect via integration runtime** dropdown.
+4. In the Microsoft Graph Data Connect applications portal,  find the application you registered previously with Data Connect. It should have a **Pre-consent** status in the application summary table.
 
-        ![A screenshot showing the Azure portal UI for the Data Factory service. The user is configuring the integration runtime with the service principal key.](../concepts/images/data-connect-adf-linked-service.png)
+    ![A screenshot that shows the pre-consented application in the landing page of the Microsoft Graph Data Connect applications portal.](../concepts/images/data-connect-app-register-8.png)
 
-    - After creating the Microsoft 365 connection, for the **Table** field, select **BasicDataSet_v0.Message_v0**.
-    - Switch from **Office365Table** to **Pipeline > Source**. Use the following values for the **Date filter**.
+5. Select your application to open the application details view. Proceed through the wizard by choosing **Next** twice to review the two datasets.
 
-      - **Column name**: CreatedDateTime
-      - **Start time (UTC)**: select a date sometime prior to the current date
-      - **End time (UTC)**: select the current date
-      - Select **Import schema** in the _Output columns_ section.
+6. On the final step, choose **Approve** to consent to your registered application accessing the specified data.
 
-    - Select the **Copy data** activity in the pipeline tab, then select the **Sink** tab.
+    ![A screenshot that shows the application details view with the Approve button highlighted.](../concepts/images/data-connect-app-register-9.png)
 
-      - Select the **New** button, select **Azure Blob Storage**, and then select the **Continue** button.
-      - Select **Binary** as the format for the data and then select the **Continue** button.
-      - Give the dataset the name **M365JsonFile** and create new linked service if it does not exist already.
+7.  **Approve** the application summary table reloads with your app listed with the status **Approved**.
 
-    - In the table select the **Connection** tab, then select **New**.
-    - Set the following values in the dialog, then select **Finish**.
-
-        - **Authentication method**: Service principal
-        - **Azure subscription**: Select all
-        - **Storage account name**: mgdcm365datastore
-          - This is the storage account created earlier in this exercise.
-        - **Tenant**: enter the ID of your Azure tenant
-        - **Service principal ID**: enter the ID of the Azure AD application you previously created
-        - **Service principal key**: enter the hashed key of the Azure AD application you previously created
-
-    - Next to the **File path** field, select **Browse**.
-    - Select the name of the storage container you created previously.
-
-      ![A screenshot showing the Azure portal UI for the Data Factory service. The user is configuring the container and file path in the sink properties.](../concepts/images/data-connect-adf-sa-fp-config.png)
-
-1. With the pipeline created, select the **Validate All** button at the top of the designer.
-
-1. After validating (and fixing any issues that were found), select the **Publish All** button at the top of the designer.
-
-## Run the Azure Data Factory Pipeline
-
-With the pipeline created, now it is time to run it.
-
-> [!NOTE]
-> It can take several minutes for the consent request to appear and it is not uncommon for the entire process (start, requesting consent and after approving the consent completing the pipeline run) to take over 40 minutes.
-
-1. In the Azure Data Factory designer, with the pipeline open, select **Add trigger > Trigger Now**.
-
-    ![A screenshot showing the Azure portal UI for the Data Factory service to show how to activate a trigger in the pipeline.](../concepts/images/data-connect-adf-run-trigger.png)
-
-1. After starting the job, from the sidebar menu, select **Monitor** to view current running jobs.
-
-1. On the left-side navigation bar, locate the **Pipeline runs** tab and select it. Select the pipeline under the **Pipeline name** column to view the **Activity runs**. This pipeline will show as _In progress_.
-
-    ![A screenshot showing the Azure portal UI for Data Factory, it is showing the pipeline runs list.](../concepts/images/data-connect-adf-pipeline-runs.png)
-
-1. After you are in the **Activity runs** view, go to the _Activity runs_ section, which is located in the bottom side of the page.
-
-1. Hover over the **Activity name** and select the goggles option. This will bring up the **Details** tab.
-
-    ![A screenshot showing the Azure Portal UI for Data Factory Activity Runs, the user is selecting the googles in the activity name to open the details tab.](../concepts/images/data-connect-adf-pipeline-details.png)
-
-1. In the **Details** screen, look for the status of the pipeline activity as highlighted in the following image. In this case you can see it is in a state of **RequestingConsent**.
-
-    ![A screenshot showing the Azure portal UI for the Data Factory service where the request's load status is set to "RequestingConsent".](../concepts/images/data-connect-adf-wait-for-approval.png)
-
-1. At this point, the activity run is internally paused until someone manually approves the consent request via the Microsoft 365 admin center or via PowerShell.
+    ![A screenshot that shows the approved application in the landing page of the Microsoft Graph Data Connect applications portal.](../concepts/images/data-connect-app-register-10.png)

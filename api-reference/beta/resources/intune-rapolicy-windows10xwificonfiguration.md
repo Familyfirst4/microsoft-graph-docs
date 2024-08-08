@@ -1,19 +1,19 @@
 ---
 title: "windows10XWifiConfiguration resource type"
 description: "Windows X WifiXml configuration profile"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # windows10XWifiConfiguration resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Windows X WifiXml configuration profile
 
@@ -39,6 +39,7 @@ Inherits from [deviceManagementResourceAccessProfileBase](../resources/intune-ra
 |creationDateTime|DateTimeOffset|DateTime profile was created Inherited from [deviceManagementResourceAccessProfileBase](../resources/intune-rapolicy-devicemanagementresourceaccessprofilebase.md)|
 |lastModifiedDateTime|DateTimeOffset|DateTime profile was last modified Inherited from [deviceManagementResourceAccessProfileBase](../resources/intune-rapolicy-devicemanagementresourceaccessprofilebase.md)|
 |roleScopeTagIds|String collection|Scope Tags Inherited from [deviceManagementResourceAccessProfileBase](../resources/intune-rapolicy-devicemanagementresourceaccessprofilebase.md)|
+|serverApplicabilityRules|[applicabilityRule](../resources/intune-rapolicy-applicabilityrule.md) collection|The list of Applicability Rules for a Device Configuration Profile Inherited from [deviceManagementResourceAccessProfileBase](../resources/intune-rapolicy-devicemanagementresourceaccessprofilebase.md)|
 |authenticationCertificateId|Guid|ID to the Authentication Certificate|
 |customXmlFileName|String|Custom Xml file name.|
 |customXml|Binary|Custom XML commands that configures the VPN connection. (UTF8 byte encoding)|
@@ -68,12 +69,14 @@ Here is a JSON representation of the resource.
   "roleScopeTagIds": [
     "String"
   ],
+  "serverApplicabilityRules": [
+    {
+      "@odata.type": "microsoft.graph.applicabilityRule",
+      "filterType": "String"
+    }
+  ],
   "authenticationCertificateId": "Guid",
   "customXmlFileName": "String",
   "customXml": "binary"
 }
 ```
-
-
-
-

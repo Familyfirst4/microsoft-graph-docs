@@ -1,10 +1,12 @@
 ---
 title: "passwordlessMicrosoftAuthenticatorAuthenticationMethod resource type"
 description: "A representation of a Microsoft Authenticator Passwordless Phone Sign-in method registered to a user."
-author: "mmcla"
+author: "mjsantani"
+ms.reviewer: intelligentaccesspm
 ms.localizationpriority: medium
-ms.prod: "identity-and-sign-in"
-doc_type: "apiPageType"
+ms.subservice: "entra-sign-in"
+doc_type: resourcePageType
+toc.title: Microsoft Authenticator Passwordless Phone sign-in (deprecated)
 ---
 
 # passwordlessMicrosoftAuthenticatorAuthenticationMethod resource type (deprecated)
@@ -14,6 +16,8 @@ Namespace: microsoft.graph
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
 A representation of a Microsoft Authenticator Passwordless Phone Sign-in method registered to a user.
+
+This is a derived type that inherits from the [authenticationMethod](authenticationmethod.md) resource type.
 
 > [!CAUTION]
 > The Microsoft Authenticator Passwordless Phone Sign-in method API is deprecated and will stop returning results on December 31, 2020. Please use the new [Microsoft Authenticator Authentication Method](../resources/microsoftAuthenticatorAuthenticationMethod.md).
@@ -35,7 +39,7 @@ A representation of a Microsoft Authenticator Passwordless Phone Sign-in method 
 |creationDateTime|DateTimeOffset|The timestamp when this method was registered to the user.|
 
 
-## JSON representation
+The following JSON representation shows the resource type.
 The following is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",

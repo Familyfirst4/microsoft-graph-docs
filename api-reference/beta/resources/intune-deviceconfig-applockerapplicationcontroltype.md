@@ -1,19 +1,19 @@
 ---
 title: "appLockerApplicationControlType enum type"
 description: "Possible values of AppLocker Application Control Types"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # appLockerApplicationControlType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Possible values of AppLocker Application Control Types
 
@@ -25,7 +25,3 @@ Possible values of AppLocker Application Control Types
 |auditComponentsAndStoreApps|2|Audit Windows component and store apps.|
 |enforceComponentsStoreAppsAndSmartlocker|3|Enforce Windows components, store apps and smart locker.|
 |auditComponentsStoreAppsAndSmartlocker|4|Audit Windows components, store apps and smart locker​.|
-
-
-
-

@@ -4,18 +4,31 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.CalendarViewRequestBuilderGetQueryParameters{
-	Start: "2018-04-30T00:00:00Z",
-	End: "2018-05-10T00:00:00Z",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphsolutions "github.com/microsoftgraph/msgraph-beta-sdk-go/solutions"
+	  //other-imports
+)
+
+
+requestStart := "2018-04-30T00:00:00Z"
+requestEnd := "2018-05-10T00:00:00Z"
+
+requestParameters := &graphsolutions.SolutionsBookingBusinesseItemCalendarViewRequestBuilderGetQueryParameters{
+	Start: &requestStart,
+	End: &requestEnd,
 }
-options := &msgraphsdk.CalendarViewRequestBuilderGetRequestConfiguration{
+configuration := &graphsolutions.SolutionsBookingBusinesseItemCalendarViewRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-bookingBusinessId := "bookingBusiness-id"
-result, err := graphClient.BookingBusinessesById(&bookingBusinessId).CalendarView().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+calendarView, err := graphClient.Solutions().BookingBusinesses().ByBookingBusinessId("bookingBusiness-id").CalendarView().Get(context.Background(), configuration)
 
 
 ```

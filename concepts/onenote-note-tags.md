@@ -3,7 +3,7 @@ title: "Use note tags on OneNote pages by using the OneNote API"
 description: "Use the data-tag attribute to add and update built-in note tags on a OneNote page. Learn how to work with note tags on lists and how to retrieve note tags."
 author: "jewan-microsoft"
 ms.localizationpriority: medium
-ms.prod: "onenote"
+ms.subservice: "onenote"
 ---
 
 # Use note tags on OneNote pages
@@ -71,7 +71,7 @@ Here's a simple to-do list with the first item completed.
 <p data-tag="to-do" data-id="summer">Plant tomatoes and peppers</p>
 ```
 
-Note that the `<p>` tags above each include a `data-id` attribute. This makes it easier to update the check box note tags. For example, the following request marks the spring planting to-do item as completed.
+For example, the following request marks the second to-do item as completed.
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/me/onenote/notebooks/pages/{page-id}/content
@@ -81,7 +81,7 @@ Authorization: Bearer {token}
 
 [
    {
-    'target':'#spring',
+    'target':'p:{33f8a242-7c33-4bb2-90c5-8425a68cc5bf}{40}',
     'action':'replace',
     'content':'<p data-tag="to-do:completed"  data-id="spring">Plant peas and spinach</p>'
   }
@@ -354,7 +354,7 @@ For more information about permission scopes and how they work, see [OneNote per
 
 <a name="see-also"></a>
 
-## See also
+## Related content
 
 - [Create OneNote pages](onenote-create-page.md)
 - [Update OneNote page content](onenote-update-page.md)

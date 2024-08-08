@@ -1,9 +1,9 @@
 ---
 title: "deviceManagementDerivedCredentialSettings resource type"
-description: "Not yet documented"
-author: "rolyon"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Intune Shared Devicemanagementderivedcredentialsettings Resources ."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.prod: "Intune"
 doc_type: resourcePageType
 ---
 
@@ -53,6 +53,3 @@ Here is a JSON representation of the resource.
   "id": "String (identifier)"
 }
 ```
-
-
-

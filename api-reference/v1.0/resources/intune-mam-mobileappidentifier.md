@@ -1,9 +1,9 @@
 ---
 title: "mobileAppIdentifier resource type"
 description: "The identifier for a mobile app."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
@@ -34,8 +34,3 @@ Here is a JSON representation of the resource.
   "@odata.type": "#microsoft.graph.mobileAppIdentifier"
 }
 ```
-
-
-
-
-

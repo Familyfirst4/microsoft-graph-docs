@@ -1,9 +1,9 @@
 ---
 title: "windowsUpdateState resource type"
-description: "Not yet documented"
-author: "rolyon"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Intune Shared Windowsupdatestate Resources ."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.prod: "Intune"
 doc_type: resourcePageType
 ---
 
@@ -15,7 +15,7 @@ Namespace: microsoft.graph
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Not yet documented
+
 
 ## Methods
 |Method|Return Type|Description|
@@ -66,6 +66,3 @@ Here is a JSON representation of the resource.
   "lastSyncDateTime": "String (timestamp)"
 }
 ```
-
-
-

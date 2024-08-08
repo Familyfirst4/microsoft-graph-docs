@@ -4,40 +4,32 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
-requestBody.SetAddMembers( []UpdatableAsset {
-	msgraphsdk.NewUpdatableAsset(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
-		"id": "String (identifier)",
-	}
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphadmin "github.com/microsoftgraph/msgraph-beta-sdk-go/admin"
+	  graphmodelswindowsupdates "github.com/microsoftgraph/msgraph-beta-sdk-go/models/windowsupdates"
+	  //other-imports
+)
+
+requestBody := graphadmin.NewUpdateAudiencePostRequestBody()
+
+
+updatableAsset := graphmodelswindowsupdates.NewAzureADDevice()
+id := "String (identifier)"
+updatableAsset.SetId(&id) 
+
+addMembers := []graphmodelswindowsupdates.UpdatableAssetable {
+	updatableAsset,
 }
-requestBody.SetRemoveMembers( []UpdatableAsset {
-	msgraphsdk.NewUpdatableAsset(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
-		"id": "String (identifier)",
-	}
-}
-requestBody.SetAddExclusions( []UpdatableAsset {
-	msgraphsdk.NewUpdatableAsset(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
-		"id": "String (identifier)",
-	}
-}
-requestBody.SetRemoveExclusions( []UpdatableAsset {
-	msgraphsdk.NewUpdatableAsset(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
-		"id": "String (identifier)",
-	}
-}
-deploymentId := "deployment-id"
-graphClient.Admin().Windows().Updates().DeploymentsById(&deploymentId).Audience().UpdateAudience(deployment-id).Post(requestBody)
+requestBody.SetAddMembers(addMembers)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Admin().Windows().Updates().DeploymentAudiences().ByDeploymentAudienceId("deploymentAudience-id").MicrosoftGraphWindowsUpdatesUpdateAudience().Post(context.Background(), requestBody, nil)
 
 
 ```

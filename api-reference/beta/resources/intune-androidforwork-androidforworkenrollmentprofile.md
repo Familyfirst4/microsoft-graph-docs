@@ -1,19 +1,19 @@
 ---
 title: "androidForWorkEnrollmentProfile resource type"
 description: "Enrollment Profile used to enroll COSU devices using Google's Cloud Management."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # androidForWorkEnrollmentProfile resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Enrollment Profile used to enroll COSU devices using Google's Cloud Management.
 
@@ -25,8 +25,8 @@ Enrollment Profile used to enroll COSU devices using Google's Cloud Management.
 |[Create androidForWorkEnrollmentProfile](../api/intune-androidforwork-androidforworkenrollmentprofile-create.md)|[androidForWorkEnrollmentProfile](../resources/intune-androidforwork-androidforworkenrollmentprofile.md)|Create a new [androidForWorkEnrollmentProfile](../resources/intune-androidforwork-androidforworkenrollmentprofile.md) object.|
 |[Delete androidForWorkEnrollmentProfile](../api/intune-androidforwork-androidforworkenrollmentprofile-delete.md)|None|Deletes a [androidForWorkEnrollmentProfile](../resources/intune-androidforwork-androidforworkenrollmentprofile.md).|
 |[Update androidForWorkEnrollmentProfile](../api/intune-androidforwork-androidforworkenrollmentprofile-update.md)|[androidForWorkEnrollmentProfile](../resources/intune-androidforwork-androidforworkenrollmentprofile.md)|Update the properties of a [androidForWorkEnrollmentProfile](../resources/intune-androidforwork-androidforworkenrollmentprofile.md) object.|
-|[revokeToken action](../api/intune-androidforwork-androidforworkenrollmentprofile-revoketoken.md)|None|Not yet documented|
-|[createToken action](../api/intune-androidforwork-androidforworkenrollmentprofile-createtoken.md)|None|Not yet documented|
+|[revokeToken action](../api/intune-androidforwork-androidforworkenrollmentprofile-revoketoken.md)|None||
+|[createToken action](../api/intune-androidforwork-androidforworkenrollmentprofile-createtoken.md)|None||
 
 ## Properties
 |Property|Type|Description|
@@ -74,7 +74,3 @@ Here is a JSON representation of the resource.
   }
 }
 ```
-
-
-
-

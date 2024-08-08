@@ -4,33 +4,39 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewCloudPcOnPremisesConnection()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewCloudPcOnPremisesConnection()
 displayName := "Display Name value"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 subscriptionId := "0ac520ee-14c0-480f-b6c9-0a90c585ffff"
-requestBody.SetSubscriptionId(&subscriptionId)
+requestBody.SetSubscriptionId(&subscriptionId) 
 subscriptionName := "Subscription Name value"
-requestBody.SetSubscriptionName(&subscriptionName)
+requestBody.SetSubscriptionName(&subscriptionName) 
 adDomainName := "Active Directory Domain Name value"
-requestBody.SetAdDomainName(&adDomainName)
+requestBody.SetAdDomainName(&adDomainName) 
 adDomainUsername := "Active Directory Domain User Name value"
-requestBody.SetAdDomainUsername(&adDomainUsername)
+requestBody.SetAdDomainUsername(&adDomainUsername) 
 organizationalUnit := "Organization Unit value"
-requestBody.SetOrganizationalUnit(&organizationalUnit)
+requestBody.SetOrganizationalUnit(&organizationalUnit) 
 resourceGroupId := "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c585ffff/resourceGroups/ExampleRG"
-requestBody.SetResourceGroupId(&resourceGroupId)
+requestBody.SetResourceGroupId(&resourceGroupId) 
 virtualNetworkId := "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet"
-requestBody.SetVirtualNetworkId(&virtualNetworkId)
+requestBody.SetVirtualNetworkId(&virtualNetworkId) 
 subnetId := "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c585ffff/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default"
-requestBody.SetSubnetId(&subnetId)
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#microsoft.graph.cloudPcOnPremisesConnection",
-}
-cloudPcOnPremisesConnectionId := "cloudPcOnPremisesConnection-id"
-graphClient.DeviceManagement().VirtualEndpoint().OnPremisesConnectionsById(&cloudPcOnPremisesConnectionId).Patch(requestBody)
+requestBody.SetSubnetId(&subnetId) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+onPremisesConnections, err := graphClient.DeviceManagement().VirtualEndpoint().OnPremisesConnections().ByCloudPcOnPremisesConnectionId("cloudPcOnPremisesConnection-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

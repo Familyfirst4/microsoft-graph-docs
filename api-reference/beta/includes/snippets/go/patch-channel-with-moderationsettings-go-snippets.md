@@ -4,27 +4,35 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewChannel()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewChannel()
 displayName := "UpdateChannelModeration"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 description := "Update channel moderation."
-requestBody.SetDescription(&description)
-moderationSettings := msgraphsdk.NewChannelModerationSettings()
-requestBody.SetModerationSettings(moderationSettings)
-userNewMessageRestriction := "moderators"
-moderationSettings.SetUserNewMessageRestriction(&userNewMessageRestriction)
-replyRestriction := "everyone"
-moderationSettings.SetReplyRestriction(&replyRestriction)
+requestBody.SetDescription(&description) 
+moderationSettings := graphmodels.NewChannelModerationSettings()
+userNewMessageRestriction := graphmodels.MODERATORS_USERNEWMESSAGERESTRICTION 
+moderationSettings.SetUserNewMessageRestriction(&userNewMessageRestriction) 
+replyRestriction := graphmodels.EVERYONE_REPLYRESTRICTION 
+moderationSettings.SetReplyRestriction(&replyRestriction) 
 allowNewMessageFromBots := true
-moderationSettings.SetAllowNewMessageFromBots(&allowNewMessageFromBots)
+moderationSettings.SetAllowNewMessageFromBots(&allowNewMessageFromBots) 
 allowNewMessageFromConnectors := true
-moderationSettings.SetAllowNewMessageFromConnectors(&allowNewMessageFromConnectors)
-teamId := "team-id"
-channelId := "channel-id"
-graphClient.TeamsById(&teamId).ChannelsById(&channelId).Patch(requestBody)
+moderationSettings.SetAllowNewMessageFromConnectors(&allowNewMessageFromConnectors) 
+requestBody.SetModerationSettings(moderationSettings)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+channels, err := graphClient.Teams().ByTeamId("team-id").Channels().ByChannelId("channel-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

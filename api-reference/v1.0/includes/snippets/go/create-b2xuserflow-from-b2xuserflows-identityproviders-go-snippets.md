@@ -4,26 +4,41 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewB2xIdentityUserFlow()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewB2xIdentityUserFlow()
 id := "Partner"
-requestBody.SetId(&id)
-userFlowType := "signUpOrSignIn"
-requestBody.SetUserFlowType(&userFlowType)
+requestBody.SetId(&id) 
+userFlowType := graphmodels.SIGNUPORSIGNIN_USERFLOWTYPE 
+requestBody.SetUserFlowType(&userFlowType) 
 userFlowTypeVersion := float32(1)
-requestBody.SetUserFlowTypeVersion(&userFlowTypeVersion)
-requestBody.SetIdentityProviders( []IdentityProvider {
-	msgraphsdk.NewIdentityProvider(),
+requestBody.SetUserFlowTypeVersion(&userFlowTypeVersion) 
+
+
+identityProvider := graphmodels.NewIdentityProvider()
 id := "Facebook-OAuth"
-	SetId(&id)
+identityProvider.SetId(&id) 
 type := "Facebook"
-	SetType(&type)
+identityProvider.SetType(&type) 
 name := "Facebook"
-	SetName(&name)
+identityProvider.SetName(&name) 
+
+identityProviders := []graphmodels.IdentityProviderable {
+	identityProvider,
 }
-result, err := graphClient.Identity().B2xUserFlows().Post(requestBody)
+requestBody.SetIdentityProviders(identityProviders)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+b2xUserFlows, err := graphClient.Identity().B2xUserFlows().Post(context.Background(), requestBody, nil)
 
 
 ```

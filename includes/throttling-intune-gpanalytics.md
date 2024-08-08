@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "jaiprakashmb"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: intune
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->
@@ -15,7 +15,6 @@ ms.topic: include
 
 The preceding limits apply to the following resources:  
 
-| <!-- fake header-->                                                                                                                                                                                                                                                                                                                                                                            |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul> <li> [groupPolicyMigrationReport](/graph/api/resources/grouppolicymigrationreport) <li> [groupPolicyObjectFile](/graph/api/resources/grouppolicyobjectfile) <li> [groupPolicySettingMapping](/graph/api/resources/grouppolicysettingmapping) <li> [unsupportedGroupPolicyExtension.](/graph/api/resources/unsupportedgrouppolicyextension.)  </ul>
- |
+| <!-- fake header--> |
+|---|
+| <ul> <li> [groupPolicyMigrationReport](/graph/api/resources/intune-gpanalyticsservice-grouppolicymigrationreport) <li> [groupPolicyObjectFile](/graph/api/resources/intune-gpanalyticsservice-grouppolicyobjectfile) <li> [groupPolicySettingMapping](/graph/api/resources/intune-gpanalyticsservice-grouppolicysettingmapping) <li> [unsupportedGroupPolicyExtension](/graph/api/resources/intune-gpanalyticsservice-unsupportedgrouppolicyextension)  </ul> |

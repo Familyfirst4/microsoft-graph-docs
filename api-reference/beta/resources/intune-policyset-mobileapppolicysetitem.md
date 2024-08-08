@@ -1,19 +1,19 @@
 ---
 title: "mobileAppPolicySetItem resource type"
 description: "A class containing the properties used for mobile app PolicySetItem."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # mobileAppPolicySetItem resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 A class containing the properties used for mobile app PolicySetItem.
 
@@ -71,14 +71,19 @@ Here is a JSON representation of the resource.
   ],
   "intent": "String",
   "settings": {
-    "@odata.type": "microsoft.graph.iosLobAppAssignmentSettings",
-    "vpnConfigurationId": "String",
-    "uninstallOnDeviceRemoval": true,
-    "isRemovable": true
+    "@odata.type": "microsoft.graph.winGetAppAssignmentSettings",
+    "notifications": "String",
+    "restartSettings": {
+      "@odata.type": "microsoft.graph.winGetAppRestartSettings",
+      "gracePeriodInMinutes": 1024,
+      "countdownDisplayBeforeRestartInMinutes": 1024,
+      "restartNotificationSnoozeDurationInMinutes": 1024
+    },
+    "installTimeSettings": {
+      "@odata.type": "microsoft.graph.winGetAppInstallTimeSettings",
+      "useLocalTime": true,
+      "deadlineDateTime": "String (timestamp)"
+    }
   }
 }
 ```
-
-
-
-

@@ -1,9 +1,9 @@
 ---
 title: "Create deviceManagementScript"
 description: "Create a new deviceManagementScript object."
-author: "rolyon"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,18 +17,20 @@ Namespace: microsoft.graph
 
 Create a new [deviceManagementScript](../resources/intune-shared-devicemanagementscript.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from most to least privileged)|
 |:---|:---|
 |Delegated (work or school account)||
-| &nbsp; &nbsp; **Device management** | DeviceManagementManagedDevices.ReadWrite.All|
-| &nbsp; &nbsp; **Policy Set** | DeviceManagementManagedDevices.ReadWrite.All|
+| &nbsp; &nbsp; **Device management** | DeviceManagementConfiguration.ReadWrite.All|
+| &nbsp; &nbsp; **Policy Set** | DeviceManagementConfiguration.ReadWrite.All|
 |Delegated (personal Microsoft account)|Not supported.|
 |Application||
-| &nbsp; &nbsp; **Device management** | DeviceManagementManagedDevices.ReadWrite.All|
-| &nbsp; &nbsp; **Policy Set** | DeviceManagementManagedDevices.ReadWrite.All|
+| &nbsp; &nbsp; **Device management** | DeviceManagementConfiguration.ReadWrite.All|
+| &nbsp; &nbsp; **Policy Set** | DeviceManagementConfiguration.ReadWrite.All|
 
 ## HTTP Request
 <!-- {
@@ -42,7 +44,7 @@ POST /deviceManagement/deviceManagementScripts
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -55,7 +57,6 @@ The following table shows the properties that are required when you create the d
 |id|String|Unique Identifier for the device management script.|
 |displayName|String|Name of the device management script.|
 |description|String|Optional description for the device management script.|
-|runSchedule|[runSchedule](../resources/intune-devices-runschedule.md)|The interval for script to run. If not defined the script will run once|
 |scriptContent|Binary|The script content.|
 |createdDateTime|DateTimeOffset|The date and time the device management script was created. This property is read-only.|
 |lastModifiedDateTime|DateTimeOffset|The date and time the device management script was last modified. This property is read-only.|
@@ -82,7 +83,7 @@ Content-length: 443
 {
   "@odata.type": "#microsoft.graph.deviceManagementScript",
   "displayName": "Display Name value",
-  "description": "Description value",
+  "description": "Description value",  
   "scriptContent": "c2NyaXB0Q29udGVudA==",
   "runAsAccount": "user",
   "enforceSignatureCheck": true,
@@ -118,9 +119,3 @@ Content-Length: 615
   "runAs32Bit": true
 }
 ```
-
-
-
-
-
-

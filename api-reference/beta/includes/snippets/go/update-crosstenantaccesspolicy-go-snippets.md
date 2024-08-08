@@ -4,15 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewCrossTenantAccessPolicy()
-requestBody.SetAllowedCloudEndpoints( []String {
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewCrossTenantAccessPolicy()
+allowedCloudEndpoints := []string {
 	"microsoftonline.us",
 	"partner.microsoftonline.cn",
 }
-graphClient.Policies().CrossTenantAccessPolicy().Patch(requestBody)
+requestBody.SetAllowedCloudEndpoints(allowedCloudEndpoints)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+crossTenantAccessPolicy, err := graphClient.Policies().CrossTenantAccessPolicy().Patch(context.Background(), requestBody, nil)
 
 
 ```

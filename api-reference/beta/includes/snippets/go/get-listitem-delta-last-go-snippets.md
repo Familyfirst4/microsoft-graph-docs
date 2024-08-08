@@ -4,18 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.DeltaRequestBuilderGetQueryParameters{
-	Token: "1230919asd190410jlka",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphsites "github.com/microsoftgraph/msgraph-beta-sdk-go/sites"
+	  //other-imports
+)
+
+
+requestToken := "1230919asd190410jlka"
+
+requestParameters := &graphsites.SiteItemListItemItemsDeltaWithRequestBuilderGetQueryParameters{
+	Token: &requestToken,
 }
-options := &msgraphsdk.DeltaRequestBuilderGetRequestConfiguration{
+configuration := &graphsites.SiteItemListItemItemsDeltaWithRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-siteId := "site-id"
-listId := "list-id"
-result, err := graphClient.SitesById(&siteId).ListsById(&listId).Items().Delta()(site-id, list-id).GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+delta, err := graphClient.Sites().BySiteId("site-id").Lists().ByListId("list-id").Items().Delta().GetAsDeltaGetResponse(context.Background(), configuration)
 
 
 ```

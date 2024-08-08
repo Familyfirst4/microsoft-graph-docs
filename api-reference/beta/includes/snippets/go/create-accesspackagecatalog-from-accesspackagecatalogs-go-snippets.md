@@ -4,17 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewAccessPackageCatalog()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewAccessPackageCatalog()
 displayName := "sales"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 description := "for employees working with sales and outside sales partners"
-requestBody.SetDescription(&description)
+requestBody.SetDescription(&description) 
 isExternallyVisible := true
-requestBody.SetIsExternallyVisible(&isExternallyVisible)
-result, err := graphClient.IdentityGovernance().EntitlementManagement().AccessPackageCatalogs().Post(requestBody)
+requestBody.SetIsExternallyVisible(&isExternallyVisible) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+accessPackageCatalogs, err := graphClient.IdentityGovernance().EntitlementManagement().AccessPackageCatalogs().Post(context.Background(), requestBody, nil)
 
 
 ```

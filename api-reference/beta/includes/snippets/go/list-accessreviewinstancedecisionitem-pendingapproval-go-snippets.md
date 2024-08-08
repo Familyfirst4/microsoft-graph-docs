@@ -4,18 +4,31 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.DecisionsRequestBuilderGetQueryParameters{
-	Top: 100,
-	Skip: 0,
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-beta-sdk-go/users"
+	  //other-imports
+)
+
+
+requestTop := int32(100)
+requestSkip := int32(0)
+
+requestParameters := &graphusers.ItemPendingAccessReviewInstanceItemDecisionsRequestBuilderGetQueryParameters{
+	Top: &requestTop,
+	Skip: &requestSkip,
 }
-options := &msgraphsdk.DecisionsRequestBuilderGetRequestConfiguration{
+configuration := &graphusers.ItemPendingAccessReviewInstanceItemDecisionsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-accessReviewInstanceId := "accessReviewInstance-id"
-result, err := graphClient.Me().PendingAccessReviewInstancesById(&accessReviewInstanceId).Decisions().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+decisions, err := graphClient.Me().PendingAccessReviewInstances().ByAccessReviewInstanceId("accessReviewInstance-id").Decisions().Get(context.Background(), configuration)
 
 
 ```

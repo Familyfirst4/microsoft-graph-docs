@@ -3,7 +3,7 @@ author: kevinlam
 title: itemPreviewInfo resource type
 ms.localizationpriority: medium
 description: "Contains information about how to embed a preview of a driveItem."
-ms.prod: files
+ms.subservice: onedrive
 doc_type: resourcePageType
 ---
 # itemPreviewInfo resource type
@@ -27,8 +27,8 @@ Contains information about how to embed a preview of a [driveItem](driveitem.md)
 | Name           | Type   | Description
 |:---------------|:-------|:---------------------------------------------------
 | getUrl         | string | URL suitable for embedding using HTTP GET (iframes, etc.)
-| postUrl        | string | URL suitable for embedding using HTTP POST (form post, JS, etc.)
 | postParameters | string | POST parameters to include if using postUrl
+| postUrl        | string | URL suitable for embedding using HTTP POST (form post, JS, etc.)
 
 Either getUrl, postUrl, or both may be returned depending on the current state of support for the specified options.
 

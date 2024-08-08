@@ -3,7 +3,7 @@ title: "Get bookingAppointment"
 description: "Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness."
 ms.localizationpriority: medium
 author: "arvindmicrosoft"
-ms.prod: "bookings"
+ms.subservice: "microsoft-bookings"
 doc_type: apiPageType
 ---
 
@@ -13,46 +13,93 @@ Namespace: microsoft.graph
 
 Get the properties and relationships of a [bookingAppointment](../resources/bookingappointment.md) object in the specified [bookingBusiness](../resources/bookingbusiness.md).
 
-The **startDateTime** and **endDateTime** properties are always returned in UTC.
-## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
+The **start** and **end** properties are always returned in UTC.
 
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) |  Bookings.Read.All, BookingsAppointment.ReadWrite.All, Bookings.ReadWrite.All, Bookings.Manage.All   |
-|Delegated (personal Microsoft account) | Not supported.   |
-|Application | Not supported.  |
+[!INCLUDE [national-cloud-support](../../includes/global-us.md)]
+
+## Permissions
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
+
+<!-- { "blockType": "permissions", "name": "bookingappointment_get" } -->
+[!INCLUDE [permissions-table](../includes/permissions/bookingappointment-get-permissions.md)]
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /solutions/bookingBusinesses/{id}/appointments/{id}
 ```
+
 ## Optional query parameters
-This method supports the $count and $expand [OData query parameters](/graph/query-parameters) to help customize the response.
+
+This method supports the `$count` and `$expand` [OData query parameters](/graph/query-parameters) to help customize the response.
 
 ## Request headers
+
 | Name      |Description|
 |:----------|:----------|
 | Authorization  | Bearer {code}|
 
 ## Request body
-Do not supply a request body for this method.
-## Response
-If successful, this method returns a `200 OK` response code and a [bookingAppointment](../resources/bookingappointment.md) object in the response body.
-## Example
-### Request
-The following is an example of the request.
 
+Don't supply a request body for this method.
+
+## Response
+
+If successful, this method returns a `200 OK` response code and a [bookingAppointment](../resources/bookingappointment.md) object in the response body.
+
+## Example
+
+### Request
+
+The following example shows a request.
+
+# [HTTP](#tab/http)
 <!-- {
-  "blockType": "request"
+  "blockType": "request",
+  "name": "bookingappointment_get",
+  "sampleKeys": ["AAMkADKnAAA=", "Contosolunchdelivery@contoso.com"]
 }-->
-```http
-GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/Contosolunchdelivery@contoso.onmicrosoft.com/appointments/AAMkADKnAAA=
+```msgraph-interactive
+GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/Contosolunchdelivery@contoso.com/appointments/AAMkADKnAAA=
 ```
 
+# [C#](#tab/csharp)
+[!INCLUDE [sample-code](../includes/snippets/csharp/bookingappointment-get-csharp-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [CLI](#tab/cli)
+[!INCLUDE [sample-code](../includes/snippets/cli/bookingappointment-get-cli-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Go](#tab/go)
+[!INCLUDE [sample-code](../includes/snippets/go/bookingappointment-get-go-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Java](#tab/java)
+[!INCLUDE [sample-code](../includes/snippets/java/bookingappointment-get-java-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](../includes/snippets/javascript/bookingappointment-get-javascript-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](../includes/snippets/php/bookingappointment-get-php-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PowerShell](#tab/powershell)
+[!INCLUDE [sample-code](../includes/snippets/powershell/bookingappointment-get-powershell-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Python](#tab/python)
+[!INCLUDE [sample-code](../includes/snippets/python/bookingappointment-get-python-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+---
+
 ### Response
-The following is an example of the response. 
+
+The following example shows the response.
 
 >**Note:** The response object shown here might be shortened for readability.
 
@@ -66,7 +113,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/solutions/$metadata#bookingBusinesses('Contosolunchdelivery%40contoso.onmicrosoft.com')/appointments/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/solutions/$metadata#bookingBusinesses('Contosolunchdelivery%40contoso.com')/appointments/$entity",
     "id": "AAMkADKnAAA=",
     "selfServiceAppointmentId": "00000000-0000-0000-0000-000000000000",
     "isLocationOnline": true,
@@ -79,15 +126,21 @@ Content-type: application/json
     "preBuffer": "PT5M",
     "postBuffer": "PT10M",
     "priceType": "fixedPrice",
-    "price": 10,
+    "price": 10.0,
     "serviceNotes": "Customer requires punctual service.",
     "optOutOfCustomerEmail": false,
+    "anonymousJoinWebUrl": null,
     "staffMemberIds": [],
-    "startDateTime": {
+    "isCustomerAllowedToManageBooking": false,
+    "customerName": "Jordan Miller",
+    "customerEmailAddress": "jordanm@contoso.com",
+    "customerPhone": "213-555-0199",
+    "customerNotes": null,	
+    "start": {
         "dateTime": "2018-05-06T12:00:00.0000000Z",
         "timeZone": "UTC"
     },
-    "endDateTime": {
+    "end": {
         "dateTime": "2018-05-06T12:30:00.0000000Z",
         "timeZone": "UTC"
     },
@@ -140,7 +193,7 @@ Content-type: application/json
             "emailAddress": "jordanm@contoso.com",
             "phone": "213-555-0199",
             "notes": null,
-            "location": 
+            "location":
             {
                 "displayName": "Customer",
                 "locationEmailAddress": null,
@@ -148,7 +201,7 @@ Content-type: application/json
                 "locationType": null,
                 "uniqueId": null,
                 "uniqueIdType": null,
-                "address": 
+                "address":
                 {
                     "street": "",
                     "city": "",

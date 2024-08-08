@@ -1,9 +1,9 @@
 ---
 title: "userTrainingContentEventInfo resource type"
 description: "Represents training event details of assigned trainings to users in an attack simulation and training campaign."
-author: "Gopal-MSFT"
+author: "stuartcl"
 ms.localizationpriority: medium
-ms.prod: "security"
+ms.subservice: "security"
 doc_type: resourcePageType
 ---
 
@@ -13,7 +13,7 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Represents details of a training event in an attack simulation and training campaign.
+Represents training event details of assigned trainings to users in an attack simulation and training campaign.
 
 ## Properties
 |Property|Type|Description|
@@ -22,13 +22,13 @@ Represents details of a training event in an attack simulation and training camp
 |contentDateTime|DateTimeOffset|Date and time of the training content playback by the user.|
 |ipAddress|String|IP address of the user for the training event.|
 |osPlatformDeviceDetails|String|The operating system, platform, and device details of the user for the training event.|
-|potentialScoreImpact|Double|Potential improvement in security posture of the tenant after completion of the training by the user.|
+|potentialScoreImpact|Double|Potential improvement in the tenant security posture after completion of the training by the user.|
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.userTrainingContentEventInfo"
@@ -37,10 +37,10 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.userTrainingContentEventInfo",
+  "browser": "String",
   "contentDateTime": "String (timestamp)",
   "ipAddress": "String",
   "osPlatformDeviceDetails": "String",
-  "browser": "String",
   "potentialScoreImpact": "Double"
 }
 ```

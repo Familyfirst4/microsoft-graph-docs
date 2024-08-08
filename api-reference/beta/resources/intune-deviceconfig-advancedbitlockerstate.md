@@ -1,19 +1,19 @@
 ---
 title: "advancedBitLockerState enum type"
 description: "Advanced BitLocker State"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # advancedBitLockerState enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Advanced BitLocker State
 
@@ -37,7 +37,3 @@ Advanced BitLocker State
 |tpmNotAvailable|8192|TPM is not available for BitLocker. This means TPM is not present, or TPM unavailable registry override is set or host OS is on portable/rome-able drive|
 |tpmNotReady|16384|TPM is not ready for BitLocker|
 |networkError|32768|Network not available. This is required for recovery key backup. This is reported for Drive Encryption capable devices|
-
-
-
-

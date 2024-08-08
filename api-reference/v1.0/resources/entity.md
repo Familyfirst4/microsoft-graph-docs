@@ -3,7 +3,7 @@ title: "entity resource type"
 description: "Represents an entity."
 ms.localizationpriority: medium
 author: "keylimesoda"
-ms.prod: "applications"
+ms.subservice: "entra-applications"
 doc_type: resourcePageType
 ---
 
@@ -11,17 +11,19 @@ doc_type: resourcePageType
 
 Namespace: microsoft.graph
 
+Represents an entity.
+
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|id|String| Read-only.|
+|id|String| The unique identifier for an entity. Read-only.|
 
 ## Relationships
-None
+None.
 
 ## JSON representation
 
-Here is a JSON representation of the resource
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

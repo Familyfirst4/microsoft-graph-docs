@@ -1,9 +1,9 @@
 ---
 title: "deviceManagementReportStatus enum type"
 description: "Possible statuses associated with a generated report"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -23,8 +23,3 @@ Possible statuses associated with a generated report
 |inProgress|2|Report generation is in progress|
 |completed|3|Report generation is completed|
 |failed|4|Report generation has failed|
-
-
-
-
-

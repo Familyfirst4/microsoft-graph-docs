@@ -1,19 +1,19 @@
 ---
 title: "windowsAutopilotSettings resource type"
 description: "The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # windowsAutopilotSettings resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service.
 
@@ -52,7 +52,3 @@ Here is a JSON representation of the resource.
   "syncStatus": "String"
 }
 ```
-
-
-
-

@@ -1,19 +1,19 @@
 ---
 title: "deviceShellScript resource type"
 description: "Intune will provide customer the ability to run their Shell scripts on the enrolled Mac OS devices. The script can be run once or periodically."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # deviceShellScript resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Intune will provide customer the ability to run their Shell scripts on the enrolled Mac OS devices. The script can be run once or periodically.
 
@@ -25,7 +25,7 @@ Intune will provide customer the ability to run their Shell scripts on the enrol
 |[Create deviceShellScript](../api/intune-devices-deviceshellscript-create.md)|[deviceShellScript](../resources/intune-devices-deviceshellscript.md)|Create a new [deviceShellScript](../resources/intune-devices-deviceshellscript.md) object.|
 |[Delete deviceShellScript](../api/intune-devices-deviceshellscript-delete.md)|None|Deletes a [deviceShellScript](../resources/intune-devices-deviceshellscript.md).|
 |[Update deviceShellScript](../api/intune-devices-deviceshellscript-update.md)|[deviceShellScript](../resources/intune-devices-deviceshellscript.md)|Update the properties of a [deviceShellScript](../resources/intune-devices-deviceshellscript.md) object.|
-|[assign action](../api/intune-devices-deviceshellscript-assign.md)|None|Not yet documented|
+|[assign action](../api/intune-devices-deviceshellscript-assign.md)|None||
 
 ## Properties
 |Property|Type|Description|
@@ -39,7 +39,7 @@ Intune will provide customer the ability to run their Shell scripts on the enrol
 |scriptContent|Binary|The script content.|
 |createdDateTime|DateTimeOffset|The date and time the device management script was created. This property is read-only.|
 |lastModifiedDateTime|DateTimeOffset|The date and time the device management script was last modified. This property is read-only.|
-|runAsAccount|[runAsAccountType](../resources/intune-devices-runasaccounttype.md)|Indicates the type of execution context. Possible values are: `system`, `user`.|
+|runAsAccount|[runAsAccountType](../resources/intune-shared-runasaccounttype.md)|Indicates the type of execution context. Possible values are: `system`, `user`.|
 |fileName|String|Script file name.|
 |roleScopeTagIds|String collection|List of Scope Tag IDs for this PowerShellScript instance.|
 
@@ -79,7 +79,3 @@ Here is a JSON representation of the resource.
   ]
 }
 ```
-
-
-
-

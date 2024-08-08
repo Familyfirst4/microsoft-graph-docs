@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "jaiprakashmb"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: intune
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->
@@ -15,6 +15,6 @@ ms.topic: include
 
 The preceding limits apply to the following resources:
 
-| <!-- fake header-->                                                                                                                                                                                                                                                                                                                                                                            |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul> <li> [intuneBrandingProfile](/graph/api/resources/intunebrandingprofile) <li> [intuneBrandingProfileAssignment](/graph/api/resources/intunebrandingprofileassignment) <li> [windowsInformationProtectionAppLearningSummary](/graph/api/resources/windowsinformationprotectionapplearningsummary) <li> [windowsInformationProtectionNetworkLearningSummary](/graph/api/resources/windowsinformationprotectionnetworklearningsummary) </ul>|
+| <!-- fake header--> |
+|---|
+| <ul> <li> [intuneBrandingProfile](/graph/api/resources/intune-wip-intunebrandingprofile) <li> [intuneBrandingProfileAssignment](/graph/api/resources/intune-wip-intunebrandingprofileassignment) <li> [windowsInformationProtectionAppLearningSummary](/graph/api/resources/intune-wip-windowsinformationprotectionapplearningsummary) <li> [windowsInformationProtectionNetworkLearningSummary](/graph/api/resources/intune-wip-windowsinformationprotectionnetworklearningsummary) </ul> |

@@ -4,18 +4,25 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewDocumentSetVersion()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewDocumentSetVersion()
 comment := "v1"
-requestBody.SetComment(&comment)
+requestBody.SetComment(&comment) 
 shouldCaptureMinorVersion := false
-requestBody.SetShouldCaptureMinorVersion(&shouldCaptureMinorVersion)
-siteId := "site-id"
-listId := "list-id"
-listItemId := "listItem-id"
-result, err := graphClient.SitesById(&siteId).ListsById(&listId).ItemsById(&listItemId).DocumentSetVersions().Post(requestBody)
+requestBody.SetShouldCaptureMinorVersion(&shouldCaptureMinorVersion) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+documentSetVersions, err := graphClient.Sites().BySiteId("site-id").Lists().ByListId("list-id").Items().ByListItemId("listItem-id").DocumentSetVersions().Post(context.Background(), requestBody, nil)
 
 
 ```

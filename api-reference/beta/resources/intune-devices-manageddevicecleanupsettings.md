@@ -1,19 +1,19 @@
 ---
 title: "managedDeviceCleanupSettings resource type"
 description: "Define the rule when the admin wants the devices to be cleaned up."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # managedDeviceCleanupSettings resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Define the rule when the admin wants the devices to be cleaned up.
 
@@ -38,7 +38,3 @@ Here is a JSON representation of the resource.
   "deviceInactivityBeforeRetirementInDays": "String"
 }
 ```
-
-
-
-

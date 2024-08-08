@@ -3,7 +3,7 @@ title: "ediscoveryCase resource type"
 description: "In the context of eDiscovery, contains custodians, holds, collections, review sets, and exports."
 author: "SeunginLyu"
 ms.localizationpriority: medium
-ms.prod: "ediscovery"
+ms.subservice: "ediscovery"
 doc_type: resourcePageType
 ---
 
@@ -22,7 +22,7 @@ In the context of eDiscovery, contains custodians, holds, searches, review sets,
 |[Create ediscoveryCase](../api/security-casesroot-post-ediscoverycases.md)|[microsoft.graph.security.ediscoveryCase](../resources/security-ediscoverycase.md)|Create a new [ediscoveryCase](../resources/security-ediscoverycase.md) object.|
 |[Get ediscoveryCase](../api/security-ediscoverycase-get.md)|[microsoft.graph.security.ediscoveryCase](../resources/security-ediscoverycase.md)|Read the properties and relationships of an [ediscoveryCase](../resources/security-ediscoverycase.md) object.|
 |[Update ediscoveryCase](../api/security-ediscoverycase-update.md)|[microsoft.graph.security.ediscoveryCase](../resources/security-ediscoverycase.md)|Update the properties of an [ediscoveryCase](../resources/security-ediscoverycase.md) object.|
-|[Delete ediscoveryCase](../api/security-casesroot-delete-ediscoverycases.md)|None|Deletes an [ediscoveryCase](../resources/security-ediscoverycase.md) object.|
+|[Delete ediscoveryCase](../api/security-casesroot-delete-ediscoverycases.md)|None|Delete an [ediscoveryCase](../resources/security-ediscoverycase.md) object.|
 |[List custodians](../api/security-ediscoverycase-list-custodians.md)|[microsoft.graph.security.ediscoveryCustodian](../resources/security-ediscoverycustodian.md) collection|Get the ediscoveryCustodian resources from the custodians navigation property.|
 |[Create ediscoveryCustodian](../api/security-ediscoverycase-post-custodians.md)|[microsoft.graph.security.ediscoveryCustodian](../resources/security-ediscoverycustodian.md)|Create a new ediscoveryCustodian object.|
 |[List legalHolds](../api/security-ediscoverycase-list-legalholds.md)|[microsoft.graph.security.ediscoveryHoldPolicy](../resources/security-ediscoveryholdpolicy.md) collection|Get the ediscoveryHoldPolicy resources from the legalHolds navigation property.|
@@ -50,7 +50,7 @@ In the context of eDiscovery, contains custodians, holds, searches, review sets,
 |id|String|The ID for the eDiscovery case. Read-only. |
 |lastModifiedBy|[microsoft.graph.identitySet](../resources/identityset.md)|The last user who modified the case.
 |lastModifiedDateTime|DateTimeOffset|The latest date and time when the case was modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is `2014-01-01T00:00:00Z`|
-|status|String|The case status. Possible values are `unknown`, `active`, `pendingDelete`, `closing`, `closed`, and `closedWithError`. For details, see the following table.
+|status|microsoft.graph.security.caseStatus|The case status. Possible values are `unknown`, `active`, `pendingDelete`, `closing`, `closed`, and `closedWithError`. For details, see the following table.
 
 ### caseStatus values
 
@@ -76,7 +76,7 @@ In the context of eDiscovery, contains custodians, holds, searches, review sets,
 |tags|[microsoft.graph.security.ediscoveryReviewTag](../resources/security-ediscoveryreviewtag.md) collection|Returns a list of **ediscoveryReviewTag** objects associated to this case.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",

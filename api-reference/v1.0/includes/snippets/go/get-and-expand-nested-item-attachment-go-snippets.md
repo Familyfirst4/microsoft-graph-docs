@@ -4,18 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.AttachmentRequestBuilderGetQueryParameters{
-	Expand: "microsoft.graph.itemattachment/item",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  //other-imports
+)
+
+requestParameters := &graphusers.ItemMessageItemAttachmentItemRequestBuilderGetQueryParameters{
+	Expand: [] string {"microsoft.graph.itemattachment/item"},
 }
-options := &msgraphsdk.AttachmentRequestBuilderGetRequestConfiguration{
+configuration := &graphusers.ItemMessageItemAttachmentItemRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-messageId := "message-id"
-attachmentId := "attachment-id"
-result, err := graphClient.Me().MessagesById(&messageId).AttachmentsById(&attachmentId).GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+attachments, err := graphClient.Me().Messages().ByMessageId("message-id").Attachments().ByAttachmentId("attachment-id").Get(context.Background(), configuration)
 
 
 ```

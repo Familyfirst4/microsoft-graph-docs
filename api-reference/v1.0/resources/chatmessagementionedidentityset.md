@@ -3,7 +3,7 @@ title: "chatMessageMentionedIdentitySet resource type"
 description: "Represents the resource @mentioned in a message in a chat or a channel."
 author: "RamjotSingh"
 ms.localizationpriority: medium
-ms.prod: "microsoft-teams"
+ms.subservice: "teams"
 doc_type: resourcePageType
 ---
 
@@ -28,7 +28,7 @@ Inherits from [identitySet](../resources/identityset.md).
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.chatMessageMentionedIdentitySet"
@@ -37,17 +37,17 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.chatMessageMentionedIdentitySet",
-  "user": {
-    "@odata.type": "microsoft.graph.identity"
-  },
   "application": {
-    "@odata.type": "microsoft.graph.identity"
-  },
-  "device": {
     "@odata.type": "microsoft.graph.identity"
   },
   "conversation": {
     "@odata.type": "microsoft.graph.teamworkConversationIdentity"
+  },
+  "device": {
+    "@odata.type": "microsoft.graph.identity"
+  },
+  "user": {
+    "@odata.type": "microsoft.graph.identity"
   }
 }
 ```

@@ -1,9 +1,9 @@
 ---
 title: "accessReviewReviewer resource type"
 description: "Represents a reviewer who was contacted for an access review."
-author: "zhusijia26"
+author: "jyothig123"
 ms.localizationpriority: medium
-ms.prod: "governance"
+ms.subservice: "entra-id-governance"
 doc_type: resourcePageType
 ---
 
@@ -28,7 +28,7 @@ Inherits from [entity](entity.md).
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.accessReviewReviewer"
@@ -37,10 +37,10 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.accessReviewReviewer",
-  "id": "String",
-  "displayName": "String",
-  "userPrincipalName": "String",
   "createdDateTime": "String (timestamp)",
+  "displayName": "String",
+  "id": "String",
+  "userPrincipalName": "String"
 }
 ```
 

@@ -4,19 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewConversationMember()
-requestBody.SetRoles( []String {
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewConversationMember()
+roles := []string {
 	"owner",
 }
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#microsoft.graph.aadUserConversationMember",
-	"user@odata.bind": "https://graph.microsoft.com/v1.0/users('jacob@contoso.com')",
+requestBody.SetRoles(roles)
+additionalData := map[string]interface{}{
+	"user@odata.bind" : "https://graph.microsoft.com/v1.0/users('jacob@contoso.com')", 
 }
-teamId := "team-id"
-result, err := graphClient.TeamsById(&teamId).Members().Post(requestBody)
+requestBody.SetAdditionalData(additionalData)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+members, err := graphClient.Teams().ByTeamId("team-id").Members().Post(context.Background(), requestBody, nil)
 
 
 ```

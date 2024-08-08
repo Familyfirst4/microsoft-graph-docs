@@ -1,9 +1,9 @@
 ---
 title: "List androidForWorkGeneralDeviceConfigurations"
 description: "List properties and relationships of the androidForWorkGeneralDeviceConfiguration objects."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 List properties and relationships of the [androidForWorkGeneralDeviceConfiguration](../resources/intune-deviceconfig-androidforworkgeneraldeviceconfiguration.md) objects.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -39,7 +41,7 @@ GET /deviceManagement/deviceConfigurations/{deviceConfigurationId}/microsoft.gra
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -61,7 +63,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 3580
+Content-Length: 3872
 
 {
   "value": [
@@ -108,6 +110,7 @@ Content-Length: 3580
       "passwordPreviousPasswordBlockCount": 2,
       "passwordSignInFailureCountBeforeFactoryReset": 12,
       "passwordRequiredType": "lowSecurityBiometric",
+      "requiredPasswordComplexity": "low",
       "workProfileDataSharingType": "preventAny",
       "workProfileBlockNotificationsWhileDeviceLocked": true,
       "workProfileBlockAddingAccounts": true,
@@ -134,17 +137,19 @@ Content-Length: 3580
       "workProfilePasswordPreviousPasswordBlockCount": 13,
       "workProfilePasswordSignInFailureCountBeforeFactoryReset": 7,
       "workProfilePasswordRequiredType": "lowSecurityBiometric",
+      "workProfileRequiredPasswordComplexity": "low",
       "workProfileRequirePassword": true,
       "securityRequireVerifyApps": true,
       "vpnAlwaysOnPackageIdentifier": "Vpn Always On Package Identifier value",
       "vpnEnableAlwaysOnLockdownMode": true,
       "workProfileAllowWidgets": true,
-      "workProfileBlockPersonalAppInstallsFromUnknownSources": true
+      "workProfileBlockPersonalAppInstallsFromUnknownSources": true,
+      "workProfileAccountUse": "blockAll",
+      "allowedGoogleAccountDomains": [
+        "Allowed Google Account Domains value"
+      ],
+      "blockUnifiedPasswordForWorkProfile": true
     }
   ]
 }
 ```
-
-
-
-

@@ -4,36 +4,57 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewMessage()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewMessage()
 subject := "Annual review"
-requestBody.SetSubject(&subject)
-body := msgraphsdk.NewItemBody()
-requestBody.SetBody(body)
-contentType := "HTML"
-body.SetContentType(&contentType)
+requestBody.SetSubject(&subject) 
+body := graphmodels.NewItemBody()
+contentType := graphmodels.HTML_BODYTYPE 
+body.SetContentType(&contentType) 
 content := "You should be proud!"
-body.SetContent(&content)
-requestBody.SetToRecipients( []Recipient {
-	msgraphsdk.NewRecipient(),
-emailAddress := msgraphsdk.NewEmailAddress()
-	SetEmailAddress(emailAddress)
+body.SetContent(&content) 
+requestBody.SetBody(body)
+
+
+recipient := graphmodels.NewRecipient()
+emailAddress := graphmodels.NewEmailAddress()
 address := "rufus@contoso.com"
-	emailAddress.SetAddress(&address)
+emailAddress.SetAddress(&address) 
+recipient.SetEmailAddress(emailAddress)
+
+toRecipients := []graphmodels.Recipientable {
+	recipient,
 }
-requestBody.SetExtensions( []Extension {
-	msgraphsdk.NewExtension(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "microsoft.graph.openTypeExtension",
-		"extensionName": "Com.Contoso.Referral",
-		"companyName": "Wingtip Toys",
-		"expirationDate": "2015-12-30T11:00:00.000Z",
-		"dealValue": ,
-	}
+requestBody.SetToRecipients(toRecipients)
+
+
+extension := graphmodels.NewOpenTypeExtension()
+extensionName := "Com.Contoso.Referral"
+extension.SetExtensionName(&extensionName) 
+additionalData := map[string]interface{}{
+	"companyName" : "Wingtip Toys", 
+	"expirationDate" : "2015-12-30T11:00:00.000Z", 
+	"dealValue" : int32(10000) , 
 }
-result, err := graphClient.Me().Messages().Post(requestBody)
+extension.SetAdditionalData(additionalData)
+
+extensions := []graphmodels.Extensionable {
+	extension,
+}
+requestBody.SetExtensions(extensions)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+messages, err := graphClient.Me().Messages().Post(context.Background(), requestBody, nil)
 
 
 ```

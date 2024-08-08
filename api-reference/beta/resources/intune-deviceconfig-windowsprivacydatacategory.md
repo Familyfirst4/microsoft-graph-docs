@@ -1,19 +1,19 @@
 ---
 title: "windowsPrivacyDataCategory enum type"
 description: "Windows privacy data category specifier for privacy data access."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # windowsPrivacyDataCategory enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Windows privacy data category specifier for privacy data access.
 
@@ -39,7 +39,3 @@ Windows privacy data category specifier for privacy data access.
 |tasks|16|Let apps access Task Scheduler. Added in Windows 10, version 1703.|
 |syncWithDevices|17|Let apps automatically share and sync info with wireless devices that don’t explicitly pair with user’s device. Added in Windows 10, version 1607.|
 |trustedDevices|18|Let apps access trusted devices. Added in Windows 10, version 1607.|
-
-
-
-

@@ -1,9 +1,9 @@
 ---
 title: "deviceEnrollmentType enum type"
 description: "Possible ways of adding a mobile device to management."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
@@ -31,8 +31,3 @@ Possible ways of adding a mobile device to management.
 |windowsAzureADJoinUsingDeviceAuth|10|Windows 10 Azure AD Join using Device Auth.|
 |appleUserEnrollment|11|Device managed by Apple user enrollment|
 |appleUserEnrollmentWithServiceAccount|12|Device managed by Apple user enrollment with service account|
-
-
-
-
-

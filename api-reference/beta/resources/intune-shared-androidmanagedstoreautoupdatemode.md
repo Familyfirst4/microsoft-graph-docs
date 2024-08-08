@@ -1,19 +1,19 @@
 ---
 title: "androidManagedStoreAutoUpdateMode enum type"
 description: "Prioritization for automatic updates of Android Managed Store apps set on assignment."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # androidManagedStoreAutoUpdateMode enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Prioritization for automatic updates of Android Managed Store apps set on assignment.
 
@@ -24,7 +24,3 @@ Prioritization for automatic updates of Android Managed Store apps set on assign
 |postponed|1|Updates are postponed for a maximum of 90 days after the app becomes out of date.|
 |priority|2|The app is updated as soon as possible by the developer. If device is online, it will be updated within minutes.|
 |unknownFutureValue|3|Unknown future mode (reserved, not used right now).|
-
-
-
-

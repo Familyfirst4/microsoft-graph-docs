@@ -1,19 +1,19 @@
 ---
 title: "deviceAppManagementTaskStatus enum type"
 description: "Device app management task status."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # deviceAppManagementTaskStatus enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Device app management task status.
 
@@ -25,7 +25,3 @@ Device app management task status.
 |active|2|The task has been accepted and is being worked on.|
 |completed|3|The work is complete.|
 |rejected|4|The task was rejected.|
-
-
-
-

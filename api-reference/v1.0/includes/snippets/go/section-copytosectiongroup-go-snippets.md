@@ -4,18 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.New()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  //other-imports
+)
+
+requestBody := graphusers.NewItemCopyToSectionGroupPostRequestBody()
 id := "id-value"
-requestBody.SetId(&id)
+requestBody.SetId(&id) 
 groupId := "groupId-value"
-requestBody.SetGroupId(&groupId)
+requestBody.SetGroupId(&groupId) 
 renameAs := "renameAs-value"
-requestBody.SetRenameAs(&renameAs)
-onenoteSectionId := "onenoteSection-id"
-result, err := graphClient.Me().Onenote().SectionsById(&onenoteSectionId).CopyToSectionGroup(onenoteSection-id).Post(requestBody)
+requestBody.SetRenameAs(&renameAs) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+copyToSectionGroup, err := graphClient.Me().Onenote().Sections().ByOnenoteSectionId("onenoteSection-id").CopyToSectionGroup().Post(context.Background(), requestBody, nil)
 
 
 ```

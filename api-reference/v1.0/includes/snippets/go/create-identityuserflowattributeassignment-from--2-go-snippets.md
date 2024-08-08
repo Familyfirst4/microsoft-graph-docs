@@ -4,26 +4,37 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewIdentityUserFlowAttributeAssignment()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewIdentityUserFlowAttributeAssignment()
 isOptional := false
-requestBody.SetIsOptional(&isOptional)
+requestBody.SetIsOptional(&isOptional) 
 requiresVerification := false
-requestBody.SetRequiresVerification(&requiresVerification)
-userInputType := "TextBox"
-requestBody.SetUserInputType(&userInputType)
+requestBody.SetRequiresVerification(&requiresVerification) 
+userInputType := graphmodels.TEXTBOX_IDENTITYUSERFLOWATTRIBUTEINPUTTYPE 
+requestBody.SetUserInputType(&userInputType) 
 displayName := "Shoe size"
-requestBody.SetDisplayName(&displayName)
-requestBody.SetUserAttributeValues( []UserAttributeValuesItem {
+requestBody.SetDisplayName(&displayName) 
+userAttributeValues := []graphmodels.UserAttributeValuesItemable {
+
 }
-userAttribute := msgraphsdk.NewIdentityUserFlowAttribute()
-requestBody.SetUserAttribute(userAttribute)
+requestBody.SetUserAttributeValues(userAttributeValues)
+userAttribute := graphmodels.NewIdentityUserFlowAttribute()
 id := "extension_guid_shoeSize"
-userAttribute.SetId(&id)
-b2xIdentityUserFlowId := "b2xIdentityUserFlow-id"
-result, err := graphClient.Identity().B2xUserFlowsById(&b2xIdentityUserFlowId).UserAttributeAssignments().Post(requestBody)
+userAttribute.SetId(&id) 
+requestBody.SetUserAttribute(userAttribute)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+userAttributeAssignments, err := graphClient.Identity().B2xUserFlows().ByB2xIdentityUserFlowId("b2xIdentityUserFlow-id").UserAttributeAssignments().Post(context.Background(), requestBody, nil)
 
 
 ```

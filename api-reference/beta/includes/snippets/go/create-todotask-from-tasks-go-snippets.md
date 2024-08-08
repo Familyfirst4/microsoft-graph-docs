@@ -4,26 +4,41 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewTodoTask()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewTodoTask()
 title := "A new task"
-requestBody.SetTitle(&title)
-requestBody.SetCategories( []String {
+requestBody.SetTitle(&title) 
+categories := []string {
 	"Important",
 }
-requestBody.SetLinkedResources( []LinkedResource {
-	msgraphsdk.NewLinkedResource(),
+requestBody.SetCategories(categories)
+
+
+linkedResource := graphmodels.NewLinkedResource()
 webUrl := "http://microsoft.com"
-	SetWebUrl(&webUrl)
+linkedResource.SetWebUrl(&webUrl) 
 applicationName := "Microsoft"
-	SetApplicationName(&applicationName)
+linkedResource.SetApplicationName(&applicationName) 
 displayName := "Microsoft"
-	SetDisplayName(&displayName)
+linkedResource.SetDisplayName(&displayName) 
+
+linkedResources := []graphmodels.LinkedResourceable {
+	linkedResource,
 }
-todoTaskListId := "todoTaskList-id"
-result, err := graphClient.Me().Todo().ListsById(&todoTaskListId).Tasks().Post(requestBody)
+requestBody.SetLinkedResources(linkedResources)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+tasks, err := graphClient.Me().Todo().Lists().ByTodoTaskListId("todoTaskList-id").Tasks().Post(context.Background(), requestBody, nil)
 
 
 ```

@@ -1,9 +1,9 @@
 ---
 title: "createCopy action"
-description: "Not yet documented"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+description: "Intune Deviceconfigv2 Devicemanagementconfigurationpolicy Createcopy Api ."
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -15,9 +15,11 @@ Namespace: microsoft.graph
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
 
-Not yet documented
 
-## Prerequisites
+
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -39,7 +41,7 @@ POST /deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySet
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -49,8 +51,8 @@ The following table shows the parameters that can be used with this action.
 
 |Property|Type|Description|
 |:---|:---|:---|
-|displayName|String|Not yet documented|
-|description|String|Not yet documented|
+|displayName|String||
+|description|String||
 
 
 
@@ -78,7 +80,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 920
+Content-Length: 1050
 
 {
   "value": {
@@ -102,11 +104,11 @@ Content-Length: 920
       "templateFamily": "endpointSecurityAntivirus",
       "templateDisplayName": "Template Display Name value",
       "templateDisplayVersion": "Template Display Version value"
+    },
+    "priorityMetaData": {
+      "@odata.type": "microsoft.graph.deviceManagementPriorityMetaData",
+      "priority": 8
     }
   }
 }
 ```
-
-
-
-

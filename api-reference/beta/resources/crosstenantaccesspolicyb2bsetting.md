@@ -1,9 +1,9 @@
 ---
 title: "crossTenantAccessPolicyB2BSetting resource type"
-description: "Defines the inbound and outbound rulesets for Azure Active Directory (Azure AD) B2B collaboration."
+description: "Defines the inbound and outbound rulesets for Microsoft Entra B2B collaboration."
 author: "jkdouglas"
 ms.localizationpriority: medium
-ms.prod: "identity-and-sign-in"
+ms.subservice: "entra-sign-in"
 doc_type: resourcePageType
 ---
 
@@ -13,7 +13,7 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Defines the inbound and outbound rulesets for Azure Active Directory (Azure AD) B2B collaboration.
+Defines the inbound and outbound rulesets for Microsoft Entra B2B collaboration.
 
 ## Properties
 
@@ -28,7 +28,7 @@ None.
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.crossTenantAccessPolicyB2BSetting"

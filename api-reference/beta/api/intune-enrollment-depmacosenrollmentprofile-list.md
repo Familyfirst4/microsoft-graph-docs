@@ -1,9 +1,9 @@
 ---
 title: "List depMacOSEnrollmentProfiles"
 description: "List properties and relationships of the depMacOSEnrollmentProfile objects."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,14 +17,16 @@ Namespace: microsoft.graph
 
 List properties and relationships of the [depMacOSEnrollmentProfile](../resources/intune-enrollment-depmacosenrollmentprofile.md) objects.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
 |:---|:---|
-|Delegated (work or school account)|DeviceManagementServiceConfig.Read.All, DeviceManagementServiceConfig.ReadWrite.All|
+|Delegated (work or school account)|DeviceManagementServiceConfig.Read.All, DeviceManagementServiceConfig.ReadWrite.All, DeviceManagementConfiguration.Read.All, DeviceManagementConfiguration.ReadWrite.All|
 |Delegated (personal Microsoft account)|Not supported.|
-|Application|DeviceManagementServiceConfig.Read.All, DeviceManagementServiceConfig.ReadWrite.All|
+|Application|DeviceManagementServiceConfig.Read.All, DeviceManagementServiceConfig.ReadWrite.All, DeviceManagementConfiguration.Read.All, DeviceManagementConfiguration.ReadWrite.All|
 
 ## HTTP Request
 <!-- {
@@ -38,7 +40,7 @@ GET /deviceManagement/depOnboardingSettings/{depOnboardingSettingId}/enrollmentP
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -60,7 +62,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1566
+Content-Length: 2425
 
 {
   "value": [
@@ -92,6 +94,13 @@ Content-Length: 1566
       "screenTimeScreenDisabled": true,
       "deviceNameTemplate": "Device Name Template value",
       "configurationWebUrl": true,
+      "enabledSkipKeys": [
+        "Enabled Skip Keys value"
+      ],
+      "enrollmentTimeAzureAdGroupIds": [
+        "7f64eb6c-eb6c-7f64-6ceb-647f6ceb647f"
+      ],
+      "waitForDeviceConfiguredConfirmation": true,
       "registrationDisabled": true,
       "fileVaultDisabled": true,
       "iCloudDiagnosticsDisabled": true,
@@ -100,12 +109,20 @@ Content-Length: 1566
       "iCloudStorageDisabled": true,
       "chooseYourLockScreenDisabled": true,
       "accessibilityScreenDisabled": true,
-      "autoUnlockWithWatchDisabled": true
+      "autoUnlockWithWatchDisabled": true,
+      "skipPrimarySetupAccountCreation": true,
+      "setPrimarySetupAccountAsRegularUser": true,
+      "dontAutoPopulatePrimaryAccountInfo": true,
+      "primaryAccountFullName": "Primary Account Full Name value",
+      "primaryAccountUserName": "Primary Account User Name value",
+      "enableRestrictEditing": true,
+      "adminAccountUserName": "Admin Account User Name value",
+      "adminAccountFullName": "Admin Account Full Name value",
+      "adminAccountPassword": "Admin Account Password value",
+      "hideAdminAccount": true,
+      "requestRequiresNetworkTether": true,
+      "autoAdvanceSetupEnabled": true
     }
   ]
 }
 ```
-
-
-
-

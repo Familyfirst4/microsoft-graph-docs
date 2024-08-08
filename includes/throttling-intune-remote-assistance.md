@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "jaiprakashmb"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: intune
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->
@@ -15,6 +15,6 @@ ms.topic: include
 
 The preceding limits apply to the following resources:
 
-| <!-- fake header-->                                                                                                                                                     |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul> <li> [remoteAssistancePartner](/graph/api/resources/remoteassistancepartner)  <li> [remoteAssistanceSettings](/graph/api/resources/remoteassistancesettings) </ul> |
+| <!-- fake header--> |
+|---|
+| <ul> <li> [remoteAssistancePartner](/graph/api/resources/intune-remoteassistance-remoteassistancepartner)  <li> [remoteAssistanceSettings](/graph/api/resources/intune-remoteassistance-remoteassistancesettings) </ul> |

@@ -1,28 +1,29 @@
 ---
-title: "Create an educationSynchronizationProfile"
-description: "Create a request for a new school data synchronization profile in the tenant. Query the status to get the status of the profile. "
+title: "Create an educationSynchronizationProfile (deprecated)"
+description: "Create a request for a new school data synchronization profile in the tenant."
 author: "mmast-msft"
 ms.localizationpriority: medium
-ms.prod: "education"
+ms.subservice: "education"
 doc_type: apiPageType
 ---
 
-# Create an educationSynchronizationProfile
+# Create an educationSynchronizationProfile (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
+[!INCLUDE [educationsynchronizationprofile-deprecate](../includes/education-deprecate-educationsynchronizationprofile.md)]
+
 Create a request for a new school data [synchronization profile](../resources/educationsynchronizationprofile.md) in the tenant. [Query the status](educationsynchronizationprofilestatus-get.md) to get the status of the profile. 
 
-## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
+[!INCLUDE [national-cloud-support](../../includes/global-only.md)]
 
-| Permission type | Permissions |
-|:-----------|:----------|
-| Delegated (work or school account) | EduAdministration.ReadWrite |
-|Delegated (personal Microsoft account|Not supported.|
-|Application|Not supported.|
+## Permissions
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
+
+<!-- { "blockType": "permissions", "name": "educationsynchronizationprofile_post" } -->
+[!INCLUDE [permissions-table](../includes/permissions/educationsynchronizationprofile-post-permissions.md)]
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -33,18 +34,18 @@ POST /education/synchronizationProfiles
 ## Request headers
 | Name       | Type | Description|
 |:-----------|:------|:----------|
-| Authorization  | string  | Bearer {token}. Required.  |
+| Authorization  | string  |Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 | Content-Type | string | Application/json. Required. |
 
 ## Request body
 In the request body, supply a JSON representation of the [educationSynchronizationProfile](../resources/educationsynchronizationprofile.md) object.
 
 ## Response
-If successful, this method returns a `202, Accepted` response code and an [educationSynchronizationProfile](../resources/educationsynchronizationprofile.md) object in the response body.
+If successful, this method returns a `202 Accepted` response code and an [educationSynchronizationProfile](../resources/educationsynchronizationprofile.md) object in the response body.
 
 ## Example
-##### Request
-The following is an example of the request.
+### Request
+The following example shows a request.
 <!-- {
   "blockType": "ignored",
   "name": "create_educationSynchronizationProfile"
@@ -56,7 +57,7 @@ Content-type: application/json
 {
     "displayName": "Test Profile",
     "dataProvider": {
-        "@odata.type": "#Microsoft.Education.DataSync.educationCsvDataProvider",
+        "@odata.type": "#microsoft.graph.educationCsvDataProvider",
         "customizations": {
             "student": {
                 "optionalPropertiesToSync": [
@@ -67,7 +68,7 @@ Content-type: application/json
         }
     },
     "identitySynchronizationConfiguration": {
-        "@odata.type": "#Microsoft.Education.DataSync.educationIdentityCreationConfiguration",
+        "@odata.type": "#microsoft.graph.educationIdentityCreationConfiguration",
         "userDomains": [
             {
                 "appliesTo": "student",
@@ -96,8 +97,8 @@ Content-type: application/json
 }
 ```
 
-##### Response
-The following is an example of the response. 
+### Response
+The following example shows the response.
 
 >**Note:** The response object shown here might be shortened for readability.
 

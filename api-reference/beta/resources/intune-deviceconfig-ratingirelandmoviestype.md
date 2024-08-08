@@ -1,19 +1,19 @@
 ---
 title: "ratingIrelandMoviesType enum type"
 description: "Movies rating labels in Ireland"
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: enumPageType
 ---
 
 # ratingIrelandMoviesType enum type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Movies rating labels in Ireland
 
@@ -28,7 +28,3 @@ Movies rating labels in Ireland
 |agesAbove15|5|The 15A classification is suitable for viewers of 15 or older|
 |agesAbove16|6|The 16 classification is suitable for viewers of 16 or older|
 |adults|7|The 18 classification, suitable only for adults|
-
-
-
-

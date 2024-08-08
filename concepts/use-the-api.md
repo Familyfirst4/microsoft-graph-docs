@@ -1,7 +1,6 @@
 ---
 title: "Use the Microsoft Graph API"
 description: "Learn how to register your app and get authentication tokens for a user or service before you make requests to the Microsoft Graph API."
-author: "jackson-woods"
 ms.localizationpriority: high
 ms.custom: graphiamtop20, scenarios:getting-started
 ---
@@ -11,7 +10,7 @@ ms.custom: graphiamtop20, scenarios:getting-started
 Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. After you [register your app](auth-register-app-v2.md) and [get authentication tokens for a user](auth-v2-user.md) or [service](auth-v2-service.md), you can make requests to the Microsoft Graph API.
 
 > [!IMPORTANT]
-> How conditional access policies apply to Microsoft Graph is changing. Applications need to be updated to handle scenarios where conditional access policies are configured. For more information and guidance, see [Developer guidance for Azure Active Directory Conditional Access](/azure/active-directory/develop/active-directory-conditional-access-developer).
+> How conditional access policies apply to Microsoft Graph is changing. Applications need to be updated to handle scenarios where conditional access policies are configured. For more information and guidance, see [Developer guidance for Microsoft Entra Conditional Access](/azure/active-directory/develop/active-directory-conditional-access-developer).
 
 ## OData namespace
 
@@ -36,27 +35,36 @@ The components of a request include:
 * [{version}](#version) - The version of the Microsoft Graph API your application is using.
 * [{resource}](#resource) - The resource in Microsoft Graph that you're referencing. 
 * [{query-parameters}](#query-parameters) - Optional OData query options or REST method parameters that customize the response.
+* [{headers}](#headers) - Request headers that customize the request. Can be optional or required depending on the API.
 
 After you make a request, a response is returned that includes: 
 
 * Status code - An HTTP status code that indicates success or failure. For details about HTTP error codes, see [Errors](errors.md).
 * Response message - The data that you requested or the result of the operation. The response message can be empty for some operations.
 * `@odata.nextLink` - If your request returns a lot of data, you need to page through it by using the URL returned in `@odata.nextLink`. For details, see [Paging](paging.md).
+* Response headers - Additional information about the response, such as the type of content returned and the request-id that you can use to correlate the response to the request.
 
 ## HTTP methods
 
-Microsoft Graph uses the HTTP method on your request to determine what your request is doing. The API supports the following methods.
+Microsoft Graph uses the HTTP method on your request to determine what your request is doing. Depending on the resource, the API may support operations including actions, functions, or CRUD operations described below.
 
 |**Method** |**Description**                             |
 | :----- | :------------------------------------------- |
 | GET    | Read data from a resource.                   |
 | POST   | Create a new resource, or perform an action. |
-| PATCH  | Update a resource with new values.           |
+| PATCH  | Update a resource with new values, or upsert a resource (create if resource doesn't exist, update otherwise). |
 | PUT    | Replace a resource with a new one.           |
 | DELETE | Remove a resource.                           |
 
 * For the CRUD methods `GET` and `DELETE`, no request body is required.
 * The `POST`, `PATCH`, and `PUT` methods require a request body, usually specified in JSON format, that contains additional information, such as the values for properties of the resource.
+
+> [!IMPORTANT]
+> Write requests in the Microsoft Graph API have a size limit of 4 MB. 
+>
+> In some cases, the actual write request size limit is lower than 4 MB. For example, attaching a file to a user event by `POST /me/events/{id}/attachments` has a request size limit of 3 MB, because a file around 3.5 MB can become larger than 4 MB when encoded in base64.
+>
+> Requests exceeding the size limit fail with the status code HTTP 413, and the error message "Request entity too large" or "Payload too large".
 
 ## Version
 
@@ -104,6 +112,14 @@ Aside from OData query options, some methods require parameter values specified 
 ```http
 GET https://graph.microsoft.com/me/calendarView?startDateTime=2019-09-01T09:00:00.0000000&endDateTime=2019-09-01T17:00:00.0000000
 ```
+
+## Headers
+
+Microsoft Graph supports both HTTP standard headers and custom headers.
+
+Specific APIs may require additional headers to be included in the request. On the other hand, Microsoft Graph will always return mandatory headers, such as the `request-id` header in the response, or some headers may be specific to some APIs or functionality, for example, the `Retry-After` header is included when your app hits throttling limits; or the `Location` header that's included for long-running operations.
+
+Headers are case-insensitive as defined in [rfc 9110](https://www.rfc-editor.org/rfc/rfc9110.html) unless explicitly specified otherwise.
 
 ## Tools for interacting with Microsoft Graph
 

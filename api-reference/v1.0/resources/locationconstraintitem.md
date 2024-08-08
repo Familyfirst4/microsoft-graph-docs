@@ -2,8 +2,8 @@
 title: "locationConstraintItem resource type"
 description: "locationConstraintItem - The conditions stated by a client for the location of a meeting."
 ms.localizationpriority: medium
-author: "harini84"
-ms.prod: outlook
+author: "iamgirishck"
+ms.subservice: outlook
 doc_type: resourcePageType
 ---
 
@@ -17,7 +17,7 @@ Derived from [location](location.md).
 
 ## JSON representation
 
-Here is a JSON representation of the resource
+The following JSON representation shows the resource type.
 
 <!--{
   "blockType": "resource",

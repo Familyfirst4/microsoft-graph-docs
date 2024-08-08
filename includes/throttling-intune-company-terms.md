@@ -1,7 +1,7 @@
 ---
-author: "FaithOmbongi"
+author: "jaiprakashmb"
 ms.localizationpriority: high
-ms.prod: "msgraph"
+ms.subservice: intune
 ms.topic: include
 ---
 <!-- markdownlint-disable MD041 -->
@@ -15,6 +15,6 @@ ms.topic: include
 
 The preceding limits apply to the following resources:
   
-| <!-- fake header-->                                                                                                                                                                                                                                                                                                                                                                            |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <ul> <li> [termsAndConditions](/graph/api/resources/termsandconditions) <li> [termsAndConditionsAcceptanceStatus](/graph/api/resources/termsandconditionsacceptancestatus) <li> [termsAndConditionsAssignment](/graph/api/resources/termsandconditionsassignment) <li> [termsAndConditionsGroupAssignment](/graph/api/resources/termsandconditionsgroupassignment) </ul> |
+| <!-- fake header--> |
+|---|
+| <ul> <li> [termsAndConditions](/graph/api/resources/intune-companyterms-termsandconditions) <li> [termsAndConditionsAcceptanceStatus](/graph/api/resources/intune-companyterms-termsandconditionsacceptancestatus) <li> [termsAndConditionsAssignment](/graph/api/resources/intune-companyterms-termsandconditionsassignment) <li> [termsAndConditionsGroupAssignment](/graph/api/resources/intune-companyterms-termsandconditionsgroupassignment) </ul> |

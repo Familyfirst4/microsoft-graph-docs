@@ -3,7 +3,7 @@ title: "Get contact"
 description: "Retrieve the properties and relationships of a contact object."
 author: "kevinbellinger"
 ms.localizationpriority: medium
-ms.prod: "outlook"
+ms.subservice: "outlook"
 doc_type: apiPageType
 ---
 
@@ -19,14 +19,13 @@ There are two scenarios where an app can get a contact in another user's contact
 * If the app has the appropriate delegated [permissions](#permissions) from one user, and another user has shared a contact folder with that user, or, has given delegated access to that user. See [details and an example](/graph/outlook-get-shared-contacts-folders).
 
 
-## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
 
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | Contacts.Read, Contacts.ReadWrite    |
-|Delegated (personal Microsoft account) | Contacts.Read, Contacts.ReadWrite    |
-|Application | Contacts.Read, Contacts.ReadWrite |
+## Permissions
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
+
+<!-- { "blockType": "permissions", "name": "contact_get" } -->
+[!INCLUDE [permissions-table](../includes/permissions/contact-get-permissions.md)]
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -55,54 +54,64 @@ GET /users/{id | userPrincipalName}/contactFolders/{id}/childFolders/{id}/contac
 ## Request headers
 | Header       | Value |
 |:---------------|:--------|
-| Authorization  | Bearer {token}. Required.  |
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 
 ## Request body
-Do not supply a request body for this method.
+Don't supply a request body for this method.
 
 ## Response
 
 If successful, this method returns a `200 OK` response code and [contact](../resources/contact.md) object in the response body.
 ## Example
 ##### Request
-Here is an example of the request.
+The following example shows a request.
 
 # [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "name": "get_contact"
+  "name": "get_contact",
+  "sampleKeys": ["AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAEOAAAiIsqMbYjsT5e-T7KzowPTAAAYbuK-AAA="]
 }-->
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/me/contacts/{id}
+GET https://graph.microsoft.com/v1.0/me/contacts/AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAEOAAAiIsqMbYjsT5e-T7KzowPTAAAYbuK-AAA=
 ```
+
 # [C#](#tab/csharp)
 [!INCLUDE [sample-code](../includes/snippets/csharp/get-contact-csharp-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/get-contact-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/get-contact-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Java](#tab/java)
-[!INCLUDE [sample-code](../includes/snippets/java/get-contact-java-snippets.md)]
+# [CLI](#tab/cli)
+[!INCLUDE [sample-code](../includes/snippets/cli/get-contact-cli-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 # [Go](#tab/go)
 [!INCLUDE [sample-code](../includes/snippets/go/get-contact-go-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
+# [Java](#tab/java)
+[!INCLUDE [sample-code](../includes/snippets/java/get-contact-java-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](../includes/snippets/javascript/get-contact-javascript-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](../includes/snippets/php/get-contact-php-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
 # [PowerShell](#tab/powershell)
 [!INCLUDE [sample-code](../includes/snippets/powershell/get-contact-powershell-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Python](#tab/python)
+[!INCLUDE [sample-code](../includes/snippets/python/get-contact-python-snippets.md)]
 [!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
 ---
 
 ##### Response
-Here is an example of the response. Note: The response object shown here might be shortened for readability.
+The following example shows the response. Note: The response object shown here might be shortened for readability.
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -113,59 +122,51 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-  "id": "AAMkAGI2THk0AAA=",
-  "createdDateTime": "2014-10-19T23:08:24Z",
-  "lastModifiedDateTime": "2014-10-19T23:08:24Z",
-  "changeKey": "EQAAABYAAACd9nJ/tVysQos2hTfspaWRAAADTIa4",
-  "categories": [],
-  "parentFolderId": "AAMkAGI2AAEOAAA=",
-  "birthday": "1974-07-22",
-  "fileAs": "Fort, Garth",
-  "displayName": "Garth Fort",
-  "givenName": "Garth",
-  "initials": "G.F.",
-  "middleName": null,
-  "nickName": "Garth",
-  "surname": "Fort",
-  "title": null,
-  "yomiGivenName": null,
-  "yomiSurname": null,
-  "yomiCompanyName": null,
-  "generation": null,
-  "emailAddresses": [
-    {
-      "name": "Garth",
-      "address": "garth@a830edad9050849NDA1.onmicrosoft.com"
-    }
-  ],
-  "imAddresses": [
-    "sip:garthf@a830edad9050849nda1.onmicrosoft.com"
-  ],
-  "jobTitle": "Web Marketing Manager",
-  "companyName": "Contoso, Inc.",
-  "department": "Sales & Marketing",
-  "officeLocation": "20/1101",
-  "profession": null,
-  "businessHomePage": "https://www.contoso.com",
-  "assistantName": null,
-  "manager": null,
-  "homePhones": [],
-  "mobilePhone": null,
-  "businessPhones": [
-    "+1 918 555 0101"
-  ],
-  "homeAddress": {},
-  "businessAddress": {
-      "street": "10 Contoso Way",
-      "city": "Redmond",
-      "state": "WA",
-      "countryOrRegion": "USA",
-      "postalCode": "98075"  
-  },
-  "otherAddress": {},
-  "spouseName": null,
-  "personalNotes": null,
-  "children": []
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('48d31887-5fad-4d73-a9f5-3c356e68a038')/contacts/$entity",
+    "@odata.etag": "W/\"EQAAABYAAAAiIsqMbYjsT5e/T7KzowPTAAAYc8Bf\"",
+    "id": "AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OABGAAAAAAAiQ8W967B7TKBjgx9rVEURBwAiIsqMbYjsT5e-T7KzowPTAAAAAAEOAAAiIsqMbYjsT5e-T7KzowPTAAAYbuK-AAA=",
+    "createdDateTime": "2017-09-04T15:54:01Z",
+    "lastModifiedDateTime": "2017-09-04T15:54:02Z",
+    "changeKey": "EQAAABYAAAAiIsqMbYjsT5e/T7KzowPTAAAYc8Bf",
+    "categories": [],
+    "parentFolderId": "AAMkAGVmMDEzMTM4LTZmYWUtNDdkNC1hMDZiLTU1OGY5OTZhYmY4OAAuAAAAAAAiQ8W967B7TKBjgx9rVEURAQAiIsqMbYjsT5e-T7KzowPTAAAAAAEOAAA=",
+    "birthday": null,
+    "fileAs": "",
+    "displayName": "Alex Wilber",
+    "givenName": "Alex",
+    "initials": null,
+    "middleName": null,
+    "nickName": null,
+    "surname": "Wilber",
+    "title": null,
+    "yomiGivenName": null,
+    "yomiSurname": null,
+    "yomiCompanyName": null,
+    "generation": null,
+    "imAddresses": [],
+    "jobTitle": null,
+    "companyName": null,
+    "department": null,
+    "officeLocation": null,
+    "profession": null,
+    "businessHomePage": null,
+    "assistantName": null,
+    "manager": null,
+    "homePhones": [],
+    "mobilePhone": null,
+    "businessPhones": [],
+    "spouseName": null,
+    "personalNotes": "",
+    "children": [],
+    "emailAddresses": [
+        {
+            "name": "Alex@FineArtSchool.net",
+            "address": "Alex@FineArtSchool.net"
+        }
+    ],
+    "homeAddress": {},
+    "businessAddress": {},
+    "otherAddress": {}
 }
 ```
 

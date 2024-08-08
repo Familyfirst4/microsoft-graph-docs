@@ -1,9 +1,9 @@
 ---
 title: "Create notificationMessageTemplate"
 description: "Create a new notificationMessageTemplate object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Create a new [notificationMessageTemplate](../resources/intune-notification-notificationmessagetemplate.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -38,7 +40,7 @@ POST /deviceManagement/notificationMessageTemplates
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -51,8 +53,9 @@ The following table shows the properties that are required when you create the n
 |id|String|Key of the entity.|
 |lastModifiedDateTime|DateTimeOffset|DateTime the object was last modified.|
 |displayName|String|Display name for the Notification Message Template.|
+|description|String|Display name for the Notification Message Template.|
 |defaultLocale|String|The default locale to fallback onto when the requested locale is not available.|
-|brandingOptions|[notificationTemplateBrandingOptions](../resources/intune-notification-notificationtemplatebrandingoptions.md)|The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: `none`, `includeCompanyLogo`, `includeCompanyName`, `includeContactInformation`, `includeCompanyPortalLink`, `includeDeviceDetails`.|
+|brandingOptions|[notificationTemplateBrandingOptions](../resources/intune-notification-notificationtemplatebrandingoptions.md)|The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: `none`, `includeCompanyLogo`, `includeCompanyName`, `includeContactInformation`, `includeCompanyPortalLink`, `includeDeviceDetails`, `unknownFutureValue`.|
 |roleScopeTagIds|String collection|List of Scope Tags for this Entity instance.|
 
 
@@ -67,11 +70,12 @@ Here is an example of the request.
 ``` http
 POST https://graph.microsoft.com/beta/deviceManagement/notificationMessageTemplates
 Content-type: application/json
-Content-length: 259
+Content-length: 298
 
 {
   "@odata.type": "#microsoft.graph.notificationMessageTemplate",
   "displayName": "Display Name value",
+  "description": "Description value",
   "defaultLocale": "Default Locale value",
   "brandingOptions": "includeCompanyLogo",
   "roleScopeTagIds": [
@@ -85,13 +89,14 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
-Content-Length: 372
+Content-Length: 411
 
 {
   "@odata.type": "#microsoft.graph.notificationMessageTemplate",
   "id": "e1db399b-399b-e1db-9b39-dbe19b39dbe1",
   "lastModifiedDateTime": "2017-01-01T00:00:35.1329464-08:00",
   "displayName": "Display Name value",
+  "description": "Description value",
   "defaultLocale": "Default Locale value",
   "brandingOptions": "includeCompanyLogo",
   "roleScopeTagIds": [
@@ -99,7 +104,3 @@ Content-Length: 372
   ]
 }
 ```
-
-
-
-

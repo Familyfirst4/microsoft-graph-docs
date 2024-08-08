@@ -4,27 +4,37 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewWorkforceIntegration()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewWorkforceIntegration()
 displayName := "displayName-value"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 apiVersion := int32(99)
-requestBody.SetApiVersion(&apiVersion)
-encryption := msgraphsdk.NewWorkforceIntegrationEncryption()
-requestBody.SetEncryption(encryption)
-protocol := "protocol-value"
-encryption.SetProtocol(&protocol)
+requestBody.SetApiVersion(&apiVersion) 
+encryption := graphmodels.NewWorkforceIntegrationEncryption()
+protocol := graphmodels.PROTOCOL-VALUE_WORKFORCEINTEGRATIONENCRYPTIONPROTOCOL 
+encryption.SetProtocol(&protocol) 
 secret := "secret-value"
-encryption.SetSecret(&secret)
+encryption.SetSecret(&secret) 
+requestBody.SetEncryption(encryption)
 isActive := true
-requestBody.SetIsActive(&isActive)
+requestBody.SetIsActive(&isActive) 
 url := "url-value"
-requestBody.SetUrl(&url)
-supportedEntities := "supportedEntities-value"
-requestBody.SetSupportedEntities(&supportedEntities)
-result, err := graphClient.Teamwork().WorkforceIntegrations().Post(requestBody)
+requestBody.SetUrl(&url) 
+supportedEntities := graphmodels.SUPPORTEDENTITIES-VALUE_WORKFORCEINTEGRATIONSUPPORTEDENTITIES 
+requestBody.SetSupportedEntities(&supportedEntities) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+workforceIntegrations, err := graphClient.Teamwork().WorkforceIntegrations().Post(context.Background(), requestBody, nil)
 
 
 ```

@@ -4,26 +4,35 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewOutlookTask()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewOutlookTask()
 subject := "Shop for dinner"
-requestBody.SetSubject(&subject)
-startDateTime := msgraphsdk.NewDateTimeTimeZone()
-requestBody.SetStartDateTime(startDateTime)
+requestBody.SetSubject(&subject) 
+startDateTime := graphmodels.NewDateTimeTimeZone()
 dateTime := "2016-04-23T18:00:00"
-startDateTime.SetDateTime(&dateTime)
+startDateTime.SetDateTime(&dateTime) 
 timeZone := "Pacific Standard Time"
-startDateTime.SetTimeZone(&timeZone)
-dueDateTime := msgraphsdk.NewDateTimeTimeZone()
-requestBody.SetDueDateTime(dueDateTime)
+startDateTime.SetTimeZone(&timeZone) 
+requestBody.SetStartDateTime(startDateTime)
+dueDateTime := graphmodels.NewDateTimeTimeZone()
 dateTime := "2016-04-25T13:00:00"
-dueDateTime.SetDateTime(&dateTime)
+dueDateTime.SetDateTime(&dateTime) 
 timeZone := "Pacific Standard Time"
-dueDateTime.SetTimeZone(&timeZone)
-outlookTaskFolderId := "outlookTaskFolder-id"
-result, err := graphClient.Me().Outlook().TaskFoldersById(&outlookTaskFolderId).Tasks().Post(requestBody)
+dueDateTime.SetTimeZone(&timeZone) 
+requestBody.SetDueDateTime(dueDateTime)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+tasks, err := graphClient.Me().Outlook().TaskFolders().ByOutlookTaskFolderId("outlookTaskFolder-id").Tasks().Post(context.Background(), requestBody, nil)
 
 
 ```

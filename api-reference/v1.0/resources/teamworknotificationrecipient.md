@@ -1,9 +1,9 @@
 ---
 title: "teamworkNotificationRecipient resource type"
-description: Represents the recipient of a notification sent in a Microsoft Teams activity feed.
-author: eddie-lee-msft
+description: "Represents the recipient of a notification sent in a Microsoft Teams activity feed."
+author: "eddie-lee-msft"
 ms.localizationpriority: medium
-ms.prod: microsoft-teams
+ms.subservice: "teams"
 doc_type: resourcePageType
 ---
 
@@ -11,7 +11,9 @@ doc_type: resourcePageType
 
 Namespace: microsoft.graph
 
-Represents the recipient of a notification sent in a Microsoft Teams activity feed. See also [aadUserNotificationRecipient](aadusernotificationrecipient.md).
+Represents the recipient of a notification sent in a Microsoft Teams activity feed.
+
+Base type of [aadUserNotificationRecipient](aadusernotificationrecipient.md), [channelMembersNotificationRecipient](channelmembersnotificationrecipient.md), [chatMembersNotificationRecipient](chatmembersnotificationrecipient.md), and [teamMembersNotificationRecipient](teammembersnotificationrecipient.md).
 
 ## Properties
 None.
@@ -20,7 +22,7 @@ None.
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.teamworkNotificationRecipient"
@@ -31,4 +33,3 @@ The following is a JSON representation of the resource.
   "@odata.type": "#microsoft.graph.teamworkNotificationRecipient"
 }
 ```
-

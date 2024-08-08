@@ -1,19 +1,19 @@
 ---
 title: "advancedThreatProtectionOnboardingStateSummary resource type"
 description: "Windows defender advanced threat protection onboarding state summary across the account."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: resourcePageType
 ---
 
 # advancedThreatProtectionOnboardingStateSummary resource type
 
 Namespace: microsoft.graph
-
 > **Important:** Microsoft Graph APIs under the /beta version are subject to change; production use is not supported.
 
 > **Note:** The Microsoft Graph API for Intune requires an [active Intune license](https://go.microsoft.com/fwlink/?linkid=839381) for the tenant.
+
 
 Windows defender advanced threat protection onboarding state summary across the account.
 
@@ -39,7 +39,7 @@ Windows defender advanced threat protection onboarding state summary across the 
 ## Relationships
 |Relationship|Type|Description|
 |:---|:---|:---|
-|advancedThreatProtectionOnboardingDeviceSettingStates|[advancedThreatProtectionOnboardingDeviceSettingState](../resources/intune-deviceconfig-advancedthreatprotectiononboardingdevicesettingstate.md) collection|Not yet documented|
+|advancedThreatProtectionOnboardingDeviceSettingStates|[advancedThreatProtectionOnboardingDeviceSettingState](../resources/intune-deviceconfig-advancedthreatprotectiononboardingdevicesettingstate.md) collection||
 
 ## JSON Representation
 Here is a JSON representation of the resource.
@@ -63,7 +63,3 @@ Here is a JSON representation of the resource.
   "notAssignedDeviceCount": 1024
 }
 ```
-
-
-
-

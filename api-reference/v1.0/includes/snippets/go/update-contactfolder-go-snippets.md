@@ -4,16 +4,25 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewContactFolder()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewContactFolder()
 parentFolderId := "parentFolderId-value"
-requestBody.SetParentFolderId(&parentFolderId)
+requestBody.SetParentFolderId(&parentFolderId) 
 displayName := "displayName-value"
-requestBody.SetDisplayName(&displayName)
-contactFolderId := "contactFolder-id"
-graphClient.Me().ContactFoldersById(&contactFolderId).Patch(requestBody)
+requestBody.SetDisplayName(&displayName) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+contactFolders, err := graphClient.Me().ContactFolders().ByContactFolderId("contactFolder-id").Patch(context.Background(), requestBody, nil)
 
 
 ```

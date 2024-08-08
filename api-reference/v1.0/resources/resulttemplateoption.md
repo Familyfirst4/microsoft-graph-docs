@@ -3,7 +3,7 @@ title: "resultTemplateOption resource type"
 description: "Provides the search result template options to render search results from connectors."
 ms.localizationpriority: medium
 author: "cristianv-ms"
-ms.prod: "search"
+ms.subservice: "search"
 doc_type: "resourcePageType"
 ---
 
@@ -22,7 +22,7 @@ Provides the search result template options to render search results from connec
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 
 <!-- {
   "blockType": "resource",

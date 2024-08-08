@@ -4,14 +4,23 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewDestinationIdRequestBody()
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-beta-sdk-go/users"
+	  //other-imports
+)
+
+requestBody := graphusers.NewItemCopyPostRequestBody()
 destinationId := "destinationId-value"
-requestBody.SetDestinationId(&destinationId)
-mailFolderId := "mailFolder-id"
-result, err := graphClient.Me().MailFoldersById(&mailFolderId).Copy(mailFolder-id).Post(requestBody)
+requestBody.SetDestinationId(&destinationId) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+copy, err := graphClient.Me().MailFolders().ByMailFolderId("mailFolder-id").Copy().Post(context.Background(), requestBody, nil)
 
 
 ```

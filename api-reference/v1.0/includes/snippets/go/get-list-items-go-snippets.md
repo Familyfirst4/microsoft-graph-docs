@@ -4,18 +4,26 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.ItemsRequestBuilderGetQueryParameters{
-	Expand: "fields(select=Name,Color,Quantity)",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphsites "github.com/microsoftgraph/msgraph-sdk-go/sites"
+	  //other-imports
+)
+
+requestParameters := &graphsites.SiteItemListItemItemsRequestBuilderGetQueryParameters{
+	Expand: [] string {"fields($select=Name,Color,Quantity)"},
 }
-options := &msgraphsdk.ItemsRequestBuilderGetRequestConfiguration{
+configuration := &graphsites.SiteItemListItemItemsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-siteId := "site-id"
-listId := "list-id"
-result, err := graphClient.SitesById(&siteId).ListsById(&listId).Items().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+items, err := graphClient.Sites().BySiteId("site-id").Lists().ByListId("list-id").Items().Get(context.Background(), configuration)
 
 
 ```

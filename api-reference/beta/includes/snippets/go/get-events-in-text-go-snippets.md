@@ -4,20 +4,31 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.EventsRequestBuilderGetQueryParameters{
-	Select: "subject,body,bodyPreview",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  abstractions "github.com/microsoft/kiota-abstractions-go"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-beta-sdk-go/users"
+	  //other-imports
+)
+
+headers := abstractions.NewRequestHeaders()
+headers.Add("Prefer", "outlook.body-content-type=\"text\"")
+
+requestParameters := &graphusers.ItemEventsRequestBuilderGetQueryParameters{
+	Select: [] string {"subject","body","bodyPreview"},
 }
-headers := map[string]string{
-	"Prefer": "outlook.body-content-type="text""
-}
-options := &msgraphsdk.EventsRequestBuilderGetRequestConfiguration{
-	QueryParameters: requestParameters,
+configuration := &graphusers.ItemEventsRequestBuilderGetRequestConfiguration{
 	Headers: headers,
+	QueryParameters: requestParameters,
 }
-result, err := graphClient.Me().Events().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+events, err := graphClient.Me().Events().Get(context.Background(), configuration)
 
 
 ```

@@ -4,43 +4,46 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```csharp
 
-GraphServiceClient graphClient = new GraphServiceClient( authProvider );
+// Code snippets are only available for the latest version. Current version is 5.x
 
-var conversation = new Conversation
+// Dependencies
+using Microsoft.Graph.Beta.Models;
+
+var requestBody = new Conversation
 {
 	Topic = "New head count",
-	Threads = new ConversationThreadsCollectionPage()
+	Threads = new List<ConversationThread>
 	{
 		new ConversationThread
 		{
-			Posts = new ConversationThreadPostsCollectionPage()
+			Posts = new List<Post>
 			{
 				new Post
 				{
 					Body = new ItemBody
 					{
 						ContentType = BodyType.Html,
-						Content = "The confirmation will come by the end of the week."
+						Content = "The confirmation will come by the end of the week.",
 					},
-					NewParticipants = new List<Recipient>()
+					NewParticipants = new List<Recipient>
 					{
 						new Recipient
 						{
 							EmailAddress = new EmailAddress
 							{
 								Name = "Adele Vance",
-								Address = "AdeleV@contoso.onmicrosoft.com"
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+								Address = "AdeleV@contoso.com",
+							},
+						},
+					},
+				},
+			},
+		},
+	},
 };
 
-await graphClient.Groups["{group-id}"].Conversations
-	.Request()
-	.AddAsync(conversation);
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=csharp
+var result = await graphClient.Groups["{group-id}"].Conversations.PostAsync(requestBody);
+
 
 ```

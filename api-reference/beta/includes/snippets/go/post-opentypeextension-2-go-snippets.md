@@ -4,19 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewExtension()
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "microsoft.graph.openTypeExtension",
-	"extensionName": "Com.Contoso.Referral",
-	"companyName": "Wingtip Toys",
-	"dealValue": ,
-	"expirationDate": "2015-12-03T10:00:00.000Z",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-beta-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewExtension()
+extensionName := "Com.Contoso.Referral"
+requestBody.SetExtensionName(&extensionName) 
+additionalData := map[string]interface{}{
+	"companyName" : "Wingtip Toys", 
+	"dealValue" : int32(500050) , 
+	"expirationDate" : "2015-12-03T10:00:00.000Z", 
 }
-messageId := "message-id"
-result, err := graphClient.Me().MessagesById(&messageId).Extensions().Post(requestBody)
+requestBody.SetAdditionalData(additionalData)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+extensions, err := graphClient.Me().Messages().ByMessageId("message-id").Extensions().Post(context.Background(), requestBody, nil)
 
 
 ```

@@ -4,31 +4,59 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewConversation()
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  //other-imports
+)
+
+requestBody := graphmodels.NewConversation()
 topic := "Take your wellness days and rest"
-requestBody.SetTopic(&topic)
-requestBody.SetThreads( []ConversationThread {
-	msgraphsdk.NewConversationThread(),
-	SetPosts( []Post {
-		msgraphsdk.NewPost(),
-body := msgraphsdk.NewItemBody()
-		SetBody(body)
-contentType := "html"
-		body.SetContentType(&contentType)
+requestBody.SetTopic(&topic) 
+
+
+conversationThread := graphmodels.NewConversationThread()
+
+
+post := graphmodels.NewPost()
+body := graphmodels.NewItemBody()
+contentType := graphmodels.HTML_BODYTYPE 
+body.SetContentType(&contentType) 
 content := "Contoso cares about you: Rest and Recharge"
-		body.SetContent(&content)
-		SetNewParticipants( []Recipient {
-			msgraphsdk.NewRecipient(),
-			SetAdditionalData(map[string]interface{}{
-			}
-		}
-	}
+body.SetContent(&content) 
+post.SetBody(body)
+
+
+recipient := graphmodels.NewRecipient()
+emailAddress := graphmodels.NewEmailAddress()
+name := "Adele Vance"
+emailAddress.SetName(&name) 
+address := "AdeleV@contoso.com"
+emailAddress.SetAddress(&address) 
+recipient.SetEmailAddress(emailAddress)
+
+newParticipants := []graphmodels.Recipientable {
+	recipient,
 }
-groupId := "group-id"
-result, err := graphClient.GroupsById(&groupId).Conversations().Post(requestBody)
+post.SetNewParticipants(newParticipants)
+
+posts := []graphmodels.Postable {
+	post,
+}
+conversationThread.SetPosts(posts)
+
+threads := []graphmodels.ConversationThreadable {
+	conversationThread,
+}
+requestBody.SetThreads(threads)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+conversations, err := graphClient.Groups().ByGroupId("group-id").Conversations().Post(context.Background(), requestBody, nil)
 
 
 ```

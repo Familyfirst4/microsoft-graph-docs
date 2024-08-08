@@ -4,20 +4,31 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.DeltaRequestBuilderGetQueryParameters{
-	Select: "displayName,jobTitle,mobilePhone",
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  abstractions "github.com/microsoft/kiota-abstractions-go"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphusers "github.com/microsoftgraph/msgraph-sdk-go/users"
+	  //other-imports
+)
+
+headers := abstractions.NewRequestHeaders()
+headers.Add("Prefer", "return=minimal")
+
+requestParameters := &graphusers.UsersDeltaWithRequestBuilderGetQueryParameters{
+	Select: [] string {"displayName","jobTitle","mobilePhone"},
 }
-headers := map[string]string{
-	"Prefer": "return=minimal"
-}
-options := &msgraphsdk.DeltaRequestBuilderGetRequestConfiguration{
-	QueryParameters: requestParameters,
+configuration := &graphusers.UsersDeltaWithRequestBuilderGetRequestConfiguration{
 	Headers: headers,
+	QueryParameters: requestParameters,
 }
-result, err := graphClient.Users().Delta()().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+delta, err := graphClient.Users().Delta().GetAsDeltaGetResponse(context.Background(), configuration)
 
 
 ```

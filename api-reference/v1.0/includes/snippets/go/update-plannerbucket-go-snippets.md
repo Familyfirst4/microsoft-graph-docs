@@ -4,21 +4,32 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewPlannerBucket()
-name := "Development"
-requestBody.SetName(&name)
-headers := map[string]string{
-	"Prefer": "return=representation"
-	"If-Match": "W/"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc=""
-}
-options := &msgraphsdk.PlannerBucketRequestBuilderPatchRequestConfiguration{
+// Code snippets are only available for the latest major version. Current major version is $v1.*
+
+// Dependencies
+import (
+	  "context"
+	  abstractions "github.com/microsoft/kiota-abstractions-go"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
+	  graphmodels "github.com/microsoftgraph/msgraph-sdk-go/models"
+	  graphplanner "github.com/microsoftgraph/msgraph-sdk-go/planner"
+	  //other-imports
+)
+
+headers := abstractions.NewRequestHeaders()
+headers.Add("Prefer", "return=representation")
+headers.Add("If-Match", "W/\"JzEtVGFzayAgQEBAQEBAQEBAQEBAQEBAWCc=\"")
+
+configuration := &graphplanner.PlannerBucketItemRequestBuilderPatchRequestConfiguration{
 	Headers: headers,
 }
-plannerBucketId := "plannerBucket-id"
-graphClient.Planner().BucketsById(&plannerBucketId).PatchWithRequestConfigurationAndResponseHandler(requestBody, options, nil)
+requestBody := graphmodels.NewPlannerBucket()
+name := "Development"
+requestBody.SetName(&name) 
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+buckets, err := graphClient.Planner().Buckets().ByPlannerBucketId("plannerBucket-id").Patch(context.Background(), requestBody, configuration)
 
 
 ```

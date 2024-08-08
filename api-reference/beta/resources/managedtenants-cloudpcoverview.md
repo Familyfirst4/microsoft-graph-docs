@@ -3,7 +3,7 @@ title: "cloudPcOverview resource type"
 description: "Represents an overview of cloud PCs for a given managed tenant."
 author: "idwilliams"
 ms.localizationpriority: medium
-ms.prod: "microsoft-365-lighthouse"
+ms.subservice: "m365-lighthouse"
 doc_type: resourcePageType
 ---
 
@@ -18,12 +18,13 @@ Represents an overview of cloud PCs for a given managed tenant.
 ## Methods
 |Method|Return type|Description|
 |:---|:---|:---|
-|[List cloudPcOverviews](../api/managedtenants-managedtenant-list-cloudpcsoverview.md)|[microsoft.graph.managedTenants.cloudPcOverview](../resources/managedtenants-cloudpcoverview.md) collection|Get a list of the [cloudPcOverview](../resources/managedtenants-cloudpcoverview.md) objects and their properties.|
-|[Get cloudPcOverview](../api/managedtenants-cloudpcoverview-get.md)|[microsoft.graph.managedTenants.cloudPcOverview](../resources/managedtenants-cloudpcoverview.md)|Read the properties and relationships of a [cloudPcOverview](../resources/managedtenants-cloudpcoverview.md) object.|
+|[List cloud PC overviews](../api/managedtenants-managedtenant-list-cloudpcsoverview.md)|[microsoft.graph.managedTenants.cloudPcOverview](../resources/managedtenants-cloudpcoverview.md) collection|Get a list of the [cloudPcOverview](../resources/managedtenants-cloudpcoverview.md) objects and their properties.|
+|[Get cloud PC overview](../api/managedtenants-cloudpcoverview-get.md)|[microsoft.graph.managedTenants.cloudPcOverview](../resources/managedtenants-cloudpcoverview.md)|Read the properties and relationships of a [cloudPcOverview](../resources/managedtenants-cloudpcoverview.md) object.|
 
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
+|frontlineLicensesCount|Int32|The total number of cloud PC devices that have the `Frontline` SKU. Optional. Read-only.|
 |id|String|The unique identifier for the cloud PC overview. Required. Read-only.|
 |lastRefreshedDateTime|DateTimeOffset|Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.|
 |numberOfCloudPcConnectionStatusFailed|Int32|The number of cloud PC connections that have a status of `failed`. Optional. Read-only.|
@@ -40,14 +41,16 @@ Represents an overview of cloud PCs for a given managed tenant.
 |numberOfCloudPcStatusUnknown|Int32|The number of cloud PCs that have a status of `unknown`. Optional. Read-only.|
 |numberOfCloudPcStatusUpgrading|Int32|The number of cloud PCs that have a status of `upgrading`. Optional. Read-only.|
 |tenantDisplayName|String|The display name for the managed tenant. Optional. Read-only.|
+|totalBusinessLicenses|Int32|The total number of cloud PC devices that have the `Business` SKU. Optional. Read-only.|
 |totalCloudPcConnectionStatus|Int32|The total number of cloud PC connection statuses for the given managed tenant. Optional. Read-only.|
 |totalCloudPcStatus|Int32|The total number of cloud PC statues for the given managed tenant. Optional. Read-only.|
+|totalEnterpriseLicenses|Int32|The total number of cloud PC devices that have the `Enterprise` SKU. Optional. Read-only.|
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",
@@ -59,23 +62,26 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.managedTenants.cloudPcOverview",
+  "frontlineLicensesCount": "Integer",
   "id": "String (identifier)",
-  "tenantDisplayName": "String",
-  "totalCloudPcStatus": "Integer",
-  "numberOfCloudPcStatusNotProvisioned": "Integer",
-  "numberOfCloudPcStatusProvisioning": "Integer",
-  "numberOfCloudPcStatusProvisioned": "Integer",
-  "numberOfCloudPcStatusUpgrading": "Integer",
-  "numberOfCloudPcStatusInGracePeriod": "Integer",
-  "numberOfCloudPcStatusDeprovisioning": "Integer",
-  "numberOfCloudPcStatusFailed": "Integer",
-  "numberOfCloudPcStatusUnknown": "Integer",
-  "totalCloudPcConnectionStatus": "Integer",
+  "lastRefreshedDateTime": "String (timestamp)",
+  "numberOfCloudPcConnectionStatusFailed": "Integer",
+  "numberOfCloudPcConnectionStatusPassed": "Integer",
   "numberOfCloudPcConnectionStatusPending": "Integer",
   "numberOfCloudPcConnectionStatusRunning": "Integer",
-  "numberOfCloudPcConnectionStatusPassed": "Integer",
-  "numberOfCloudPcConnectionStatusFailed": "Integer",
   "numberOfCloudPcConnectionStatusUnkownFutureValue": "Integer",
-  "lastRefreshedDateTime": "String (timestamp)"
+  "numberOfCloudPcStatusDeprovisioning": "Integer",
+  "numberOfCloudPcStatusFailed": "Integer",
+  "numberOfCloudPcStatusInGracePeriod": "Integer",
+  "numberOfCloudPcStatusNotProvisioned": "Integer",
+  "numberOfCloudPcStatusProvisioned": "Integer",
+  "numberOfCloudPcStatusProvisioning": "Integer",
+  "numberOfCloudPcStatusUnknown": "Integer",
+  "numberOfCloudPcStatusUpgrading": "Integer",
+  "tenantDisplayName": "String",
+  "totalBusinessLicenses": "Integer",
+  "totalCloudPcConnectionStatus": "Integer",
+  "totalCloudPcStatus": "Integer",
+  "totalEnterpriseLicenses": "Integer"
 }
 ```

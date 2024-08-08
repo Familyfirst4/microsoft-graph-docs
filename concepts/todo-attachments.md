@@ -3,7 +3,7 @@ title: "Attach files to a To Do task"
 description: "Learn how to attach large files to a Microsoft To Do task and how to choose the right approach to attach a file to a task."
 author: "avijityadav"
 ms.localizationpriority: high
-ms.prod: "outlook"
+ms.subservice: "outlook"
 ---
 
 # Attach files to a To Do task
@@ -34,10 +34,13 @@ One of the following permissions is required to call this API. To learn more, in
 
 #### Request
 
-The following is an example of a request to create an upload session.
+The following example shows a request to create an upload session.
+
+# [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
-  "name": "todo_attachment_walkthrough_createuploadsession"
+  "name": "todo_attachment_walkthrough_createuploadsession",
+  "sampleKeys": ["AAMDiFkfh=", "AAMkADliMm="]
 }
 -->
 ``` http
@@ -46,13 +49,46 @@ Content-Type: application/json
 
 {
   "attachmentInfo": {
-    "@odata.type": "microsoft.graph.attachmentInfo",
     "attachmentType": "file",
     "name": "flower",
     "size": 3483322
   }
 }
 ```
+
+# [C#](#tab/csharp)
+[!INCLUDE [sample-code](../includes/snippets/csharp/beta/todo-attachment-walkthrough-createuploadsession-csharp-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [CLI](#tab/cli)
+[!INCLUDE [sample-code](../includes/snippets/cli/beta/todo-attachment-walkthrough-createuploadsession-cli-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Go](#tab/go)
+[!INCLUDE [sample-code](../includes/snippets/go/beta/todo-attachment-walkthrough-createuploadsession-go-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Java](#tab/java)
+[!INCLUDE [sample-code](../includes/snippets/java/beta/todo-attachment-walkthrough-createuploadsession-java-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [JavaScript](#tab/javascript)
+[!INCLUDE [sample-code](../includes/snippets/javascript/beta/todo-attachment-walkthrough-createuploadsession-javascript-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](../includes/snippets/php/beta/todo-attachment-walkthrough-createuploadsession-php-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [PowerShell](#tab/powershell)
+[!INCLUDE [sample-code](../includes/snippets/powershell/beta/todo-attachment-walkthrough-createuploadsession-powershell-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+# [Python](#tab/python)
+[!INCLUDE [sample-code](../includes/snippets/python/beta/todo-attachment-walkthrough-createuploadsession-python-snippets.md)]
+[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+
+---
 
 #### Response
 The following example shows the **uploadSession** resource returned for the task in the response body.
@@ -80,7 +116,7 @@ Content-Type: application/json
 
 ## Step 2: Use the upload session to upload a range of bytes of the file
 
-To upload the file, or a portion of the file, make a `PUT` request to the URL returned in step 1 in the **uploadUrl** property of the **uploadSession** resource. You can upload the entire file, or split the file into multiple byte ranges. Each byte range needs to be less than 4 MB.
+To upload the file, or a portion of the file, append `/content` to the URL returned in step 1 in the **uploadUrl** property of the **uploadSession** resource and make a `PUT` request on the appended URL. You can upload the entire file, or split the file into multiple byte ranges. Each byte range needs to be less than 4 MB.
 
 Specify the request headers and the request body as described in the following sections.
 
@@ -88,7 +124,7 @@ Specify the request headers and the request body as described in the following s
 
 | Name       | Type | Description|
 |:---------------|:--------|:----------|
-|Authorization | String | Bearer {token}. Required. |
+|Authorization | String |Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 | Content-Length | Int32 | The number of bytes being uploaded in this operation. The upper limit of the number of bytes for each `PUT` operation is 4 MB. The request will fail for anything higher than 4 MB. Required. |
 | Content-Range | String | The 0-based byte range of the file being uploaded in this operation, expressed in the format `bytes {start}-{end}/{total}`. Required. |
 | Content-Type | String  | The MIME type. Specify `application/octet-stream`. Required. |
@@ -114,7 +150,7 @@ A successful upload returns a `HTTP 200 OK` response code and an **uploadSession
 
 #### Request
 
-The following is an example of a request.
+The following example shows a request.
 
 <!-- {
   "blockType": "ignored"
@@ -158,7 +194,7 @@ The following examples show how to upload the last byte range of the file to the
 
 #### Request
 
-The following is an example of a request.
+The following example shows a request.
 
 <!-- {
   "blockType": "ignored"
@@ -194,7 +230,7 @@ At any point of time before the upload session expires, if you have to cancel th
 
 #### Request
 
-The following is an example of a request.
+The following example shows a request.
 
 <!-- {
   "blockType": "ignored"
@@ -205,7 +241,7 @@ DELETE https://graph.microsoft.com/beta/users/6f9a2a92-8527-4d64-837e-b5312852f3
 
 #### Response
 
-The following is an example of the response.
+The following example shows the response.
 
 <!-- {
   "blockType": "ignored"

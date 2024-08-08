@@ -1,9 +1,9 @@
 ---
 title: "broadcastMeetingCaptionSettings resource type"
 description: "Represents caption settings of a Microsoft Teams live event."
-author: "mkhribech"
+author: "awang119"
 ms.localizationpriority: medium
-ms.prod: "cloud-communications"
+ms.subservice: "cloud-communications"
 doc_type: resourcePageType
 ---
 
@@ -13,13 +13,13 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Represents caption settings of a Microsoft Teams [live event](/microsoftteams/teams-live-events/what-are-teams-live-events). For details about how to use live captions in Teams client, see [Use live captions in a live event](https://support.microsoft.com/office/use-live-captions-in-a-live-event-1d6778d4-6c65-4189-ab13-e2d77beb9e2a).
+Represents caption settings of a Microsoft Teams [live event](/microsoftteams/teams-live-events/what-are-teams-live-events). For details about how to use live captions in the Teams client, see [Use live captions in a live event](https://support.microsoft.com/office/use-live-captions-in-a-live-event-1d6778d4-6c65-4189-ab13-e2d77beb9e2a).
 
 ## Properties
 
 | Property             | Type              | Description                                                     |
 |:---------------------|:------------------|:----------------------------------------------------------------|
-| isCaptionEnabled     | Boolean           | Indicates whether caption is enabled for this Teams live event. |
+| isCaptionEnabled     | Boolean           | Indicates whether captions are enabled for this Teams live event. |
 | spokenLanguage       | String            | The spoken language.                                            |
 | translationLanguages | String collection | The translation languages (choose up to 6).                     |
 
@@ -61,8 +61,8 @@ The following table shows the supported language codes for translation languages
 | Bulgarian (Bulgaria)                     | bg      |
 | Catalan                                  | ca      |
 | Chinese (Simplified, PRC)                | zh-Hans |
-| Chinese (Tranditional, Hong Kong S.A.R.) | yue     |
-| Chinese (Tranditional)                   | zh-Hant |
+| Chinese (Traditional, Hong Kong S.A.R.) | yue     |
+| Chinese (Traditional)                   | zh-Hant |
 | Creole (Haiti)                           | ht      |
 | Croatian (Croatia)                       | hr      |
 | Czech (Czech Republic)                   | cs      |
@@ -116,7 +116,7 @@ The following table shows the supported language codes for translation languages
 
 ## JSON representation
 
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.broadcastMeetingCaptionSettings"

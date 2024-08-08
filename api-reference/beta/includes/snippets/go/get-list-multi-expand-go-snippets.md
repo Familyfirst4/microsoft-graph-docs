@@ -4,19 +4,27 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.ListRequestBuilderGetQueryParameters{
-	Select: "name,lastModifiedDateTime",
-	Expand: "columns(select=name,description),items)",
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphsites "github.com/microsoftgraph/msgraph-beta-sdk-go/sites"
+	  //other-imports
+)
+
+requestParameters := &graphsites.SiteItemListItemRequestBuilderGetQueryParameters{
+	Select: [] string {"name","lastModifiedDateTime"},
+	Expand: [] string {"columns(select=name,description)","items(expand=fields(select=Name,Color,Quantity)",")"},
 }
-options := &msgraphsdk.ListRequestBuilderGetRequestConfiguration{
+configuration := &graphsites.SiteItemListItemRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-siteId := "site-id"
-listId := "list-id"
-result, err := graphClient.SitesById(&siteId).ListsById(&listId).GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+lists, err := graphClient.Sites().BySiteId("site-id").Lists().ByListId("list-id").Get(context.Background(), configuration)
 
 
 ```

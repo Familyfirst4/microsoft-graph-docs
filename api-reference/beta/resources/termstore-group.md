@@ -1,10 +1,10 @@
 ---
-author: mohitpcad
-title: Group resource type
+author: "mohitpcad"
+title: "Group resource type"
 doc_type: "resourcePageType"
 description: "Represents a group used in a term store."
 ms.localizationpriority: medium
-ms.prod: taxonomy
+ms.subservice: sharepoint
 ---
 
 # Group resource type
@@ -23,9 +23,9 @@ Inherits from [entity](../resources/entity.md).
 
 | Method                                                   | Return type       |    Description|
 |:---------------------------------------------------------|:------------------|:---------------------|
-| [Create group](../api/termstore-group-post.md)                     | [microsoft.graph.termStore.group] | Create a group in a term [store].|
-| [Get group](../api/termstore-group-get.md)                           | [microsoft.graph.termStore.group] | Retrieve the data of a group in a term [store].|
-| [Delete group](../api/termstore-group-delete.md)                     | None |  Delete a group in a term [store].|
+| [Create](../api/termstore-group-post.md)                     | [microsoft.graph.termStore.group] | Create a group in a term [store].|
+| [Get](../api/termstore-group-get.md)                           | [microsoft.graph.termStore.group] | Retrieve the data of a group in a term [store].|
+| [Delete](../api/termstore-group-delete.md)                     | None |  Delete a group in a term [store].|
 
 ## Properties
 
@@ -33,10 +33,10 @@ Inherits from [entity](../resources/entity.md).
 |:---------------------|:-------------------|:------------------------------------|
 | createdDateTime      | DateTimeOffset     | Date and time of the group creation. Read-only.|
 | description          | string             | Description that gives details on the term usage.|
-| id                   | string             | Unique identifier of the group. Read-Only.|
 | displayName          | string             | Name of the group.|
-| scope                | string              | Returns the type of the group. Possible values are `global`, `system`, and `siteCollection`.|
+| id                   | string             | Unique identifier of the group. Read-Only.|
 | parentSiteId         | string             | ID of the parent site of this group.|
+| scope                | string             | Returns the type of the group. Possible values are: `global`, `system`, and `siteCollection`.|
 
 ## Relationships
 | Relationship       | Type                        | Description|
@@ -57,12 +57,12 @@ The following is a JSON representation of a **group** resource.
 ```json
 {
   "@odata.type": "#microsoft.graph.termStore.group",
-  "id": "string",
   "createdDateTime": "string (timestamp)",
   "description": "string",
-  "scope" : "microsoft.graph.termStore.groupScope",
   "displayName": "string",
-  "parentSiteId" : "string"
+  "id": "string",
+  "parentSiteId": "string",
+  "scope": "microsoft.graph.termStore.groupScope"
 }
 ```
 

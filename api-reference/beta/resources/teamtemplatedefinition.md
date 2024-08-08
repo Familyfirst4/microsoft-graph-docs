@@ -3,7 +3,7 @@ title: "teamTemplateDefinition"
 description: "Generic representation of a team template definition for a team with a specific structure and configuration."
 author: "Charlieforce"
 ms.localizationpriority: medium
-ms.prod: "teamwork"
+ms.subservice: "teams"
 doc_type: resourcePageType
 ---
 
@@ -17,12 +17,13 @@ Generic representation of a team template definition for a team with a specific 
 
 Inherits from [entity](../resources/entity.md).
 
+
 ## Methods
 |Method|Return type|Description|
 |:---|:---|:---|
-|[Get teamTemplateDefinition](../api/teamtemplatedefinition-get.md)|[teamTemplateDefinition](../resources/teamtemplatedefinition.md)|Read the properties and relationships of a [teamTemplateDefinition](../resources/teamtemplatedefinition.md) object.|
-| [List teamTemplateDefinitions](../api/teamtemplate-list-definitions.md) | [teamTemplateDefinition](../resources/teamtemplatedefinition.md) collection | List the **teamTemplateDefinition** objects associated with a **teamTemplate**.  |
-| [Get teamDefinition](../api/teamtemplatedefinition-get-teamdefinition.md) | [team](../resources/team.md) | Read the properties of the **team** of a **teamTemplateDefinition** object |
+|[Get](../api/teamtemplatedefinition-get.md)|[teamTemplateDefinition](../resources/teamtemplatedefinition.md)|Read the properties and relationships of a [teamTemplateDefinition](../resources/teamtemplatedefinition.md) object.|
+| [List](../api/teamtemplate-list-definitions.md) | [teamTemplateDefinition](../resources/teamtemplatedefinition.md) collection | List the **teamTemplateDefinition** objects associated with a **teamTemplate**.  |
+| [Get team definition](../api/teamtemplatedefinition-get-teamdefinition.md) | [team](../resources/team.md) | Read the properties of the **team** of a **teamTemplateDefinition** object |
 
 ## Properties
 |Property|Type|Description|
@@ -46,7 +47,7 @@ Inherits from [entity](../resources/entity.md).
 |teamDefinition|[team](../resources/team.md)|Collection of [channel](../resources/channel.md) objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.|
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "keyProperty": "id",
@@ -58,25 +59,25 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.teamTemplateDefinition",
-  "id": "String (identifier)",
-  "parentTemplateId": "String",
-  "displayName": "String",
-  "languageTag": "String",
   "audience": "String",
+  "categories": [
+    "String"
+  ],
   "description": "String",
-  "shortDescription": "String",
+  "displayName": "String",
   "iconUrl": "String",
+  "id": "String (identifier)",
+  "languageTag": "String",
   "lastModifiedDateTime": "String (timestamp)",
   "lastModifiedBy": {
     "@odata.type": "microsoft.graph.identitySet"
   },
-  "publisherName": "String",
-  "categories": [
-    "String"
-  ]
+  "parentTemplateId": "String",
+  "publisherName": "String", 
+  "shortDescription": "String"
 }
 ```
-## See also
+## Related content
 
 - [team](team.md)
 - [teamsTemplate](teamsTemplate.md)

@@ -4,18 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.TagRequestBuilderDeleteQueryParameters{
-	Forcedelete: true,
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphcompliance "github.com/microsoftgraph/msgraph-beta-sdk-go/compliance"
+	  //other-imports
+)
+
+
+requestForcedelete := "true"
+
+requestParameters := &graphcompliance.ComplianceEdiscoveryCaseItemTagItemRequestBuilderDeleteQueryParameters{
+	Forcedelete: &requestForcedelete,
 }
-options := &msgraphsdk.TagRequestBuilderDeleteRequestConfiguration{
+configuration := &graphcompliance.ComplianceEdiscoveryCaseItemTagItemRequestBuilderDeleteRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-caseId := "case-id"
-tagId := "tag-id"
-graphClient.Compliance().Ediscovery().CasesById(&caseId).TagsById(&tagId).DeleteWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+graphClient.Compliance().Ediscovery().Cases().ByCaseId("case-id").Tags().ByTagId("tag-id").Delete(context.Background(), configuration)
 
 
 ```

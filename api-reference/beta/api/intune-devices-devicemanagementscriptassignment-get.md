@@ -1,9 +1,9 @@
 ---
 title: "Get deviceManagementScriptAssignment"
 description: "Read properties and relationships of the deviceManagementScriptAssignment object."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 Read properties and relationships of the [deviceManagementScriptAssignment](../resources/intune-devices-devicemanagementscriptassignment.md) object.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -43,7 +45,7 @@ This method supports the [OData Query Parameters](/graph/query-parameters) to he
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -65,22 +67,19 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 475
+Content-Length: 490
 
 {
   "value": {
     "@odata.type": "#microsoft.graph.deviceManagementScriptAssignment",
     "id": "a87a601e-601e-a87a-1e60-7aa81e607aa8",
     "target": {
-      "@odata.type": "microsoft.graph.configurationManagerCollectionAssignmentTarget",
+      "@odata.type": "microsoft.graph.scopeTagGroupAssignmentTarget",
       "deviceAndAppManagementAssignmentFilterId": "Device And App Management Assignment Filter Id value",
       "deviceAndAppManagementAssignmentFilterType": "include",
-      "collectionId": "Collection Id value"
+      "targetType": "user",
+      "entraObjectId": "Entra Object Id value"
     }
   }
 }
 ```
-
-
-
-

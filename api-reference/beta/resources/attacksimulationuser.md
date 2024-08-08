@@ -1,9 +1,9 @@
 ---
 title: "attackSimulationUser resource type"
-description: "User in an attack simulation and training campaign."
-author: "Gopal-MSFT"
+description: "Represents a user in an attack simulation and training campaign."
+author: "stuartcl"
 ms.localizationpriority: medium
-ms.prod: "reports"
+ms.subservice: "reports"
 doc_type: resourcePageType
 ---
 
@@ -13,20 +13,21 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-A user in an attack simulation and training campaign.
+Represents a user in an attack simulation and training campaign.
 
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
 |displayName|String|Display name of the user.|
 |email|String|Email address of the user.|
-|userId|String|This is the **id** property value of the [user](../resources/user.md) resource that represents the user in the Azure AD tenant.|
+|outOfOfficeDays|Int32 | Number of days the user is OOF during a simulation journey/course of a campaign.|
+|userId|String|The **id** property value of the [user](../resources/user.md) resource that represents the user in the Microsoft Entra tenant.|
 
 ## Relationships
 None.
 
 ## JSON representation
-The following is a JSON representation of the resource.
+The following JSON representation shows the resource type.
 <!-- {
   "blockType": "resource",
   "@odata.type": "microsoft.graph.attackSimulationUser"
@@ -35,9 +36,9 @@ The following is a JSON representation of the resource.
 ``` json
 {
   "@odata.type": "#microsoft.graph.attackSimulationUser",
-  "userId": "String",
   "displayName": "String",
-  "email": "String"
+  "email": "String",
+  "outOfOfficeDays": "Int",
+  "userId": "String"
 }
 ```
-

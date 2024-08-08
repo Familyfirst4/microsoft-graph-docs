@@ -4,16 +4,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 ```go
 
-//THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
-graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestParameters := &msgraphsdk.AttributeSetsRequestBuilderGetQueryParameters{
-	Top: 10,
+// Code snippets are only available for the latest major version. Current major version is $v0.*
+
+// Dependencies
+import (
+	  "context"
+	  msgraphsdk "github.com/microsoftgraph/msgraph-beta-sdk-go"
+	  graphdirectory "github.com/microsoftgraph/msgraph-beta-sdk-go/directory"
+	  //other-imports
+)
+
+
+requestTop := int32(10)
+
+requestParameters := &graphdirectory.DirectoryAttributeSetsRequestBuilderGetQueryParameters{
+	Top: &requestTop,
 }
-options := &msgraphsdk.AttributeSetsRequestBuilderGetRequestConfiguration{
+configuration := &graphdirectory.DirectoryAttributeSetsRequestBuilderGetRequestConfiguration{
 	QueryParameters: requestParameters,
 }
-result, err := graphClient.Directory().AttributeSets().GetWithRequestConfigurationAndResponseHandler(options, nil)
+
+// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=go
+attributeSets, err := graphClient.Directory().AttributeSets().Get(context.Background(), configuration)
 
 
 ```

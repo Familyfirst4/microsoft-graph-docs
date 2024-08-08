@@ -1,9 +1,9 @@
 ---
 title: "List deviceManagementConfigurationPolicyAssignments"
 description: "List properties and relationships of the deviceManagementConfigurationPolicyAssignment objects."
-author: "dougeby"
-localization_priority: Normal
-ms.prod: "intune"
+author: "jaiprakashmb"
+ms.localizationpriority: medium
+ms.subservice: "intune"
 doc_type: apiPageType
 ---
 
@@ -17,7 +17,9 @@ Namespace: microsoft.graph
 
 List properties and relationships of the [deviceManagementConfigurationPolicyAssignment](../resources/intune-deviceconfigv2-devicemanagementconfigurationpolicyassignment.md) objects.
 
-## Prerequisites
+[!INCLUDE [national-cloud-support](../../includes/all-clouds.md)]
+
+## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type|Permissions (from least to most privileged)|
@@ -32,6 +34,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
+GET /deviceManagement/inventoryPolicies/{deviceManagementInventoryPolicyId}/assignments
 GET /deviceManagement/compliancePolicies/{deviceManagementCompliancePolicyId}/assignments
 GET /deviceManagement/configurationPolicies/{deviceManagementConfigurationPolicyId}/assignments
 ```
@@ -39,7 +42,7 @@ GET /deviceManagement/configurationPolicies/{deviceManagementConfigurationPolicy
 ## Request headers
 |Header|Value|
 |:---|:---|
-|Authorization|Bearer &lt;token&gt; Required.|
+|Authorization|Bearer {token}. Required. Learn more about [authentication and authorization](/graph/auth/auth-concepts).|
 |Accept|application/json|
 
 ## Request body
@@ -53,7 +56,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 ### Request
 Here is an example of the request.
 ``` http
-GET https://graph.microsoft.com/beta/deviceManagement/compliancePolicies/{deviceManagementCompliancePolicyId}/assignments
+GET https://graph.microsoft.com/beta/deviceManagement/inventoryPolicies/{deviceManagementInventoryPolicyId}/assignments
 ```
 
 ### Response
@@ -61,7 +64,7 @@ Here is an example of the response. Note: The response object shown here may be 
 ``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 587
+Content-Length: 604
 
 {
   "value": [
@@ -69,10 +72,11 @@ Content-Length: 587
       "@odata.type": "#microsoft.graph.deviceManagementConfigurationPolicyAssignment",
       "id": "1f069921-9921-1f06-2199-061f2199061f",
       "target": {
-        "@odata.type": "microsoft.graph.configurationManagerCollectionAssignmentTarget",
+        "@odata.type": "microsoft.graph.scopeTagGroupAssignmentTarget",
         "deviceAndAppManagementAssignmentFilterId": "Device And App Management Assignment Filter Id value",
         "deviceAndAppManagementAssignmentFilterType": "include",
-        "collectionId": "Collection Id value"
+        "targetType": "user",
+        "entraObjectId": "Entra Object Id value"
       },
       "source": "policySets",
       "sourceId": "Source Id value"
@@ -80,7 +84,3 @@ Content-Length: 587
   ]
 }
 ```
-
-
-
-

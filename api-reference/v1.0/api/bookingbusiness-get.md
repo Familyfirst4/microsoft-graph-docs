@@ -3,7 +3,7 @@ title: "Get bookingBusiness"
 description: "Get the properties and relationships of a bookingBusiness object."
 ms.localizationpriority: medium
 author: "arvindmicrosoft"
-ms.prod: "bookings"
+ms.subservice: "microsoft-bookings"
 doc_type: apiPageType
 ---
 
@@ -12,45 +12,58 @@ doc_type: apiPageType
 Namespace: microsoft.graph
 
 Get the properties and relationships of a [bookingBusiness](../resources/bookingbusiness.md) object.
-## Permissions
-One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) |  Bookings.Read.All, BookingsAppointment.ReadWrite.All, Bookings.ReadWrite.All, Bookings.Manage.All   |
-|Delegated (personal Microsoft account) | Not supported.   |
-|Application | Not supported.  |
+[!INCLUDE [national-cloud-support](../../includes/global-us.md)]
+
+## Permissions
+Choose the permission or permissions marked as least privileged for this API. Use a higher privileged permission or permissions [only if your app requires it](/graph/permissions-overview#best-practices-for-using-microsoft-graph-permissions). For details about delegated and application permissions, see [Permission types](/graph/permissions-overview#permission-types). To learn more about these permissions, see the [permissions reference](/graph/permissions-reference).
+
+<!-- { "blockType": "permissions", "name": "bookingbusiness_get" } -->
+[!INCLUDE [permissions-table](../includes/permissions/bookingbusiness-get-permissions.md)]
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
 GET /solutions/bookingBusinesses/{id}
 ```
+
 ## Optional query parameters
-This method supports the $count and $expand [OData query parameters](/graph/query-parameters) to help customize the response.
+
+This method supports the `$count` [OData query parameter](/graph/query-parameters) to help customize the response.
 
 ## Request headers
+
 | Name      |Description|
 |:----------|:----------|
 | Authorization  | Bearer {code}|
 
 ## Request body
-Do not supply a request body for this method.
+
+Don't supply a request body for this method.
+
 ## Response
-If successful, this method returns a `200 OK` response code and [bookingBusiness](../resources/bookingbusiness.md) object in the response body.
+
+If successful, this method returns a `200 OK` response code and a [bookingBusiness](../resources/bookingbusiness.md) object in the response body.
+
 ## Example
+
 ### Request
-The following is an example of the request.
+
+The following example shows a request.
 
 <!-- {
-  "blockType": "request"
+  "blockType": "request",
+  "sampleKeys": ["fabrikam@contoso.com"]
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/Fabrikam@contoso.onmicrosoft.com
+GET https://graph.microsoft.com/v1.0/solutions/bookingBusinesses/fabrikam@contoso.com
 ```
 
 ### Response
-The following is an example of the response. Note: The response object shown here might be shortened for readability.
+
+The following example shows the response.
+
+> **Note:** The response object shown here might be shortened for readability.
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -62,12 +75,13 @@ Content-type: application/json
 
 {
     "@odata.context":"https://graph.microsoft.com/v1.0/solutions/$metadata#bookingBusinesses/$entity",
-    "id":"Fabrikam@contoso.onmicrosoft.com",
+    "id":"Fabrikam@contoso.com",
     "displayName":"Fabrikam",
     "businessType":"",
     "phone":"206-555-0100",
     "email":"manager@fabrikam.com",
     "webSiteUrl":"https://www.fabrikam.com/",
+    "languageTag": "String",
     "defaultCurrencyIso":"USD",
     "isPublished":false,
     "publicUrl":null,
